@@ -22,6 +22,7 @@ class AppImages {
   static String saleImg = "$imagePath/sale.png";
   static String emailImg = "$imagePath/email.png";
   static String lockImg = "$imagePath/padlock.png";
+  static String sellerImg = "$imagePath/seller.png";
 
   //? SVG Paths
   static String loginSvg = "$svgPath/login.svg";

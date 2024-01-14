@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:marketc/config/themes/app_text_styles.dart';
-import 'package:marketc/features/auth/login/presentation/pages/login_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../../config/themes/app_text_styles.dart';
 import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_images.dart';
 import '../../../../generated/l10n.dart';
+import '../../../auth/login/presentation/pages/login_view.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
@@ -42,7 +43,7 @@ class OnBoardingViewState extends State<OnBoardingView> {
                     Padding(
                       padding:  EdgeInsets.symmetric(vertical: 20.h),
                       child: Image.asset(
-                        'assets/images/onboard_1.png',
+                        AppImages.onboarding1Img,
                         height: 300.h,
                         width: 300.w,
                       ),
@@ -74,7 +75,7 @@ class OnBoardingViewState extends State<OnBoardingView> {
                     Padding(
                       padding:  EdgeInsets.symmetric(vertical: 20.h),
                       child: Image.asset(
-                        'assets/images/onboard_2.png',
+                        AppImages.onboarding2Img,
                         height: 300.h,
                         width: 300.w,
                       ),
@@ -106,7 +107,7 @@ class OnBoardingViewState extends State<OnBoardingView> {
                     Padding(
                       padding:  EdgeInsets.symmetric(vertical: 20.h),
                       child: Image.asset(
-                        'assets/images/onboard_3.png',
+                        AppImages.onboarding3Img,
                         height: 300.h,
                         width: 300.w,
                       ),
@@ -139,7 +140,7 @@ class OnBoardingViewState extends State<OnBoardingView> {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: Column(
-                  children: <Widget>[
+                  children: [
                     SmoothPageIndicator(
                       controller: controller,
                       count: 3,
@@ -193,7 +194,7 @@ class OnBoardingViewState extends State<OnBoardingView> {
                                   Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              const LoginView()));
+                                              const LoginView(),),);
                                 },
                               )
                       ],

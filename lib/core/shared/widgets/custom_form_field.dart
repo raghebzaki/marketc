@@ -44,8 +44,8 @@ class CustomFormField extends StatelessWidget {
     this.maxLength,
     this.ctrl,
     this.borderRadius = Dimensions.r10,
-    this.focusedBorderColor = AppColors.primary,
-    this.enabledBorderColor = AppColors.primary,
+    this.focusedBorderColor = Colors.black,
+    this.enabledBorderColor = Colors.black,
   });
 
   @override
@@ -79,6 +79,7 @@ class CustomFormField extends StatelessWidget {
             borderRadius,
           ),
           borderSide: BorderSide(
+            width: 1,
             color: enabledBorderColor,
           ),
         ),
@@ -87,16 +88,14 @@ class CustomFormField extends StatelessWidget {
             borderRadius,
           ),
           borderSide: BorderSide(
+            width: 1,
             color: focusedBorderColor,
           ),
         ),
         labelStyle: const TextStyle(
           color: AppColors.secondary,
         ),
-        hintStyle: CustomTextStyle.kFormFieldTextStyle.copyWith(
-          fontSize: Dimensions.f14,
-          color: Colors.grey,
-        ),
+        hintStyle: CustomTextStyle.kFormFieldTextStyle
       ),
     );
   }

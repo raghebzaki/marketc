@@ -6,6 +6,8 @@ class AppColors {
   static const Color secondary = Color(0xFFA96B46);
   // static const Color tertiary = Color(0xFF357266);
   static const Color textColor = Color(0xFF141415);
+  static Color black60 = Colors.black.withOpacity(0.6000000238418579);
+  static Color black80 = Colors.black.withOpacity(0.800000011920929);
 
 
   static const Color successColor = Color(0xFF27AE60); // Custom Green

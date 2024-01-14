@@ -50,16 +50,6 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `success`
-  String get success {
-    return Intl.message(
-      'success',
-      name: 'success',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `bad request. try again later`
   String get bad_request_error {
     return Intl.message(
@@ -70,101 +60,11 @@ class S {
     );
   }
 
-  /// `success with not content`
-  String get no_content {
+  /// `Buyer`
+  String get buyer {
     return Intl.message(
-      'success with not content',
-      name: 'no_content',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `forbidden request. try again later`
-  String get forbidden_error {
-    return Intl.message(
-      'forbidden request. try again later',
-      name: 'forbidden_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `user unauthorized, try again later`
-  String get unauthorized_error {
-    return Intl.message(
-      'user unauthorized, try again later',
-      name: 'unauthorized_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `unprocessable data, check it and try again`
-  String get unprocessable_content_error {
-    return Intl.message(
-      'unprocessable data, check it and try again',
-      name: 'unprocessable_content_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `url not found, try again later`
-  String get not_found_error {
-    return Intl.message(
-      'url not found, try again later',
-      name: 'not_found_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `conflict found, try again later`
-  String get conflict_error {
-    return Intl.message(
-      'conflict found, try again later',
-      name: 'conflict_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `some thing went wrong, try again later`
-  String get internal_server_error {
-    return Intl.message(
-      'some thing went wrong, try again later',
-      name: 'internal_server_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `some thing went wrong, try again later`
-  String get unknown_error {
-    return Intl.message(
-      'some thing went wrong, try again later',
-      name: 'unknown_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `time out, try again late`
-  String get timeout_error {
-    return Intl.message(
-      'time out, try again late',
-      name: 'timeout_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `some thing went wrong, try again later`
-  String get default_error {
-    return Intl.message(
-      'some thing went wrong, try again later',
-      name: 'default_error',
+      'Buyer',
+      name: 'buyer',
       desc: '',
       args: [],
     );
@@ -180,11 +80,221 @@ class S {
     );
   }
 
+  /// `Change Password`
+  String get change_pass {
+    return Intl.message(
+      'Change Password',
+      name: 'change_pass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change your password`
+  String get change_your_pass {
+    return Intl.message(
+      'Change your password',
+      name: 'change_your_pass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check your email to secure your account`
+  String get check_your_mail {
+    return Intl.message(
+      'Please check your email to secure your account',
+      name: 'check_your_mail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `conflict found, try again later`
+  String get conflict_error {
+    return Intl.message(
+      'conflict found, try again later',
+      name: 'conflict_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Customer Support`
+  String get cs {
+    return Intl.message(
+      'Customer Support',
+      name: 'cs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `some thing went wrong, try again later`
+  String get default_error {
+    return Intl.message(
+      'some thing went wrong, try again later',
+      name: 'default_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account?`
+  String get do_not_have_account {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'do_not_have_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email`
+  String get enter_email {
+    return Intl.message(
+      'Enter your email',
+      name: 'enter_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your new password below`
+  String get enter_pass_below {
+    return Intl.message(
+      'Enter your new password below',
+      name: 'enter_pass_below',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Finish`
+  String get finish {
+    return Intl.message(
+      'Finish',
+      name: 'finish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `forbidden request. try again later`
+  String get forbidden_error {
+    return Intl.message(
+      'forbidden request. try again later',
+      name: 'forbidden_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Pass`
+  String get forgot_pass {
+    return Intl.message(
+      'Forgot Pass',
+      name: 'forgot_pass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name`
+  String get full_name {
+    return Intl.message(
+      'Full Name',
+      name: 'full_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Have a problem?`
+  String get have_problem {
+    return Intl.message(
+      'Have a problem?',
+      name: 'have_problem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `some thing went wrong, try again later`
+  String get internal_server_error {
+    return Intl.message(
+      'some thing went wrong, try again later',
+      name: 'internal_server_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login Now`
+  String get login_now {
+    return Intl.message(
+      'Login Now',
+      name: 'login_now',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get next {
+    return Intl.message(
+      'Next',
+      name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `success with not content`
+  String get no_content {
+    return Intl.message(
+      'success with not content',
+      name: 'no_content',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Please check your internet connection`
   String get no_internet_error {
     return Intl.message(
       'Please check your internet connection',
       name: 'no_internet_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `url not found, try again later`
+  String get not_found_error {
+    return Intl.message(
+      'url not found, try again later',
+      name: 'not_found_error',
       desc: '',
       args: [],
     );
@@ -210,10 +320,10 @@ class S {
     );
   }
 
-  /// `Specializing in  \n Clothing Embroidery`
+  /// `Specializing in\nClothing Embroidery`
   String get onboard_2 {
     return Intl.message(
-      'Specializing in  \n Clothing Embroidery',
+      'Specializing in\nClothing Embroidery',
       name: 'onboard_2',
       desc: '',
       args: [],
@@ -250,31 +360,171 @@ class S {
     );
   }
 
-  /// `skip`
+  /// `Password`
+  String get pass {
+    return Intl.message(
+      'Password',
+      name: 'pass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password Changed Successfully`
+  String get pass_change_success {
+    return Intl.message(
+      'Password Changed Successfully',
+      name: 'pass_change_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password Confirmation`
+  String get pass_confirm {
+    return Intl.message(
+      'Password Confirmation',
+      name: 'pass_confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register`
+  String get register {
+    return Intl.message(
+      'Register',
+      name: 'register',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register Now`
+  String get register_now {
+    return Intl.message(
+      'Register Now',
+      name: 'register_now',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remember password?`
+  String get remember_pass {
+    return Intl.message(
+      'Remember password?',
+      name: 'remember_pass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resend Code`
+  String get resend_code {
+    return Intl.message(
+      'Resend Code',
+      name: 'resend_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Seller`
+  String get seller {
+    return Intl.message(
+      'Seller',
+      name: 'seller',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Code`
+  String get send_code {
+    return Intl.message(
+      'Send Code',
+      name: 'send_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Skip`
   String get skip {
     return Intl.message(
-      'skip',
+      'Skip',
       name: 'skip',
       desc: '',
       args: [],
     );
   }
 
-  /// `next`
-  String get next {
+  /// `success`
+  String get success {
     return Intl.message(
-      'next',
-      name: 'next',
+      'success',
+      name: 'success',
       desc: '',
       args: [],
     );
   }
 
-  /// `finish`
-  String get finish {
+  /// `time out, try again late`
+  String get timeout_error {
     return Intl.message(
-      'finish',
-      name: 'finish',
+      'time out, try again late',
+      name: 'timeout_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `user unauthorized, try again later`
+  String get unauthorized_error {
+    return Intl.message(
+      'user unauthorized, try again later',
+      name: 'unauthorized_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `some thing went wrong, try again later`
+  String get unknown_error {
+    return Intl.message(
+      'some thing went wrong, try again later',
+      name: 'unknown_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `unprocessable data, check it and try again`
+  String get unprocessable_content_error {
+    return Intl.message(
+      'unprocessable data, check it and try again',
+      name: 'unprocessable_content_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify Code`
+  String get verify_code {
+    return Intl.message(
+      'Verify Code',
+      name: 'verify_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verification Code sent to your email`
+  String get verify_code_sent {
+    return Intl.message(
+      'Verification Code sent to your email',
+      name: 'verify_code_sent',
       desc: '',
       args: [],
     );

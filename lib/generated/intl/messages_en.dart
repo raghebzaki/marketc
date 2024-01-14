@@ -24,18 +24,36 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "bad request. try again later"),
+        "buyer": MessageLookupByLibrary.simpleMessage("Buyer"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "cache error, try again later"),
+        "change_pass": MessageLookupByLibrary.simpleMessage("Change Password"),
+        "change_your_pass":
+            MessageLookupByLibrary.simpleMessage("Change your password"),
+        "check_your_mail": MessageLookupByLibrary.simpleMessage(
+            "Please check your email to secure your account"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "conflict found, try again later"),
+        "cs": MessageLookupByLibrary.simpleMessage("Customer Support"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
-        "finish": MessageLookupByLibrary.simpleMessage("finish"),
+        "do_not_have_account":
+            MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "enter_email": MessageLookupByLibrary.simpleMessage("Enter your email"),
+        "enter_pass_below": MessageLookupByLibrary.simpleMessage(
+            "Enter your new password below"),
+        "finish": MessageLookupByLibrary.simpleMessage("Finish"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
+        "forgot_pass": MessageLookupByLibrary.simpleMessage("Forgot Pass"),
+        "full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
+        "have_problem": MessageLookupByLibrary.simpleMessage("Have a problem?"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
-        "next": MessageLookupByLibrary.simpleMessage("next"),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "login_now": MessageLookupByLibrary.simpleMessage("Login Now"),
+        "next": MessageLookupByLibrary.simpleMessage("Next"),
         "no_content":
             MessageLookupByLibrary.simpleMessage("success with not content"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(
@@ -47,13 +65,25 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboard_1_des": MessageLookupByLibrary.simpleMessage(
             "We offer a diverse range of sizes and styles, allowing you to choose your clothes with elegance and distinction."),
         "onboard_2": MessageLookupByLibrary.simpleMessage(
-            "Specializing in  \n Clothing Embroidery"),
+            "Specializing in\nClothing Embroidery"),
         "onboard_2_des": MessageLookupByLibrary.simpleMessage(
             "Enjoy the embroidery of logos and phrases you love on your own clothes."),
         "onboard_3": MessageLookupByLibrary.simpleMessage("Shop Online"),
         "onboard_3_des": MessageLookupByLibrary.simpleMessage(
             "Hurry to purchase your embroidered and distinctive clothing "),
-        "skip": MessageLookupByLibrary.simpleMessage("skip"),
+        "pass": MessageLookupByLibrary.simpleMessage("Password"),
+        "pass_change_success": MessageLookupByLibrary.simpleMessage(
+            "Password Changed Successfully"),
+        "pass_confirm":
+            MessageLookupByLibrary.simpleMessage("Password Confirmation"),
+        "register": MessageLookupByLibrary.simpleMessage("Register"),
+        "register_now": MessageLookupByLibrary.simpleMessage("Register Now"),
+        "remember_pass":
+            MessageLookupByLibrary.simpleMessage("Remember password?"),
+        "resend_code": MessageLookupByLibrary.simpleMessage("Resend Code"),
+        "seller": MessageLookupByLibrary.simpleMessage("Seller"),
+        "send_code": MessageLookupByLibrary.simpleMessage("Send Code"),
+        "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
         "timeout_error":
             MessageLookupByLibrary.simpleMessage("time out, try again late"),
@@ -62,6 +92,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "unknown_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
         "unprocessable_content_error": MessageLookupByLibrary.simpleMessage(
-            "unprocessable data, check it and try again")
+            "unprocessable data, check it and try again"),
+        "verify_code": MessageLookupByLibrary.simpleMessage("Verify Code"),
+        "verify_code_sent": MessageLookupByLibrary.simpleMessage(
+            "Verification Code sent to your email")
       };
 }

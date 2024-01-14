@@ -22,8 +22,8 @@ class CustomBtn extends StatelessWidget {
     this.onPressed,
     this.isUpperCase = false,
     this.borderRadius = Dimensions.r10,
-    this.fgColor = AppColors.secondary,
-    this.bgColor = AppColors.primary,
+    this.fgColor = AppColors.primary,
+    this.bgColor = AppColors.secondary,
   });
 
   @override

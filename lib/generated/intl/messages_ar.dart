@@ -24,16 +24,38 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "طلب غير صالح. حاول مرة أخرى لاحقًا"),
+        "buyer": MessageLookupByLibrary.simpleMessage("مشتري"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "خطأ في ذاكرة التخزين المؤقت , حاول مرة أخرى لاحقًا"),
+        "change_pass":
+            MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+        "change_your_pass": MessageLookupByLibrary.simpleMessage(
+            "قم بتغيير كلمة المرور الخاصة بك"),
+        "check_your_mail": MessageLookupByLibrary.simpleMessage(
+            "يرجى التحقق من بريدك الإلكتروني لتأمين حسابك"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "تم العثور على تعارض , حاول مرة أخرى لاحقًا"),
+        "cs": MessageLookupByLibrary.simpleMessage("دعم العملاء"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "do_not_have_account":
+            MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+        "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "enter_email":
+            MessageLookupByLibrary.simpleMessage("أدخل بريدك الإلكتروني"),
+        "enter_pass_below": MessageLookupByLibrary.simpleMessage(
+            "أدخل كلمة المرور الجديدة أدناه"),
+        "finish": MessageLookupByLibrary.simpleMessage("انتهاء"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "طلب محظور. حاول مرة أخرى لاحقًا"),
+        "forgot_pass": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
+        "full_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
+        "have_problem": MessageLookupByLibrary.simpleMessage("هل تواجه مشكلة؟"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "login_now": MessageLookupByLibrary.simpleMessage("تسجيل الدخول الآن"),
+        "next": MessageLookupByLibrary.simpleMessage("التالي"),
         "no_content": MessageLookupByLibrary.simpleMessage("نجاح بدون محتوى"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(
             "يُرجى التحقق من اتصالك بالإنترنت"),
@@ -41,20 +63,37 @@ class MessageLookup extends MessageLookupByLibrary {
             "url غير موجود , حاول مرة أخرى لاحقًا"),
         "onboard_1": MessageLookupByLibrary.simpleMessage("معرض الملابس"),
         "onboard_1_des": MessageLookupByLibrary.simpleMessage(
-            "نقدم بلايزمتنوعة الأحجام والاشكال يكنك اختيار ملابسك بكل رقي وتميز"),
+            "نقدم مجموعة متنوعة من المقاسات والأنماط، مما يتيح لك اختيار ملابسك بأناقة وتميز."),
         "onboard_2":
-            MessageLookupByLibrary.simpleMessage("نتميز بتطريز الملابس"),
+            MessageLookupByLibrary.simpleMessage("تخصص في\nتطريز الملابس"),
         "onboard_2_des": MessageLookupByLibrary.simpleMessage(
-            "تمتع بتطريز الشعارات والعبارات التي تحبها على ملابسك الخاصة"),
-        "onboard_3": MessageLookupByLibrary.simpleMessage("تسوق عبر الاونلاين"),
+            "تمتع بتطريز الشعارات والعبارات التي تحبها على ملابسك الخاصة."),
+        "onboard_3": MessageLookupByLibrary.simpleMessage("تسوق عبر الإنترنت"),
         "onboard_3_des": MessageLookupByLibrary.simpleMessage(
-            "سارع بشراء ملابسك المطرزة والمميزة من خلال الشراء عبر الانترنت"),
+            "اسرع في شراء ملابسك المطرزة والمميزة"),
+        "pass": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "pass_change_success":
+            MessageLookupByLibrary.simpleMessage("تم تغيير كلمة المرور بنجاح"),
+        "pass_confirm":
+            MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
+        "register": MessageLookupByLibrary.simpleMessage("التسجيل"),
+        "register_now": MessageLookupByLibrary.simpleMessage("سجل الآن"),
+        "remember_pass":
+            MessageLookupByLibrary.simpleMessage("تذكر كلمة المرور؟"),
+        "resend_code":
+            MessageLookupByLibrary.simpleMessage("إعادة إرسال الكود"),
+        "seller": MessageLookupByLibrary.simpleMessage("بائع"),
+        "send_code": MessageLookupByLibrary.simpleMessage("إرسال الكود"),
+        "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "success": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
         "timeout_error": MessageLookupByLibrary.simpleMessage(
             "انتهت المهلة , حاول مرة أخرى لاحقًا"),
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(
             "المستخدم غير مصرح له، جرب مرة أخرى في وقت لاحق"),
         "unknown_error": MessageLookupByLibrary.simpleMessage(
-            "حدث خطأ ما , حاول مرة أخرى لاحقًا")
+            "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "verify_code": MessageLookupByLibrary.simpleMessage("تحقق من الكود"),
+        "verify_code_sent": MessageLookupByLibrary.simpleMessage(
+            "تم إرسال رمز التحقق إلى بريدك الإلكتروني")
       };
 }
