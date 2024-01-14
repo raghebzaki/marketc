@@ -1,0 +1,103 @@
+name: marketc
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+
+  # Local Storage
+  shared_preferences: ^2.2.0
+
+  # State Management
+  bloc: ^8.1.2
+  flutter_bloc: ^8.1.3
+  freezed_annotation: ^2.4.1 # For creating cubit states
+  json_annotation: ^4.8.1 # Classes and helper functions that support JSON code generation
+
+  # Service locator
+  get_it: ^7.6.4
+
+  # Multiple Language Support
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.18.0 # internationalized/localized code formatting
+
+  # Handling Hardware Permissions
+  permission_handler: ^11.0.1
+  connectivity_plus: ^5.0.1
+
+  # Comparing Dart Objects
+  equatable: ^2.0.5
+
+  # Adding Functional Programming
+  dartz: ^0.10.1
+
+  # Connecting to the API
+  dio: ^5.3.3
+  pretty_dio_logger: ^1.3.1 # Better visualization for API response
+
+  # FireBase
+  firebase_core: ^2.24.2 # Flutter plugin for Firebase Core, enabling connecting to multiple Firebase apps.
+  firebase_messaging: ^14.7.10 # Flutter plugin for Firebase Cloud Messaging
+
+  # Ui Fonts & Icons
+  google_fonts: ^6.1.0 # Fonts
+  material_design_icons_flutter: ^7.0.7296 # Material icons made by community
+
+  # Ui Widgets
+  gap: ^3.0.1 # Better SizedBoxes
+  cached_network_image: ^3.2.3 # Saving images for offline use
+  pinput: ^3.0.1 # Adding verification code fields
+  conditional_builder_null_safety: ^0.0.6 # Show UI elements according to conditional type
+  flutter_native_splash: ^2.3.0 # Customize Flutter's default white native splash screen with background color and splash image
+  flutter_launcher_icons: ^0.13.1 # A package which simplifies the task of updating your Flutter app's launcher icon
+
+  # Flutter plugin for adapting screen and font size.
+  flutter_screenutil: ^5.9.0
+
+  change_app_package_name: ^1.1.0 # Change App Package Name with single command
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  build_runner: ^2.4.6
+  freezed: ^2.4.5
+  json_serializable: ^6.7.1
+
+flutter_intl:
+  enabled: true
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/svg/
+
+  fonts:
+    - family: Aladin
+      fonts:
+        - asset: fonts/Aladin-Regular.ttf
+          weight: 400
+    - family: Abhaya Libre
+      fonts:
+        - asset: fonts/AbhayaLibre-ExtraBold.ttf
+          weight: 800
+        - asset: fonts/AbhayaLibre-Bold.ttf
+          weight: 700
+        - asset: fonts/AbhayaLibre-SemiBold.ttf
+          weight: 600
+        - asset: fonts/AbhayaLibre-Medium.ttf
+          weight: 500
+        - asset: fonts/AbhayaLibre-Regular.ttf
+          weight: 400
