@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketc/features/auth/change_pass/presentation/pages/change_pass_view.dart';
+import 'package:marketc/features/home/home/presentation/pages/home_view.dart';
 
 import '../../features/auth/change_pass/presentation/pages/change_pass_confirmation.dart';
 import '../../features/auth/forgot_pass/presentation/pages/forgot_pass_view.dart';
@@ -49,6 +50,10 @@ class AppRouters {
       case changePassConfirmationPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const ChangePassConfirmationView(),
+        );
+      case homePageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const HomeView(),
         );
 
       default:

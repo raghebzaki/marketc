@@ -7,3 +7,5 @@ const String forgotPassPageRoute = '/forgotPass';
 const String resetPassPageRoute = '/resetPass';
 const String changePassPageRoute = '/changePass';
 const String changePassConfirmationPageRoute = '/changePassConfirmation';
+const String homePageRoute = '/home';
+

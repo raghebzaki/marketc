@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
       builder: (ctx, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          locale: Locale(widget.currentLang),
+          locale: Locale('ar'),
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,

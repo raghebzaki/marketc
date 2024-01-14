@@ -6,6 +6,9 @@ class AppColors {
   static const Color secondary = Color(0xFFA96B46);
   // static const Color tertiary = Color(0xFF357266);
   static const Color textColor = Color(0xFF141415);
+  static const Color textColorSecondary = Color(0x99010C0E);
+  static const Color lightBlue = Color(0xFF00809A);
+  static const Color discountNumber = Color(0xFF4C2A10);
   static Color black60 = Colors.black.withOpacity(0.6000000238418579);
   static Color black80 = Colors.black.withOpacity(0.800000011920929);
 

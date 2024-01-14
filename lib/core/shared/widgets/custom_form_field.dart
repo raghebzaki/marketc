@@ -50,52 +50,55 @@ class CustomFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      obscureText: isObscure ?? false,
-      textCapitalization:
-          isCapitalized ? TextCapitalization.words : TextCapitalization.none,
-      enabled: isEnable,
-      maxLength: maxLength,
-      onChanged: onChange,
-      onFieldSubmitted: onSubmitted,
-      controller: ctrl,
-      validator: validator,
-      inputFormatters: formatters,
-      keyboardType: keyboardType,
-      style: CustomTextStyle.kFormFieldTextStyle,
-      decoration: InputDecoration(
-        labelText: label,
-        hintText: hint,
-        isDense: true,
-        counter: const Offstage(),
-        prefixIcon: preIcon,
-        suffixIcon: sufIcon,
-        contentPadding: EdgeInsets.symmetric(
-          horizontal: Dimensions.p10.w,
-          vertical: Dimensions.p10.h,
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(
-            borderRadius,
+    return SizedBox(
+      height: 33.h,
+      child: TextFormField(
+        obscureText: isObscure ?? false,
+        textCapitalization:
+            isCapitalized ? TextCapitalization.words : TextCapitalization.none,
+        enabled: isEnable,
+        maxLength: maxLength,
+        onChanged: onChange,
+        onFieldSubmitted: onSubmitted,
+        controller: ctrl,
+        validator: validator,
+        inputFormatters: formatters,
+        keyboardType: keyboardType,
+        style: CustomTextStyle.kFormFieldTextStyle,
+        decoration: InputDecoration(
+          labelText: label,
+          hintText: hint,
+          isDense: true,
+          counter: const Offstage(),
+          prefixIcon: preIcon,
+          suffixIcon: sufIcon,
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: Dimensions.p10.w,
+            vertical: Dimensions.p10.h,
           ),
-          borderSide: BorderSide(
-            width: 1,
-            color: enabledBorderColor,
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(
+              borderRadius,
+            ),
+            borderSide: BorderSide(
+              width: 1,
+              color: enabledBorderColor,
+            ),
           ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(
-            borderRadius,
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(
+              borderRadius,
+            ),
+            borderSide: BorderSide(
+              width: 1,
+              color: focusedBorderColor,
+            ),
           ),
-          borderSide: BorderSide(
-            width: 1,
-            color: focusedBorderColor,
+          labelStyle: const TextStyle(
+            color: AppColors.textColor,
           ),
+          hintStyle: CustomTextStyle.kFormFieldTextStyle
         ),
-        labelStyle: const TextStyle(
-          color: AppColors.secondary,
-        ),
-        hintStyle: CustomTextStyle.kFormFieldTextStyle
       ),
     );
   }

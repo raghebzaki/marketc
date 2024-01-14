@@ -99,8 +99,11 @@ class _LoginViewState extends State<LoginView> {
                     condition: true,
                     builder: (BuildContext context) {
                       return CustomBtn(
-                        label: S.current.register,
-                        onPressed: () {},
+                        label: S.current.login,
+                        onPressed: () {
+                          context.pushNamed(homePageRoute);
+
+                        },
                         fgColor: Colors.white,
                         isUpperCase: true,
                       );
