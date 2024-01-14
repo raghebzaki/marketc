@@ -5,6 +5,19 @@ import '../../core/utils/app_constants.dart';
 import '../../core/utils/dimensions.dart';
 
 class CustomTextStyle {
+  static TextStyle kTextStyleF8 = TextStyle(
+    fontSize: Dimensions.f12,
+    fontWeight: FontWeight.w400, //? Regular
+    fontFamily: AppConstants.mainFontFamily,
+    color: AppColors.textColor,
+  );
+  static TextStyle kTextStyleF10 = TextStyle(
+    fontSize: Dimensions.f10,
+    fontWeight: FontWeight.w400, //? Regular
+    fontFamily: AppConstants.mainFontFamily,
+    color: AppColors.textColor,
+  );
+
   static TextStyle kTextStyleF12 = TextStyle(
     fontSize: Dimensions.f12,
     fontWeight: FontWeight.w400, //? Regular
