@@ -40,6 +40,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please check your internet connection"),
         "not_found_error": MessageLookupByLibrary.simpleMessage(
             "url not found, try again later"),
+        "onboard_1": MessageLookupByLibrary.simpleMessage("معرض الملابس"),
+        "onboard_1_des": MessageLookupByLibrary.simpleMessage(
+            "نقدم بلايزمتنوعة الأحجام والاشكال يكنك اختيار ملابسك بكل رقي وتميز"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
         "timeout_error":
             MessageLookupByLibrary.simpleMessage("time out, try again late"),

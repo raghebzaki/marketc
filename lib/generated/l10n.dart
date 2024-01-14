@@ -189,6 +189,26 @@ class S {
       args: [],
     );
   }
+
+  /// `معرض الملابس`
+  String get onboard_1 {
+    return Intl.message(
+      'معرض الملابس',
+      name: 'onboard_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `نقدم بلايزمتنوعة الأحجام والاشكال يكنك اختيار ملابسك بكل رقي وتميز`
+  String get onboard_1_des {
+    return Intl.message(
+      'نقدم بلايزمتنوعة الأحجام والاشكال يكنك اختيار ملابسك بكل رقي وتميز',
+      name: 'onboard_1_des',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

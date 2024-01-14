@@ -22,7 +22,7 @@ class _MainViewState extends State<MainView> {
       child: BlocConsumer<InternetCubit, InternetStates>(
         listener: (context, state) {
           if (state == InternetStates.gained) {
-            context.pushNamed(loginPageRoute);
+            context.pushNamed(onBoardingPageRoute);
           } else if (state == InternetStates.lost) {
             context.defaultSnackBar(
               "No Internet Connection",

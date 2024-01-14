@@ -61,6 +61,7 @@ dependencies:
   flutter_native_splash: ^2.3.0 # Customize Flutter's default white native splash screen with background color and splash image
   flutter_launcher_icons: ^0.13.1 # A package which simplifies the task of updating your Flutter app's launcher icon
   flutter_svg: ^2.0.9 # An SVG rendering and widget library for Flutter
+  smooth_page_indicator: ^1.1.0
 
   # Flutter plugin for adapting screen and font size.
   flutter_screenutil: ^5.9.0
