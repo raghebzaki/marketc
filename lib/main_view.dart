@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marketc/core/router/router.dart';
 import 'package:marketc/core/utils/extensions.dart';
 
 import 'config/themes/app_text_styles.dart';
@@ -21,6 +22,7 @@ class _MainViewState extends State<MainView> {
       child: BlocConsumer<InternetCubit, InternetStates>(
         listener: (context, state) {
           if (state == InternetStates.gained) {
+            context.pushNamed(loginPageRoute);
           } else if (state == InternetStates.lost) {
             context.defaultSnackBar(
               "No Internet Connection",
@@ -41,12 +43,4 @@ class _MainViewState extends State<MainView> {
       ),
     );
   }
-
-  // rememberMe(String email, String pass) async {
-  //   String email = await CacheHelper.getData("email");
-  //   String pass = await CacheHelper.getData("pass");
-  //
-  //
-  // }
-
 }

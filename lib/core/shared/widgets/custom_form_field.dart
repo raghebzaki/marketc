@@ -11,8 +11,8 @@ import '../../utils/dimensions.dart';
 class CustomFormField extends StatelessWidget {
   final String? label;
   final String? hint;
-  final IconData? preIcon;
-  final IconData? sufIcon;
+  final Widget? preIcon;
+  final Widget? sufIcon;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? formatters;
   final String? Function(String?)? validator;
@@ -68,11 +68,8 @@ class CustomFormField extends StatelessWidget {
         hintText: hint,
         isDense: true,
         counter: const Offstage(),
-        prefixIcon: Icon(preIcon),
-        suffixIcon: Visibility(
-          visible: isObscure ?? false,
-          child: Icon(sufIcon),
-        ),
+        prefixIcon: preIcon,
+        suffixIcon: sufIcon,
         contentPadding: EdgeInsets.symmetric(
           horizontal: Dimensions.p10.w,
           vertical: Dimensions.p10.h,

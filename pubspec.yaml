@@ -60,6 +60,7 @@ dependencies:
   conditional_builder_null_safety: ^0.0.6 # Show UI elements according to conditional type
   flutter_native_splash: ^2.3.0 # Customize Flutter's default white native splash screen with background color and splash image
   flutter_launcher_icons: ^0.13.1 # A package which simplifies the task of updating your Flutter app's launcher icon
+  flutter_svg: ^2.0.9 # An SVG rendering and widget library for Flutter
 
   # Flutter plugin for adapting screen and font size.
   flutter_screenutil: ^5.9.0
@@ -87,17 +88,17 @@ flutter:
   fonts:
     - family: Aladin
       fonts:
-        - asset: fonts/Aladin-Regular.ttf
+        - asset: assets/fonts/Aladin-Regular.ttf
           weight: 400
     - family: Abhaya Libre
       fonts:
-        - asset: fonts/AbhayaLibre-ExtraBold.ttf
+        - asset: assets/fonts/AbhayaLibre-ExtraBold.ttf
           weight: 800
-        - asset: fonts/AbhayaLibre-Bold.ttf
+        - asset: assets/fonts/AbhayaLibre-Bold.ttf
           weight: 700
-        - asset: fonts/AbhayaLibre-SemiBold.ttf
+        - asset: assets/fonts/AbhayaLibre-SemiBold.ttf
           weight: 600
-        - asset: fonts/AbhayaLibre-Medium.ttf
+        - asset: assets/fonts/AbhayaLibre-Medium.ttf
           weight: 500
-        - asset: fonts/AbhayaLibre-Regular.ttf
+        - asset: assets/fonts/AbhayaLibre-Regular.ttf
           weight: 400

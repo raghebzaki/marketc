@@ -1,18 +1,12 @@
-import 'dart:io';
 
 import 'package:bloc/bloc.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:marketc/core/utils/extensions.dart';
 
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
-import 'core/resources/firebase/firebase_resources.dart';
 import 'core/router/router_generator.dart';
-import 'core/utils/app_constants.dart';
 import 'core/utils/app_strings.dart';
 import 'core/utils/cubit_observer.dart';
 import 'generated/l10n.dart';
@@ -23,12 +17,12 @@ void main() async {
   Bloc.observer = AppCubitObserver();
   await di.init();
 
-  await Firebase.initializeApp();
-  if (Platform.isAndroid) {
-    FireBaseResources().android();
-  } else if (Platform.isIOS) {
-    FireBaseResources().ios();
-  }
+  // await Firebase.initializeApp();
+  // if (Platform.isAndroid) {
+  //   FireBaseResources().android();
+  // } else if (Platform.isIOS) {
+  //   FireBaseResources().ios();
+  // }
 
   String currentLocale = await CacheHelper.getAppLang();
   var email = await CacheHelper.getData("email");
@@ -53,15 +47,15 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-  void initState() {
-    super.initState();
-
-    FirebaseMessaging.onMessage.listen(
-          (RemoteMessage message) {
-        context.defaultSnackBar(message.notification?.title ?? AppConstants.unknownStringValue);
-      },
-    );
-  }
+  // void initState() {
+  //   super.initState();
+  //
+  //   FirebaseMessaging.onMessage.listen(
+  //         (RemoteMessage message) {
+  //       context.defaultSnackBar(message.notification?.title ?? AppConstants.unknownStringValue);
+  //     },
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
