@@ -22,6 +22,13 @@ class CustomTextStyle {
     fontWeight: FontWeight.w400,
     height: 0,
   );
+  static TextStyle kTextStyleF14SubBlack =  TextStyle(
+    color: Colors.black.withOpacity(0.800000011920929),
+    fontSize: 14,
+    fontFamily: AppConstants.subFontFamily,
+    fontWeight: FontWeight.w700,
+    height: 0,
+  );
       static TextStyle kTextStyleF14 =  TextStyle(
     color: Colors.black.withOpacity(0.6000000238418579),
     fontSize: 14,

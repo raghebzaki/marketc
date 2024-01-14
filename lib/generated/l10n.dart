@@ -190,21 +190,91 @@ class S {
     );
   }
 
-  /// `معرض الملابس`
+  /// `Clothing Exhibition`
   String get onboard_1 {
     return Intl.message(
-      'معرض الملابس',
+      'Clothing Exhibition',
       name: 'onboard_1',
       desc: '',
       args: [],
     );
   }
 
-  /// `نقدم بلايزمتنوعة الأحجام والاشكال يكنك اختيار ملابسك بكل رقي وتميز`
+  /// `We offer a diverse range of sizes and styles, allowing you to choose your clothes with elegance and distinction.`
   String get onboard_1_des {
     return Intl.message(
-      'نقدم بلايزمتنوعة الأحجام والاشكال يكنك اختيار ملابسك بكل رقي وتميز',
+      'We offer a diverse range of sizes and styles, allowing you to choose your clothes with elegance and distinction.',
       name: 'onboard_1_des',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Specializing in  \n Clothing Embroidery`
+  String get onboard_2 {
+    return Intl.message(
+      'Specializing in  \n Clothing Embroidery',
+      name: 'onboard_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enjoy the embroidery of logos and phrases you love on your own clothes.`
+  String get onboard_2_des {
+    return Intl.message(
+      'Enjoy the embroidery of logos and phrases you love on your own clothes.',
+      name: 'onboard_2_des',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shop Online`
+  String get onboard_3 {
+    return Intl.message(
+      'Shop Online',
+      name: 'onboard_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hurry to purchase your embroidered and distinctive clothing `
+  String get onboard_3_des {
+    return Intl.message(
+      'Hurry to purchase your embroidered and distinctive clothing ',
+      name: 'onboard_3_des',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `skip`
+  String get skip {
+    return Intl.message(
+      'skip',
+      name: 'skip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `next`
+  String get next {
+    return Intl.message(
+      'next',
+      name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `finish`
+  String get finish {
+    return Intl.message(
+      'finish',
+      name: 'finish',
       desc: '',
       args: [],
     );

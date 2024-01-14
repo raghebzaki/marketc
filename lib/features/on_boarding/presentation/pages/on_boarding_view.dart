@@ -83,7 +83,7 @@ class OnBoardingViewState extends State<OnBoardingView> {
                       padding:  EdgeInsets.symmetric(
                           horizontal: 50.w,vertical: 16.h),
                       child: Text(
-                          S.current.onboard_1,
+                          S.current.onboard_2,
                           textAlign: TextAlign.center,
                           style:CustomTextStyle.onBoardingTextStyleF30
                       ),
@@ -92,7 +92,7 @@ class OnBoardingViewState extends State<OnBoardingView> {
                       padding:  EdgeInsets.symmetric(
                           horizontal: 50.w,vertical: 16.h),
                       child: Text(
-                          S.current.onboard_1_des,
+                          S.current.onboard_2_des,
                           textAlign: TextAlign.center,
                           style:CustomTextStyle.kTextStyleF14Sub
 
@@ -106,7 +106,7 @@ class OnBoardingViewState extends State<OnBoardingView> {
                     Padding(
                       padding:  EdgeInsets.symmetric(vertical: 20.h),
                       child: Image.asset(
-                        'assets/images/onboard_1.png',
+                        'assets/images/onboard_3.png',
                         height: 300.h,
                         width: 300.w,
                       ),
@@ -115,7 +115,7 @@ class OnBoardingViewState extends State<OnBoardingView> {
                       padding:  EdgeInsets.symmetric(
                           horizontal: 50.w,vertical: 16.h),
                       child: Text(
-                          S.current.onboard_1,
+                          S.current.onboard_3,
                           textAlign: TextAlign.center,
                           style:CustomTextStyle.onBoardingTextStyleF30
                       ),
@@ -124,7 +124,7 @@ class OnBoardingViewState extends State<OnBoardingView> {
                       padding:  EdgeInsets.symmetric(
                           horizontal: 50.w,vertical: 16.h),
                       child: Text(
-                          S.current.onboard_1_des,
+                          S.current.onboard_3_des,
                           textAlign: TextAlign.center,
                           style:CustomTextStyle.kTextStyleF14Sub
 
@@ -157,12 +157,10 @@ class OnBoardingViewState extends State<OnBoardingView> {
                         Opacity(
                           opacity: pageIndex != 2 ? 1.0 : 0.0,
                           child: TextButton(
-                            child: const Text(
-                              "S.current.skip",
-                              style: TextStyle(
-                                  color: AppColors.textColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16),
+                            child:  Text(
+                              S.current.skip,
+                                style: CustomTextStyle.kTextStyleF14SubBlack
+
                             ),
                             onPressed: () {
                               Navigator.of(context).pushReplacement(
@@ -173,12 +171,9 @@ class OnBoardingViewState extends State<OnBoardingView> {
                         ),
                         pageIndex != 2
                             ? TextButton(
-                                child: const Text(
-                                  "S.current.next",
-                                  style: TextStyle(
-                                      color: AppColors.textColor,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16),
+                                child:  Text(
+                                  S.current.next,
+                                    style: CustomTextStyle.kTextStyleF14SubBlack
                                 ),
                                 onPressed: () {
                                   if (!(controller.page == 2.0)) {
@@ -190,12 +185,9 @@ class OnBoardingViewState extends State<OnBoardingView> {
                                 },
                               )
                             : TextButton(
-                                child: const Text(
-                                  "S.current.finish",
-                                  style: TextStyle(
-                                      color: AppColors.textColor,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16),
+                                child:  Text(
+                                  S.current.finish,
+                                  style: CustomTextStyle.kTextStyleF14SubBlack
                                 ),
                                 onPressed: () {
                                   Navigator.of(context).pushReplacement(

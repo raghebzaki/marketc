@@ -30,19 +30,30 @@ class MessageLookup extends MessageLookupByLibrary {
             "conflict found, try again later"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
+        "finish": MessageLookupByLibrary.simpleMessage("finish"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
+        "next": MessageLookupByLibrary.simpleMessage("next"),
         "no_content":
             MessageLookupByLibrary.simpleMessage("success with not content"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(
             "Please check your internet connection"),
         "not_found_error": MessageLookupByLibrary.simpleMessage(
             "url not found, try again later"),
-        "onboard_1": MessageLookupByLibrary.simpleMessage("معرض الملابس"),
+        "onboard_1":
+            MessageLookupByLibrary.simpleMessage("Clothing Exhibition"),
         "onboard_1_des": MessageLookupByLibrary.simpleMessage(
-            "نقدم بلايزمتنوعة الأحجام والاشكال يكنك اختيار ملابسك بكل رقي وتميز"),
+            "We offer a diverse range of sizes and styles, allowing you to choose your clothes with elegance and distinction."),
+        "onboard_2": MessageLookupByLibrary.simpleMessage(
+            "Specializing in  \n Clothing Embroidery"),
+        "onboard_2_des": MessageLookupByLibrary.simpleMessage(
+            "Enjoy the embroidery of logos and phrases you love on your own clothes."),
+        "onboard_3": MessageLookupByLibrary.simpleMessage("Shop Online"),
+        "onboard_3_des": MessageLookupByLibrary.simpleMessage(
+            "Hurry to purchase your embroidered and distinctive clothing "),
+        "skip": MessageLookupByLibrary.simpleMessage("skip"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
         "timeout_error":
             MessageLookupByLibrary.simpleMessage("time out, try again late"),

@@ -39,6 +39,16 @@ class MessageLookup extends MessageLookupByLibrary {
             "يُرجى التحقق من اتصالك بالإنترنت"),
         "not_found_error": MessageLookupByLibrary.simpleMessage(
             "url غير موجود , حاول مرة أخرى لاحقًا"),
+        "onboard_1": MessageLookupByLibrary.simpleMessage("معرض الملابس"),
+        "onboard_1_des": MessageLookupByLibrary.simpleMessage(
+            "نقدم بلايزمتنوعة الأحجام والاشكال يكنك اختيار ملابسك بكل رقي وتميز"),
+        "onboard_2":
+            MessageLookupByLibrary.simpleMessage("نتميز بتطريز الملابس"),
+        "onboard_2_des": MessageLookupByLibrary.simpleMessage(
+            "تمتع بتطريز الشعارات والعبارات التي تحبها على ملابسك الخاصة"),
+        "onboard_3": MessageLookupByLibrary.simpleMessage("تسوق عبر الاونلاين"),
+        "onboard_3_des": MessageLookupByLibrary.simpleMessage(
+            "سارع بشراء ملابسك المطرزة والمميزة من خلال الشراء عبر الانترنت"),
         "success": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
         "timeout_error": MessageLookupByLibrary.simpleMessage(
             "انتهت المهلة , حاول مرة أخرى لاحقًا"),
