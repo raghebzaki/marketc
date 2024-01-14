@@ -8,7 +8,7 @@ import '../../../config/themes/app_text_styles.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/dimensions.dart';
 
-class CustomFormField extends StatelessWidget {
+class CustomSearchFormField extends StatelessWidget {
   final String? label;
   final String? hint;
   final Widget? preIcon;
@@ -27,7 +27,7 @@ class CustomFormField extends StatelessWidget {
   final Color focusedBorderColor;
   final Color enabledBorderColor;
 
-  const CustomFormField({
+  const CustomSearchFormField({
     super.key,
     this.label,
     this.hint,
@@ -50,20 +50,22 @@ class CustomFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      obscureText: isObscure ?? false,
-      textCapitalization:
-      isCapitalized ? TextCapitalization.words : TextCapitalization.none,
-      enabled: isEnable,
-      maxLength: maxLength,
-      onChanged: onChange,
-      onFieldSubmitted: onSubmitted,
-      controller: ctrl,
-      validator: validator,
-      inputFormatters: formatters,
-      keyboardType: keyboardType,
-      style: CustomTextStyle.kFormFieldTextStyle,
-      decoration: InputDecoration(
+    return SizedBox(
+      height: 33.h,
+      child: TextFormField(
+        obscureText: isObscure ?? false,
+        textCapitalization:
+            isCapitalized ? TextCapitalization.words : TextCapitalization.none,
+        enabled: isEnable,
+        maxLength: maxLength,
+        onChanged: onChange,
+        onFieldSubmitted: onSubmitted,
+        controller: ctrl,
+        validator: validator,
+        inputFormatters: formatters,
+        keyboardType: keyboardType,
+        style: CustomTextStyle.kFormFieldTextStyle,
+        decoration: InputDecoration(
           labelText: label,
           hintText: hint,
           isDense: true,
@@ -93,9 +95,10 @@ class CustomFormField extends StatelessWidget {
             ),
           ),
           labelStyle: const TextStyle(
-            color: AppColors.secondary,
+            color: AppColors.textColor,
           ),
           hintStyle: CustomTextStyle.kFormFieldTextStyle
+        ),
       ),
     );
   }

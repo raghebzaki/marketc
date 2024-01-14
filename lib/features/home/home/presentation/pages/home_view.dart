@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:marketc/config/themes/app_text_styles.dart';
-import 'package:marketc/core/shared/widgets/custom_form_field.dart';
 import 'package:marketc/core/shared/widgets/product_card.dart';
 import 'package:marketc/core/utils/app_colors.dart';
+
+import '../../../../../core/shared/widgets/custom_search_form_field.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -30,7 +31,7 @@ class HomeView extends StatelessWidget {
                     const Expanded(
                       child: SizedBox(
                         height: 35,
-                        child: CustomFormField(
+                        child: CustomSearchFormField(
                           borderRadius: 8,
                           label: 'بما تفكر؟',
                           sufIcon: Icon(Icons.search),
