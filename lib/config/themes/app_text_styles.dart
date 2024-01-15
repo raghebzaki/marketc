@@ -30,7 +30,6 @@ class CustomTextStyle {
     fontSize: 14,
     fontFamily: AppConstants.mainFontFamily,
     fontWeight: FontWeight.w400,
-    height: 0,
   );
 
   static TextStyle kTextStyleF14Sub =  TextStyle(
@@ -38,7 +37,6 @@ class CustomTextStyle {
     fontSize: 14,
     fontFamily: AppConstants.subFontFamily,
     fontWeight: FontWeight.w400,
-    height: 0,
   );
 
   static TextStyle kTextStyleF14SubBlack =  TextStyle(
@@ -46,7 +44,6 @@ class CustomTextStyle {
     fontSize: 14,
     fontFamily: AppConstants.subFontFamily,
     fontWeight: FontWeight.w700,
-    height: 0,
   );
 
   static TextStyle kTextStyleF16 = TextStyle(

@@ -97,7 +97,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "ملابس قصيرة",
+                      S.current.short_cloths,
                       style: CustomTextStyle.kTextStyleF20,
                     ),
                     Text(
@@ -109,13 +109,13 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   ],
                 ),
                 Text(
-                  "تطريز عبارات",
+                  S.current.custom_phrases,
                   style: CustomTextStyle.kTextStyleF10.copyWith(
                     color: AppColors.black60,
                   ),
                 ),
                 Text(
-                  "ملابس قصيرة بتطريز عبارات حيث يمكنك اختيار الملابس ذات التطريز المناسب لك وجعله لمسة من الأناقة إلى هويتك",
+                  S.current.product_des,
                   style: CustomTextStyle.kTextStyleF12.copyWith(
                     color: AppColors.black60,
                   ),
@@ -129,7 +129,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "الألوان",
+                            S.current.colors,
                             style: CustomTextStyle.kTextStyleF14.copyWith(
                               fontWeight: FontWeight.w500,
                             ),
@@ -159,7 +159,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "المقاسات",
+                            S.of(context).sizes,
                             style: CustomTextStyle.kTextStyleF14.copyWith(
                               fontWeight: FontWeight.w500,
                             ),
@@ -197,7 +197,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   children: [
                     Flexible(
                       child: CustomBtn(
-                        label: "اضافة الى السلة",
+                        label: S.of(context).add_to_cart,
                         onPressed: () {},
                         fgColor: Colors.white,
                         isUpperCase: true,
@@ -208,7 +208,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "الكمية",
+                          S.of(context).qty,
                           style: CustomTextStyle.kTextStyleF10.copyWith(
                             color: AppColors.black60,
                           ),

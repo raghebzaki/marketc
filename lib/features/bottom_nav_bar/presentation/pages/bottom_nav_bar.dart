@@ -6,6 +6,8 @@ import 'package:marketc/features/main/favorite/presentation/pages/favorite_view.
 import 'package:marketc/features/main/home/presentation/pages/home_view.dart';
 import 'package:marketc/features/main/profile/presentation/pages/profile_view.dart';
 
+import '../../../../core/utils/app_images.dart';
+
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key? key}) : super(key: key);
@@ -45,20 +47,20 @@ class _BottomNavBarState extends State<BottomNavBar> {
           },
           items:   <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.home,color: Colors.black,size: 32.sp),
+              icon: Image.asset(AppImages.homeIconImg, height: 32.h, width: 32.w,),
               label: "",
               //backgroundColor: Colors.grey,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart,color: Colors.black,size: 32.sp),
+              icon: Image.asset(AppImages.cartIconImg, height: 32.h, width: 32.w,),
               label: "",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_border,color: Colors.black,size: 32.sp),
+              icon: Image.asset(AppImages.heartIconImg, height: 32.h, width: 32.w,),
               label: "",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person,color: Colors.black,size: 32.sp),
+              icon: Image.asset(AppImages.userIconImg, height: 32.h, width: 32.w,),
               label: "",
             ),
           ],

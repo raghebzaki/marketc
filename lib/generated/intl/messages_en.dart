@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "add_to_cart": MessageLookupByLibrary.simpleMessage("Add to Cart"),
+        "all": MessageLookupByLibrary.simpleMessage("All"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "bad request. try again later"),
         "browse_now": MessageLookupByLibrary.simpleMessage("Browse Now"),
@@ -34,10 +36,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Change your password"),
         "check_your_mail": MessageLookupByLibrary.simpleMessage(
             "Please check your email to secure your account"),
+        "colors": MessageLookupByLibrary.simpleMessage("Colors"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "conflict found, try again later"),
         "cs": MessageLookupByLibrary.simpleMessage("Customer Support"),
         "custom_logo": MessageLookupByLibrary.simpleMessage("Embroidery logos"),
+        "custom_phrases":
+            MessageLookupByLibrary.simpleMessage("Custom Phrases Embroidery"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
         "do_not_have_account":
@@ -82,6 +87,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pass_confirm":
             MessageLookupByLibrary.simpleMessage("Password Confirmation"),
         "popular": MessageLookupByLibrary.simpleMessage("Most Popular"),
+        "product_des": MessageLookupByLibrary.simpleMessage(
+            "Short clothes with embroidered phrases, where you can choose clothes with suitable embroidery to add a touch of elegance to your identity."),
+        "qty": MessageLookupByLibrary.simpleMessage("Quantity"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "register_now": MessageLookupByLibrary.simpleMessage("Register Now"),
         "remember_pass":
@@ -92,6 +100,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "send_code": MessageLookupByLibrary.simpleMessage("Send Code"),
         "shopping_world":
             MessageLookupByLibrary.simpleMessage("Welcome to shopping world"),
+        "short_cloth_category":
+            MessageLookupByLibrary.simpleMessage("Short Clothing Category"),
+        "short_cloths": MessageLookupByLibrary.simpleMessage("Short Clothes"),
+        "sizes": MessageLookupByLibrary.simpleMessage("Sizes"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "slogan": MessageLookupByLibrary.simpleMessage(
             "Let\'s help you find the right clothing for you\n and embroider the logo and phrases you love"),

@@ -23,6 +23,14 @@ class AppImages {
   static String emailImg = "$imagePath/email.png";
   static String lockImg = "$imagePath/padlock.png";
   static String sellerImg = "$imagePath/seller.png";
+  static String homeIconImg = "$imagePath/home_icon.png";
+  static String cartIconImg = "$imagePath/cart_icon.png";
+  static String heartIconImg = "$imagePath/heart_icon.png";
+  static String userIconImg = "$imagePath/user_icon.png";
+  static String category1Img = "$imagePath/category1.png";
+  static String category2Img = "$imagePath/category2.png";
+  static String category3Img = "$imagePath/category3.png";
+  static String bellImg = "$imagePath/bell.png";
 
   //? SVG Paths
   static String loginSvg = "$svgPath/login.svg";

@@ -47,8 +47,7 @@
   "unprocessable_content_error": "unprocessable data, check it and try again",
   "verify_code": "Verify Code",
   "verify_code_sent": "Verification Code sent to your email",
-
-
+  "@_HOME": {},
   "you_think": "What are you thinking about?",
   "shopping_world": "Welcome to shopping world",
   "slogan": "Let's help you find the right clothing for you\n and embroider the logo and phrases you love",
@@ -61,5 +60,16 @@
   "more": "More...",
   "new_releases": "Newly Released",
   "sar": "SAR",
-  "view_details": "View Details"
+  "view_details": "View Details",
+  "@_ProductDetails": {},
+  "short_cloths": "Short Clothes",
+  "custom_phrases": "Custom Phrases Embroidery",
+  "product_des": "Short clothes with embroidered phrases, where you can choose clothes with suitable embroidery to add a touch of elegance to your identity.",
+  "colors": "Colors",
+  "sizes": "Sizes",
+  "add_to_cart": "Add to Cart",
+  "qty": "Quantity",
+  "@_CategoryDetails": {},
+  "short_cloth_category": "Short Clothing Category",
+  "all": "All"
 }

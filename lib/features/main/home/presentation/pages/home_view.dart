@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+import 'package:marketc/core/shared/arguments.dart';
+import 'package:marketc/core/utils/extensions.dart';
 
 import '../../../../../config/themes/app_text_styles.dart';
+import '../../../../../core/router/router.dart';
 import '../../../../../core/shared/widgets/custom_search_form_field.dart';
 import '../../../../../core/shared/widgets/product_card.dart';
 import '../../../../../core/utils/app_colors.dart';
@@ -17,6 +19,35 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+          preferredSize: Size(context.queryWidth.w, 56.h),
+          child: SafeArea(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: Dimensions.p8.w),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const CircleAvatar(
+                    radius: Dimensions.r21,
+                  ),
+                  Gap(10.w),
+                  Expanded(
+                    child: SizedBox(
+                      height: 35.h,
+                      child: CustomSearchFormField(
+                        borderRadius: Dimensions.r8,
+                        label: S.current.you_think,
+                        sufIcon: const Icon(Icons.search),
+                      ),
+                    ),
+                  ),
+                  Gap(10.w),
+                  Image.asset(AppImages.bellImg, height: 20.h, width: 20.w,)
+                ],
+              ),
+            ),
+          )),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(Dimensions.p10),
@@ -24,31 +55,6 @@ class HomeView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const CircleAvatar(
-                      radius: Dimensions.r21,
-                    ),
-                    Gap(10.w),
-                    Expanded(
-                      child: SizedBox(
-                        height: 35.h,
-                        child: CustomSearchFormField(
-                          borderRadius: Dimensions.r8,
-                          label: S.current.you_think,
-                          sufIcon: const Icon(Icons.search),
-                        ),
-                      ),
-                    ),
-                    Gap(10.w),
-                    Icon(
-                      Icons.notifications_none,
-                      size: 20.sp,
-                    ),
-                  ],
-                ),
                 Text(
                   S.current.shopping_world,
                   style: CustomTextStyle.kTextStyleF20,
@@ -159,37 +165,45 @@ class HomeView extends StatelessWidget {
                     children: [
                       ...List.generate(
                         3,
-                            (index) {
-                          return Padding(
-                            padding:
-                            const EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Container(
-                              width: 85.w,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: ShapeDecoration(
-                                color:  Colors.white,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8)),
-                              ),
-                              child: Padding(
-                                padding:  EdgeInsets.symmetric(horizontal: 12.0.w),
-                                child: Column(
-                                  children: [
-                                    SizedBox(
-                                      width: 48.w,
-                                      height: 48.w,
-                                      child: SvgPicture.asset(
-                                        AppImages.category3,
+                        (index) {
+                          return GestureDetector(
+                            onTap: () {
+                              context.pushNamed(
+                                categoryDetailsPageRoute,
+                                arguments: CategoryDetailsArgs(
+                                  id: 1,
+                                ),
+                              );
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: Dimensions.p8.w),
+                              child: Container(
+                                width: 85.w,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: ShapeDecoration(
+                                  color: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(Dimensions.r8)),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: Dimensions.p12.w),
+                                  child: Column(
+                                    children: [
+                                      Image.asset(
+                                        AppImages.category3Img,
                                         width: 48.w,
                                         height: 48.w,
                                       ),
-                                    ),
-                                    Text(
-                                      'ملابس قصيرة',
-                                      textAlign: TextAlign.center,
-                                      style: CustomTextStyle.kTextStyleF14,
-                                    )
-                                  ],
+                                      Text(
+                                        'ملابس قصيرة',
+                                        textAlign: TextAlign.center,
+                                        style: CustomTextStyle.kTextStyleF14,
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),

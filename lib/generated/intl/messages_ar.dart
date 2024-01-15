@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "add_to_cart": MessageLookupByLibrary.simpleMessage("اضافة الى السلة"),
+        "all": MessageLookupByLibrary.simpleMessage("الجميع"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "طلب غير صالح. حاول مرة أخرى لاحقًا"),
         "browse_now": MessageLookupByLibrary.simpleMessage("تصفح الآن"),
@@ -35,10 +37,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "قم بتغيير كلمة المرور الخاصة بك"),
         "check_your_mail": MessageLookupByLibrary.simpleMessage(
             "يرجى التحقق من بريدك الإلكتروني لتأمين حسابك"),
+        "colors": MessageLookupByLibrary.simpleMessage("الألوان"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "تم العثور على تعارض , حاول مرة أخرى لاحقًا"),
         "cs": MessageLookupByLibrary.simpleMessage("دعم العملاء"),
         "custom_logo": MessageLookupByLibrary.simpleMessage("تطريز شعارات"),
+        "custom_phrases": MessageLookupByLibrary.simpleMessage("تطريز عبارات"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
         "do_not_have_account":
@@ -82,6 +86,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pass_confirm":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "popular": MessageLookupByLibrary.simpleMessage("الأكثر شيوعًا"),
+        "product_des": MessageLookupByLibrary.simpleMessage(
+            "ملابس قصيرة بتطريز عبارات حيث يمكنك اختيار الملابس ذات التطريز المناسب لك وجعله لمسة من الأناقة إلى هويتك"),
+        "qty": MessageLookupByLibrary.simpleMessage("الكمية"),
         "register": MessageLookupByLibrary.simpleMessage("التسجيل"),
         "register_now": MessageLookupByLibrary.simpleMessage("سجل الآن"),
         "remember_pass":
@@ -92,6 +99,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "send_code": MessageLookupByLibrary.simpleMessage("إرسال الكود"),
         "shopping_world":
             MessageLookupByLibrary.simpleMessage("مرحبًا بك في عالم التسوق"),
+        "short_cloth_category":
+            MessageLookupByLibrary.simpleMessage("قسم الملابس القصيرة"),
+        "short_cloths": MessageLookupByLibrary.simpleMessage("ملابس قصيرة"),
+        "sizes": MessageLookupByLibrary.simpleMessage("المقاسات"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "slogan": MessageLookupByLibrary.simpleMessage(
             "لنساعدك في العثور على الملابس المناسبة لك\nوتطريز الشعارات والعبارات التي تحبها"),

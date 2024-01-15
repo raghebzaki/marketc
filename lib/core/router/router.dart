@@ -10,4 +10,5 @@ const String changePassConfirmationPageRoute = '/changePassConfirmation';
 const String bottomNavBarPageRoute = '/bottomNavBar';
 const String homePageRoute = '/home';
 const String productDetailsPageRoute = '/productDetails';
+const String categoryDetailsPageRoute = '/categoryDetails';
 

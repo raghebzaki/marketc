@@ -659,6 +659,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Short Clothes`
+  String get short_cloths {
+    return Intl.message(
+      'Short Clothes',
+      name: 'short_cloths',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Custom Phrases Embroidery`
+  String get custom_phrases {
+    return Intl.message(
+      'Custom Phrases Embroidery',
+      name: 'custom_phrases',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Short clothes with embroidered phrases, where you can choose clothes with suitable embroidery to add a touch of elegance to your identity.`
+  String get product_des {
+    return Intl.message(
+      'Short clothes with embroidered phrases, where you can choose clothes with suitable embroidery to add a touch of elegance to your identity.',
+      name: 'product_des',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Colors`
+  String get colors {
+    return Intl.message(
+      'Colors',
+      name: 'colors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sizes`
+  String get sizes {
+    return Intl.message(
+      'Sizes',
+      name: 'sizes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add to Cart`
+  String get add_to_cart {
+    return Intl.message(
+      'Add to Cart',
+      name: 'add_to_cart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quantity`
+  String get qty {
+    return Intl.message(
+      'Quantity',
+      name: 'qty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Short Clothing Category`
+  String get short_cloth_category {
+    return Intl.message(
+      'Short Clothing Category',
+      name: 'short_cloth_category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All`
+  String get all {
+    return Intl.message(
+      'All',
+      name: 'all',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

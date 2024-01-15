@@ -9,7 +9,7 @@ class AppConstants {
   static const prefsLangKey = "prefsLangKey";
 
   // * Main UI constants
-  static const mainFontFamily = "Aladin";
+  static const mainFontFamily = "Readex Pro";
   static const subFontFamily = "Abhaya Libre";
   static const unknownStringValue = "UNKNOWN STRING VALUE";
   static const unknownNumValue = 2077;

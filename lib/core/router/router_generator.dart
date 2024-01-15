@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:marketc/features/bottom_nav_bar/presentation/pages/bottom_nav_bar.dart';
 
 import '../../features/auth/change_pass/presentation/pages/change_pass_confirmation.dart';
 import '../../features/auth/change_pass/presentation/pages/change_pass_view.dart';
@@ -8,10 +7,13 @@ import '../../features/auth/login/presentation/pages/login_view.dart';
 import '../../features/auth/register/presentation/pages/register_view.dart';
 import '../../features/auth/reset_pass/presentation/pages/reset_pass_view.dart';
 import '../../features/auth/verify_account/presentation/pages/verify_account_view.dart';
+import '../../features/bottom_nav_bar/presentation/pages/bottom_nav_bar.dart';
+import '../../features/main/category_details/presentation/pages/category_details_view.dart';
 import '../../features/main/home/presentation/pages/home_view.dart';
 import '../../features/main/product_details/presentation/pages/product_details_view.dart';
 import '../../features/on_boarding/presentation/pages/on_boarding_view.dart';
 import '../../main_view.dart';
+import '../shared/arguments.dart';
 import 'router.dart';
 
 class AppRouters {
@@ -57,13 +59,20 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => const BottomNavBar(),
         );
-        case homePageRoute:
+      case homePageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const HomeView(),
         );
       case productDetailsPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const ProductDetailsView(),
+        );
+      case categoryDetailsPageRoute:
+        final args = settings.arguments as CategoryDetailsArgs;
+        return MaterialPageRoute(
+          builder: (BuildContext context) => CategoryDetailsView(
+            id: args.id,
+          ),
         );
 
       default:
