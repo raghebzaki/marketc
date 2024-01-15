@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:marketc/features/auth/change_pass/presentation/pages/change_pass_view.dart';
-import 'package:marketc/features/home/home/presentation/pages/home_view.dart';
 
 import '../../features/auth/change_pass/presentation/pages/change_pass_confirmation.dart';
+import '../../features/auth/change_pass/presentation/pages/change_pass_view.dart';
 import '../../features/auth/forgot_pass/presentation/pages/forgot_pass_view.dart';
 import '../../features/auth/login/presentation/pages/login_view.dart';
 import '../../features/auth/register/presentation/pages/register_view.dart';
 import '../../features/auth/reset_pass/presentation/pages/reset_pass_view.dart';
 import '../../features/auth/verify_account/presentation/pages/verify_account_view.dart';
+import '../../features/main/home/presentation/pages/home_view.dart';
 import '../../features/on_boarding/presentation/pages/on_boarding_view.dart';
 import '../../main_view.dart';
 import 'router.dart';

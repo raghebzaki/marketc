@@ -3,7 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 import '../../../config/themes/app_text_styles.dart';
+import '../../../generated/l10n.dart';
 import '../../utils/app_colors.dart';
+import '../../utils/dimensions.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({super.key});
@@ -15,7 +17,11 @@ class ProductCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       decoration: ShapeDecoration(
         color: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(
+            Dimensions.r8,
+          ),
+        ),
       ),
       child: Column(
         children: [
@@ -29,21 +35,24 @@ class ProductCard extends StatelessWidget {
               ),
             ),
           ),
-
           Container(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(Dimensions.p8),
             child: Column(
               children: [
                 Text(
                   'ملابس قصيرة',
-                  style: CustomTextStyle.kTextStyleF12.copyWith(color: AppColors.textColor),
+                  style: CustomTextStyle.kTextStyleF12
+                      .copyWith(color: AppColors.textColor),
                 ),
                 Text(
                   'تطريز شعارات',
-                  style: CustomTextStyle.kTextStyleF12.copyWith(color: AppColors.textColorSecondary),
-                ), Text(
+                  style: CustomTextStyle.kTextStyleF12
+                      .copyWith(color: AppColors.textColorSecondary),
+                ),
+                Text(
                   '178 عملية شراء',
-                  style: CustomTextStyle.kTextStyleF12.copyWith(color: AppColors.textColorSecondary),
+                  style: CustomTextStyle.kTextStyleF12
+                      .copyWith(color: AppColors.textColorSecondary),
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.min,
@@ -51,14 +60,15 @@ class ProductCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      '140.00 SAR',
-                      style: CustomTextStyle.kTextStyleF12.copyWith(color: AppColors.lightBlue),
+                      '140.00 ${S.current.sar}',
+                      style: CustomTextStyle.kTextStyleF12
+                          .copyWith(color: AppColors.lightBlue),
                     ),
-                    Gap( 8.w),
+                    Gap(8.w),
                     Text(
                       '-30%',
-                      style: CustomTextStyle.kTextStyleF12.copyWith(color: AppColors.discountNumber),
-
+                      style: CustomTextStyle.kTextStyleF12
+                          .copyWith(color: AppColors.discountNumber),
                     ),
                   ],
                 ),
@@ -71,13 +81,19 @@ class ProductCard extends StatelessWidget {
             clipBehavior: Clip.antiAlias,
             decoration: ShapeDecoration(
               color: AppColors.secondary,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  Dimensions.r8,
+                ),
+              ),
             ),
             child: Center(
               child: Text(
-                'عرض التفاصيل',
+                S.current.view_details,
                 textAlign: TextAlign.center,
-                style:CustomTextStyle.kTextStyleF12.copyWith(color: Colors.white),
+                style: CustomTextStyle.kTextStyleF12.copyWith(
+                  color: Colors.white,
+                ),
               ),
             ),
           ),

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:marketc/config/themes/app_text_styles.dart';
-import 'package:marketc/core/shared/widgets/product_card.dart';
-import 'package:marketc/core/utils/app_colors.dart';
 
+import '../../../../../config/themes/app_text_styles.dart';
 import '../../../../../core/shared/widgets/custom_search_form_field.dart';
+import '../../../../../core/shared/widgets/product_card.dart';
+import '../../../../../core/utils/app_colors.dart';
+import '../../../../../generated/l10n.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -28,13 +29,13 @@ class HomeView extends StatelessWidget {
                       radius: 21,
                     ),
                     Gap(10.w),
-                    const Expanded(
+                     Expanded(
                       child: SizedBox(
                         height: 35,
                         child: CustomSearchFormField(
                           borderRadius: 8,
-                          label: 'بما تفكر؟',
-                          sufIcon: Icon(Icons.search),
+                          label: S.current.you_think,
+                          sufIcon: const Icon(Icons.search),
                         ),
                       ),
                     ),
@@ -46,11 +47,11 @@ class HomeView extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  'مرحبا بك في عالم التسوق',
+                  S.current.shopping_world,
                   style: CustomTextStyle.kTextStyleF20,
                 ),
                 Text(
-                  'دعنا نساعدك في العثور على الملابس المناسبة لك\nوتطريز الشعار والعبارات التي تحبها',
+                  S.current.slogan,
                   textAlign: TextAlign.right,
                   style: CustomTextStyle.kTextStyleF14
                       .copyWith(color: AppColors.textColor),
@@ -84,15 +85,15 @@ class HomeView extends StatelessWidget {
                                         crossAxisAlignment:CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'قريبا',
+                                            S.current.soon,
                                             style: CustomTextStyle.kTextStyleF8,
                                           ),
                                           Text(
-                                            'تطريز شعارات',
+                                            S.current.custom_logo,
                                             style: CustomTextStyle.kTextStyleF16,
                                           ),
                                           Text(
-                                            'مجموعة واسعة من الشعارات والعبارات المميزة التي يتم تطريزها بشكل فريد ومميز',
+                                            S.current.wide_range,
                                             textAlign: TextAlign.right,
                                             style: CustomTextStyle.kTextStyleF10,
                                           ),
@@ -107,7 +108,7 @@ class HomeView extends StatelessWidget {
                                             ),
                                             child: Center(
                                               child: Text(
-                                                'تصفح الآن',
+                                                S.current.browse_now,
                                                 style:
                                                     CustomTextStyle.kTextStyleF8,
                                               ),
@@ -139,7 +140,7 @@ class HomeView extends StatelessWidget {
                 ),
                 Gap(10.h),
                 Text(
-                  'الأقسام',
+                  S.current.categories,
                   textAlign: TextAlign.right,
                   style: CustomTextStyle.kTextStyleF16,
                 ),
@@ -147,13 +148,13 @@ class HomeView extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'الأكثر شيوعاً',
+                      S.current.popular,
                       textAlign: TextAlign.right,
                       style: CustomTextStyle.kTextStyleF16,
                     ),
                     const Spacer(),
                     Text(
-                      'المزيدً',
+                      S.current.more,
                       textAlign: TextAlign.right,
                       style: CustomTextStyle.kTextStyleF14
                           .copyWith(color: AppColors.lightBlue),
@@ -185,13 +186,13 @@ class HomeView extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'صدر حديثاً',
+                      S.current.new_releases,
                       textAlign: TextAlign.right,
                       style: CustomTextStyle.kTextStyleF16,
                     ),
                     const Spacer(),
                     Text(
-                      'المزيدً',
+                      S.current.more,
                       textAlign: TextAlign.right,
                       style: CustomTextStyle.kTextStyleF14
                           .copyWith(color: AppColors.lightBlue),

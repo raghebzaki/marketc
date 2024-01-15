@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
 import 'package:gap/gap.dart';
+import 'package:marketc/core/router/router.dart';
+import 'package:marketc/core/utils/extensions.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../../../../config/themes/app_text_styles.dart';
@@ -52,6 +54,10 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                   controller: pinCtrl,
                   onChanged: (value) {
                     // UserData.otp = value;
+                  },
+                  closeKeyboardWhenCompleted: false,
+                  onSubmitted: (value) {
+                    context.pushNamed(homePageRoute);
                   },
                   length: 4,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

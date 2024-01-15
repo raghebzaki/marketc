@@ -8,7 +8,7 @@
   "conflict_error": "conflict found, try again later",
   "cs": "Customer Support",
   "default_error": "some thing went wrong, try again later",
-  "do_not_have_account":"Don't have an account?",
+  "do_not_have_account": "Don't have an account?",
   "email": "Email",
   "enter_email": "Enter your email",
   "enter_pass_below": "Enter your new password below",
@@ -36,9 +36,9 @@
   "register": "Register",
   "register_now": "Register Now",
   "remember_pass": "Remember password?",
-"resend_code": "Resend Code",
+  "resend_code": "Resend Code",
   "seller": "Seller",
-"send_code": "Send Code",
+  "send_code": "Send Code",
   "skip": "Skip",
   "success": "success",
   "timeout_error": "time out, try again late",
@@ -46,5 +46,20 @@
   "unknown_error": "some thing went wrong, try again later",
   "unprocessable_content_error": "unprocessable data, check it and try again",
   "verify_code": "Verify Code",
-  "verify_code_sent": "Verification Code sent to your email"
+  "verify_code_sent": "Verification Code sent to your email",
+
+
+  "you_think": "What are you thinking about?",
+  "shopping_world": "Welcome to shopping world",
+  "slogan": "Let's help you find the right clothing for you\n and embroider the logo and phrases you love",
+  "soon": "Soon",
+  "custom_logo": "Embroidery logos",
+  "wide_range": "A wide range of distinctive logos & phrases that are uniquely and distinctively embroidered",
+  "browse_now": "Browse Now",
+  "categories": "Categories",
+  "popular": "Most Popular",
+  "more": "More...",
+  "new_releases": "Newly Released",
+  "sar": "SAR",
+  "view_details": "View Details"
 }

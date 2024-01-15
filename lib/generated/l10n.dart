@@ -529,6 +529,136 @@ class S {
       args: [],
     );
   }
+
+  /// `What are you thinking about?`
+  String get you_think {
+    return Intl.message(
+      'What are you thinking about?',
+      name: 'you_think',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome to shopping world`
+  String get shopping_world {
+    return Intl.message(
+      'Welcome to shopping world',
+      name: 'shopping_world',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Let's help you find the right clothing for you\n and embroider the logo and phrases you love`
+  String get slogan {
+    return Intl.message(
+      'Let\'s help you find the right clothing for you\n and embroider the logo and phrases you love',
+      name: 'slogan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Soon`
+  String get soon {
+    return Intl.message(
+      'Soon',
+      name: 'soon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Embroidery logos`
+  String get custom_logo {
+    return Intl.message(
+      'Embroidery logos',
+      name: 'custom_logo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A wide range of distinctive logos & phrases that are uniquely and distinctively embroidered`
+  String get wide_range {
+    return Intl.message(
+      'A wide range of distinctive logos & phrases that are uniquely and distinctively embroidered',
+      name: 'wide_range',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Browse Now`
+  String get browse_now {
+    return Intl.message(
+      'Browse Now',
+      name: 'browse_now',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Categories`
+  String get categories {
+    return Intl.message(
+      'Categories',
+      name: 'categories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Most Popular`
+  String get popular {
+    return Intl.message(
+      'Most Popular',
+      name: 'popular',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `More...`
+  String get more {
+    return Intl.message(
+      'More...',
+      name: 'more',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Newly Released`
+  String get new_releases {
+    return Intl.message(
+      'Newly Released',
+      name: 'new_releases',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SAR`
+  String get sar {
+    return Intl.message(
+      'SAR',
+      name: 'sar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View Details`
+  String get view_details {
+    return Intl.message(
+      'View Details',
+      name: 'view_details',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

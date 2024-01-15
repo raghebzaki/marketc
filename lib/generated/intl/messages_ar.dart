@@ -24,9 +24,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "طلب غير صالح. حاول مرة أخرى لاحقًا"),
+        "browse_now": MessageLookupByLibrary.simpleMessage("تصفح الآن"),
         "buyer": MessageLookupByLibrary.simpleMessage("مشتري"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "خطأ في ذاكرة التخزين المؤقت , حاول مرة أخرى لاحقًا"),
+        "categories": MessageLookupByLibrary.simpleMessage("الفئات"),
         "change_pass":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "change_your_pass": MessageLookupByLibrary.simpleMessage(
@@ -36,6 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "تم العثور على تعارض , حاول مرة أخرى لاحقًا"),
         "cs": MessageLookupByLibrary.simpleMessage("دعم العملاء"),
+        "custom_logo": MessageLookupByLibrary.simpleMessage("تطريز شعارات"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
         "do_not_have_account":
@@ -55,6 +58,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "login_now": MessageLookupByLibrary.simpleMessage("تسجيل الدخول الآن"),
+        "more": MessageLookupByLibrary.simpleMessage("المزيد..."),
+        "new_releases": MessageLookupByLibrary.simpleMessage("إصدارات جديدة"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
         "no_content": MessageLookupByLibrary.simpleMessage("نجاح بدون محتوى"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(
@@ -76,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تغيير كلمة المرور بنجاح"),
         "pass_confirm":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
+        "popular": MessageLookupByLibrary.simpleMessage("الأكثر شيوعًا"),
         "register": MessageLookupByLibrary.simpleMessage("التسجيل"),
         "register_now": MessageLookupByLibrary.simpleMessage("سجل الآن"),
         "remember_pass":
@@ -84,7 +90,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إعادة إرسال الكود"),
         "seller": MessageLookupByLibrary.simpleMessage("بائع"),
         "send_code": MessageLookupByLibrary.simpleMessage("إرسال الكود"),
+        "shopping_world":
+            MessageLookupByLibrary.simpleMessage("مرحبًا بك في عالم التسوق"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+        "slogan": MessageLookupByLibrary.simpleMessage(
+            "لنساعدك في العثور على الملابس المناسبة لك\nوتطريز الشعارات والعبارات التي تحبها"),
+        "soon": MessageLookupByLibrary.simpleMessage("قريباً"),
         "success": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
         "timeout_error": MessageLookupByLibrary.simpleMessage(
             "انتهت المهلة , حاول مرة أخرى لاحقًا"),
@@ -94,6 +105,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
         "verify_code": MessageLookupByLibrary.simpleMessage("تحقق من الكود"),
         "verify_code_sent": MessageLookupByLibrary.simpleMessage(
-            "تم إرسال رمز التحقق إلى بريدك الإلكتروني")
+            "تم إرسال رمز التحقق إلى بريدك الإلكتروني"),
+        "view_details": MessageLookupByLibrary.simpleMessage("عرض التفاصيل"),
+        "wide_range": MessageLookupByLibrary.simpleMessage(
+            "مجموعة واسعة من الشعارات والعبارات المميزة المطرزة بطريقة فريدة ومميزة"),
+        "you_think": MessageLookupByLibrary.simpleMessage("بما تفكر؟")
       };
 }
