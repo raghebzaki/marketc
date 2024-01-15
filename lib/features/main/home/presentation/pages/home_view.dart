@@ -6,6 +6,7 @@ import '../../../../../config/themes/app_text_styles.dart';
 import '../../../../../core/shared/widgets/custom_search_form_field.dart';
 import '../../../../../core/shared/widgets/product_card.dart';
 import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
 
 class HomeView extends StatelessWidget {
@@ -16,7 +17,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(Dimensions.p10),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,14 +27,14 @@ class HomeView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const CircleAvatar(
-                      radius: 21,
+                      radius: Dimensions.r21,
                     ),
                     Gap(10.w),
-                     Expanded(
+                    Expanded(
                       child: SizedBox(
-                        height: 35,
+                        height: 35.h,
                         child: CustomSearchFormField(
-                          borderRadius: 8,
+                          borderRadius: Dimensions.r8,
                           label: S.current.you_think,
                           sufIcon: const Icon(Icons.search),
                         ),
@@ -65,8 +66,8 @@ class HomeView extends StatelessWidget {
                         5,
                         (index) {
                           return Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 8.0),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: Dimensions.p8),
                             child: Container(
                               width: 300.w,
                               height: 150,
@@ -74,15 +75,18 @@ class HomeView extends StatelessWidget {
                               decoration: ShapeDecoration(
                                 color: const Color(0xFFF8E7DE),
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8)),
+                                    borderRadius:
+                                        BorderRadius.circular(Dimensions.r8)),
                               ),
                               child: Row(
                                 children: [
                                   Expanded(
                                     child: Padding(
-                                      padding: const EdgeInsets.all(5.0),
+                                      padding:
+                                          const EdgeInsets.all(Dimensions.p5),
                                       child: Column(
-                                        crossAxisAlignment:CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             S.current.soon,
@@ -90,12 +94,14 @@ class HomeView extends StatelessWidget {
                                           ),
                                           Text(
                                             S.current.custom_logo,
-                                            style: CustomTextStyle.kTextStyleF16,
+                                            style:
+                                                CustomTextStyle.kTextStyleF16,
                                           ),
                                           Text(
                                             S.current.wide_range,
                                             textAlign: TextAlign.right,
-                                            style: CustomTextStyle.kTextStyleF10,
+                                            style:
+                                                CustomTextStyle.kTextStyleF10,
                                           ),
                                           Container(
                                             width: 82.w,
@@ -104,13 +110,14 @@ class HomeView extends StatelessWidget {
                                               color: AppColors.secondary,
                                               shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(4)),
+                                                      BorderRadius.circular(
+                                                          Dimensions.r4)),
                                             ),
                                             child: Center(
                                               child: Text(
                                                 S.current.browse_now,
-                                                style:
-                                                    CustomTextStyle.kTextStyleF8,
+                                                style: CustomTextStyle
+                                                    .kTextStyleF8,
                                               ),
                                             ),
                                           )
@@ -174,7 +181,7 @@ class HomeView extends StatelessWidget {
                         5,
                         (index) {
                           return const Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(Dimensions.p8),
                             child: ProductCard(),
                           );
                         },
@@ -212,7 +219,7 @@ class HomeView extends StatelessWidget {
                         5,
                         (index) {
                           return const Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(Dimensions.p8),
                             child: ProductCard(),
                           );
                         },

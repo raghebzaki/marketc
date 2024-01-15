@@ -66,7 +66,7 @@ class ChangePassConfirmationView extends StatelessWidget {
                   ),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               CustomBtn(
                 label: S.current.login,
                 onPressed: () {

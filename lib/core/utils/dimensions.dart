@@ -37,12 +37,15 @@ class Dimensions {
   static const double m35 = 30.0;
 
   static const double r3 = 3.0;
+  static const double r4 = 4.0;
   static const double r5 = 5.0;
   static const double r8 = 8.0;
   static const double r10 = 10.0;
   static const double r15 = 15.0;
   static const double r20 = 20.0;
+  static const double r21 = 21.0;
   static const double r25 = 25.0;
+  static const double r30 = 30.0;
   static const double r35 = 35.0;
   static const double r50 = 50.0;
 

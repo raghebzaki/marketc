@@ -8,4 +8,5 @@ const String resetPassPageRoute = '/resetPass';
 const String changePassPageRoute = '/changePass';
 const String changePassConfirmationPageRoute = '/changePassConfirmation';
 const String homePageRoute = '/home';
+const String productDetailsPageRoute = '/productDetails';
 
