@@ -81,4 +81,16 @@ class CacheHelper {
           AppConstants.prefsLangKey, LanguageType.ARABIC.getValue());
     }
   }
+  static Future<void> setAppLanguage(String? language) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    if (language != LanguageType.ARABIC.getValue()) {
+      prefs.setString(
+          AppConstants.prefsLangKey, LanguageType.ENGLISH.getValue());
+    } else {
+      prefs.setString(
+          AppConstants.prefsLangKey, LanguageType.ARABIC.getValue());
+    }
+
+  }
 }

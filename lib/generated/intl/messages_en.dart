@@ -23,7 +23,10 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "add_to_cart": MessageLookupByLibrary.simpleMessage("Add to Cart"),
+        "address": MessageLookupByLibrary.simpleMessage("Address"),
         "all": MessageLookupByLibrary.simpleMessage("All"),
+        "allow_notifications":
+            MessageLookupByLibrary.simpleMessage("Allow notifications"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "bad request. try again later"),
         "browse_now": MessageLookupByLibrary.simpleMessage("Browse Now"),
@@ -31,6 +34,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "cache error, try again later"),
         "categories": MessageLookupByLibrary.simpleMessage("Categories"),
+        "change_language":
+            MessageLookupByLibrary.simpleMessage("choose language"),
         "change_pass": MessageLookupByLibrary.simpleMessage("Change Password"),
         "change_your_pass":
             MessageLookupByLibrary.simpleMessage("Change your password"),
@@ -39,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "colors": MessageLookupByLibrary.simpleMessage("Colors"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "conflict found, try again later"),
+        "contact_us": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "cs": MessageLookupByLibrary.simpleMessage("Customer Support"),
         "custom_logo": MessageLookupByLibrary.simpleMessage("Embroidery logos"),
         "custom_phrases":
@@ -51,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_email": MessageLookupByLibrary.simpleMessage("Enter your email"),
         "enter_pass_below": MessageLookupByLibrary.simpleMessage(
             "Enter your new password below"),
+        "favorite": MessageLookupByLibrary.simpleMessage("favorite"),
         "finish": MessageLookupByLibrary.simpleMessage("Finish"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
@@ -59,10 +66,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "have_problem": MessageLookupByLibrary.simpleMessage("Have a problem?"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_now": MessageLookupByLibrary.simpleMessage("Login Now"),
+        "message": MessageLookupByLibrary.simpleMessage("Message"),
         "more": MessageLookupByLibrary.simpleMessage("More..."),
+        "my_orders": MessageLookupByLibrary.simpleMessage("My Orders"),
         "new_releases": MessageLookupByLibrary.simpleMessage("Newly Released"),
+        "new_updates": MessageLookupByLibrary.simpleMessage("New updates"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "no_content":
             MessageLookupByLibrary.simpleMessage("success with not content"),
@@ -70,6 +81,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please check your internet connection"),
         "not_found_error": MessageLookupByLibrary.simpleMessage(
             "url not found, try again later"),
+        "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+        "offers_and_discounts":
+            MessageLookupByLibrary.simpleMessage("Offers and discounts"),
         "onboard_1":
             MessageLookupByLibrary.simpleMessage("Clothing Exhibition"),
         "onboard_1_des": MessageLookupByLibrary.simpleMessage(
@@ -86,6 +100,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Password Changed Successfully"),
         "pass_confirm":
             MessageLookupByLibrary.simpleMessage("Password Confirmation"),
+        "phone": MessageLookupByLibrary.simpleMessage("Phone"),
         "popular": MessageLookupByLibrary.simpleMessage("Most Popular"),
         "product_des": MessageLookupByLibrary.simpleMessage(
             "Short clothes with embroidered phrases, where you can choose clothes with suitable embroidery to add a touch of elegance to your identity."),
@@ -96,8 +111,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Remember password?"),
         "resend_code": MessageLookupByLibrary.simpleMessage("Resend Code"),
         "sar": MessageLookupByLibrary.simpleMessage("SAR"),
+        "saved_address": MessageLookupByLibrary.simpleMessage("Saved Address"),
         "seller": MessageLookupByLibrary.simpleMessage("Seller"),
+        "send": MessageLookupByLibrary.simpleMessage("send"),
         "send_code": MessageLookupByLibrary.simpleMessage("Send Code"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "shopping_world":
             MessageLookupByLibrary.simpleMessage("Welcome to shopping world"),
         "short_cloth_category":
@@ -108,7 +126,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "slogan": MessageLookupByLibrary.simpleMessage(
             "Let\'s help you find the right clothing for you\n and embroider the logo and phrases you love"),
         "soon": MessageLookupByLibrary.simpleMessage("Soon"),
+        "status_of_orders":
+            MessageLookupByLibrary.simpleMessage("Status of orders"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
+        "terms_and_conditions":
+            MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
         "timeout_error":
             MessageLookupByLibrary.simpleMessage("time out, try again late"),
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(
@@ -117,6 +139,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "some thing went wrong, try again later"),
         "unprocessable_content_error": MessageLookupByLibrary.simpleMessage(
             "unprocessable data, check it and try again"),
+        "user_profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "verify_code": MessageLookupByLibrary.simpleMessage("Verify Code"),
         "verify_code_sent": MessageLookupByLibrary.simpleMessage(
             "Verification Code sent to your email"),

@@ -69,5 +69,24 @@
   "qty": "الكمية",
   "@_CategoryDetails": {},
   "short_cloth_category": "قسم الملابس القصيرة",
-  "all": "الجميع"
+  "all": "الجميع",
+  "favorite": "المفضلة",
+  "user_profile": "المعلومات الشخصية",
+  "my_orders": "طلباتي",
+  "saved_address": "العناوين المحفوظة",
+  "settings": "الاعدادات",
+  "language": "اللغة",
+  "notifications": "الاشعارات",
+  "terms_and_conditions": "سياسة الاستخدام والشروط",
+  "contact_us": "تواصل معنا",
+  "allow_notifications": "السماح بالاشعارات",
+  "offers_and_discounts": "العروض والخصومات",
+  "new_updates": "التحديثات الجديدة",
+  "status_of_orders": "حالة الطلبات",
+  "phone": "رقم الهاتف",
+  "address": "العنوان",
+  "message": "الرسالة",
+  "send": "ارسال",
+  "change_language": "اختر اللغة"
+
 }

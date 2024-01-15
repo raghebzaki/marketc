@@ -11,4 +11,8 @@ const String bottomNavBarPageRoute = '/bottomNavBar';
 const String homePageRoute = '/home';
 const String productDetailsPageRoute = '/productDetails';
 const String categoryDetailsPageRoute = '/categoryDetails';
+const String contactUsPageRoute = '/contactUs';
+const String notificationsPageRoute = '/notifications';
+const String settingsPageRoute = '/settings';
+
 

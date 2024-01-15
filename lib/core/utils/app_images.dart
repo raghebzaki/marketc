@@ -39,5 +39,8 @@ class AppImages {
   static String category1 = "$svgPath/category1.svg";
   static String category2 = "$svgPath/category2.svg";
   static String category3 = "$svgPath/category3.svg";
+  static String discount = "$svgPath/discount.svg";
+  static String updates = "$svgPath/updates.svg";
+  static String orderState = "$svgPath/order_state.svg";
 
 }

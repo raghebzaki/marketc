@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:marketc/features/profile/contact_us/presentation/pages/contact_us_view.dart';
+import 'package:marketc/features/profile/notifications/presentation/pages/notifications_view.dart';
+import 'package:marketc/features/profile/settings/presentation/pages/settings_view.dart';
 
 import '../../features/auth/change_pass/presentation/pages/change_pass_confirmation.dart';
 import '../../features/auth/change_pass/presentation/pages/change_pass_view.dart';
@@ -74,7 +77,18 @@ class AppRouters {
             id: args.id,
           ),
         );
-
+      case contactUsPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const ContactUsView(),
+        );
+      case notificationsPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const NotificationsView(),
+        );
+      case settingsPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const SettingsView(),
+        );
       default:
         return MaterialPageRoute(
           builder: (BuildContext context) => const MainView(),

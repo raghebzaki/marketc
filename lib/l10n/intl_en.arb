@@ -71,5 +71,25 @@
   "qty": "Quantity",
   "@_CategoryDetails": {},
   "short_cloth_category": "Short Clothing Category",
-  "all": "All"
+  "all": "All",
+  "favorite": "favorite",
+  "user_profile": "Profile",
+  "my_orders": "My Orders",
+  "saved_address": "Saved Address",
+  "settings": "Settings",
+  "language": "Language",
+  "notifications": "Notifications",
+  "terms_and_conditions": "Terms and Conditions",
+  "contact_us": "Contact Us",
+  "allow_notifications": "Allow notifications",
+  "offers_and_discounts": "Offers and discounts",
+  "new_updates": "New updates",
+  "status_of_orders": "Status of orders",
+  "phone": "Phone",
+  "address": "Address",
+  "message": "Message",
+  "send": "send",
+  "change_language": "choose language"
+
+
 }

@@ -749,6 +749,186 @@ class S {
       args: [],
     );
   }
+
+  /// `favorite`
+  String get favorite {
+    return Intl.message(
+      'favorite',
+      name: 'favorite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get user_profile {
+    return Intl.message(
+      'Profile',
+      name: 'user_profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Orders`
+  String get my_orders {
+    return Intl.message(
+      'My Orders',
+      name: 'my_orders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Saved Address`
+  String get saved_address {
+    return Intl.message(
+      'Saved Address',
+      name: 'saved_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get notifications {
+    return Intl.message(
+      'Notifications',
+      name: 'notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms and Conditions`
+  String get terms_and_conditions {
+    return Intl.message(
+      'Terms and Conditions',
+      name: 'terms_and_conditions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact Us`
+  String get contact_us {
+    return Intl.message(
+      'Contact Us',
+      name: 'contact_us',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allow notifications`
+  String get allow_notifications {
+    return Intl.message(
+      'Allow notifications',
+      name: 'allow_notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Offers and discounts`
+  String get offers_and_discounts {
+    return Intl.message(
+      'Offers and discounts',
+      name: 'offers_and_discounts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New updates`
+  String get new_updates {
+    return Intl.message(
+      'New updates',
+      name: 'new_updates',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status of orders`
+  String get status_of_orders {
+    return Intl.message(
+      'Status of orders',
+      name: 'status_of_orders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone`
+  String get phone {
+    return Intl.message(
+      'Phone',
+      name: 'phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Address`
+  String get address {
+    return Intl.message(
+      'Address',
+      name: 'address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Message`
+  String get message {
+    return Intl.message(
+      'Message',
+      name: 'message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `send`
+  String get send {
+    return Intl.message(
+      'send',
+      name: 'send',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `choose language`
+  String get change_language {
+    return Intl.message(
+      'choose language',
+      name: 'change_language',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
