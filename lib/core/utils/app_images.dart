@@ -28,5 +28,8 @@ class AppImages {
   static String loginSvg = "$svgPath/login.svg";
   static String buyerSvg = "$svgPath/buyer.svg";
   static String sellerSvg = "$svgPath/seller.svg";
+  static String category1 = "$svgPath/category1.svg";
+  static String category2 = "$svgPath/category2.svg";
+  static String category3 = "$svgPath/category3.svg";
 
 }

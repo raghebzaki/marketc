@@ -132,60 +132,105 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: [
-                              ...List.generate(
-                                3,
-                                (index) => const Padding(
-                                  padding: EdgeInsets.all(Dimensions.p5),
-                                  child: CircleAvatar(
-                                    radius: Dimensions.r20,
-                                    backgroundColor: AppColors.lightBlue,
-                                  ),
+                        Wrap(
+                          children: [
+                            GridView.builder(
+                              physics:  const NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 3
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "المقاسات",
-                          style: CustomTextStyle.kTextStyleF14.copyWith(
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: [
-                              ...List.generate(
-                                3,
-                                (index) => Padding(
-                                  padding: const EdgeInsets.all(Dimensions.p5),
-                                  child: CircleAvatar(
-                                    radius: Dimensions.r20,
-                                    backgroundColor: Colors.grey,
-                                    child: Text(
-                                      "S",
-                                      style: CustomTextStyle.kTextStyleF14
-                                          .copyWith(
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                itemBuilder: (BuildContext context,int index){
+                                  return Padding(
+                                    padding: EdgeInsets.all(Dimensions.p5),
+                                    child: CircleAvatar(
+                                      radius: Dimensions.r20,
+                                      backgroundColor: AppColors.lightBlue,
                                     ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                                  );
+                                }
+                            ),
+
+                          ],
                         ),
                       ],
                     ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "المقاسات",
+                            style: CustomTextStyle.kTextStyleF14.copyWith(
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Wrap(
+                            children: [
+                              GridView.builder(
+                                  physics:  const NeverScrollableScrollPhysics(),
+                                  shrinkWrap: true,
+                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 3
+                                  ),
+                                  itemBuilder: (BuildContext context,int index){
+                                    return  Padding(
+                                      padding: const EdgeInsets.all(Dimensions.p5),
+                                      child: CircleAvatar(
+                                        radius: Dimensions.r20,
+                                        backgroundColor: Colors.grey,
+                                        child: Text(
+                                          "S",
+                                          style: CustomTextStyle.kTextStyleF14
+                                              .copyWith(
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  }
+                              ),
+
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    // Column(
+                    //   crossAxisAlignment: CrossAxisAlignment.start,
+                    //   children: [
+                    //     Text(
+                    //       "المقاسات",
+                    //       style: CustomTextStyle.kTextStyleF14.copyWith(
+                    //         fontWeight: FontWeight.w500,
+                    //       ),
+                    //     ),
+                    //     SingleChildScrollView(
+                    //       scrollDirection: Axis.horizontal,
+                    //       child: Row(
+                    //         children: [
+                    //           ...List.generate(
+                    //             3,
+                    //             (index) => Padding(
+                    //               padding: const EdgeInsets.all(Dimensions.p5),
+                    //               child: CircleAvatar(
+                    //                 radius: Dimensions.r20,
+                    //                 backgroundColor: Colors.grey,
+                    //                 child: Text(
+                    //                   "S",
+                    //                   style: CustomTextStyle.kTextStyleF14
+                    //                       .copyWith(
+                    //                     fontWeight: FontWeight.w500,
+                    //                   ),
+                    //                 ),
+                    //               ),
+                    //             ),
+                    //           ),
+                    //         ],
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                   ],
                 ),
                 Gap(10.h),

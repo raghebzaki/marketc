@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../../config/themes/app_text_styles.dart';
 import '../../../../../core/shared/widgets/custom_search_form_field.dart';
 import '../../../../../core/shared/widgets/product_card.dart';
 import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
 
@@ -150,6 +152,52 @@ class HomeView extends StatelessWidget {
                   S.current.categories,
                   textAlign: TextAlign.right,
                   style: CustomTextStyle.kTextStyleF16,
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      ...List.generate(
+                        3,
+                            (index) {
+                          return Padding(
+                            padding:
+                            const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Container(
+                              width: 85.w,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: ShapeDecoration(
+                                color:  Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8)),
+                              ),
+                              child: Padding(
+                                padding:  EdgeInsets.symmetric(horizontal: 12.0.w),
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      width: 48.w,
+                                      height: 48.w,
+                                      child: SvgPicture.asset(
+                                        AppImages.category3,
+                                        width: 48.w,
+                                        height: 48.w,
+                                      ),
+                                    ),
+                                    Text(
+                                      'ملابس قصيرة',
+                                      textAlign: TextAlign.center,
+                                      style: CustomTextStyle.kTextStyleF14,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
                 Gap(10.h),
                 Row(

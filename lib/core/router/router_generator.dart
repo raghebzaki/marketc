@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketc/features/bottom_nav_bar/presentation/pages/bottom_nav_bar.dart';
 
 import '../../features/auth/change_pass/presentation/pages/change_pass_confirmation.dart';
 import '../../features/auth/change_pass/presentation/pages/change_pass_view.dart';
@@ -52,7 +53,11 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => const ChangePassConfirmationView(),
         );
-      case homePageRoute:
+      case bottomNavBarPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const BottomNavBar(),
+        );
+        case homePageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const HomeView(),
         );

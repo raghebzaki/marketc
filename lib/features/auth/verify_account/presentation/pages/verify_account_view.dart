@@ -57,7 +57,7 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                   },
                   closeKeyboardWhenCompleted: false,
                   onSubmitted: (value) {
-                    context.pushNamed(homePageRoute);
+                    context.pushNamed(bottomNavBarPageRoute);
                   },
                   length: 4,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
