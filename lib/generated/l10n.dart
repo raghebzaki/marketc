@@ -999,6 +999,136 @@ class S {
       args: [],
     );
   }
+
+  /// `Your Order has been Confirmed!`
+  String get order_confirmed {
+    return Intl.message(
+      'Your Order has been Confirmed!',
+      name: 'order_confirmed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We have received your order, and we are busy preparing it for you. We will contact you when it's ready for pickup. Thank you for choosing us!`
+  String get order_confirmed_msg {
+    return Intl.message(
+      'We have received your order, and we are busy preparing it for you. We will contact you when it\'s ready for pickup. Thank you for choosing us!',
+      name: 'order_confirmed_msg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Track Your Order`
+  String get track_order_btn {
+    return Intl.message(
+      'Track Your Order',
+      name: 'track_order_btn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue Browsing`
+  String get continue_browsing {
+    return Intl.message(
+      'Continue Browsing',
+      name: 'continue_browsing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `In case you encounter any issues, you can contact`
+  String get order_problem {
+    return Intl.message(
+      'In case you encounter any issues, you can contact',
+      name: 'order_problem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Number`
+  String get order_no {
+    return Intl.message(
+      'Order Number',
+      name: 'order_no',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Estimated Arrival Time`
+  String get est {
+    return Intl.message(
+      'Estimated Arrival Time',
+      name: 'est',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel Order`
+  String get cancel_order {
+    return Intl.message(
+      'Cancel Order',
+      name: 'cancel_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to cancel this order?`
+  String get cancel_alert {
+    return Intl.message(
+      'Are you sure you want to cancel this order?',
+      name: 'cancel_alert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes, Cancel`
+  String get cancel_yes {
+    return Intl.message(
+      'Yes, Cancel',
+      name: 'cancel_yes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get close {
+    return Intl.message(
+      'Close',
+      name: 'close',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Track Order`
+  String get track_order {
+    return Intl.message(
+      'Track Order',
+      name: 'track_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Prepare Order`
+  String get prepare_order {
+    return Intl.message(
+      'Prepare Order',
+      name: 'prepare_order',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

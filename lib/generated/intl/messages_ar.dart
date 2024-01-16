@@ -36,6 +36,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "buyer": MessageLookupByLibrary.simpleMessage("مشتري"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "خطأ في ذاكرة التخزين المؤقت , حاول مرة أخرى لاحقًا"),
+        "cancel_alert": MessageLookupByLibrary.simpleMessage(
+            "هل أنت متأكد أنك تريد إلغاء هذا الطلب؟"),
+        "cancel_order": MessageLookupByLibrary.simpleMessage("الغاء الطلب"),
+        "cancel_yes": MessageLookupByLibrary.simpleMessage("نعم، إلغاء"),
         "categories": MessageLookupByLibrary.simpleMessage("الفئات"),
         "change_language": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
         "change_pass":
@@ -44,10 +48,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "قم بتغيير كلمة المرور الخاصة بك"),
         "check_your_mail": MessageLookupByLibrary.simpleMessage(
             "يرجى التحقق من بريدك الإلكتروني لتأمين حسابك"),
+        "close": MessageLookupByLibrary.simpleMessage("اغلاق"),
         "colors": MessageLookupByLibrary.simpleMessage("الألوان"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "تم العثور على تعارض , حاول مرة أخرى لاحقًا"),
         "contact_us": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
+        "continue_browsing":
+            MessageLookupByLibrary.simpleMessage("استمر في التصفح"),
         "cs": MessageLookupByLibrary.simpleMessage("دعم العملاء"),
         "custom_logo": MessageLookupByLibrary.simpleMessage("تطريز شعارات"),
         "custom_phrases": MessageLookupByLibrary.simpleMessage("تطريز عبارات"),
@@ -60,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("أدخل بريدك الإلكتروني"),
         "enter_pass_below": MessageLookupByLibrary.simpleMessage(
             "أدخل كلمة المرور الجديدة أدناه"),
+        "est": MessageLookupByLibrary.simpleMessage("وقت الوصول المتوقع"),
         "favorite": MessageLookupByLibrary.simpleMessage("المفضلة"),
         "finish": MessageLookupByLibrary.simpleMessage("انتهاء"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
@@ -97,6 +105,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboard_3": MessageLookupByLibrary.simpleMessage("تسوق عبر الإنترنت"),
         "onboard_3_des": MessageLookupByLibrary.simpleMessage(
             "اسرع في شراء ملابسك المطرزة والمميزة"),
+        "order_confirmed":
+            MessageLookupByLibrary.simpleMessage("تم تقديم طلبك!"),
+        "order_confirmed_msg": MessageLookupByLibrary.simpleMessage(
+            "د تلقينا طلبك ونحن مشغولون بإعداده لك. سنتصل بك عندما يكون جاهزًا للاستلام. شكرا لك لاختيارنا!"),
+        "order_no": MessageLookupByLibrary.simpleMessage("طلب رقم"),
+        "order_problem": MessageLookupByLibrary.simpleMessage(
+            "في حالة تواجهك لأي مشكلة يمكنك التواصل مع"),
         "pass": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "pass_change_success":
             MessageLookupByLibrary.simpleMessage("تم تغيير كلمة المرور بنجاح"),
@@ -104,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "popular": MessageLookupByLibrary.simpleMessage("الأكثر شيوعًا"),
+        "prepare_order": MessageLookupByLibrary.simpleMessage("تحضير الطلب"),
         "privacy_des_1": MessageLookupByLibrary.simpleMessage(
             "تصف سياسة الخصوصية الخاصة بنا كيفية احتفاظنا بمعلوماتك الشخصية ومعالجتها. ما نحتفظ به عنك، وكيف ولماذا نحصل على هذه المعلومات منك، وحقوقك، ومع من نشارك معلوماتك الشخصية، ومدة احتفاظنا بالمعلومات، وكيف نحافظ على أمان بياناتك."),
         "privacy_des_2": MessageLookupByLibrary.simpleMessage(
@@ -144,6 +160,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("سياسة الاستخدام والشروط"),
         "timeout_error": MessageLookupByLibrary.simpleMessage(
             "انتهت المهلة , حاول مرة أخرى لاحقًا"),
+        "track_order": MessageLookupByLibrary.simpleMessage("تتبع الطلب"),
+        "track_order_btn": MessageLookupByLibrary.simpleMessage("تتبع طلبك"),
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(
             "المستخدم غير مصرح له، جرب مرة أخرى في وقت لاحق"),
         "unknown_error": MessageLookupByLibrary.simpleMessage(

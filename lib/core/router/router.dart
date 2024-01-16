@@ -14,5 +14,10 @@ const String categoryDetailsPageRoute = '/categoryDetails';
 const String contactUsPageRoute = '/contactUs';
 const String notificationsPageRoute = '/notifications';
 const String settingsPageRoute = '/settings';
+const String myOrdersPageRoute = '/myOrders';
+const String orderConfirmationPageRoute = '/orderConfirmation';
+const String trackOrderPageRoute = '/trackOrder';
+const String subscriptionsPageRoute = '/subscriptions';
+const String editProfilePageRoute = '/editProfile';
 
 

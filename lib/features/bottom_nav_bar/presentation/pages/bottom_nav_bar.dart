@@ -1,12 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:marketc/features/main/cart/presentation/pages/cart_view.dart';
-import 'package:marketc/features/main/favorite/presentation/pages/favorite_view.dart';
-import 'package:marketc/features/main/home/presentation/pages/home_view.dart';
-import 'package:marketc/features/main/profile/presentation/pages/profile_view.dart';
 
+import '../../../main/favorite/presentation/pages/favorite_view.dart';
+import '../../../main/home/presentation/pages/home_view.dart';
+import '../../../main/profile/presentation/pages/profile_view.dart';
 import '../../../../core/utils/app_images.dart';
+import '../../../orders/cart/presentation/pages/cart_view.dart';
 
 
 class BottomNavBar extends StatefulWidget {

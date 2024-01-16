@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:marketc/features/main/edit_profile/presentation/pages/edit_profile_view.dart';
+import 'package:marketc/features/main/subscriptions/presentation/pages/subscriptions_view.dart';
+import 'package:marketc/features/orders/my_orders/presentation/pages/my_orders.dart';
+import 'package:marketc/features/orders/order_confirmation_view.dart';
+import 'package:marketc/features/orders/track_order/presentation/pages/track_order_view.dart';
 import 'package:marketc/features/profile/contact_us/presentation/pages/contact_us_view.dart';
 import 'package:marketc/features/profile/notifications/presentation/pages/notifications_view.dart';
 import 'package:marketc/features/profile/settings/presentation/pages/settings_view.dart';
@@ -88,6 +93,26 @@ class AppRouters {
       case settingsPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const SettingsView(),
+        );
+        case orderConfirmationPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const OrderConfirmationView(),
+        );
+        case trackOrderPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const TrackOrderView(),
+        );
+        case subscriptionsPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const SubscriptionsView(),
+        );
+        case myOrdersPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const MyOrdersView(),
+        );
+      case editProfilePageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const EditProfileView(),
         );
       default:
         return MaterialPageRoute(

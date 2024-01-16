@@ -37,6 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "buyer": MessageLookupByLibrary.simpleMessage("Buyer"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "cache error, try again later"),
+        "cancel_alert": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to cancel this order?"),
+        "cancel_order": MessageLookupByLibrary.simpleMessage("Cancel Order"),
+        "cancel_yes": MessageLookupByLibrary.simpleMessage("Yes, Cancel"),
         "categories": MessageLookupByLibrary.simpleMessage("Categories"),
         "change_language":
             MessageLookupByLibrary.simpleMessage("choose language"),
@@ -45,10 +49,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Change your password"),
         "check_your_mail": MessageLookupByLibrary.simpleMessage(
             "Please check your email to secure your account"),
+        "close": MessageLookupByLibrary.simpleMessage("Close"),
         "colors": MessageLookupByLibrary.simpleMessage("Colors"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "conflict found, try again later"),
         "contact_us": MessageLookupByLibrary.simpleMessage("Contact Us"),
+        "continue_browsing":
+            MessageLookupByLibrary.simpleMessage("Continue Browsing"),
         "cs": MessageLookupByLibrary.simpleMessage("Customer Support"),
         "custom_logo": MessageLookupByLibrary.simpleMessage("Embroidery logos"),
         "custom_phrases":
@@ -61,6 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_email": MessageLookupByLibrary.simpleMessage("Enter your email"),
         "enter_pass_below": MessageLookupByLibrary.simpleMessage(
             "Enter your new password below"),
+        "est": MessageLookupByLibrary.simpleMessage("Estimated Arrival Time"),
         "favorite": MessageLookupByLibrary.simpleMessage("favorite"),
         "finish": MessageLookupByLibrary.simpleMessage("Finish"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
@@ -99,6 +107,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboard_3": MessageLookupByLibrary.simpleMessage("Shop Online"),
         "onboard_3_des": MessageLookupByLibrary.simpleMessage(
             "Hurry to purchase your embroidered and distinctive clothing "),
+        "order_confirmed": MessageLookupByLibrary.simpleMessage(
+            "Your Order has been Confirmed!"),
+        "order_confirmed_msg": MessageLookupByLibrary.simpleMessage(
+            "We have received your order, and we are busy preparing it for you. We will contact you when it\'s ready for pickup. Thank you for choosing us!"),
+        "order_no": MessageLookupByLibrary.simpleMessage("Order Number"),
+        "order_problem": MessageLookupByLibrary.simpleMessage(
+            "In case you encounter any issues, you can contact"),
         "pass": MessageLookupByLibrary.simpleMessage("Password"),
         "pass_change_success": MessageLookupByLibrary.simpleMessage(
             "Password Changed Successfully"),
@@ -106,6 +121,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Password Confirmation"),
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
         "popular": MessageLookupByLibrary.simpleMessage("Most Popular"),
+        "prepare_order": MessageLookupByLibrary.simpleMessage("Prepare Order"),
         "privacy_des_1": MessageLookupByLibrary.simpleMessage(
             "Our privacy policy describes how we retain and process your personal information, what we keep about you, how and why we obtain this information from you, your rights, with whom we share your personal information, the duration of our information retention, and how we maintain the security of your data."),
         "privacy_des_2": MessageLookupByLibrary.simpleMessage(
@@ -145,6 +161,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
         "timeout_error":
             MessageLookupByLibrary.simpleMessage("time out, try again late"),
+        "track_order": MessageLookupByLibrary.simpleMessage("Track Order"),
+        "track_order_btn":
+            MessageLookupByLibrary.simpleMessage("Track Your Order"),
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(
             "user unauthorized, try again later"),
         "unknown_error": MessageLookupByLibrary.simpleMessage(

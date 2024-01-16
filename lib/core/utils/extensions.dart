@@ -117,7 +117,7 @@ enum DateFormatType {
 }
 
 extension DateExtensions on DateTime {
-  String format(DateFormatType formatType,
+  String stringFormat(DateFormatType formatType,
       {bool use24HoursFormat = false, bool showSeconds = false}) {
     switch (formatType) {
       case DateFormatType.shortDate:
@@ -184,7 +184,7 @@ enum TimeFormatType {
 }
 
 extension TimeOfDayExtensions on TimeOfDay {
-  String format(
+  String stringFormat(
       {bool use24HoursFormat = false,
       int addedHours = 0,
       int addedMinutes = 0,
