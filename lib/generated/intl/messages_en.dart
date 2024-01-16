@@ -22,6 +22,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "about_you":
+            MessageLookupByLibrary.simpleMessage("What We Hold About You"),
+        "about_you_des_1": MessageLookupByLibrary.simpleMessage(
+            "We collect and process personal information throughout our journey together to maintain the security of your account. Here\'s what we keep about you:"),
         "add_to_cart": MessageLookupByLibrary.simpleMessage("Add to Cart"),
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "all": MessageLookupByLibrary.simpleMessage("All"),
@@ -102,6 +106,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Password Confirmation"),
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
         "popular": MessageLookupByLibrary.simpleMessage("Most Popular"),
+        "privacy_des_1": MessageLookupByLibrary.simpleMessage(
+            "Our privacy policy describes how we retain and process your personal information, what we keep about you, how and why we obtain this information from you, your rights, with whom we share your personal information, the duration of our information retention, and how we maintain the security of your data."),
+        "privacy_des_2": MessageLookupByLibrary.simpleMessage(
+            "Based on family values, we see each customer as one of us and respect the protection of your privacy. We want you to understand how we use your personal information to provide you with the solutions and services you need. If you have any questions, reach out to us through our application, or call us at + (966) 798743333, or email us at ForYou@Support.com."),
+        "privacy_des_3": MessageLookupByLibrary.simpleMessage(
+            "If we change the way we process and use your personal information, we will notify you immediately via email and by updating our application."),
+        "privacy_policy":
+            MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "product_des": MessageLookupByLibrary.simpleMessage(
             "Short clothes with embroidered phrases, where you can choose clothes with suitable embroidery to add a touch of elegance to your identity."),
         "qty": MessageLookupByLibrary.simpleMessage("Quantity"),
@@ -146,7 +158,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "view_details": MessageLookupByLibrary.simpleMessage("View Details"),
         "wide_range": MessageLookupByLibrary.simpleMessage(
             "A wide range of distinctive logos & phrases that are uniquely and distinctively embroidered"),
-        "you_think":
-            MessageLookupByLibrary.simpleMessage("What are you thinking about?")
+        "you_think": MessageLookupByLibrary.simpleMessage(
+            "What are you thinking about?"),
+        "your_info_1": MessageLookupByLibrary.simpleMessage(
+            "• Information you provide through our application")
       };
 }

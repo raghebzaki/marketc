@@ -87,10 +87,24 @@ class CacheHelper {
     if (language != LanguageType.ARABIC.getValue()) {
       prefs.setString(
           AppConstants.prefsLangKey, LanguageType.ENGLISH.getValue());
+      debugPrint(AppConstants.prefsLangKey);
     } else {
       prefs.setString(
           AppConstants.prefsLangKey, LanguageType.ARABIC.getValue());
+      debugPrint(AppConstants.prefsLangKey);
     }
 
+  }
+
+  static Future<Locale> getLocal() async {
+    String currentLang = await getAppLang();
+
+    if (currentLang == LanguageType.ARABIC.getValue()) {
+      debugPrint(currentLang);
+      return ARABIC_LOCAL;
+    } else {
+      debugPrint(currentLang);
+      return ENGLISH_LOCAL;
+    }
   }
 }

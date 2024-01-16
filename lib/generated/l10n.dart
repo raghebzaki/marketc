@@ -929,6 +929,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Privacy Policy`
+  String get privacy_policy {
+    return Intl.message(
+      'Privacy Policy',
+      name: 'privacy_policy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Our privacy policy describes how we retain and process your personal information, what we keep about you, how and why we obtain this information from you, your rights, with whom we share your personal information, the duration of our information retention, and how we maintain the security of your data.`
+  String get privacy_des_1 {
+    return Intl.message(
+      'Our privacy policy describes how we retain and process your personal information, what we keep about you, how and why we obtain this information from you, your rights, with whom we share your personal information, the duration of our information retention, and how we maintain the security of your data.',
+      name: 'privacy_des_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Based on family values, we see each customer as one of us and respect the protection of your privacy. We want you to understand how we use your personal information to provide you with the solutions and services you need. If you have any questions, reach out to us through our application, or call us at + (966) 798743333, or email us at ForYou@Support.com.`
+  String get privacy_des_2 {
+    return Intl.message(
+      'Based on family values, we see each customer as one of us and respect the protection of your privacy. We want you to understand how we use your personal information to provide you with the solutions and services you need. If you have any questions, reach out to us through our application, or call us at + (966) 798743333, or email us at ForYou@Support.com.',
+      name: 'privacy_des_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If we change the way we process and use your personal information, we will notify you immediately via email and by updating our application.`
+  String get privacy_des_3 {
+    return Intl.message(
+      'If we change the way we process and use your personal information, we will notify you immediately via email and by updating our application.',
+      name: 'privacy_des_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What We Hold About You`
+  String get about_you {
+    return Intl.message(
+      'What We Hold About You',
+      name: 'about_you',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We collect and process personal information throughout our journey together to maintain the security of your account. Here's what we keep about you:`
+  String get about_you_des_1 {
+    return Intl.message(
+      'We collect and process personal information throughout our journey together to maintain the security of your account. Here\'s what we keep about you:',
+      name: 'about_you_des_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `• Information you provide through our application`
+  String get your_info_1 {
+    return Intl.message(
+      '• Information you provide through our application',
+      name: 'your_info_1',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

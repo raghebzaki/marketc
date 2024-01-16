@@ -27,7 +27,7 @@ extension MediaQueryValues on BuildContext {
 
   double get queryHeight => MediaQuery.of(this).size.height;
 
-  double get queryText => MediaQuery.of(this).textScaleFactor;
+  dynamic get queryText => MediaQuery.of(this).textScaler;
 }
 
 extension ContextExtensions on BuildContext {

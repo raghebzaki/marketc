@@ -22,6 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "about_you": MessageLookupByLibrary.simpleMessage("ما نحمله عنك"),
+        "about_you_des_1": MessageLookupByLibrary.simpleMessage(
+            "نقوم بجمع المعلومات الشخصية ومعالجتها طوال رحلتنا معًا للحفاظ على أمان حسابك وأمانه. إليك ما نحتفظ به عنك:"),
         "add_to_cart": MessageLookupByLibrary.simpleMessage("اضافة الى السلة"),
         "address": MessageLookupByLibrary.simpleMessage("العنوان"),
         "all": MessageLookupByLibrary.simpleMessage("الجميع"),
@@ -101,6 +104,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "popular": MessageLookupByLibrary.simpleMessage("الأكثر شيوعًا"),
+        "privacy_des_1": MessageLookupByLibrary.simpleMessage(
+            "تصف سياسة الخصوصية الخاصة بنا كيفية احتفاظنا بمعلوماتك الشخصية ومعالجتها. ما نحتفظ به عنك، وكيف ولماذا نحصل على هذه المعلومات منك، وحقوقك، ومع من نشارك معلوماتك الشخصية، ومدة احتفاظنا بالمعلومات، وكيف نحافظ على أمان بياناتك."),
+        "privacy_des_2": MessageLookupByLibrary.simpleMessage(
+            "بناءً على القيم العائلية، فإننا نرى كل عميل كواحد منا ونحترم حماية خصوصيتك. نريدك أن تفهم كيفية استخدامنا لمعلوماتك الشخصية لنقدم لك الحلول والخدمات التي تحتاجها. إذا كانت لديك أي أسئلة، تحدث إلينا من خلال تطبيقنا، أو عبر الهاتف عن طريق الاتصال بالرقم + (966) 798743333، أو مراسلتنا عبر البريد الإلكتروني على ForYou@Support.com"),
+        "privacy_des_3": MessageLookupByLibrary.simpleMessage(
+            "إذا قمنا بتغيير الطريقة التي نعالج بها معلوماتك الشخصية ونستخدمها، فسنخبرك بذلك على الفور عبر البريد الإلكتروني وعن طريق تحديث تطبيقنا."),
+        "privacy_policy":
+            MessageLookupByLibrary.simpleMessage("سياسة الاستخدام والشروط"),
         "product_des": MessageLookupByLibrary.simpleMessage(
             "ملابس قصيرة بتطريز عبارات حيث يمكنك اختيار الملابس ذات التطريز المناسب لك وجعله لمسة من الأناقة إلى هويتك"),
         "qty": MessageLookupByLibrary.simpleMessage("الكمية"),
@@ -145,6 +156,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "view_details": MessageLookupByLibrary.simpleMessage("عرض التفاصيل"),
         "wide_range": MessageLookupByLibrary.simpleMessage(
             "مجموعة واسعة من الشعارات والعبارات المميزة المطرزة بطريقة فريدة ومميزة"),
-        "you_think": MessageLookupByLibrary.simpleMessage("بما تفكر؟")
+        "you_think": MessageLookupByLibrary.simpleMessage("بما تفكر؟"),
+        "your_info_1": MessageLookupByLibrary.simpleMessage(
+            "• المعلومات التي تقدمها من خلال التطبيق لدينا")
       };
 }

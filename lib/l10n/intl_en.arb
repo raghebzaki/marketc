@@ -89,7 +89,14 @@
   "address": "Address",
   "message": "Message",
   "send": "send",
-  "change_language": "choose language"
-
+  "@_PrivacyPolicy": {},
+  "change_language": "choose language",
+  "privacy_policy": "Privacy Policy",
+  "privacy_des_1": "Our privacy policy describes how we retain and process your personal information, what we keep about you, how and why we obtain this information from you, your rights, with whom we share your personal information, the duration of our information retention, and how we maintain the security of your data.",
+  "privacy_des_2": "Based on family values, we see each customer as one of us and respect the protection of your privacy. We want you to understand how we use your personal information to provide you with the solutions and services you need. If you have any questions, reach out to us through our application, or call us at + (966) 798743333, or email us at ForYou@Support.com.",
+  "privacy_des_3": "If we change the way we process and use your personal information, we will notify you immediately via email and by updating our application.",
+  "about_you": "What We Hold About You",
+  "about_you_des_1": "We collect and process personal information throughout our journey together to maintain the security of your account. Here's what we keep about you:",
+  "your_info_1": "• Information you provide through our application"
 
 }
