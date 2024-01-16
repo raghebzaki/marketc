@@ -54,6 +54,7 @@ dependencies:
   material_design_icons_flutter: ^7.0.7296 # Material icons made by community
 
   # Ui Widgets
+  getwidget: ^4.0.0
   gap: ^3.0.1 # Better SizedBoxes
   cached_network_image: ^3.2.3 # Saving images for offline use
   pinput: ^3.0.1 # Adding verification code fields

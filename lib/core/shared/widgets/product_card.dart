@@ -33,7 +33,7 @@ class ProductCard extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
-              height: 130.h,
+              height: 120,
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage("https://via.placeholder.com/160x130"),
