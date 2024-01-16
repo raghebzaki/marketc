@@ -119,7 +119,7 @@ class CustomTextStyle {
 
   static TextStyle kFormFieldTextStyle = TextStyle(
     fontSize: Dimensions.f14,
-    fontWeight: FontWeight.w500, //? Regular
+    fontWeight: FontWeight.w400, //? Regular
     fontFamily: AppConstants.mainFontFamily,
     color: AppColors.black60,
   );

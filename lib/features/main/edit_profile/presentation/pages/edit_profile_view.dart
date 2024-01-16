@@ -50,7 +50,7 @@ class _EditProfileViewState extends State<EditProfileView> {
               ),
               Gap(5.h),
               CustomFormField(
-                label: 'محمود شاهين',
+                hint: 'محمود شاهين',
                 ctrl: nameCtrl,
           
               ),
@@ -61,8 +61,8 @@ class _EditProfileViewState extends State<EditProfileView> {
               ),
               Gap(5.h),
               CustomFormField(
-                label: 'ahmedd1203@gmail.com',
-                ctrl: nameCtrl,
+                hint: 'ahmedd1203@gmail.com',
+                ctrl: email,
           
               ),
               Gap(10.h),
@@ -72,11 +72,10 @@ class _EditProfileViewState extends State<EditProfileView> {
               ),
               Gap(5.h),
               CustomFormField(
-                label: '55555 55555 55555',
-                ctrl: nameCtrl,
-                isObscure: false,
-                isEnable: true,
-          
+                hint: '**** **** ****',
+                ctrl: password,
+                isObscure: true,
+
               ),
               Gap(10.h),
 

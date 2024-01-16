@@ -93,9 +93,9 @@ class CustomFormField extends StatelessWidget {
             ),
           ),
           labelStyle: const TextStyle(
-            color: AppColors.secondary,
+            color: AppColors.textColorSecondary,
           ),
-          hintStyle: CustomTextStyle.kFormFieldTextStyle
+          hintStyle: CustomTextStyle.kFormFieldTextStyle.copyWith(color: AppColors.textColorSecondary,)
       ),
     );
   }
