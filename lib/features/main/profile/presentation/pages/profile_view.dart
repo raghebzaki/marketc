@@ -52,6 +52,9 @@ class ProfileView extends StatelessWidget {
                   color: Colors.white,
                   padding:  EdgeInsets.all(16.0.sp),
                   child: ListTile(
+                    onTap: (){
+                      context.pushNamed(editProfilePageRoute);
+                    },
                     title:Opacity(
                       opacity: 0.90,
                       child: Text(
