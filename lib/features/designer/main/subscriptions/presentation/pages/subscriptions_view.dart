@@ -14,12 +14,12 @@ class SubscriptionsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: "الاشتراكات",
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(
+          padding: const EdgeInsets.all(
             Dimensions.p16,
           ),
           child: Column(

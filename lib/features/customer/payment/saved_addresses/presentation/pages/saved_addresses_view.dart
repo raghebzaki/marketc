@@ -9,6 +9,7 @@ import '../../../../../../core/router/router.dart';
 import '../../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/dimensions.dart';
+import '../../../../../../generated/l10n.dart';
 
 class SavedAddressesView extends StatefulWidget {
   const SavedAddressesView({super.key});
@@ -22,7 +23,7 @@ class _SavedAddressesViewState extends State<SavedAddressesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-      appBar: const CustomAppBar(title: "العناوين المحفوظة"),
+      appBar: CustomAppBar(title: S.of(context).saved_addresses),
       body: SafeArea(
         child: Stack(
           children: [
@@ -53,7 +54,7 @@ class _SavedAddressesViewState extends State<SavedAddressesView> {
               child: Container(
                 color: Colors.white,
                 child: CustomBtn(
-                  label: "اضافة عنوان جديد",
+                  label: S.of(context).add_new_address,
                   onPressed: () {
                     context.pushNamed(addNewAddressPageRoute);
                   },

@@ -168,7 +168,7 @@ class ProductCardDesigner extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  S.current.view_details,
+                  S.of(context).edit_product,
                   textAlign: TextAlign.center,
                   style: CustomTextStyle.kTextStyleF12.copyWith(
                     color: Colors.white,

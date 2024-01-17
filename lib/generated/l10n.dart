@@ -1339,6 +1339,196 @@ class S {
       args: [],
     );
   }
+
+  /// `Saved Addresses`
+  String get saved_addresses {
+    return Intl.message(
+      'Saved Addresses',
+      name: 'saved_addresses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add New Address`
+  String get add_new_address {
+    return Intl.message(
+      'Add New Address',
+      name: 'add_new_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No charges will be incurred until this order is reviewed in the next step.`
+  String get payment_alert {
+    return Intl.message(
+      'No charges will be incurred until this order is reviewed in the next step.',
+      name: 'payment_alert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Promo Code`
+  String get add_promo_code {
+    return Intl.message(
+      'Add Promo Code',
+      name: 'add_promo_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If you have a discount coupon, please add your\npromo code to benefit from the offer.`
+  String get add_promo_code_des {
+    return Intl.message(
+      'If you have a discount coupon, please add your\npromo code to benefit from the offer.',
+      name: 'add_promo_code_des',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get confirm {
+    return Intl.message(
+      'Confirm',
+      name: 'confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose Payment Method`
+  String get choose_payment_way {
+    return Intl.message(
+      'Choose Payment Method',
+      name: 'choose_payment_way',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cardholder Name`
+  String get card_holder_name {
+    return Intl.message(
+      'Cardholder Name',
+      name: 'card_holder_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Card Number`
+  String get card_no {
+    return Intl.message(
+      'Card Number',
+      name: 'card_no',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Security Code`
+  String get vcc {
+    return Intl.message(
+      'Security Code',
+      name: 'vcc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expiry Date`
+  String get card_date {
+    return Intl.message(
+      'Expiry Date',
+      name: 'card_date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Order`
+  String get confirm_order {
+    return Intl.message(
+      'Confirm Order',
+      name: 'confirm_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please confirm and submit your order`
+  String get confirm_order_msg {
+    return Intl.message(
+      'Please confirm and submit your order',
+      name: 'confirm_order_msg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phone_no {
+    return Intl.message(
+      'Phone Number',
+      name: 'phone_no',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get edit {
+    return Intl.message(
+      'Edit',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Summary`
+  String get order_summary {
+    return Intl.message(
+      'Order Summary',
+      name: 'order_summary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Product`
+  String get edit_product {
+    return Intl.message(
+      'Edit Product',
+      name: 'edit_product',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Products`
+  String get my_products {
+    return Intl.message(
+      'My Products',
+      name: 'my_products',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -2,7 +2,6 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:getwidget/components/checkbox/gf_checkbox.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:marketc/config/themes/app_text_styles.dart';
 import 'package:marketc/core/router/router.dart';
@@ -77,7 +76,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                   ),
                   Gap(10.h),
                   Padding(
-                    padding: EdgeInsets.all(
+                    padding: const EdgeInsets.all(
                       Dimensions.p16,
                     ),
                     child: Column(

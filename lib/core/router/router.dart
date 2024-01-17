@@ -24,6 +24,7 @@ const String paymentDetailsPageRoute = '/paymentDetails';
 const String savedAddressesPageRoute = '/savedAddresses';
 const String addNewAddressPageRoute = '/addNewAddress';
 const String paymentGateWayPageRoute = '/paymentGateWay';
+const String paymentSummaryPageRoute = '/paymentSummary';
 
 ///designer
 const String designerBottomNavBarPageRoute = '/designerBottomNavBar';

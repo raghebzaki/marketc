@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marketc/features/customer/payment/add_new_address/presentation/pages/add_new_address_view.dart';
 import 'package:marketc/features/customer/payment/payment_details/presentation/pages/payment_details_view.dart';
 import 'package:marketc/features/customer/payment/payment_gate_way/presentation/pages/payment_gate_way_view.dart';
+import 'package:marketc/features/customer/payment/payment_summary/presentation/pages/payment_summary_view.dart';
 import 'package:marketc/features/customer/payment/saved_addresses/presentation/pages/saved_addresses_view.dart';
 import 'package:marketc/features/designer/bottom_nav_bar_designer/presentation/pages/bottom_nav_bar_designer.dart';
 import 'package:marketc/features/designer/main/home/presentation/pages/designer_home_view.dart';
@@ -147,7 +148,12 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => const PaymentGateWayView(),
         );
-        /// designer
+      case paymentSummaryPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const PaymentSummaryView(),
+        );
+
+      /// designer
       case designerBottomNavBarPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const BottomNavBarDesigner(),

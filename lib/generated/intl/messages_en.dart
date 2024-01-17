@@ -26,6 +26,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("What We Hold About You"),
         "about_you_des_1": MessageLookupByLibrary.simpleMessage(
             "We collect and process personal information throughout our journey together to maintain the security of your account. Here\'s what we keep about you:"),
+        "add_new_address":
+            MessageLookupByLibrary.simpleMessage("Add New Address"),
+        "add_promo_code":
+            MessageLookupByLibrary.simpleMessage("Add Promo Code"),
+        "add_promo_code_des": MessageLookupByLibrary.simpleMessage(
+            "If you have a discount coupon, please add your\npromo code to benefit from the offer."),
         "add_to_cart": MessageLookupByLibrary.simpleMessage("Add to Cart"),
         "add_wrapping":
             MessageLookupByLibrary.simpleMessage("Add Wrapping to the Order"),
@@ -58,6 +64,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel_order": MessageLookupByLibrary.simpleMessage("Cancel Order"),
         "cancel_yes": MessageLookupByLibrary.simpleMessage("Yes, Cancel"),
         "cancelled": MessageLookupByLibrary.simpleMessage("Cancelled"),
+        "card_date": MessageLookupByLibrary.simpleMessage("Expiry Date"),
+        "card_holder_name":
+            MessageLookupByLibrary.simpleMessage("Cardholder Name"),
+        "card_no": MessageLookupByLibrary.simpleMessage("Card Number"),
         "cart": MessageLookupByLibrary.simpleMessage("Shopping Cart"),
         "categories": MessageLookupByLibrary.simpleMessage("Categories"),
         "change_language":
@@ -69,8 +79,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please check your email to secure your account"),
         "choose_address":
             MessageLookupByLibrary.simpleMessage("Choose from Saved Addresses"),
+        "choose_payment_way":
+            MessageLookupByLibrary.simpleMessage("Choose Payment Method"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "colors": MessageLookupByLibrary.simpleMessage("Colors"),
+        "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+        "confirm_order": MessageLookupByLibrary.simpleMessage("Confirm Order"),
+        "confirm_order_msg": MessageLookupByLibrary.simpleMessage(
+            "Please confirm and submit your order"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "conflict found, try again later"),
         "contact_us": MessageLookupByLibrary.simpleMessage("Contact Us"),
@@ -86,6 +102,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "do_not_have_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "done": MessageLookupByLibrary.simpleMessage("Completed"),
+        "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "edit_product": MessageLookupByLibrary.simpleMessage("Edit Product"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enter_email": MessageLookupByLibrary.simpleMessage("Enter your email"),
         "enter_pass_below": MessageLookupByLibrary.simpleMessage(
@@ -108,6 +126,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "message": MessageLookupByLibrary.simpleMessage("Message"),
         "more": MessageLookupByLibrary.simpleMessage("More..."),
         "my_orders": MessageLookupByLibrary.simpleMessage("My Orders"),
+        "my_products": MessageLookupByLibrary.simpleMessage("My Products"),
+        "name": MessageLookupByLibrary.simpleMessage("Name"),
         "new_releases": MessageLookupByLibrary.simpleMessage("Newly Released"),
         "new_updates": MessageLookupByLibrary.simpleMessage("New updates"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
@@ -138,13 +158,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "order_no": MessageLookupByLibrary.simpleMessage("Order Number"),
         "order_problem": MessageLookupByLibrary.simpleMessage(
             "In case you encounter any issues, you can contact"),
+        "order_summary": MessageLookupByLibrary.simpleMessage("Order Summary"),
         "pass": MessageLookupByLibrary.simpleMessage("Password"),
         "pass_change_success": MessageLookupByLibrary.simpleMessage(
             "Password Changed Successfully"),
         "pass_confirm":
             MessageLookupByLibrary.simpleMessage("Password Confirmation"),
         "payment": MessageLookupByLibrary.simpleMessage("Payment"),
+        "payment_alert": MessageLookupByLibrary.simpleMessage(
+            "No charges will be incurred until this order is reviewed in the next step."),
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
+        "phone_no": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "popular": MessageLookupByLibrary.simpleMessage("Most Popular"),
         "prepare_order": MessageLookupByLibrary.simpleMessage("Prepare Order"),
         "privacy_des_1": MessageLookupByLibrary.simpleMessage(
@@ -167,6 +191,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "resend_code": MessageLookupByLibrary.simpleMessage("Resend Code"),
         "sar": MessageLookupByLibrary.simpleMessage("SAR"),
         "saved_address": MessageLookupByLibrary.simpleMessage("Saved Address"),
+        "saved_addresses":
+            MessageLookupByLibrary.simpleMessage("Saved Addresses"),
         "seller": MessageLookupByLibrary.simpleMessage("Seller"),
         "send": MessageLookupByLibrary.simpleMessage("send"),
         "send_code": MessageLookupByLibrary.simpleMessage("Send Code"),
@@ -200,6 +226,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "unprocessable_content_error": MessageLookupByLibrary.simpleMessage(
             "unprocessable data, check it and try again"),
         "user_profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "vcc": MessageLookupByLibrary.simpleMessage("Security Code"),
         "verify_code": MessageLookupByLibrary.simpleMessage("Verify Code"),
         "verify_code_sent": MessageLookupByLibrary.simpleMessage(
             "Verification Code sent to your email"),

@@ -21,8 +21,8 @@ class _DesignerCategoriesViewState extends State<DesignerCategoriesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: AppColors.primary,
-      appBar:  const CustomAppBar(
-        title: 'my Products',
+      appBar:  CustomAppBar(
+        title: S.of(context).my_products,
       ),
       body: SafeArea(
         child: Padding(

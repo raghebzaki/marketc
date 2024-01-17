@@ -3,6 +3,7 @@ import 'package:marketc/core/shared/widgets/custom_app_bar.dart';
 import 'package:marketc/core/utils/app_colors.dart';
 
 import '../../../../../../core/shared/widgets/custom_button.dart';
+import '../../../../../../generated/l10n.dart';
 
 class AddNewAddressView extends StatefulWidget {
   const AddNewAddressView({super.key});
@@ -16,11 +17,11 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-      appBar: CustomAppBar(title: "اختيار عنوان"),
+      appBar: CustomAppBar(title: S.of(context).choose_address),
       body: SafeArea(
         child: Stack(
           children: [
-            SingleChildScrollView(
+            const SingleChildScrollView(
               child: Column(
                 children: [],
               ),
@@ -30,7 +31,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
               child: Container(
                 color: Colors.white,
                 child: CustomBtn(
-                  label: "اضافة عنوان جديد",
+                  label: S.current.add_new_address,
                   onPressed: () {},
                 ),
               ),
