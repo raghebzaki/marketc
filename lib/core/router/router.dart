@@ -25,4 +25,9 @@ const String savedAddressesPageRoute = '/savedAddresses';
 const String addNewAddressPageRoute = '/addNewAddress';
 const String paymentGateWayPageRoute = '/paymentGateWay';
 
+///designer
+const String designerBottomNavBarPageRoute = '/designerBottomNavBar';
+const String designerHomePageRoute = '/designerHome';
+const String designerProfilePageRoute = '/designerProfile';
+const String designerCategoryPageRoute = '/designerCategory';
 

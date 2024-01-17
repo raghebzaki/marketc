@@ -3,6 +3,9 @@ import 'package:marketc/features/customer/payment/add_new_address/presentation/p
 import 'package:marketc/features/customer/payment/payment_details/presentation/pages/payment_details_view.dart';
 import 'package:marketc/features/customer/payment/payment_gate_way/presentation/pages/payment_gate_way_view.dart';
 import 'package:marketc/features/customer/payment/saved_addresses/presentation/pages/saved_addresses_view.dart';
+import 'package:marketc/features/designer/bottom_nav_bar_designer/presentation/pages/bottom_nav_bar_designer.dart';
+import 'package:marketc/features/designer/main/home/presentation/pages/designer_home_view.dart';
+import 'package:marketc/features/designer/main/profile/presentation/pages/designer_profile_view.dart';
 
 import '../../features/auth/change_pass/presentation/pages/change_pass_confirmation.dart';
 import '../../features/auth/change_pass/presentation/pages/change_pass_view.dart';
@@ -15,6 +18,7 @@ import '../../features/customer/bottom_nav_bar/presentation/pages/bottom_nav_bar
 import '../../features/customer/main/category_details/presentation/pages/category_details_view.dart';
 import '../../features/customer/main/home/presentation/pages/home_view.dart';
 import '../../features/customer/main/product_details/presentation/pages/product_details_view.dart';
+import '../../features/designer/main/categories/presentation/pages/designer_view.dart';
 import '../../features/designer/main/subscriptions/presentation/pages/subscriptions_view.dart';
 import '../../features/on_boarding/presentation/pages/on_boarding_view.dart';
 import '../../features/customer/orders/my_orders/presentation/pages/my_orders.dart';
@@ -142,6 +146,23 @@ class AppRouters {
       case paymentGateWayPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const PaymentGateWayView(),
+        );
+        /// designer
+      case designerBottomNavBarPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const BottomNavBarDesigner(),
+        );
+      case designerHomePageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const DesignerHomeView(),
+        );
+      case designerProfilePageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const DesignerProfileView(),
+        );
+      case designerCategoryPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const DesignerCategoriesView(),
         );
       default:
         return MaterialPageRoute(

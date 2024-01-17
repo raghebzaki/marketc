@@ -101,7 +101,7 @@ class _LoginViewState extends State<LoginView> {
                       return CustomBtn(
                         label: S.current.login,
                         onPressed: () {
-                          context.pushNamed(bottomNavBarPageRoute);
+                          context.pushNamed(designerBottomNavBarPageRoute);
 
                         },
                         fgColor: Colors.white,
