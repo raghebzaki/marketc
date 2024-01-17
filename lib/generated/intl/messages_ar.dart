@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "all": MessageLookupByLibrary.simpleMessage("الجميع"),
         "allow_notifications":
             MessageLookupByLibrary.simpleMessage("السماح بالاشعارات"),
+        "arriving_to": MessageLookupByLibrary.simpleMessage("قيد الوصول الى"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "طلب غير صالح. حاول مرة أخرى لاحقًا"),
         "browse_now": MessageLookupByLibrary.simpleMessage("تصفح الآن"),
@@ -40,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "هل أنت متأكد أنك تريد إلغاء هذا الطلب؟"),
         "cancel_order": MessageLookupByLibrary.simpleMessage("الغاء الطلب"),
         "cancel_yes": MessageLookupByLibrary.simpleMessage("نعم، إلغاء"),
+        "cancelled": MessageLookupByLibrary.simpleMessage("الملغية"),
+        "cart": MessageLookupByLibrary.simpleMessage("سلة المشتريات"),
         "categories": MessageLookupByLibrary.simpleMessage("الفئات"),
         "change_language": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
         "change_pass":
@@ -60,14 +63,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "custom_phrases": MessageLookupByLibrary.simpleMessage("تطريز عبارات"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "delivery_fee": MessageLookupByLibrary.simpleMessage("تكلفة التوصيل"),
         "do_not_have_account":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+        "done": MessageLookupByLibrary.simpleMessage("المنفذة"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "enter_email":
             MessageLookupByLibrary.simpleMessage("أدخل بريدك الإلكتروني"),
         "enter_pass_below": MessageLookupByLibrary.simpleMessage(
             "أدخل كلمة المرور الجديدة أدناه"),
         "est": MessageLookupByLibrary.simpleMessage("وقت الوصول المتوقع"),
+        "executed_request":
+            MessageLookupByLibrary.simpleMessage("الطلب المنفذ"),
         "favorite": MessageLookupByLibrary.simpleMessage("المفضلة"),
         "finish": MessageLookupByLibrary.simpleMessage("انتهاء"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
@@ -128,6 +135,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "إذا قمنا بتغيير الطريقة التي نعالج بها معلوماتك الشخصية ونستخدمها، فسنخبرك بذلك على الفور عبر البريد الإلكتروني وعن طريق تحديث تطبيقنا."),
         "privacy_policy":
             MessageLookupByLibrary.simpleMessage("سياسة الاستخدام والشروط"),
+        "processing": MessageLookupByLibrary.simpleMessage("قيد التنفيذ"),
         "product_des": MessageLookupByLibrary.simpleMessage(
             "ملابس قصيرة بتطريز عبارات حيث يمكنك اختيار الملابس ذات التطريز المناسب لك وجعله لمسة من الأناقة إلى هويتك"),
         "qty": MessageLookupByLibrary.simpleMessage("الكمية"),
@@ -155,11 +163,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "soon": MessageLookupByLibrary.simpleMessage("قريباً"),
         "status_of_orders":
             MessageLookupByLibrary.simpleMessage("حالة الطلبات"),
+        "subtotal": MessageLookupByLibrary.simpleMessage("المجموع الفرعي"),
         "success": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
         "terms_and_conditions":
             MessageLookupByLibrary.simpleMessage("سياسة الاستخدام والشروط"),
         "timeout_error": MessageLookupByLibrary.simpleMessage(
             "انتهت المهلة , حاول مرة أخرى لاحقًا"),
+        "total": MessageLookupByLibrary.simpleMessage("المجموع"),
         "track_order": MessageLookupByLibrary.simpleMessage("تتبع الطلب"),
         "track_order_btn": MessageLookupByLibrary.simpleMessage("تتبع طلبك"),
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(

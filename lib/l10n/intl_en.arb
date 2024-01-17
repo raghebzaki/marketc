@@ -112,5 +112,17 @@
   "cancel_yes": "Yes, Cancel",
   "close": "Close",
   "track_order": "Track Order",
-  "prepare_order": "Prepare Order"
+  "prepare_order": "Prepare Order",
+  "@_MyOrders": {},
+  "total": "Total",
+  "done": "Completed",
+  "processing": "Processing",
+  "cancelled": "Cancelled",
+  "@_OrderDetails": {},
+  "arriving_to": "Arriving To",
+  "executed_request": "Executed Request",
+  "subtotal": "Subtotal",
+  "delivery_fee": "Delivery Fee",
+  "@_Cart": {},
+  "cart": "Shopping Cart"
 }

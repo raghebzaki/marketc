@@ -1,12 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:marketc/features/main/edit_profile/presentation/pages/edit_profile_view.dart';
-import 'package:marketc/features/main/subscriptions/presentation/pages/subscriptions_view.dart';
-import 'package:marketc/features/orders/my_orders/presentation/pages/my_orders.dart';
-import 'package:marketc/features/orders/order_confirmation_view.dart';
-import 'package:marketc/features/orders/track_order/presentation/pages/track_order_view.dart';
-import 'package:marketc/features/profile/contact_us/presentation/pages/contact_us_view.dart';
-import 'package:marketc/features/profile/notifications/presentation/pages/notifications_view.dart';
-import 'package:marketc/features/profile/settings/presentation/pages/settings_view.dart';
 
 import '../../features/auth/change_pass/presentation/pages/change_pass_confirmation.dart';
 import '../../features/auth/change_pass/presentation/pages/change_pass_view.dart';
@@ -19,7 +11,16 @@ import '../../features/bottom_nav_bar/presentation/pages/bottom_nav_bar.dart';
 import '../../features/main/category_details/presentation/pages/category_details_view.dart';
 import '../../features/main/home/presentation/pages/home_view.dart';
 import '../../features/main/product_details/presentation/pages/product_details_view.dart';
+import '../../features/main/subscriptions/presentation/pages/subscriptions_view.dart';
 import '../../features/on_boarding/presentation/pages/on_boarding_view.dart';
+import '../../features/orders/my_orders/presentation/pages/my_orders.dart';
+import '../../features/orders/order_confirmation_view.dart';
+import '../../features/orders/order_details/presentation/pages/order_details_view.dart';
+import '../../features/orders/track_order/presentation/pages/track_order_view.dart';
+import '../../features/profile/contact_us/presentation/pages/contact_us_view.dart';
+import '../../features/profile/edit_profile/presentation/pages/edit_profile_view.dart';
+import '../../features/profile/notifications/presentation/pages/notifications_view.dart';
+import '../../features/profile/settings/presentation/pages/settings_view.dart';
 import '../../main_view.dart';
 import '../shared/arguments.dart';
 import 'router.dart';
@@ -113,6 +114,10 @@ class AppRouters {
       case editProfilePageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const EditProfileView(),
+        );
+        case orderDetailsPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const OrderDetailsView(),
         );
       default:
         return MaterialPageRoute(

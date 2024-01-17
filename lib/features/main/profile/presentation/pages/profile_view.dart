@@ -71,6 +71,9 @@ class ProfileView extends StatelessWidget {
 
                   padding:  EdgeInsets.all(16.0.sp),
                   child: ListTile(
+                    onTap: () {
+                      context.pushNamed(myOrdersPageRoute);
+                    },
                     title:Opacity(
                       opacity: 0.90,
                       child: Text(

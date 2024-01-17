@@ -19,5 +19,6 @@ const String orderConfirmationPageRoute = '/orderConfirmation';
 const String trackOrderPageRoute = '/trackOrder';
 const String subscriptionsPageRoute = '/subscriptions';
 const String editProfilePageRoute = '/editProfile';
+const String orderDetailsPageRoute = '/orderDetails';
 
 

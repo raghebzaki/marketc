@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "all": MessageLookupByLibrary.simpleMessage("All"),
         "allow_notifications":
             MessageLookupByLibrary.simpleMessage("Allow notifications"),
+        "arriving_to": MessageLookupByLibrary.simpleMessage("Arriving To"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "bad request. try again later"),
         "browse_now": MessageLookupByLibrary.simpleMessage("Browse Now"),
@@ -41,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Are you sure you want to cancel this order?"),
         "cancel_order": MessageLookupByLibrary.simpleMessage("Cancel Order"),
         "cancel_yes": MessageLookupByLibrary.simpleMessage("Yes, Cancel"),
+        "cancelled": MessageLookupByLibrary.simpleMessage("Cancelled"),
+        "cart": MessageLookupByLibrary.simpleMessage("Shopping Cart"),
         "categories": MessageLookupByLibrary.simpleMessage("Categories"),
         "change_language":
             MessageLookupByLibrary.simpleMessage("choose language"),
@@ -62,13 +65,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Custom Phrases Embroidery"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
+        "delivery_fee": MessageLookupByLibrary.simpleMessage("Delivery Fee"),
         "do_not_have_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "done": MessageLookupByLibrary.simpleMessage("Completed"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enter_email": MessageLookupByLibrary.simpleMessage("Enter your email"),
         "enter_pass_below": MessageLookupByLibrary.simpleMessage(
             "Enter your new password below"),
         "est": MessageLookupByLibrary.simpleMessage("Estimated Arrival Time"),
+        "executed_request":
+            MessageLookupByLibrary.simpleMessage("Executed Request"),
         "favorite": MessageLookupByLibrary.simpleMessage("favorite"),
         "finish": MessageLookupByLibrary.simpleMessage("Finish"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
@@ -130,6 +137,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "If we change the way we process and use your personal information, we will notify you immediately via email and by updating our application."),
         "privacy_policy":
             MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+        "processing": MessageLookupByLibrary.simpleMessage("Processing"),
         "product_des": MessageLookupByLibrary.simpleMessage(
             "Short clothes with embroidered phrases, where you can choose clothes with suitable embroidery to add a touch of elegance to your identity."),
         "qty": MessageLookupByLibrary.simpleMessage("Quantity"),
@@ -156,11 +164,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "soon": MessageLookupByLibrary.simpleMessage("Soon"),
         "status_of_orders":
             MessageLookupByLibrary.simpleMessage("Status of orders"),
+        "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
         "terms_and_conditions":
             MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
         "timeout_error":
             MessageLookupByLibrary.simpleMessage("time out, try again late"),
+        "total": MessageLookupByLibrary.simpleMessage("Total"),
         "track_order": MessageLookupByLibrary.simpleMessage("Track Order"),
         "track_order_btn":
             MessageLookupByLibrary.simpleMessage("Track Your Order"),

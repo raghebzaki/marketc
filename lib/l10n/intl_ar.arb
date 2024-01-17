@@ -110,5 +110,17 @@
   "cancel_yes": "نعم، إلغاء",
   "close": "اغلاق",
   "track_order": "تتبع الطلب",
-  "prepare_order": "تحضير الطلب"
+  "prepare_order": "تحضير الطلب",
+  "@_MyOrders": {},
+  "total": "المجموع",
+  "done": "المنفذة",
+  "processing": "قيد التنفيذ",
+  "cancelled": "الملغية",
+  "@_OrderDetails": {},
+  "arriving_to": "قيد الوصول الى",
+  "executed_request": "الطلب المنفذ",
+  "subtotal": "المجموع الفرعي",
+  "delivery_fee": "تكلفة التوصيل",
+  "@_Cart": {},
+  "cart": "سلة المشتريات"
 }

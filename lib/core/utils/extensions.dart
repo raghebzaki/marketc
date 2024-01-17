@@ -121,7 +121,7 @@ extension DateExtensions on DateTime {
       {bool use24HoursFormat = false, bool showSeconds = false}) {
     switch (formatType) {
       case DateFormatType.shortDate:
-        return DateFormat('MM/dd/yyyy').format(this);
+        return DateFormat('dd/MM/yyyy').format(this);
       case DateFormatType.shortDateTime:
         return DateFormat(use24HoursFormat
                 ? 'MM/dd/yyyy HH:mm${showSeconds ? ':ss' : ''}'

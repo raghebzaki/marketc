@@ -31,6 +31,9 @@ class AppImages {
   static String category2Img = "$imagePath/category2.png";
   static String category3Img = "$imagePath/category3.png";
   static String bellImg = "$imagePath/bell.png";
+  static String mapPointerImg = "$imagePath/pointer.png";
+  static String personImg = "$imagePath/person.png";
+  static String phoneImg = "$imagePath/phone.png";
 
   //? SVG Paths
   static String loginSvg = "$svgPath/login.svg";
