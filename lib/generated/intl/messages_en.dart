@@ -27,15 +27,30 @@ class MessageLookup extends MessageLookupByLibrary {
         "about_you_des_1": MessageLookupByLibrary.simpleMessage(
             "We collect and process personal information throughout our journey together to maintain the security of your account. Here\'s what we keep about you:"),
         "add_to_cart": MessageLookupByLibrary.simpleMessage("Add to Cart"),
+        "add_wrapping":
+            MessageLookupByLibrary.simpleMessage("Add Wrapping to the Order"),
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "all": MessageLookupByLibrary.simpleMessage("All"),
         "allow_notifications":
             MessageLookupByLibrary.simpleMessage("Allow notifications"),
         "arriving_to": MessageLookupByLibrary.simpleMessage("Arriving To"),
+        "ask_about_address": MessageLookupByLibrary.simpleMessage(
+            "Ask the Recipient About the Delivery Address"),
+        "ask_about_address_des": MessageLookupByLibrary.simpleMessage(
+            "We will contact the recipient to obtain the address. Delivery time may be affected if we are unable to reach them."),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "bad request. try again later"),
         "browse_now": MessageLookupByLibrary.simpleMessage("Browse Now"),
         "buyer": MessageLookupByLibrary.simpleMessage("Buyer"),
+        "buyer_address":
+            MessageLookupByLibrary.simpleMessage("Buyer\'s Address"),
+        "buyer_full_address":
+            MessageLookupByLibrary.simpleMessage("Buyer\'s Full Address"),
+        "buyer_full_name":
+            MessageLookupByLibrary.simpleMessage("Buyer\'s Full Name"),
+        "buyer_name": MessageLookupByLibrary.simpleMessage("Buyer\'s Name"),
+        "buyer_phone":
+            MessageLookupByLibrary.simpleMessage("Buyer\'s Phone Number"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "cache error, try again later"),
         "cancel_alert": MessageLookupByLibrary.simpleMessage(
@@ -52,6 +67,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Change your password"),
         "check_your_mail": MessageLookupByLibrary.simpleMessage(
             "Please check your email to secure your account"),
+        "choose_address":
+            MessageLookupByLibrary.simpleMessage("Choose from Saved Addresses"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "colors": MessageLookupByLibrary.simpleMessage("Colors"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
@@ -126,6 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Password Changed Successfully"),
         "pass_confirm":
             MessageLookupByLibrary.simpleMessage("Password Confirmation"),
+        "payment": MessageLookupByLibrary.simpleMessage("Payment"),
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
         "popular": MessageLookupByLibrary.simpleMessage("Most Popular"),
         "prepare_order": MessageLookupByLibrary.simpleMessage("Prepare Order"),
@@ -140,6 +158,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "processing": MessageLookupByLibrary.simpleMessage("Processing"),
         "product_des": MessageLookupByLibrary.simpleMessage(
             "Short clothes with embroidered phrases, where you can choose clothes with suitable embroidery to add a touch of elegance to your identity."),
+        "progress": MessageLookupByLibrary.simpleMessage("Continue"),
         "qty": MessageLookupByLibrary.simpleMessage("Quantity"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "register_now": MessageLookupByLibrary.simpleMessage("Register Now"),
@@ -187,6 +206,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "view_details": MessageLookupByLibrary.simpleMessage("View Details"),
         "wide_range": MessageLookupByLibrary.simpleMessage(
             "A wide range of distinctive logos & phrases that are uniquely and distinctively embroidered"),
+        "wrap_gift": MessageLookupByLibrary.simpleMessage("Gift Wrapping"),
         "you_think": MessageLookupByLibrary.simpleMessage(
             "What are you thinking about?"),
         "your_info_1": MessageLookupByLibrary.simpleMessage(

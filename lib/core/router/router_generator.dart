@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:marketc/features/customer/payment/add_new_address/presentation/pages/add_new_address_view.dart';
+import 'package:marketc/features/customer/payment/payment_details/presentation/pages/payment_details_view.dart';
+import 'package:marketc/features/customer/payment/payment_gate_way/presentation/pages/payment_gate_way_view.dart';
+import 'package:marketc/features/customer/payment/saved_addresses/presentation/pages/saved_addresses_view.dart';
 
 import '../../features/auth/change_pass/presentation/pages/change_pass_confirmation.dart';
 import '../../features/auth/change_pass/presentation/pages/change_pass_view.dart';
@@ -32,11 +36,12 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => const MainView(),
         );
-        // Auth
       case onBoardingPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const OnBoardingView(),
         );
+
+      /// Auth
       case loginPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const LoginView(),
@@ -65,6 +70,8 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => const ChangePassConfirmationView(),
         );
+
+      /// Main
       case bottomNavBarPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const BottomNavBar(),
@@ -73,16 +80,16 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => const HomeView(),
         );
-      case productDetailsPageRoute:
-        return MaterialPageRoute(
-          builder: (BuildContext context) => const ProductDetailsView(),
-        );
       case categoryDetailsPageRoute:
         final args = settings.arguments as CategoryDetailsArgs;
         return MaterialPageRoute(
           builder: (BuildContext context) => CategoryDetailsView(
             id: args.id,
           ),
+        );
+      case productDetailsPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const ProductDetailsView(),
         );
       case contactUsPageRoute:
         return MaterialPageRoute(
@@ -96,19 +103,19 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => const SettingsView(),
         );
-        case orderConfirmationPageRoute:
+      case orderConfirmationPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const OrderConfirmationView(),
         );
-        case trackOrderPageRoute:
+      case trackOrderPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const TrackOrderView(),
         );
-        case subscriptionsPageRoute:
+      case subscriptionsPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const SubscriptionsView(),
         );
-        case myOrdersPageRoute:
+      case myOrdersPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const MyOrdersView(),
         );
@@ -116,9 +123,25 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => const EditProfileView(),
         );
-        case orderDetailsPageRoute:
+      case orderDetailsPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const OrderDetailsView(),
+        );
+      case paymentDetailsPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const PaymentDetailsView(),
+        );
+      case savedAddressesPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const SavedAddressesView(),
+        );
+      case addNewAddressPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const AddNewAddressView(),
+        );
+      case paymentGateWayPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const PaymentGateWayView(),
         );
       default:
         return MaterialPageRoute(

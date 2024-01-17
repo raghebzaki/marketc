@@ -1219,6 +1219,126 @@ class S {
       args: [],
     );
   }
+
+  /// `Payment`
+  String get payment {
+    return Intl.message(
+      'Payment',
+      name: 'payment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ask the Recipient About the Delivery Address`
+  String get ask_about_address {
+    return Intl.message(
+      'Ask the Recipient About the Delivery Address',
+      name: 'ask_about_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We will contact the recipient to obtain the address. Delivery time may be affected if we are unable to reach them.`
+  String get ask_about_address_des {
+    return Intl.message(
+      'We will contact the recipient to obtain the address. Delivery time may be affected if we are unable to reach them.',
+      name: 'ask_about_address_des',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gift Wrapping`
+  String get wrap_gift {
+    return Intl.message(
+      'Gift Wrapping',
+      name: 'wrap_gift',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Wrapping to the Order`
+  String get add_wrapping {
+    return Intl.message(
+      'Add Wrapping to the Order',
+      name: 'add_wrapping',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Buyer's Name`
+  String get buyer_name {
+    return Intl.message(
+      'Buyer\'s Name',
+      name: 'buyer_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Buyer's Full Name`
+  String get buyer_full_name {
+    return Intl.message(
+      'Buyer\'s Full Name',
+      name: 'buyer_full_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Buyer's Phone Number`
+  String get buyer_phone {
+    return Intl.message(
+      'Buyer\'s Phone Number',
+      name: 'buyer_phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Buyer's Address`
+  String get buyer_address {
+    return Intl.message(
+      'Buyer\'s Address',
+      name: 'buyer_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Buyer's Full Address`
+  String get buyer_full_address {
+    return Intl.message(
+      'Buyer\'s Full Address',
+      name: 'buyer_full_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose from Saved Addresses`
+  String get choose_address {
+    return Intl.message(
+      'Choose from Saved Addresses',
+      name: 'choose_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get progress {
+    return Intl.message(
+      'Continue',
+      name: 'progress',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

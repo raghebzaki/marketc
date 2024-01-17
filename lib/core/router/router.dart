@@ -20,5 +20,9 @@ const String trackOrderPageRoute = '/trackOrder';
 const String subscriptionsPageRoute = '/subscriptions';
 const String editProfilePageRoute = '/editProfile';
 const String orderDetailsPageRoute = '/orderDetails';
+const String paymentDetailsPageRoute = '/paymentDetails';
+const String savedAddressesPageRoute = '/savedAddresses';
+const String addNewAddressPageRoute = '/addNewAddress';
+const String paymentGateWayPageRoute = '/paymentGateWay';
 
 

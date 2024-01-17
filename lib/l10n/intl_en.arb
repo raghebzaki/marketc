@@ -124,5 +124,18 @@
   "subtotal": "Subtotal",
   "delivery_fee": "Delivery Fee",
   "@_Cart": {},
-  "cart": "Shopping Cart"
+  "cart": "Shopping Cart",
+  "@_PaymentDetails": {},
+  "payment": "Payment",
+  "ask_about_address": "Ask the Recipient About the Delivery Address",
+  "ask_about_address_des": "We will contact the recipient to obtain the address. Delivery time may be affected if we are unable to reach them.",
+  "wrap_gift": "Gift Wrapping",
+  "add_wrapping": "Add Wrapping to the Order",
+  "buyer_name": "Buyer's Name",
+  "buyer_full_name": "Buyer's Full Name",
+  "buyer_phone": "Buyer's Phone Number",
+  "buyer_address": "Buyer's Address",
+  "buyer_full_address": "Buyer's Full Address",
+  "choose_address": "Choose from Saved Addresses",
+  "progress": "Continue"
 }

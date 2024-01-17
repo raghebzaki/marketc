@@ -26,15 +26,28 @@ class MessageLookup extends MessageLookupByLibrary {
         "about_you_des_1": MessageLookupByLibrary.simpleMessage(
             "نقوم بجمع المعلومات الشخصية ومعالجتها طوال رحلتنا معًا للحفاظ على أمان حسابك وأمانه. إليك ما نحتفظ به عنك:"),
         "add_to_cart": MessageLookupByLibrary.simpleMessage("اضافة الى السلة"),
+        "add_wrapping":
+            MessageLookupByLibrary.simpleMessage("اضافة تغليف للطلبية"),
         "address": MessageLookupByLibrary.simpleMessage("العنوان"),
         "all": MessageLookupByLibrary.simpleMessage("الجميع"),
         "allow_notifications":
             MessageLookupByLibrary.simpleMessage("السماح بالاشعارات"),
         "arriving_to": MessageLookupByLibrary.simpleMessage("قيد الوصول الى"),
+        "ask_about_address": MessageLookupByLibrary.simpleMessage(
+            "اسأل المستلم عن عنوان التسليم"),
+        "ask_about_address_des": MessageLookupByLibrary.simpleMessage(
+            "سنتصل بالمستلم للحصول على العنوان. قد يتأثر وقت التسليم في حالة عدم تمكننا من الاتصال بهم."),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "طلب غير صالح. حاول مرة أخرى لاحقًا"),
         "browse_now": MessageLookupByLibrary.simpleMessage("تصفح الآن"),
         "buyer": MessageLookupByLibrary.simpleMessage("مشتري"),
+        "buyer_address": MessageLookupByLibrary.simpleMessage("عنوان المشتري"),
+        "buyer_full_address":
+            MessageLookupByLibrary.simpleMessage("عنوان المشتري بالكامل"),
+        "buyer_full_name":
+            MessageLookupByLibrary.simpleMessage("اسم المشتري كاملاً"),
+        "buyer_name": MessageLookupByLibrary.simpleMessage("اسم المشتري"),
+        "buyer_phone": MessageLookupByLibrary.simpleMessage("رقم جوال المشتري"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "خطأ في ذاكرة التخزين المؤقت , حاول مرة أخرى لاحقًا"),
         "cancel_alert": MessageLookupByLibrary.simpleMessage(
@@ -51,6 +64,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "قم بتغيير كلمة المرور الخاصة بك"),
         "check_your_mail": MessageLookupByLibrary.simpleMessage(
             "يرجى التحقق من بريدك الإلكتروني لتأمين حسابك"),
+        "choose_address":
+            MessageLookupByLibrary.simpleMessage("اختر من العناوين المحفوظة"),
         "close": MessageLookupByLibrary.simpleMessage("اغلاق"),
         "colors": MessageLookupByLibrary.simpleMessage("الألوان"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
@@ -124,6 +139,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تغيير كلمة المرور بنجاح"),
         "pass_confirm":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
+        "payment": MessageLookupByLibrary.simpleMessage("الدفع"),
         "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "popular": MessageLookupByLibrary.simpleMessage("الأكثر شيوعًا"),
         "prepare_order": MessageLookupByLibrary.simpleMessage("تحضير الطلب"),
@@ -138,6 +154,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "processing": MessageLookupByLibrary.simpleMessage("قيد التنفيذ"),
         "product_des": MessageLookupByLibrary.simpleMessage(
             "ملابس قصيرة بتطريز عبارات حيث يمكنك اختيار الملابس ذات التطريز المناسب لك وجعله لمسة من الأناقة إلى هويتك"),
+        "progress": MessageLookupByLibrary.simpleMessage("الاستمرار"),
         "qty": MessageLookupByLibrary.simpleMessage("الكمية"),
         "register": MessageLookupByLibrary.simpleMessage("التسجيل"),
         "register_now": MessageLookupByLibrary.simpleMessage("سجل الآن"),
@@ -184,6 +201,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "view_details": MessageLookupByLibrary.simpleMessage("عرض التفاصيل"),
         "wide_range": MessageLookupByLibrary.simpleMessage(
             "مجموعة واسعة من الشعارات والعبارات المميزة المطرزة بطريقة فريدة ومميزة"),
+        "wrap_gift": MessageLookupByLibrary.simpleMessage("تغليف هدايا"),
         "you_think": MessageLookupByLibrary.simpleMessage("بما تفكر؟"),
         "your_info_1": MessageLookupByLibrary.simpleMessage(
             "• المعلومات التي تقدمها من خلال التطبيق لدينا")
