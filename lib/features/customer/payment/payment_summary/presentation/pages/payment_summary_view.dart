@@ -59,13 +59,13 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "معلومات المستلم",
+                                S.of(context).receiver_information,
                                 style: CustomTextStyle.kTextStyleF14,
                               ),
                               TextButton(
                                 onPressed: () {},
                                 child: Text(
-                                  "تعديل",
+                                  S.of(context).edit,
                                   style: CustomTextStyle.kTextStyleF14.copyWith(
                                     color: AppColors.lightBlue,
                                   ),
@@ -277,7 +277,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
               child: Container(
                 color: Colors.white,
                 child: CustomBtn(
-                  label: "تأكيد الدفع",
+                  label: S.of(context).confirm_payment,
                   onPressed: () {
                     context.pushNamed(orderConfirmationPageRoute);
                   },

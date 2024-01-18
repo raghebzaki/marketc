@@ -170,6 +170,11 @@
   "desgin_text": "تصفح أشهر التصاميم لدينا",
   "purchases": "عمليات الشراء",
   "number_of_buyers": "عدد المشترين",
-  "my_wallet": "محفظتي"
+  "my_wallet": "محفظتي",
+  "complete_payment": "استكمال الدفع",
+  "confirm_payment": "تأكيد الدفع",
+  "receiver_information": "معلومات المستلم",
+  "contact_message": "اكتب رسالتك هنا...",
+  "delete_account": "حذف الحساب"
 
 }

@@ -206,7 +206,7 @@ class _CartViewState extends State<CartView> {
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: CustomBtn(
-                  label: "استكمال الدفع",
+                  label: S.of(context).complete_payment,
                   onPressed: () {
                     context.pushNamed(paymentDetailsPageRoute);
                   },

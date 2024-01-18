@@ -6,6 +6,8 @@ import 'package:marketc/core/shared/widgets/custom_app_bar.dart';
 import 'package:marketc/core/shared/widgets/custom_form_field.dart';
 import 'package:marketc/core/utils/app_colors.dart';
 
+import '../../../../../../generated/l10n.dart';
+
 class EditProfileView extends StatefulWidget {
   const EditProfileView({super.key});
 
@@ -20,8 +22,8 @@ class _EditProfileViewState extends State<EditProfileView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-        title: 'المعلومات الشخصية',
+      appBar: CustomAppBar(
+        title: S.current.user_profile,
       ),
       backgroundColor: AppColors.primary,
       body: Padding(
@@ -45,7 +47,7 @@ class _EditProfileViewState extends State<EditProfileView> {
               ),
               Gap(20.h),
               Text(
-                'الاسم كامل',
+                S.current.full_name,
                 style: CustomTextStyle.kTextStyleF14.copyWith(color: AppColors.textColor),
               ),
               Gap(5.h),
@@ -56,7 +58,7 @@ class _EditProfileViewState extends State<EditProfileView> {
               ),
               Gap(10.h),
             Text(
-                'البريد الالكتروني',
+                S.current.email,
                 style: CustomTextStyle.kTextStyleF14.copyWith(color: AppColors.textColor),
               ),
               Gap(5.h),
@@ -67,7 +69,7 @@ class _EditProfileViewState extends State<EditProfileView> {
               ),
               Gap(10.h),
             Text(
-                'كلمة المرور',
+              S.current.pass,
                 style: CustomTextStyle.kTextStyleF14.copyWith(color: AppColors.textColor),
               ),
               Gap(5.h),
@@ -84,7 +86,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                   Icon(Icons.delete_outlined,color: Colors.red[300],size: 24.sp,),
                   Gap(10.w),
                   Text(
-                    'حذف الحساب',
+                    S.of(context).delete_account,
                     style: CustomTextStyle.kTextStyleF14.copyWith(color:Colors.red[300]),
                   ),
                 ],

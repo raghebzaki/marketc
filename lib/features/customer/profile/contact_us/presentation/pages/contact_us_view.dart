@@ -107,7 +107,7 @@ class _ContactUsViewState extends State<ContactUsView> {
                 maxLines: null,
                 minLines: 5,
                 decoration: InputDecoration(
-                  hintText: "اكتب رسالتك هنا...",
+                  hintText: S.of(context).contact_message,
                   isDense: true,
                   counter: const Offstage(),
                   contentPadding: EdgeInsets.symmetric(

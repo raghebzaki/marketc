@@ -87,12 +87,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "code": MessageLookupByLibrary.simpleMessage("code"),
         "colors": MessageLookupByLibrary.simpleMessage("Colors"),
+        "complete_payment":
+            MessageLookupByLibrary.simpleMessage("Complete payment"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirm_order": MessageLookupByLibrary.simpleMessage("Confirm Order"),
         "confirm_order_msg": MessageLookupByLibrary.simpleMessage(
             "Please confirm and submit your order"),
+        "confirm_payment":
+            MessageLookupByLibrary.simpleMessage("Confirm payment"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "conflict found, try again later"),
+        "contact_message":
+            MessageLookupByLibrary.simpleMessage("Write your message here..."),
         "contact_us": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "continue_browsing":
             MessageLookupByLibrary.simpleMessage("Continue Browsing"),
@@ -103,6 +109,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
+        "delete_account":
+            MessageLookupByLibrary.simpleMessage("Delete account"),
         "delivery_fee": MessageLookupByLibrary.simpleMessage("Delivery Fee"),
         "desgin_text": MessageLookupByLibrary.simpleMessage(
             "Browse our most popular designs"),
@@ -197,6 +205,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "progress": MessageLookupByLibrary.simpleMessage("Continue"),
         "purchases": MessageLookupByLibrary.simpleMessage("Purchases"),
         "qty": MessageLookupByLibrary.simpleMessage("Quantity"),
+        "receiver_information":
+            MessageLookupByLibrary.simpleMessage("Receiver information"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "register_now": MessageLookupByLibrary.simpleMessage("Register Now"),
         "remember_pass":

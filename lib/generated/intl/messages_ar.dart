@@ -84,12 +84,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "close": MessageLookupByLibrary.simpleMessage("اغلاق"),
         "code": MessageLookupByLibrary.simpleMessage("الكود "),
         "colors": MessageLookupByLibrary.simpleMessage("الألوان"),
+        "complete_payment":
+            MessageLookupByLibrary.simpleMessage("استكمال الدفع"),
         "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "confirm_order": MessageLookupByLibrary.simpleMessage("تأكيد الطلب"),
         "confirm_order_msg":
             MessageLookupByLibrary.simpleMessage("يرجى تأكيد وتقديم طلبك"),
+        "confirm_payment": MessageLookupByLibrary.simpleMessage("تأكيد الدفع"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "تم العثور على تعارض , حاول مرة أخرى لاحقًا"),
+        "contact_message":
+            MessageLookupByLibrary.simpleMessage("اكتب رسالتك هنا..."),
         "contact_us": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
         "continue_browsing":
             MessageLookupByLibrary.simpleMessage("استمر في التصفح"),
@@ -99,6 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "delete_account": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
         "delivery_fee": MessageLookupByLibrary.simpleMessage("تكلفة التوصيل"),
         "desgin_text":
             MessageLookupByLibrary.simpleMessage("تصفح أشهر التصاميم لدينا"),
@@ -192,6 +198,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "progress": MessageLookupByLibrary.simpleMessage("الاستمرار"),
         "purchases": MessageLookupByLibrary.simpleMessage("عمليات الشراء"),
         "qty": MessageLookupByLibrary.simpleMessage("الكمية"),
+        "receiver_information":
+            MessageLookupByLibrary.simpleMessage("معلومات المستلم"),
         "register": MessageLookupByLibrary.simpleMessage("التسجيل"),
         "register_now": MessageLookupByLibrary.simpleMessage("سجل الآن"),
         "remember_pass":

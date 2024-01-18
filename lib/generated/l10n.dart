@@ -1649,6 +1649,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Complete payment`
+  String get complete_payment {
+    return Intl.message(
+      'Complete payment',
+      name: 'complete_payment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm payment`
+  String get confirm_payment {
+    return Intl.message(
+      'Confirm payment',
+      name: 'confirm_payment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Receiver information`
+  String get receiver_information {
+    return Intl.message(
+      'Receiver information',
+      name: 'receiver_information',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write your message here...`
+  String get contact_message {
+    return Intl.message(
+      'Write your message here...',
+      name: 'contact_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete account`
+  String get delete_account {
+    return Intl.message(
+      'Delete account',
+      name: 'delete_account',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

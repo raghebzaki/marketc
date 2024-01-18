@@ -172,5 +172,10 @@
   "profit_ratio": "Profit ratio",
   "purchases": "Purchases",
   "number_of_buyers": "Number of buyers",
-  "my_wallet": "My wallet"
+  "my_wallet": "My wallet",
+  "complete_payment": "Complete payment",
+  "confirm_payment": "Confirm payment",
+  "receiver_information": "Receiver information",
+  "contact_message": "Write your message here...",
+  "delete_account": "Delete account"
 }
