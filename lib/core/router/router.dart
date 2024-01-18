@@ -31,4 +31,8 @@ const String designerBottomNavBarPageRoute = '/designerBottomNavBar';
 const String designerHomePageRoute = '/designerHome';
 const String designerProfilePageRoute = '/designerProfile';
 const String designerCategoryPageRoute = '/designerCategory';
+const String addProductPageRoute = '/addProduct';
+const String editProductPageRoute = '/editProduct';
+const String designsPageRoute = '/designs';
+const String walletPageRoute = '/wallet';
 

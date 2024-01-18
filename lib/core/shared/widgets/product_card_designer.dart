@@ -154,24 +154,29 @@ class ProductCardDesigner extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              width: 152.w,
-              height: 32.h,
-              clipBehavior: Clip.antiAlias,
-              decoration: ShapeDecoration(
-                color: AppColors.secondary,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(
-                    Dimensions.r8,
+            GestureDetector(
+              onTap: () {
+                context.pushNamed(editProductPageRoute);
+              },
+              child: Container(
+                width: 152.w,
+                height: 32.h,
+                clipBehavior: Clip.antiAlias,
+                decoration: ShapeDecoration(
+                  color: AppColors.secondary,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                      Dimensions.r8,
+                    ),
                   ),
                 ),
-              ),
-              child: Center(
-                child: Text(
-                  S.of(context).edit_product,
-                  textAlign: TextAlign.center,
-                  style: CustomTextStyle.kTextStyleF12.copyWith(
-                    color: Colors.white,
+                child: Center(
+                  child: Text(
+                    S.of(context).edit_product,
+                    textAlign: TextAlign.center,
+                    style: CustomTextStyle.kTextStyleF12.copyWith(
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),

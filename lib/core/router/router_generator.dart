@@ -5,8 +5,12 @@ import 'package:marketc/features/customer/payment/payment_gate_way/presentation/
 import 'package:marketc/features/customer/payment/payment_summary/presentation/pages/payment_summary_view.dart';
 import 'package:marketc/features/customer/payment/saved_addresses/presentation/pages/saved_addresses_view.dart';
 import 'package:marketc/features/designer/bottom_nav_bar_designer/presentation/pages/bottom_nav_bar_designer.dart';
+import 'package:marketc/features/designer/designs/presentation/pages/designs_view.dart';
 import 'package:marketc/features/designer/main/home/presentation/pages/designer_home_view.dart';
 import 'package:marketc/features/designer/main/profile/presentation/pages/designer_profile_view.dart';
+import 'package:marketc/features/designer/product/add_product/presentation/pages/add_product.dart';
+import 'package:marketc/features/designer/product/edit_product/presentation/pages/edit_product_view.dart';
+import 'package:marketc/features/designer/wallet/presentation/pages/wallet_view.dart';
 
 import '../../features/auth/change_pass/presentation/pages/change_pass_confirmation.dart';
 import '../../features/auth/change_pass/presentation/pages/change_pass_view.dart';
@@ -169,6 +173,22 @@ class AppRouters {
       case designerCategoryPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const DesignerCategoriesView(),
+        );
+        case addProductPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const AddProductView(),
+        );
+        case editProductPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const EditProductView(),
+        );
+        case designsPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const DesignsView(),
+        );
+        case walletPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const WalletView(),
         );
       default:
         return MaterialPageRoute(
