@@ -64,12 +64,14 @@ dependencies:
   flutter_svg: ^2.0.9 # An SVG rendering and widget library for Flutter
   smooth_page_indicator: ^1.1.0
   country_code_picker: ^3.0.0
+  dotted_border: ^2.1.0 # A flutter package to let users easily add a dashed border around any widget
 
   # Flutter plugin for adapting screen and font size.
   flutter_screenutil: ^5.9.0
 
   change_app_package_name: ^1.1.0 # Change App Package Name with single command
   flutter_timer_countdown: ^1.0.7
+  uuid: ^4.3.3 # Generate a v4 (random) id
 
 dev_dependencies:
   flutter_test:

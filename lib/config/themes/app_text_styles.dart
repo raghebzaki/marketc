@@ -6,7 +6,7 @@ import '../../core/utils/dimensions.dart';
 
 class CustomTextStyle {
   static TextStyle kTextStyleF8 = TextStyle(
-    fontSize: Dimensions.f12,
+    fontSize: Dimensions.f8,
     fontWeight: FontWeight.w400, //? Regular
     fontFamily: AppConstants.mainFontFamily,
     color: AppColors.textColor,

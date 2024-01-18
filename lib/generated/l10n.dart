@@ -1699,6 +1699,216 @@ class S {
       args: [],
     );
   }
+
+  /// `Subscriptions`
+  String get subscriptions {
+    return Intl.message(
+      'Subscriptions',
+      name: 'subscriptions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome to Subscriptions`
+  String get subscriptions_title {
+    return Intl.message(
+      'Welcome to Subscriptions',
+      name: 'subscriptions_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Let us help you find the subscription package that suits you with a variety of packages that offer you profits and numerous features.`
+  String get subscriptions_des {
+    return Intl.message(
+      'Let us help you find the subscription package that suits you with a variety of packages that offer you profits and numerous features.',
+      name: 'subscriptions_des',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gold Package`
+  String get gold_pack {
+    return Intl.message(
+      'Gold Package',
+      name: 'gold_pack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Instead of`
+  String get instead {
+    return Intl.message(
+      'Instead of',
+      name: 'instead',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yearly Subscription`
+  String get yearly_sub {
+    return Intl.message(
+      'Yearly Subscription',
+      name: 'yearly_sub',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get 50% of each sale`
+  String get fifty_percent {
+    return Intl.message(
+      'Get 50% of each sale',
+      name: 'fifty_percent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Showcase your designs on the home page`
+  String get view_on_home {
+    return Intl.message(
+      'Showcase your designs on the home page',
+      name: 'view_on_home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Free Shipping`
+  String get free_shipping {
+    return Intl.message(
+      'Free Shipping',
+      name: 'free_shipping',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get 30 designs`
+  String get thirty_design {
+    return Intl.message(
+      'Get 30 designs',
+      name: 'thirty_design',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subscription 899 SAR`
+  String get yearly_sub_price {
+    return Intl.message(
+      'Subscription 899 SAR',
+      name: 'yearly_sub_price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Diamond Package`
+  String get diamond_pack {
+    return Intl.message(
+      'Diamond Package',
+      name: 'diamond_pack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Monthly Subscription`
+  String get monthly_sub {
+    return Intl.message(
+      'Monthly Subscription',
+      name: 'monthly_sub',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get 10 designs`
+  String get ten_desings {
+    return Intl.message(
+      'Get 10 designs',
+      name: 'ten_desings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subscription 99 SAR`
+  String get monthly_sub_price {
+    return Intl.message(
+      'Subscription 99 SAR',
+      name: 'monthly_sub_price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Product`
+  String get add_product {
+    return Intl.message(
+      'Add Product',
+      name: 'add_product',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product Name`
+  String get product_name {
+    return Intl.message(
+      'Product Name',
+      name: 'product_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price`
+  String get product_price {
+    return Intl.message(
+      'Price',
+      name: 'product_price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discount Percentage`
+  String get discount_percentage {
+    return Intl.message(
+      'Discount Percentage',
+      name: 'discount_percentage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product Category`
+  String get product_category {
+    return Intl.message(
+      'Product Category',
+      name: 'product_category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upload Your Product Image`
+  String get upload_product_img {
+    return Intl.message(
+      'Upload Your Product Image',
+      name: 'upload_product_img',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

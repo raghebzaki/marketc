@@ -11,6 +11,8 @@ class AppColors {
   static const Color borderColor =  Color(0x14010C0E);
   static const Color lightBlue = Color(0xFF00809A);
   static const Color discountNumber = Color(0xFF4C2A10);
+  static const Color greyColor = Color(0xFF8E8E8E);
+  static const Color greyLight = Color(0xFFE8E8E8);
   static Color black60 = Colors.black.withOpacity(0.6000000238418579);
   static Color black80 = Colors.black.withOpacity(0.800000011920929);
 

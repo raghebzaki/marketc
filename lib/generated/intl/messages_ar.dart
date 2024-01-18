@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "نقوم بجمع المعلومات الشخصية ومعالجتها طوال رحلتنا معًا للحفاظ على أمان حسابك وأمانه. إليك ما نحتفظ به عنك:"),
         "add_new_address":
             MessageLookupByLibrary.simpleMessage("اضافة عنوان جديد"),
+        "add_product": MessageLookupByLibrary.simpleMessage("اضافة منتج"),
         "add_promo_code":
             MessageLookupByLibrary.simpleMessage("اضافة كود خصم خاص"),
         "add_promo_code_des": MessageLookupByLibrary.simpleMessage(
@@ -109,6 +110,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "desgin_text":
             MessageLookupByLibrary.simpleMessage("تصفح أشهر التصاميم لدينا"),
         "designs": MessageLookupByLibrary.simpleMessage("التصاميم"),
+        "diamond_pack": MessageLookupByLibrary.simpleMessage("الباقة الماسية"),
+        "discount_percentage":
+            MessageLookupByLibrary.simpleMessage("نسبة الخصم"),
         "do_not_have_account":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "done": MessageLookupByLibrary.simpleMessage("المنفذة"),
@@ -123,18 +127,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "executed_request":
             MessageLookupByLibrary.simpleMessage("الطلب المنفذ"),
         "favorite": MessageLookupByLibrary.simpleMessage("المفضلة"),
+        "fifty_percent":
+            MessageLookupByLibrary.simpleMessage("الحصول على 50% من كل بيعة"),
         "finish": MessageLookupByLibrary.simpleMessage("انتهاء"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "طلب محظور. حاول مرة أخرى لاحقًا"),
         "forgot_pass": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
+        "free_shipping": MessageLookupByLibrary.simpleMessage("توصيل مجاني"),
         "full_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
+        "gold_pack": MessageLookupByLibrary.simpleMessage("الباقة الذهبية"),
         "have_problem": MessageLookupByLibrary.simpleMessage("هل تواجه مشكلة؟"),
+        "instead": MessageLookupByLibrary.simpleMessage("بدل"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "login_now": MessageLookupByLibrary.simpleMessage("تسجيل الدخول الآن"),
         "message": MessageLookupByLibrary.simpleMessage("الرسالة"),
+        "monthly_sub": MessageLookupByLibrary.simpleMessage("اشتراك شهر"),
+        "monthly_sub_price":
+            MessageLookupByLibrary.simpleMessage("اشتراك 99 ريال"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد..."),
         "my_orders": MessageLookupByLibrary.simpleMessage("طلباتي"),
         "my_products": MessageLookupByLibrary.simpleMessage("منتجاتي"),
@@ -193,8 +205,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "privacy_policy":
             MessageLookupByLibrary.simpleMessage("سياسة الاستخدام والشروط"),
         "processing": MessageLookupByLibrary.simpleMessage("قيد التنفيذ"),
+        "product_category":
+            MessageLookupByLibrary.simpleMessage("تصنيف المنتج"),
         "product_des": MessageLookupByLibrary.simpleMessage(
             "ملابس قصيرة بتطريز عبارات حيث يمكنك اختيار الملابس ذات التطريز المناسب لك وجعله لمسة من الأناقة إلى هويتك"),
+        "product_name": MessageLookupByLibrary.simpleMessage("اسم المنتج"),
+        "product_price": MessageLookupByLibrary.simpleMessage("السعر"),
         "progress": MessageLookupByLibrary.simpleMessage("الاستمرار"),
         "purchases": MessageLookupByLibrary.simpleMessage("عمليات الشراء"),
         "qty": MessageLookupByLibrary.simpleMessage("الكمية"),
@@ -227,10 +243,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "soon": MessageLookupByLibrary.simpleMessage("قريباً"),
         "status_of_orders":
             MessageLookupByLibrary.simpleMessage("حالة الطلبات"),
+        "subscriptions": MessageLookupByLibrary.simpleMessage("الاشتراكات"),
+        "subscriptions_des": MessageLookupByLibrary.simpleMessage(
+            "دعنا نساعدك في العثور على باقة الاشتراك المناسبة لديك بباقات متنوعة توفر لك الارباح والمميزات العديدة"),
+        "subscriptions_title":
+            MessageLookupByLibrary.simpleMessage("مرحبا بك في الاشتراكات"),
         "subtotal": MessageLookupByLibrary.simpleMessage("المجموع الفرعي"),
         "success": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
+        "ten_desings":
+            MessageLookupByLibrary.simpleMessage("الحصول على 10 تصاميم"),
         "terms_and_conditions":
             MessageLookupByLibrary.simpleMessage("سياسة الاستخدام والشروط"),
+        "thirty_design":
+            MessageLookupByLibrary.simpleMessage("الحصول على 30 تصاميم"),
         "timeout_error": MessageLookupByLibrary.simpleMessage(
             "انتهت المهلة , حاول مرة أخرى لاحقًا"),
         "total": MessageLookupByLibrary.simpleMessage("المجموع"),
@@ -240,6 +265,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "المستخدم غير مصرح له، جرب مرة أخرى في وقت لاحق"),
         "unknown_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "upload_product_img": MessageLookupByLibrary.simpleMessage(
+            "قم برفع صورة المنتج الخاص بك"),
         "use_points": MessageLookupByLibrary.simpleMessage("استخدام النقاط"),
         "user_profile":
             MessageLookupByLibrary.simpleMessage("المعلومات الشخصية"),
@@ -248,9 +275,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "verify_code_sent": MessageLookupByLibrary.simpleMessage(
             "تم إرسال رمز التحقق إلى بريدك الإلكتروني"),
         "view_details": MessageLookupByLibrary.simpleMessage("عرض التفاصيل"),
+        "view_on_home": MessageLookupByLibrary.simpleMessage(
+            "عرض تصاميمك في الصفحة الرئيسية"),
         "wide_range": MessageLookupByLibrary.simpleMessage(
             "مجموعة واسعة من الشعارات والعبارات المميزة المطرزة بطريقة فريدة ومميزة"),
         "wrap_gift": MessageLookupByLibrary.simpleMessage("تغليف هدايا"),
+        "yearly_sub": MessageLookupByLibrary.simpleMessage("اشتراك سنة"),
+        "yearly_sub_price":
+            MessageLookupByLibrary.simpleMessage("اشتراك 899 ريال"),
         "you_think": MessageLookupByLibrary.simpleMessage("بما تفكر؟"),
         "your_info_1": MessageLookupByLibrary.simpleMessage(
             "• المعلومات التي تقدمها من خلال التطبيق لدينا")

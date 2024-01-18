@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "We collect and process personal information throughout our journey together to maintain the security of your account. Here\'s what we keep about you:"),
         "add_new_address":
             MessageLookupByLibrary.simpleMessage("Add New Address"),
+        "add_product": MessageLookupByLibrary.simpleMessage("Add Product"),
         "add_promo_code":
             MessageLookupByLibrary.simpleMessage("Add Promo Code"),
         "add_promo_code_des": MessageLookupByLibrary.simpleMessage(
@@ -115,6 +116,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "desgin_text": MessageLookupByLibrary.simpleMessage(
             "Browse our most popular designs"),
         "designs": MessageLookupByLibrary.simpleMessage("Designs"),
+        "diamond_pack": MessageLookupByLibrary.simpleMessage("Diamond Package"),
+        "discount_percentage":
+            MessageLookupByLibrary.simpleMessage("Discount Percentage"),
         "do_not_have_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "done": MessageLookupByLibrary.simpleMessage("Completed"),
@@ -128,18 +132,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "executed_request":
             MessageLookupByLibrary.simpleMessage("Executed Request"),
         "favorite": MessageLookupByLibrary.simpleMessage("favorite"),
+        "fifty_percent":
+            MessageLookupByLibrary.simpleMessage("Get 50% of each sale"),
         "finish": MessageLookupByLibrary.simpleMessage("Finish"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
         "forgot_pass": MessageLookupByLibrary.simpleMessage("Forgot Pass"),
+        "free_shipping": MessageLookupByLibrary.simpleMessage("Free Shipping"),
         "full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
+        "gold_pack": MessageLookupByLibrary.simpleMessage("Gold Package"),
         "have_problem": MessageLookupByLibrary.simpleMessage("Have a problem?"),
+        "instead": MessageLookupByLibrary.simpleMessage("Instead of"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_now": MessageLookupByLibrary.simpleMessage("Login Now"),
         "message": MessageLookupByLibrary.simpleMessage("Message"),
+        "monthly_sub":
+            MessageLookupByLibrary.simpleMessage("Monthly Subscription"),
+        "monthly_sub_price":
+            MessageLookupByLibrary.simpleMessage("Subscription 99 SAR"),
         "more": MessageLookupByLibrary.simpleMessage("More..."),
         "my_orders": MessageLookupByLibrary.simpleMessage("My Orders"),
         "my_products": MessageLookupByLibrary.simpleMessage("My Products"),
@@ -199,8 +212,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "privacy_policy":
             MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "processing": MessageLookupByLibrary.simpleMessage("Processing"),
+        "product_category":
+            MessageLookupByLibrary.simpleMessage("Product Category"),
         "product_des": MessageLookupByLibrary.simpleMessage(
             "Short clothes with embroidered phrases, where you can choose clothes with suitable embroidery to add a touch of elegance to your identity."),
+        "product_name": MessageLookupByLibrary.simpleMessage("Product Name"),
+        "product_price": MessageLookupByLibrary.simpleMessage("Price"),
         "profit_ratio": MessageLookupByLibrary.simpleMessage("Profit ratio"),
         "progress": MessageLookupByLibrary.simpleMessage("Continue"),
         "purchases": MessageLookupByLibrary.simpleMessage("Purchases"),
@@ -233,10 +250,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "soon": MessageLookupByLibrary.simpleMessage("Soon"),
         "status_of_orders":
             MessageLookupByLibrary.simpleMessage("Status of orders"),
+        "subscriptions": MessageLookupByLibrary.simpleMessage("Subscriptions"),
+        "subscriptions_des": MessageLookupByLibrary.simpleMessage(
+            "Let us help you find the subscription package that suits you with a variety of packages that offer you profits and numerous features."),
+        "subscriptions_title":
+            MessageLookupByLibrary.simpleMessage("Welcome to Subscriptions"),
         "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
+        "ten_desings": MessageLookupByLibrary.simpleMessage("Get 10 designs"),
         "terms_and_conditions":
             MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
+        "thirty_design": MessageLookupByLibrary.simpleMessage("Get 30 designs"),
         "timeout_error":
             MessageLookupByLibrary.simpleMessage("time out, try again late"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
@@ -249,6 +273,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "some thing went wrong, try again later"),
         "unprocessable_content_error": MessageLookupByLibrary.simpleMessage(
             "unprocessable data, check it and try again"),
+        "upload_product_img":
+            MessageLookupByLibrary.simpleMessage("Upload Your Product Image"),
         "use_points": MessageLookupByLibrary.simpleMessage("use points"),
         "user_profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "vcc": MessageLookupByLibrary.simpleMessage("Security Code"),
@@ -256,9 +282,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "verify_code_sent": MessageLookupByLibrary.simpleMessage(
             "Verification Code sent to your email"),
         "view_details": MessageLookupByLibrary.simpleMessage("View Details"),
+        "view_on_home": MessageLookupByLibrary.simpleMessage(
+            "Showcase your designs on the home page"),
         "wide_range": MessageLookupByLibrary.simpleMessage(
             "A wide range of distinctive logos & phrases that are uniquely and distinctively embroidered"),
         "wrap_gift": MessageLookupByLibrary.simpleMessage("Gift Wrapping"),
+        "yearly_sub":
+            MessageLookupByLibrary.simpleMessage("Yearly Subscription"),
+        "yearly_sub_price":
+            MessageLookupByLibrary.simpleMessage("Subscription 899 SAR"),
         "you_think": MessageLookupByLibrary.simpleMessage(
             "What are you thinking about?"),
         "your_info_1": MessageLookupByLibrary.simpleMessage(

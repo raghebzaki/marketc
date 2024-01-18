@@ -43,6 +43,7 @@ class AppImages {
   static String moneyImg = "$imagePath/money.png";
   static String increaseImg = "$imagePath/increase.png";
   static String saleHomeImg = "$imagePath/saleHome.png";
+  static String uploadImg = "$imagePath/upload.png";
 
 
 

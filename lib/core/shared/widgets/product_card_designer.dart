@@ -49,16 +49,10 @@ class ProductCardDesigner extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          Container(
-                            // constraints:BoxConstraints(
-                            //
-                            //   maxWidth: double.infinity/2-50.sp
-                            // ),
-                            child: Text(
-                              'ملابس قصيرة',
-                              style: CustomTextStyle.kTextStyleF12
-                                  .copyWith(color: AppColors.textColor),
-                            ),
+                          Text(
+                            'ملابس قصيرة',
+                            style: CustomTextStyle.kTextStyleF12
+                                .copyWith(color: AppColors.textColor),
                           ),
                           Text(
                             'تطريز شعارات',
