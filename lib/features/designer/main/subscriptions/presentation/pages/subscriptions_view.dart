@@ -43,181 +43,72 @@ class SubscriptionsView extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    GestureDetector(
-                      onTap: () {},
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 100.w,
-                            height: 15.h,
-                            decoration: const ShapeDecoration(
-                              color: AppColors.secondary,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(Dimensions.r8),
-                                  topLeft: Radius.circular(Dimensions.r8),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 100.w,
+                              height: 15.h,
+                              decoration: const ShapeDecoration(
+                                color: AppColors.secondary,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(Dimensions.r8),
+                                    topLeft: Radius.circular(Dimensions.r8),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: Dimensions.p8),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius:
-                                    BorderRadius.circular(Dimensions.r8)),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Text(
-                                  S.of(context).gold_pack,
-                                  style: CustomTextStyle.kTextStyleF10.copyWith(
-                                    color: AppColors.black80,
-                                  ),
-                                ),
-                                Gap(5.h),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      S.of(context).instead,
-                                      style:
-                                          CustomTextStyle.kTextStyleF8.copyWith(
-                                        color: AppColors.errorColor,
-                                      ),
-                                    ),
-                                    Gap(5.w),
-                                    Text(
-                                      "1700 ${S.current.sar}",
-                                      style:
-                                          CustomTextStyle.kTextStyleF8.copyWith(
-                                        color: AppColors.errorColor,
-                                        decoration: TextDecoration.lineThrough,
-                                        decorationColor: AppColors.errorColor,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Gap(5.h),
-                                Container(
-                                  padding: EdgeInsets.symmetric(
-                                    vertical: Dimensions.p5.h,
-                                  ),
-                                  color: AppColors.secondary,
-                                  child: Center(
-                                    child: Text(
-                                      S.of(context).yearly_sub,
-                                      style: CustomTextStyle.kTextStyleF10
-                                          .copyWith(
-                                        color: Colors.white,
-                                      ),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: Dimensions.p8),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius:
+                                      BorderRadius.circular(Dimensions.r8)),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    S.of(context).gold_pack,
+                                    style: CustomTextStyle.kTextStyleF10.copyWith(
+                                      color: AppColors.black80,
                                     ),
                                   ),
-                                ),
-                                Gap(15.h),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: Dimensions.p5.w),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Icon(
-                                            MdiIcons.checkCircle,
-                                            color: AppColors.successColor,
-                                          ),
-                                          Text(
-                                            S.of(context).fifty_percent,
-                                            style:
-                                                CustomTextStyle.kTextStyleF8,
-                                          ),
-                                        ],
+                                  Gap(5.h),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        S.of(context).instead,
+                                        style:
+                                            CustomTextStyle.kTextStyleF8.copyWith(
+                                          color: AppColors.errorColor,
+                                        ),
                                       ),
-                                    ),
-                                    Gap(5.h),
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: Dimensions.p5.w),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Icon(
-                                            MdiIcons.checkCircle,
-                                            color: AppColors.successColor,
-                                          ),
-                                          Text(
-                                            S.of(context).thirty_design,
-                                            style:
-                                                CustomTextStyle.kTextStyleF8,
-                                            // overflow: TextOverflow.visible,
-                                            softWrap: true,
-                                          ),
-                                        ],
+                                      Gap(5.w),
+                                      Text(
+                                        "1700 ${S.current.sar}",
+                                        style:
+                                            CustomTextStyle.kTextStyleF8.copyWith(
+                                          color: AppColors.errorColor,
+                                          decoration: TextDecoration.lineThrough,
+                                          decorationColor: AppColors.errorColor,
+                                        ),
                                       ),
-                                    ),
-                                    Gap(5.h),
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: Dimensions.p5.w),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Icon(
-                                            MdiIcons.checkCircle,
-                                            color: AppColors.successColor,
-                                          ),
-                                          Text(
-                                            S.of(context).view_on_home,
-                                            style:
-                                                CustomTextStyle.kTextStyleF8,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Gap(5.h),
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: Dimensions.p5.w),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Icon(
-                                            MdiIcons.checkCircle,
-                                            color: AppColors.successColor,
-                                          ),
-                                          Text(
-                                            S.of(context).free_shipping,
-                                            style:
-                                                CustomTextStyle.kTextStyleF8,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Gap(50.h),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: Dimensions.p5.w),
-                                  child: Container(
+                                    ],
+                                  ),
+                                  Gap(5.h),
+                                  Container(
                                     padding: EdgeInsets.symmetric(
-                                      vertical: Dimensions.p8.h,
+                                      vertical: Dimensions.p5.h,
                                     ),
-                                    decoration: BoxDecoration(
-                                        color: AppColors.secondary,
-                                        borderRadius: BorderRadius.circular(
-                                            Dimensions.r10)),
+                                    color: AppColors.secondary,
                                     child: Center(
                                       child: Text(
-                                        S.of(context).yearly_sub_price,
+                                        S.of(context).yearly_sub,
                                         style: CustomTextStyle.kTextStyleF10
                                             .copyWith(
                                           color: Colors.white,
@@ -225,200 +116,213 @@ class SubscriptionsView extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                ),
-                                Gap(35.h),
-                              ],
+                                  Gap(15.h),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: Dimensions.p5.w),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Icon(
+                                              MdiIcons.checkCircle,
+                                              color: AppColors.successColor,
+                                            ),
+                                            Expanded(
+                                              child: Text(
+                                                S.of(context).fifty_percent,
+                                                style:
+                                                    CustomTextStyle.kTextStyleF8,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Gap(5.h),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: Dimensions.p5.w),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Icon(
+                                              MdiIcons.checkCircle,
+                                              color: AppColors.successColor,
+                                            ),
+                                            Expanded(
+                                              child: Text(
+                                                S.of(context).thirty_design,
+                                                style:
+                                                    CustomTextStyle.kTextStyleF8,
+                                                // overflow: TextOverflow.visible,
+                                                softWrap: true,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Gap(5.h),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: Dimensions.p5.w),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Icon(
+                                              MdiIcons.checkCircle,
+                                              color: AppColors.successColor,
+                                            ),
+                                            Expanded(
+                                              child: Text(
+                                                S.of(context).view_on_home,
+                                                style:
+                                                    CustomTextStyle.kTextStyleF8,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Gap(5.h),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: Dimensions.p5.w),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Icon(
+                                              MdiIcons.checkCircle,
+                                              color: AppColors.successColor,
+                                            ),
+                                            Expanded(
+                                              child: Text(
+                                                S.of(context).free_shipping,
+                                                style:
+                                                    CustomTextStyle.kTextStyleF8,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Gap(50.h),
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: Dimensions.p5.w),
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                        vertical: Dimensions.p8.h,
+                                      ),
+                                      decoration: BoxDecoration(
+                                          color: AppColors.secondary,
+                                          borderRadius: BorderRadius.circular(
+                                              Dimensions.r10)),
+                                      child: Center(
+                                        child: Text(
+                                          S.of(context).yearly_sub_price,
+                                          style: CustomTextStyle.kTextStyleF10
+                                              .copyWith(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Gap(35.h),
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            width: 100.w,
-                            height: 15.h,
-                            decoration: const ShapeDecoration(
-                              color: AppColors.secondary,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                                  bottomRight: Radius.circular(Dimensions.r8),
-                                  bottomLeft: Radius.circular(Dimensions.r8),
+                            Container(
+                              width: 100.w,
+                              height: 15.h,
+                              decoration: const ShapeDecoration(
+                                color: AppColors.secondary,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(Dimensions.r8),
+                                    bottomLeft: Radius.circular(Dimensions.r8),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     Gap(15.h),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 100.w,
-                            height: 15.h,
-                            decoration: const ShapeDecoration(
-                              color: AppColors.secondary,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(Dimensions.r8),
-                                  topLeft: Radius.circular(Dimensions.r8),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 100.w,
+                              height: 15.h,
+                              decoration: const ShapeDecoration(
+                                color: AppColors.secondary,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(Dimensions.r8),
+                                    topLeft: Radius.circular(Dimensions.r8),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: Dimensions.p8),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius:
-                                    BorderRadius.circular(Dimensions.r8)),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Text(
-                                  S.of(context).diamond_pack,
-                                  style: CustomTextStyle.kTextStyleF10.copyWith(
-                                    color: AppColors.black80,
-                                  ),
-                                ),
-                                Gap(5.h),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      S.current.instead,
-                                      style:
-                                      CustomTextStyle.kTextStyleF8.copyWith(
-                                        color: AppColors.errorColor,
-                                      ),
-                                    ),
-                                    Gap(5.w),
-                                    Text(
-                                      "899 ${S.current.sar}",
-                                      style:
-                                      CustomTextStyle.kTextStyleF8.copyWith(
-                                        color: AppColors.errorColor,
-                                        decoration: TextDecoration.lineThrough,
-                                        decorationColor: AppColors.errorColor,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Gap(5.h),
-                                Container(
-                                  padding: EdgeInsets.symmetric(
-                                    vertical: Dimensions.p5.h,
-                                  ),
-                                  color: AppColors.secondary,
-                                  child: Center(
-                                    child: Text(
-                                      S.of(context).monthly_sub,
-                                      style: CustomTextStyle.kTextStyleF10
-                                          .copyWith(
-                                        color: Colors.white,
-                                      ),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: Dimensions.p8),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius:
+                                      BorderRadius.circular(Dimensions.r8)),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    S.of(context).diamond_pack,
+                                    style: CustomTextStyle.kTextStyleF10.copyWith(
+                                      color: AppColors.black80,
                                     ),
                                   ),
-                                ),
-                                Gap(15.h),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: Dimensions.p5.w),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Icon(
-                                            MdiIcons.checkCircle,
-                                            color: AppColors.successColor,
-                                          ),
-                                          Text(
-                                            S.current.fifty_percent,
-                                            style:
-                                                CustomTextStyle.kTextStyleF8,
-                                          ),
-                                        ],
+                                  Gap(5.h),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        S.current.instead,
+                                        style:
+                                        CustomTextStyle.kTextStyleF8.copyWith(
+                                          color: AppColors.errorColor,
+                                        ),
                                       ),
-                                    ),
-                                    Gap(5.h),
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: Dimensions.p5.w),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Icon(
-                                            MdiIcons.checkCircle,
-                                            color: AppColors.successColor,
-                                          ),
-                                          Text(
-                                            S.of(context).ten_desings,
-                                            style:
-                                                CustomTextStyle.kTextStyleF8,
-                                          ),
-                                        ],
+                                      Gap(5.w),
+                                      Text(
+                                        "899 ${S.current.sar}",
+                                        style:
+                                        CustomTextStyle.kTextStyleF8.copyWith(
+                                          color: AppColors.errorColor,
+                                          decoration: TextDecoration.lineThrough,
+                                          decorationColor: AppColors.errorColor,
+                                        ),
                                       ),
-                                    ),
-                                    Gap(5.h),
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: Dimensions.p5.w),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Icon(
-                                            MdiIcons.checkCircle,
-                                            color: AppColors.successColor,
-                                          ),
-                                          Text(
-                                            S.current.view_on_home,
-                                            style:
-                                                CustomTextStyle.kTextStyleF8,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Gap(5.h),
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: Dimensions.p5.w),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.start,
-                                        children: [
-                                          Icon(
-                                            MdiIcons.checkCircle,
-                                            color: Colors.transparent,
-                                          ),
-                                          Text(
-                                            "",
-                                            style:
-                                            CustomTextStyle.kTextStyleF8,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Gap(50.h),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: Dimensions.p5.w),
-                                  child: Container(
+                                    ],
+                                  ),
+                                  Gap(5.h),
+                                  Container(
                                     padding: EdgeInsets.symmetric(
-                                      vertical: Dimensions.p8.h,
+                                      vertical: Dimensions.p5.h,
                                     ),
-                                    decoration: BoxDecoration(
-                                        color: AppColors.secondary,
-                                        borderRadius: BorderRadius.circular(
-                                            Dimensions.r10)),
+                                    color: AppColors.secondary,
                                     child: Center(
                                       child: Text(
-                                        S.of(context).monthly_sub_price,
+                                        S.of(context).monthly_sub,
                                         style: CustomTextStyle.kTextStyleF10
                                             .copyWith(
                                           color: Colors.white,
@@ -426,25 +330,139 @@ class SubscriptionsView extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                ),
-                                Gap(35.h),
-                              ],
+                                  Gap(15.h),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: Dimensions.p5.w),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Icon(
+                                              MdiIcons.checkCircle,
+                                              color: AppColors.successColor,
+                                            ),
+                                            Expanded(
+                                              child: Text(
+                                                S.current.fifty_percent,
+                                                style:
+                                                    CustomTextStyle.kTextStyleF8,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Gap(5.h),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: Dimensions.p5.w),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Icon(
+                                              MdiIcons.checkCircle,
+                                              color: AppColors.successColor,
+                                            ),
+                                            Expanded(
+                                              child: Text(
+                                                S.of(context).ten_desings,
+                                                style:
+                                                    CustomTextStyle.kTextStyleF8,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Gap(5.h),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: Dimensions.p5.w),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Icon(
+                                              MdiIcons.checkCircle,
+                                              color: AppColors.successColor,
+                                            ),
+                                            Expanded(
+                                              child: Text(
+                                                S.current.view_on_home,
+                                                style:
+                                                    CustomTextStyle.kTextStyleF8,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Gap(5.h),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: Dimensions.p5.w),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                          children: [
+                                            Icon(
+                                              MdiIcons.checkCircle,
+                                              color: Colors.transparent,
+                                            ),
+                                            Text(
+                                              "",
+                                              style:
+                                              CustomTextStyle.kTextStyleF8,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Gap(50.h),
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: Dimensions.p5.w),
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                        vertical: Dimensions.p8.h,
+                                      ),
+                                      decoration: BoxDecoration(
+                                          color: AppColors.secondary,
+                                          borderRadius: BorderRadius.circular(
+                                              Dimensions.r10)),
+                                      child: Center(
+                                        child: Text(
+                                          S.of(context).monthly_sub_price,
+                                          style: CustomTextStyle.kTextStyleF10
+                                              .copyWith(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Gap(35.h),
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            width: 100.w,
-                            height: 15.h,
-                            decoration: const ShapeDecoration(
-                              color: AppColors.secondary,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                                  bottomRight: Radius.circular(Dimensions.r8),
-                                  bottomLeft: Radius.circular(Dimensions.r8),
+                            Container(
+                              width: 100.w,
+                              height: 15.h,
+                              decoration: const ShapeDecoration(
+                                color: AppColors.secondary,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(Dimensions.r8),
+                                    bottomLeft: Radius.circular(Dimensions.r8),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ],
