@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "all": MessageLookupByLibrary.simpleMessage("All"),
         "allow_notifications":
             MessageLookupByLibrary.simpleMessage("Allow notifications"),
+        "amount": MessageLookupByLibrary.simpleMessage("Amount"),
         "arriving_to": MessageLookupByLibrary.simpleMessage("Arriving To"),
         "ask_about_address": MessageLookupByLibrary.simpleMessage(
             "Ask the Recipient About the Delivery Address"),
@@ -59,6 +60,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Buyer\'s Phone Number"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "cache error, try again later"),
+        "can_send_money": MessageLookupByLibrary.simpleMessage(
+            "You can use your money and transfer it to your bank account"),
         "cancel_alert": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to cancel this order?"),
         "cancel_order": MessageLookupByLibrary.simpleMessage("Cancel Order"),
@@ -82,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "choose_payment_way":
             MessageLookupByLibrary.simpleMessage("Choose Payment Method"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
+        "code": MessageLookupByLibrary.simpleMessage("code"),
         "colors": MessageLookupByLibrary.simpleMessage("Colors"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirm_order": MessageLookupByLibrary.simpleMessage("Confirm Order"),
@@ -96,9 +100,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "custom_logo": MessageLookupByLibrary.simpleMessage("Embroidery logos"),
         "custom_phrases":
             MessageLookupByLibrary.simpleMessage("Custom Phrases Embroidery"),
+        "date": MessageLookupByLibrary.simpleMessage("Date"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
         "delivery_fee": MessageLookupByLibrary.simpleMessage("Delivery Fee"),
+        "desgin_text": MessageLookupByLibrary.simpleMessage(
+            "Browse our most popular designs"),
+        "designs": MessageLookupByLibrary.simpleMessage("Designs"),
         "do_not_have_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "done": MessageLookupByLibrary.simpleMessage("Completed"),
@@ -127,6 +135,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "more": MessageLookupByLibrary.simpleMessage("More..."),
         "my_orders": MessageLookupByLibrary.simpleMessage("My Orders"),
         "my_products": MessageLookupByLibrary.simpleMessage("My Products"),
+        "my_wallet": MessageLookupByLibrary.simpleMessage("My wallet"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "new_releases": MessageLookupByLibrary.simpleMessage("Newly Released"),
         "new_updates": MessageLookupByLibrary.simpleMessage("New updates"),
@@ -138,6 +147,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "not_found_error": MessageLookupByLibrary.simpleMessage(
             "url not found, try again later"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+        "number_of_buyers":
+            MessageLookupByLibrary.simpleMessage("Number of buyers"),
         "offers_and_discounts":
             MessageLookupByLibrary.simpleMessage("Offers and discounts"),
         "onboard_1":
@@ -182,7 +193,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "processing": MessageLookupByLibrary.simpleMessage("Processing"),
         "product_des": MessageLookupByLibrary.simpleMessage(
             "Short clothes with embroidered phrases, where you can choose clothes with suitable embroidery to add a touch of elegance to your identity."),
+        "profit_ratio": MessageLookupByLibrary.simpleMessage("Profit ratio"),
         "progress": MessageLookupByLibrary.simpleMessage("Continue"),
+        "purchases": MessageLookupByLibrary.simpleMessage("Purchases"),
         "qty": MessageLookupByLibrary.simpleMessage("Quantity"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "register_now": MessageLookupByLibrary.simpleMessage("Register Now"),
@@ -196,6 +209,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "seller": MessageLookupByLibrary.simpleMessage("Seller"),
         "send": MessageLookupByLibrary.simpleMessage("send"),
         "send_code": MessageLookupByLibrary.simpleMessage("Send Code"),
+        "send_money": MessageLookupByLibrary.simpleMessage("Send Money"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "shopping_world":
             MessageLookupByLibrary.simpleMessage("Welcome to shopping world"),
@@ -225,6 +239,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "some thing went wrong, try again later"),
         "unprocessable_content_error": MessageLookupByLibrary.simpleMessage(
             "unprocessable data, check it and try again"),
+        "use_points": MessageLookupByLibrary.simpleMessage("use points"),
         "user_profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "vcc": MessageLookupByLibrary.simpleMessage("Security Code"),
         "verify_code": MessageLookupByLibrary.simpleMessage("Verify Code"),

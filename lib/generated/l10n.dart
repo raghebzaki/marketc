@@ -1529,6 +1529,126 @@ class S {
       args: [],
     );
   }
+
+  /// `Send Money`
+  String get send_money {
+    return Intl.message(
+      'Send Money',
+      name: 'send_money',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can use your money and transfer it to your bank account`
+  String get can_send_money {
+    return Intl.message(
+      'You can use your money and transfer it to your bank account',
+      name: 'can_send_money',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `use points`
+  String get use_points {
+    return Intl.message(
+      'use points',
+      name: 'use_points',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date`
+  String get date {
+    return Intl.message(
+      'Date',
+      name: 'date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Amount`
+  String get amount {
+    return Intl.message(
+      'Amount',
+      name: 'amount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `code`
+  String get code {
+    return Intl.message(
+      'code',
+      name: 'code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Designs`
+  String get designs {
+    return Intl.message(
+      'Designs',
+      name: 'designs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Browse our most popular designs`
+  String get desgin_text {
+    return Intl.message(
+      'Browse our most popular designs',
+      name: 'desgin_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profit ratio`
+  String get profit_ratio {
+    return Intl.message(
+      'Profit ratio',
+      name: 'profit_ratio',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Purchases`
+  String get purchases {
+    return Intl.message(
+      'Purchases',
+      name: 'purchases',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Number of buyers`
+  String get number_of_buyers {
+    return Intl.message(
+      'Number of buyers',
+      name: 'number_of_buyers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My wallet`
+  String get my_wallet {
+    return Intl.message(
+      'My wallet',
+      name: 'my_wallet',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

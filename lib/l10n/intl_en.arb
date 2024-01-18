@@ -160,5 +160,17 @@
   "edit": "Edit",
   "order_summary": "Order Summary",
   "edit_product": "Edit Product",
-  "my_products": "My Products"
+  "my_products": "My Products",
+  "send_money": "Send Money",
+  "can_send_money": "You can use your money and transfer it to your bank account",
+  "use_points": "use points",
+  "date": "Date",
+  "amount": "Amount",
+  "code": "code",
+  "designs": "Designs",
+  "desgin_text": "Browse our most popular designs",
+  "profit_ratio": "Profit ratio",
+  "purchases": "Purchases",
+  "number_of_buyers": "Number of buyers",
+  "my_wallet": "My wallet"
 }

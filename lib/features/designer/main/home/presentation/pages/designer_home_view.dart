@@ -182,7 +182,7 @@ class DesignerHomeView extends StatelessWidget {
                               ),
                             ),
                             Text(
-                                'نسبة الارباح',
+                                S.of(context).profit_ratio,
                                 textAlign: TextAlign.center,
                                 style: CustomTextStyle.kTextStyleF14.copyWith(color: AppColors.textColor)
                             ),
@@ -227,7 +227,7 @@ class DesignerHomeView extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              'عمليات الشراء',
+                              S.of(context).purchases,
                               textAlign: TextAlign.center,
                                 style: CustomTextStyle.kTextStyleF14.copyWith(color: AppColors.textColor)
                             ),
@@ -267,7 +267,7 @@ class DesignerHomeView extends StatelessWidget {
                           children: [
                             Container(
                               width: 72.w,
-                              height: 53.w,
+                              height: 50.w,
                               decoration:  BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage(AppImages.eyeImg),
@@ -276,7 +276,7 @@ class DesignerHomeView extends StatelessWidget {
                               ),
                             ),
                             Text(
-                                'عدد المشترين',
+                                S.of(context).number_of_buyers,
                                 textAlign: TextAlign.center,
                                 style: CustomTextStyle.kTextStyleF14.copyWith(color: AppColors.textColor)
                             ),
@@ -311,8 +311,8 @@ class DesignerHomeView extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              width: 40.w,
-                              height: 40.w,
+                              width: 50.w,
+                              height: 50.w,
                               decoration:  BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage(AppImages.moneyImg),
@@ -321,7 +321,7 @@ class DesignerHomeView extends StatelessWidget {
                               ),
                             ),
                             Text(
-                                'محفظتي',
+                                S.of(context).my_wallet,
                               textAlign: TextAlign.center,
                                 style: CustomTextStyle.kTextStyleF14.copyWith(color: AppColors.textColor)
                             ),

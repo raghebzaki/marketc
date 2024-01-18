@@ -159,5 +159,17 @@
   "edit": "تعديل",
   "order_summary": "ملخص الطلب",
   "edit_product": "تعديل المنتج",
-  "my_products": "منتجاتي"
+  "my_products": "منتجاتي",
+  "send_money": "تحويل الأموال",
+  "can_send_money": "يمكنك استخدام اموالك ونقلها الى حسابك البنكي",
+  "use_points": "استخدام النقاط",
+  "date": "التاريخ",
+  "amount": "المبلغ",
+  "code": "الكود ",
+  "designs": "التصاميم",
+  "desgin_text": "تصفح أشهر التصاميم لدينا",
+  "purchases": "عمليات الشراء",
+  "number_of_buyers": "عدد المشترين",
+  "my_wallet": "محفظتي"
+
 }

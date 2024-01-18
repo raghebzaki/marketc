@@ -8,6 +8,7 @@ class AppColors {
   static const Color textColor = Color(0xD8010C0E);
   static const Color textColorSecondary = Color(0x99010C0E);
   static const Color textColorGrey =  Color(0x59010C0E);
+  static const Color borderColor =  Color(0x14010C0E);
   static const Color lightBlue = Color(0xFF00809A);
   static const Color discountNumber = Color(0xFF4C2A10);
   static Color black60 = Colors.black.withOpacity(0.6000000238418579);
