@@ -2,24 +2,23 @@ import 'package:dio/dio.dart';
 
 import '../../../../../core/service/dio_factory.dart';
 import '../../../../../core/utils/app_constants.dart';
+import '../../domain/entities/login_entity.dart';
 import '../models/login_model.dart';
 
 abstract class LoginService {
-  Future<LoginModel> login(String email, String pass);
+  Future<LoginModel> login(LoginEntity loginEntity);
 }
 
 class LoginServiceImpl implements LoginService {
   @override
-  Future<LoginModel> login(String email, String pass) async {
+  Future<LoginModel> login(LoginEntity loginEntity) async {
     Dio dio = await DioFactory.getDio();
     LoginModel loginModel = const LoginModel();
 
     final loginUser = await dio.post(
       AppConstants.apiBaseUrl + AppConstants.loginUri,
-      data: {
-        "email": email,
-        "pass": pass,
-      },
+      data: LoginModel.toJson(loginEntity),
+
     );
 
     if (loginUser.statusCode == 200) {

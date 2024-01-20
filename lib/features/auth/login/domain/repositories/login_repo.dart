@@ -5,5 +5,5 @@ import '../../../../../core/resources/api/failure_class.dart';
 import '../entities/login_entity.dart';
 
 abstract class LoginRepo {
-  Future<Either<Failure, LoginEntity>> userLogin(String email, String pass);
+  Future<Either<Failure, LoginEntity>> userLogin(LoginEntity loginEntity);
 }

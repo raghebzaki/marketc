@@ -8,6 +8,8 @@ class LoginModel extends LoginEntity {
     super.status,
     super.msg,
     super.userData,
+    super.userName,
+    super.pass,
   });
 
   factory LoginModel.fromJson(Map<String, dynamic> json) {
@@ -18,5 +20,10 @@ class LoginModel extends LoginEntity {
     );
   }
 
-
+  static Map<String, dynamic> toJson(LoginEntity loginEntity) {
+    return {
+      'name': loginEntity.userName,
+      'password': loginEntity.pass,
+    };
+  }
 }

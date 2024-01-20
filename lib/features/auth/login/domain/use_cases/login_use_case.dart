@@ -11,7 +11,7 @@ class LoginUseCase {
     required this.loginRepo,
   });
 
-  Future<Either<Failure, LoginEntity>> call(String email, String pass) async {
-    return await loginRepo.userLogin(email, pass);
+  Future<Either<Failure, LoginEntity>> call(LoginEntity loginEntity) async {
+    return await loginRepo.userLogin(loginEntity);
   }
 }

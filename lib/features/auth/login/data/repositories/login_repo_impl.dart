@@ -16,13 +16,13 @@ class LoginRepoImpl implements LoginRepo {
 
   @override
   Future<Either<Failure, LoginEntity>> userLogin(
-      String email, String pass) async {
+      LoginEntity loginEntity) async {
     final result = await Connectivity().checkConnectivity();
 
     if (result == ConnectivityResult.mobile ||
         result == ConnectivityResult.wifi) {
       try {
-        final loginCredentials = await loginService.login(email, pass);
+        final loginCredentials = await loginService.login( loginEntity);
         return right(loginCredentials);
       } on DioException catch (error) {
         return left(ErrorHandler.handle(error).failure);
