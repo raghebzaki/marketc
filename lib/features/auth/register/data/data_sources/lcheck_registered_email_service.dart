@@ -3,11 +3,11 @@ import 'package:dio/dio.dart';
 import '../../../../../core/service/dio_factory.dart';
 import '../../../../../core/utils/app_constants.dart';
 
-abstract class LawyerCheckRegisteredEmailService {
+abstract class CheckRegisteredEmailService {
   Future<String?> checkEmail(String email);
 }
 
-class LawyerCheckRegisteredEmailServiceImpl implements LawyerCheckRegisteredEmailService {
+class CheckRegisteredEmailServiceImpl implements CheckRegisteredEmailService {
 
   @override
   Future<String?> checkEmail(String email) async {

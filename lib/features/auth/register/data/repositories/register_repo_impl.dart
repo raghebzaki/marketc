@@ -11,7 +11,7 @@ import '../data_sources/register_service.dart';
 
 class RegisterRepoImpl implements RegisterRepo {
   final RegisterService registerService;
-  final LawyerCheckRegisteredEmailService checkRegisteredEmailService;
+  final CheckRegisteredEmailService checkRegisteredEmailService;
 
   RegisterRepoImpl(
       {required this.registerService,

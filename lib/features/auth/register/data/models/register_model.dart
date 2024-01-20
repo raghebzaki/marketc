@@ -22,7 +22,7 @@ class RegisterModel extends RegisterEntity {
     );
   }
 
-  static Map<String, dynamic> toJson(RegisterEntity registerEntity ) {
+  static Map<String, dynamic> toJson(RegisterEntity registerEntity) {
     return {
       'name': registerEntity.userName,
       'email': registerEntity.email,

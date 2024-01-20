@@ -29,17 +29,17 @@ class RegisterView extends StatefulWidget {
 class _RegisterViewState extends State<RegisterView> {
   bool password = true;
   bool passwordConfirmation = true;
+  RegisterEntity registerEntity = const RegisterEntity();
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
   create: (context) => di.di<RegisterCubit>(),
   child: BlocConsumer<RegisterCubit, RegisterStates>(
-      listener: (context, state) {
-        
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         RegisterCubit registerCubit=RegisterCubit.get(context);
+
         return Scaffold(
       body: SafeArea(
         child: Padding(
