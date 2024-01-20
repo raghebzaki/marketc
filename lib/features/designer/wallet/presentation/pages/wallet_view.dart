@@ -10,6 +10,6 @@ class WalletView extends StatefulWidget {
 class _WalletViewState extends State<WalletView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }

@@ -13,10 +13,10 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize:  Size.fromHeight(70.0.h), // here the desired height
+          preferredSize: Size.fromHeight(70.0.h), // here the desired height
           child: AppBar(
             backgroundColor: Colors.white,
             elevation: 0,
@@ -29,17 +29,24 @@ class ProfileView extends StatelessWidget {
                 Text(
                   '+970 59 533 3781',
                   textAlign: TextAlign.justify,
-                  style: CustomTextStyle.kTextStyleF14.copyWith(color: AppColors.textColorSecondary),
+                  style: CustomTextStyle.kTextStyleF14
+                      .copyWith(color: AppColors.textColorSecondary),
                 )
               ],
             ),
-
             centerTitle: false,
             automaticallyImplyLeading: false,
             actions: [
-              IconButton(onPressed: (){
-                context.pushNamed(loginPageRoute);
-              }, icon: Icon(Icons.logout,color: AppColors.lightBlue,size:16.sp ,))
+              IconButton(
+                onPressed: () {
+                  context.pushNamed(loginPageRoute);
+                },
+                icon: Icon(
+                  Icons.logout,
+                  color: AppColors.lightBlue,
+                  size: 16.sp,
+                ),
+              ),
             ],
           ),
         ),
@@ -50,73 +57,93 @@ class ProfileView extends StatelessWidget {
                 Gap(10.h),
                 Container(
                   color: Colors.white,
-                  padding:  EdgeInsets.all(16.0.sp),
+                  padding: EdgeInsets.all(16.0.sp),
                   child: ListTile(
-                    onTap: (){
+                    onTap: () {
                       context.pushNamed(editProfilePageRoute);
                     },
-                    title:Opacity(
+                    title: Opacity(
                       opacity: 0.90,
                       child: Text(
                         S.current.user_profile,
-                        style: CustomTextStyle.kTextStyleF16.copyWith(color: AppColors.textColorSecondary),
+                        style: CustomTextStyle.kTextStyleF16
+                            .copyWith(color: AppColors.textColorSecondary),
                       ),
-                    ) ,
-                    trailing: Icon(Icons.arrow_forward_ios_sharp,color: AppColors.lightBlue,size: 16.sp,),
+                    ),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios_sharp,
+                      color: AppColors.lightBlue,
+                      size: 16.sp,
+                    ),
                   ),
                 ),
                 Gap(10.h),
                 Container(
                   color: Colors.white,
-
-                  padding:  EdgeInsets.all(16.0.sp),
+                  padding: EdgeInsets.all(16.0.sp),
                   child: ListTile(
                     onTap: () {
                       context.pushNamed(myOrdersPageRoute);
                     },
-                    title:Opacity(
+                    title: Opacity(
                       opacity: 0.90,
                       child: Text(
                         S.current.my_orders,
-                        style: CustomTextStyle.kTextStyleF16.copyWith(color: AppColors.textColorSecondary),
+                        style: CustomTextStyle.kTextStyleF16
+                            .copyWith(color: AppColors.textColorSecondary),
                       ),
-                    ) ,
-                    trailing: Icon(Icons.arrow_forward_ios_sharp,color: AppColors.lightBlue,size: 16.sp,),
+                    ),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios_sharp,
+                      color: AppColors.lightBlue,
+                      size: 16.sp,
+                    ),
                   ),
                 ),
                 Gap(10.h),
                 Container(
                   color: Colors.white,
-
-                  padding:  EdgeInsets.all(16.0.sp),
+                  padding: EdgeInsets.all(16.0.sp),
                   child: ListTile(
-                    title:Opacity(
+                    onTap: () {
+                      context.pushNamed(savedAddressesPageRoute);
+                    },
+                    title: Opacity(
                       opacity: 0.90,
                       child: Text(
                         S.current.saved_address,
-                        style: CustomTextStyle.kTextStyleF16.copyWith(color: AppColors.textColorSecondary),
+                        style: CustomTextStyle.kTextStyleF16
+                            .copyWith(color: AppColors.textColorSecondary),
                       ),
-                    ) ,
-                    trailing: Icon(Icons.arrow_forward_ios_sharp,color: AppColors.lightBlue,size: 16.sp,),
+                    ),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios_sharp,
+                      color: AppColors.lightBlue,
+                      size: 16.sp,
+                    ),
                   ),
                 ),
                 Gap(10.h),
                 Container(
                   color: Colors.white,
-
-                  padding:  EdgeInsets.all(16.0.sp),
+                  padding: EdgeInsets.all(16.0.sp),
                   child: ListTile(
-                    onTap: (){
+                    onTap: () {
                       context.pushNamed(settingsPageRoute);
                     },
-                    title:Opacity(
+                    title: Opacity(
                       opacity: 0.90,
                       child: Text(
                         S.current.settings,
-                        style: CustomTextStyle.kTextStyleF16.copyWith(color: AppColors.textColorSecondary),
+                        style: CustomTextStyle.kTextStyleF16
+                            .copyWith(color: AppColors.textColorSecondary),
                       ),
-                    ) ,
-                    trailing: Icon(Icons.arrow_forward_ios_sharp,color: AppColors.lightBlue,size: 16.sp,),
+                    ),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios_sharp,
+                      color: AppColors.lightBlue,
+                      size: 16.sp,
+                    ),
                   ),
                 ),
               ],

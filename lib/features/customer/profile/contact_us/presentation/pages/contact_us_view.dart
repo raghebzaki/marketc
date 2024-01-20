@@ -80,9 +80,10 @@ class _ContactUsViewState extends State<ContactUsView> {
                       ),
                       Gap(5.h),
                       Text(
-                        '477,الفيصلية ,المملكة العربية السعودية',
+                        '477,الفيصلية\n,المملكة العربية السعودية',
                         style: CustomTextStyle.kTextStyleF14
                             .copyWith(color: AppColors.textColorSecondary),
+                        textAlign: TextAlign.center,
                       ),
                       Gap(10.h),
                     ],

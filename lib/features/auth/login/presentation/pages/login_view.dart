@@ -128,6 +128,7 @@ class _LoginViewState extends State<LoginView> {
                     TextButton(
                       onPressed: () {
                         context.pushNamed(designerBottomNavBarPageRoute);
+                        // context.pushNamed(registerPageRoute);
                       },
                       child: Text(
                         S.current.register_now,

@@ -24,5 +24,7 @@ class AppConstants {
   static const apiBaseUrl = "https://example.example.com/api/";
   static const imageUrl = "https://example.example.com/";
   static const loginUri = "auth/login";
+  static const lawyerRegisterUri = "auth/register";
+  static const checkEmailRegisterUri = "";
 
 }

@@ -80,7 +80,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                                     borderRadius:
                                         BorderRadius.circular(Dimensions.r10),
                                     child: Image.network(
-                                      "..//54x55/red",
+                                      "https://via.placeholder.com/54x55/FFEA24",
                                     ),
                                   ),
                                 ),

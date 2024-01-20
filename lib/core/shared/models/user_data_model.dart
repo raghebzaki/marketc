@@ -22,6 +22,7 @@ class UserData extends Equatable {
     pass = json["password"] ?? AppConstants.unknownStringValue;
     passConfirm = json["password_confirmation"] ?? AppConstants.unknownStringValue;
     phone = json["phone"] ?? AppConstants.unknownStringValue;
+    address = json["address"] ?? AppConstants.unknownStringValue;
     otp = json['otp'] ?? AppConstants.unknownNumValue;
     status = json['status'] ?? AppConstants.unknownNumValue;
   }
