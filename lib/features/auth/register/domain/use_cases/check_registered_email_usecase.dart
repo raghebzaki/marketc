@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
 import '../../../../../core/resources/api/failure_class.dart';
-import '../repositories/lawyer_register_repo.dart';
+import '../repositories/register_repo.dart';
 
 class CheckRegisteredEmailUseCase {
   final RegisterRepo registerRepo;

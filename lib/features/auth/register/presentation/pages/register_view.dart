@@ -1,11 +1,15 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
+import 'package:marketc/core/dependency_injection/di.dart' as di;
 import 'package:marketc/core/router/router.dart';
 import 'package:marketc/core/shared/widgets/custom_button.dart';
 import 'package:marketc/core/utils/extensions.dart';
+import 'package:marketc/features/auth/register/domain/entities/register_entity.dart';
+import 'package:marketc/features/auth/register/presentation/manager/client_register_cubit.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../config/themes/app_text_styles.dart';
@@ -28,7 +32,15 @@ class _RegisterViewState extends State<RegisterView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocProvider(
+  create: (context) => di.di<RegisterCubit>(),
+  child: BlocConsumer<RegisterCubit, RegisterStates>(
+      listener: (context, state) {
+        
+      },
+      builder: (context, state) {
+        RegisterCubit registerCubit=RegisterCubit.get(context);
+        return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(
@@ -84,7 +96,8 @@ class _RegisterViewState extends State<RegisterView> {
                           });
                         },
                         child:
-                            password ? Icon(MdiIcons.eye) : Icon(MdiIcons.eyeOff),
+                        password ? Icon(MdiIcons.eye) : Icon(
+                            MdiIcons.eyeOff),
                       ),
                     ),
                     Gap(10.h),
@@ -131,7 +144,8 @@ class _RegisterViewState extends State<RegisterView> {
                                   alignment: Alignment.topLeft,
                                   child: Text(
                                     S.current.buyer,
-                                    style: CustomTextStyle.kTextStyleF16.copyWith(
+                                    style: CustomTextStyle.kTextStyleF16
+                                        .copyWith(
                                       color: AppColors.black60,
                                     ),
                                   ),
@@ -170,7 +184,8 @@ class _RegisterViewState extends State<RegisterView> {
                                   alignment: Alignment.topLeft,
                                   child: Text(
                                     S.current.seller,
-                                    style: CustomTextStyle.kTextStyleF16.copyWith(
+                                    style: CustomTextStyle.kTextStyleF16
+                                        .copyWith(
                                       color: AppColors.black60,
                                     ),
                                   ),
@@ -196,7 +211,9 @@ class _RegisterViewState extends State<RegisterView> {
                         builder: (BuildContext context) {
                           return CustomBtn(
                             label: S.current.register,
-                            onPressed: () {
+                            onPressed: () async {
+                              // di.di<LawyerRegisterUseCase>();
+                              registerCubit.userRegister(RegisterEntity(userName: 'ragheb',email:'ragheb2@mail.com',pass: '123456789',confirmPass: '123456789' ));
                               context.pushNamed(verifyAccountPageRoute);
                             },
                             fgColor: Colors.white,
@@ -218,5 +235,8 @@ class _RegisterViewState extends State<RegisterView> {
         ),
       ),
     );
+      },
+    ),
+);
   }
 }

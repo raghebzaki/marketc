@@ -1,6 +1,6 @@
 import 'package:marketc/core/utils/app_constants.dart';
 
-import '../../domain/entities/lawyer_register_entity.dart';
+import '../../domain/entities/register_entity.dart';
 
 class RegisterModel extends RegisterEntity {
   const RegisterModel ({
@@ -22,13 +22,12 @@ class RegisterModel extends RegisterEntity {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  static Map<String, dynamic> toJson(RegisterEntity registerEntity ) {
     return {
-      'user_name': userName,
-      'email': email,
-      'phone': phone,
-      'password': pass,
-      'password_confirmation': confirmPass,
+      'name': registerEntity.userName,
+      'email': registerEntity.email,
+      'password': registerEntity.pass,
+      'password_confirmation': registerEntity.confirmPass,
     };
   }
 }

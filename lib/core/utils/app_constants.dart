@@ -21,10 +21,10 @@ class AppConstants {
   static String? fcmToken = "";
 
   // * API URIs
-  static const apiBaseUrl = "https://example.example.com/api/";
+  static const apiBaseUrl = "https://dixystoys.coddiv.com/api/";
   static const imageUrl = "https://example.example.com/";
   static const loginUri = "auth/login";
-  static const lawyerRegisterUri = "auth/register";
+  static const registerUri = "auth/register";
   static const checkEmailRegisterUri = "";
 
 }
