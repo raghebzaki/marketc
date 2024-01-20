@@ -4,20 +4,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:marketc/core/dependency_injection/di.dart' as di;
-import 'package:marketc/core/router/router.dart';
-import 'package:marketc/core/shared/widgets/custom_button.dart';
 import 'package:marketc/core/utils/extensions.dart';
-import 'package:marketc/features/auth/login/domain/entities/login_entity.dart';
-import 'package:marketc/features/auth/login/presentation/managers/login_cubit.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../config/themes/app_text_styles.dart';
+import '../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../core/router/router.dart';
+import '../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../core/shared/widgets/custom_form_field.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
+import '../manager/login_cubit.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -25,17 +24,39 @@ class LoginView extends StatefulWidget {
   @override
   State<LoginView> createState() => _LoginViewState();
 }
-TextEditingController userNameCtrl=TextEditingController();
-TextEditingController passwordCtrl=TextEditingController();
+
 class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => di.di<LoginCubit>(),
-      child: BlocConsumer<LoginCubit, LoginState>(
-        listener: (context, state) {},
+      child: BlocConsumer<LoginCubit, LoginStates>(
+        listener: (context, state) {
+          state.maybeWhen(
+            success: (state) {
+              if (state!.status == 1) {
+                context.defaultSnackBar("Login Successful");
+                // UpdateFcmTokenService.updateUserToken(UserData.id!);
+                context.pushNamed(homePageRoute);
+              } else if (state.status == 0) {
+                if (state.msg ==
+                    "Active your account first verification code sent to your email !") {
+                  context.pushNamed(verifyAccountPageRoute);
+                }
+                context.defaultSnackBar(state.msg.isNullOrEmpty());
+              } else {
+                context.defaultSnackBar(state.msg.isNullOrEmpty());
+              }
+            },
+            error: (errCode, err) {
+              context.defaultSnackBar("ErrorCode: $errCode, $err");
+            },
+            orElse: () {
+              return null;
+            },
+          );
+        },
         builder: (context, state) {
-          LoginCubit loginCubit=LoginCubit.get(context);
           return Scaffold(
             body: SafeArea(
               child: Padding(
@@ -72,7 +93,6 @@ class _LoginViewState extends State<LoginView> {
                           ),
                           Gap(5.h),
                           CustomFormField(
-                            ctrl: userNameCtrl,
                             preIcon: Image.asset(AppImages.emailImg),
                             label: S.current.email,
                             isObscure: false,
@@ -84,7 +104,6 @@ class _LoginViewState extends State<LoginView> {
                           ),
                           Gap(5.h),
                           CustomFormField(
-                            ctrl: passwordCtrl,
                             preIcon: Image.asset(AppImages.lockImg),
                             label: S.current.pass,
                             isObscure: true,
@@ -114,7 +133,7 @@ class _LoginViewState extends State<LoginView> {
                             return CustomBtn(
                               label: S.current.login,
                               onPressed: () {
-                                loginCubit.userLogin(context,LoginEntity(userName: userNameCtrl.text,pass: passwordCtrl.text));
+                                context.pushNamed(bottomNavBarPageRoute);
                               },
                               fgColor: Colors.white,
                               isUpperCase: true,

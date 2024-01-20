@@ -24,7 +24,12 @@ class AppConstants {
   static const apiBaseUrl = "https://dixystoys.coddiv.com/api/";
   static const imageUrl = "https://example.example.com/";
   static const loginUri = "auth/login";
+  static const forgotPassUri = "";
+  static const resetPassUri = "";
+  static const changePassUri = "";
   static const registerUri = "auth/register";
+  static const verifyAccountUri = "";
   static const checkEmailRegisterUri = "";
+  static const resendCodeUri = "";
 
 }

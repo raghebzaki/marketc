@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -7,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
 import 'core/router/router_generator.dart';
+import 'core/shared/widgets/error_widget.dart';
 import 'core/utils/app_strings.dart';
 import 'core/utils/cubit_observer.dart';
 import 'generated/l10n.dart';
@@ -16,6 +16,15 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = AppCubitObserver();
   await di.init();
+
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.dumpErrorToConsole(details);
+    runApp(
+      ErrorWidgetClass(
+        errorDetails: details,
+      ),
+    );
+  };
 
   // await Firebase.initializeApp();
   // if (Platform.isAndroid) {
