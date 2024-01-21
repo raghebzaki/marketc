@@ -125,12 +125,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "edit_product": MessageLookupByLibrary.simpleMessage("Edit Product"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "email_wrong": MessageLookupByLibrary.simpleMessage(
+            "Email is wrong, check email & try again"),
         "enter_email": MessageLookupByLibrary.simpleMessage("Enter your email"),
         "enter_pass_below": MessageLookupByLibrary.simpleMessage(
             "Enter your new password below"),
+        "enter_valid_email":
+            MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
+        "err_code": MessageLookupByLibrary.simpleMessage("Error Code"),
         "est": MessageLookupByLibrary.simpleMessage("Estimated Arrival Time"),
         "executed_request":
             MessageLookupByLibrary.simpleMessage("Executed Request"),
+        "failed_change_pass":
+            MessageLookupByLibrary.simpleMessage("Failed to change password"),
         "favorite": MessageLookupByLibrary.simpleMessage("favorite"),
         "fifty_percent":
             MessageLookupByLibrary.simpleMessage("Get 50% of each sale"),
@@ -193,16 +200,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "order_problem": MessageLookupByLibrary.simpleMessage(
             "In case you encounter any issues, you can contact"),
         "order_summary": MessageLookupByLibrary.simpleMessage("Order Summary"),
+        "otp_sent": MessageLookupByLibrary.simpleMessage("OTP sent to"),
         "pass": MessageLookupByLibrary.simpleMessage("Password"),
         "pass_change_success": MessageLookupByLibrary.simpleMessage(
             "Password Changed Successfully"),
         "pass_confirm":
             MessageLookupByLibrary.simpleMessage("Password Confirmation"),
+        "pass_confrirm_required": MessageLookupByLibrary.simpleMessage(
+            "Password confirmation can\'t be empty"),
+        "pass_dont_match":
+            MessageLookupByLibrary.simpleMessage("Passwords doesn\'t match"),
+        "pass_short": MessageLookupByLibrary.simpleMessage(
+            "Password must be 8 chars at least"),
+        "password_required":
+            MessageLookupByLibrary.simpleMessage("Password must be entered"),
         "payment": MessageLookupByLibrary.simpleMessage("Payment"),
         "payment_alert": MessageLookupByLibrary.simpleMessage(
             "No charges will be incurred until this order is reviewed in the next step."),
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
         "phone_no": MessageLookupByLibrary.simpleMessage("Phone Number"),
+        "plz_enter_email":
+            MessageLookupByLibrary.simpleMessage("Please enter your email"),
         "popular": MessageLookupByLibrary.simpleMessage("Most Popular"),
         "prepare_order": MessageLookupByLibrary.simpleMessage("Prepare Order"),
         "privacy_des_1": MessageLookupByLibrary.simpleMessage(
@@ -228,6 +246,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Receiver information"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "register_now": MessageLookupByLibrary.simpleMessage("Register Now"),
+        "register_success":
+            MessageLookupByLibrary.simpleMessage("Registered Successfully"),
         "remember_pass":
             MessageLookupByLibrary.simpleMessage("Remember password?"),
         "resend_code": MessageLookupByLibrary.simpleMessage("Resend Code"),
@@ -278,6 +298,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "upload_product_img":
             MessageLookupByLibrary.simpleMessage("Upload Your Product Image"),
         "use_points": MessageLookupByLibrary.simpleMessage("use points"),
+        "user_name_required":
+            MessageLookupByLibrary.simpleMessage("User name can\'t be empty"),
         "user_profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "vcc": MessageLookupByLibrary.simpleMessage("Security Code"),
         "verify_code": MessageLookupByLibrary.simpleMessage("Verify Code"),

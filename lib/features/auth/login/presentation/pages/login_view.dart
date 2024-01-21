@@ -66,7 +66,7 @@ class _LoginViewState extends State<LoginView> {
               }
             },
             error: (errCode, err) {
-              context.defaultSnackBar("ErrorCode: $errCode, $err");
+              context.defaultSnackBar("${S.current.err_code}: $errCode, $err");
             },
             orElse: () {
               return null;
@@ -119,9 +119,9 @@ class _LoginViewState extends State<LoginView> {
                               isObscure: false,
                               validator: (value) {
                                 if (loginCubit.emailCtrl.text.isEmpty) {
-                                  return "Please enter your email";
+                                  return S.of(context).plz_enter_email;
                                 } else if (!loginCubit.emailCtrl.text.isEmail()) {
-                                  return "Please enter a valid email";
+                                  return S.of(context).enter_valid_email;
                                 } else {
                                   return null;
                                 }
@@ -150,9 +150,9 @@ class _LoginViewState extends State<LoginView> {
                               ),
                               validator: (value) {
                                 if (loginCubit.passCtrl.text.isEmpty) {
-                                  return "Password must be entered";
+                                  return S.of(context).password_required;
                                 } else if (loginCubit.passCtrl.length < 8) {
-                                  return "Password must be 8 chars at least";
+                                  return S.of(context).pass_short;
                                 } else {
                                   return null;
                                 }

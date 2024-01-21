@@ -201,7 +201,19 @@
   "discount_percentage": "Discount Percentage",
   "product_category": "Product Category",
   "upload_product_img": "Upload Your Product Image",
-  "@_Login": {},
-  "login_successful": "Login Successful"
-
+  "@_Shared": {},
+  "err_code": "Error Code",
+  "@_Auth": {},
+  "login_successful": "Login Successful",
+  "plz_enter_email": "Please enter your email",
+  "enter_valid_email": "Please enter a valid email",
+  "password_required": "Password must be entered",
+  "pass_short": "Password must be 8 chars at least",
+  "register_success": "Registered Successfully",
+  "user_name_required": "User name can't be empty",
+  "pass_confrirm_required": "Password confirmation can't be empty",
+  "pass_dont_match": "Passwords doesn't match",
+  "otp_sent": "OTP sent to",
+  "email_wrong": "Email is wrong, check email & try again",
+  "failed_change_pass": "Failed to change password"
 }

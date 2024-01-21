@@ -40,8 +40,7 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
       child: BlocConsumer<CategoryDetailsCubit, CategoryDetailsStates>(
         listener: (context, state) {},
         builder: (context, state) {
-          CategoryDetailsCubit categoryDetailsCubit =
-              CategoryDetailsCubit.get(context);
+          // CategoryDetailsCubit categoryDetailsCubit = CategoryDetailsCubit.get(context);
           return Scaffold(
             // backgroundColor: AppColors.primary,
             appBar: CustomAppBar(

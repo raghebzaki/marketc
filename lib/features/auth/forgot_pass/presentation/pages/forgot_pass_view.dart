@@ -38,7 +38,7 @@ class _ForgotPassViewState extends State<ForgotPassView> {
             success: (state) {
               if (state.statusCode == 1) {
                 context.defaultSnackBar(
-                  "OTP sent to ${state.email}",
+                  "${S.of(context).otp_sent} ${state.email}",
                 );
                 context.pushNamed(
                   resetPassPageRoute,
@@ -48,11 +48,11 @@ class _ForgotPassViewState extends State<ForgotPassView> {
                 );
               } else {
                 context
-                    .defaultSnackBar("Email is wrong, check email & try again");
+                    .defaultSnackBar(S.of(context).email_wrong);
               }
             },
             error: (errCode, err) {
-              context.defaultSnackBar("Error Code: $errCode, $err");
+              context.defaultSnackBar("${S.of(context).err_code}: $errCode, $err");
             },
             orElse: () {
               return null;

@@ -1910,11 +1910,131 @@ class S {
     );
   }
 
+  /// `Error Code`
+  String get err_code {
+    return Intl.message(
+      'Error Code',
+      name: 'err_code',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Login Successful`
   String get login_successful {
     return Intl.message(
       'Login Successful',
       name: 'login_successful',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your email`
+  String get plz_enter_email {
+    return Intl.message(
+      'Please enter your email',
+      name: 'plz_enter_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email`
+  String get enter_valid_email {
+    return Intl.message(
+      'Please enter a valid email',
+      name: 'enter_valid_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be entered`
+  String get password_required {
+    return Intl.message(
+      'Password must be entered',
+      name: 'password_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be 8 chars at least`
+  String get pass_short {
+    return Intl.message(
+      'Password must be 8 chars at least',
+      name: 'pass_short',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Registered Successfully`
+  String get register_success {
+    return Intl.message(
+      'Registered Successfully',
+      name: 'register_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User name can't be empty`
+  String get user_name_required {
+    return Intl.message(
+      'User name can\'t be empty',
+      name: 'user_name_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password confirmation can't be empty`
+  String get pass_confrirm_required {
+    return Intl.message(
+      'Password confirmation can\'t be empty',
+      name: 'pass_confrirm_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords doesn't match`
+  String get pass_dont_match {
+    return Intl.message(
+      'Passwords doesn\'t match',
+      name: 'pass_dont_match',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OTP sent to`
+  String get otp_sent {
+    return Intl.message(
+      'OTP sent to',
+      name: 'otp_sent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email is wrong, check email & try again`
+  String get email_wrong {
+    return Intl.message(
+      'Email is wrong, check email & try again',
+      name: 'email_wrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to change password`
+  String get failed_change_pass {
+    return Intl.message(
+      'Failed to change password',
+      name: 'failed_change_pass',
       desc: '',
       args: [],
     );

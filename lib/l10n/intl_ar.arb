@@ -199,6 +199,18 @@
   "discount_percentage": "نسبة الخصم",
   "product_category": "تصنيف المنتج",
   "upload_product_img": "قم برفع صورة المنتج الخاص بك",
-  "@_Login": {}
+  "@_Auth": {},
+  "login_successful": "تم تسجيل الدخول بنجاح",
+  "plz_enter_email": "يرجى إدخال البريد الإلكتروني",
+  "enter_valid_email": "يرجى إدخال بريد إلكتروني صالح",
+  "password_required": "يجب إدخال كلمة المرور",
+  "pass_short": "يجب أن تكون كلمة المرور على الأقل 8 أحرف",
+  "register_success": "تم التسجيل بنجاح",
+  "user_name_required": "اسم المستخدم لا يمكن أن يكون فارغًا",
+  "pass_confrirm_required": "تأكيد كلمة المرور لا يمكن أن يكون فارغًا",
+  "pass_dont_match": "كلمات المرور غير متطابقة",
+  "otp_sent": "تم إرسال رمز التحقق إلى",
+  "email_wrong": "البريد الإلكتروني خاطئ، تحقق من البريد الإلكتروني وحاول مرة أخرى",
+  "failed_change_pass": "فشل تغيير كلمة المرور"
 
 }

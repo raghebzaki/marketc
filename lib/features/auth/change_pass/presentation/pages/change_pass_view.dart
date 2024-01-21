@@ -42,14 +42,14 @@ class _ChangePassViewState extends State<ChangePassView> {
           state.maybeWhen(
             success: (state) {
               if (state.status == 1) {
-                context.defaultSnackBar("Password Changed Successfully");
+                context.defaultSnackBar(S.of(context).pass_change_success);
                 context.pushNamed(changePassConfirmationPageRoute);
               } else {
-                context.defaultSnackBar("Failed to change password");
+                context.defaultSnackBar(S.of(context).failed_change_pass);
               }
             },
             error: (errCode, err) {
-              context.defaultSnackBar("Error Code: $errCode, $err");
+              context.defaultSnackBar("${S.of(context).failed_change_pass}: $errCode, $err");
             },
             orElse: () {
               return null;

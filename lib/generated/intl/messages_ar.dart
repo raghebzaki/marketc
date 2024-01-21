@@ -119,13 +119,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
         "edit_product": MessageLookupByLibrary.simpleMessage("تعديل المنتج"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "email_wrong": MessageLookupByLibrary.simpleMessage(
+            "البريد الإلكتروني خاطئ، تحقق من البريد الإلكتروني وحاول مرة أخرى"),
         "enter_email":
             MessageLookupByLibrary.simpleMessage("أدخل بريدك الإلكتروني"),
         "enter_pass_below": MessageLookupByLibrary.simpleMessage(
             "أدخل كلمة المرور الجديدة أدناه"),
+        "enter_valid_email": MessageLookupByLibrary.simpleMessage(
+            "يرجى إدخال بريد إلكتروني صالح"),
         "est": MessageLookupByLibrary.simpleMessage("وقت الوصول المتوقع"),
         "executed_request":
             MessageLookupByLibrary.simpleMessage("الطلب المنفذ"),
+        "failed_change_pass":
+            MessageLookupByLibrary.simpleMessage("فشل تغيير كلمة المرور"),
         "favorite": MessageLookupByLibrary.simpleMessage("المفضلة"),
         "fifty_percent":
             MessageLookupByLibrary.simpleMessage("الحصول على 50% من كل بيعة"),
@@ -143,6 +149,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "login_now": MessageLookupByLibrary.simpleMessage("تسجيل الدخول الآن"),
+        "login_successful":
+            MessageLookupByLibrary.simpleMessage("تم تسجيل الدخول بنجاح"),
         "message": MessageLookupByLibrary.simpleMessage("الرسالة"),
         "monthly_sub": MessageLookupByLibrary.simpleMessage("اشتراك شهر"),
         "monthly_sub_price":
@@ -184,16 +192,28 @@ class MessageLookup extends MessageLookupByLibrary {
         "order_problem": MessageLookupByLibrary.simpleMessage(
             "في حالة تواجهك لأي مشكلة يمكنك التواصل مع"),
         "order_summary": MessageLookupByLibrary.simpleMessage("ملخص الطلب"),
+        "otp_sent":
+            MessageLookupByLibrary.simpleMessage("تم إرسال رمز التحقق إلى"),
         "pass": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "pass_change_success":
             MessageLookupByLibrary.simpleMessage("تم تغيير كلمة المرور بنجاح"),
         "pass_confirm":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
+        "pass_confrirm_required": MessageLookupByLibrary.simpleMessage(
+            "تأكيد كلمة المرور لا يمكن أن يكون فارغًا"),
+        "pass_dont_match":
+            MessageLookupByLibrary.simpleMessage("كلمات المرور غير متطابقة"),
+        "pass_short": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تكون كلمة المرور على الأقل 8 أحرف"),
+        "password_required":
+            MessageLookupByLibrary.simpleMessage("يجب إدخال كلمة المرور"),
         "payment": MessageLookupByLibrary.simpleMessage("الدفع"),
         "payment_alert": MessageLookupByLibrary.simpleMessage(
             "لن يتم تحصيل رسوم منك إلا بعد مراجعة هذا الطلب في الخطوة التالية"),
         "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "phone_no": MessageLookupByLibrary.simpleMessage("رقم الجوال"),
+        "plz_enter_email": MessageLookupByLibrary.simpleMessage(
+            "يرجى إدخال البريد الإلكتروني"),
         "popular": MessageLookupByLibrary.simpleMessage("الأكثر شيوعًا"),
         "prepare_order": MessageLookupByLibrary.simpleMessage("تحضير الطلب"),
         "privacy_des_1": MessageLookupByLibrary.simpleMessage(
@@ -218,6 +238,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("معلومات المستلم"),
         "register": MessageLookupByLibrary.simpleMessage("التسجيل"),
         "register_now": MessageLookupByLibrary.simpleMessage("سجل الآن"),
+        "register_success":
+            MessageLookupByLibrary.simpleMessage("تم التسجيل بنجاح"),
         "remember_pass":
             MessageLookupByLibrary.simpleMessage("تذكر كلمة المرور؟"),
         "resend_code":
@@ -268,6 +290,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "upload_product_img": MessageLookupByLibrary.simpleMessage(
             "قم برفع صورة المنتج الخاص بك"),
         "use_points": MessageLookupByLibrary.simpleMessage("استخدام النقاط"),
+        "user_name_required": MessageLookupByLibrary.simpleMessage(
+            "اسم المستخدم لا يمكن أن يكون فارغًا"),
         "user_profile":
             MessageLookupByLibrary.simpleMessage("المعلومات الشخصية"),
         "vcc": MessageLookupByLibrary.simpleMessage("رمز الأمان"),
