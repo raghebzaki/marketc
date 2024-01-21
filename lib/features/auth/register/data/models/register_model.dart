@@ -16,7 +16,7 @@ class RegisterModel extends RegisterEntity {
 
   factory RegisterModel.fromJson(Map<String, dynamic> json) {
     return RegisterModel(
-      status: json['status'] as num? ?? AppConstants.unknownNumValue,
+      status: json['status'] ,
       msg: json['message'] as String? ?? AppConstants.unknownStringValue,
       id:json['user']['id']??0,
       email: json['user']['email'] ?? AppConstants.unknownStringValue,

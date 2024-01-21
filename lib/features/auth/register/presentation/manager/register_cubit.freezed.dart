@@ -20,7 +20,7 @@ mixin _$RegisterState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RegisterEntity registerEntity) success,
+    required TResult Function(RegisterEntity? registerEntity) success,
     required TResult Function(String status) checkEmailSuccess,
     required TResult Function(String errCode, String err) error,
   }) =>
@@ -29,7 +29,7 @@ mixin _$RegisterState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RegisterEntity registerEntity)? success,
+    TResult? Function(RegisterEntity? registerEntity)? success,
     TResult? Function(String status)? checkEmailSuccess,
     TResult? Function(String errCode, String err)? error,
   }) =>
@@ -38,7 +38,7 @@ mixin _$RegisterState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RegisterEntity registerEntity)? success,
+    TResult Function(RegisterEntity? registerEntity)? success,
     TResult Function(String status)? checkEmailSuccess,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
@@ -132,7 +132,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RegisterEntity registerEntity) success,
+    required TResult Function(RegisterEntity? registerEntity) success,
     required TResult Function(String status) checkEmailSuccess,
     required TResult Function(String errCode, String err) error,
   }) {
@@ -144,7 +144,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RegisterEntity registerEntity)? success,
+    TResult? Function(RegisterEntity? registerEntity)? success,
     TResult? Function(String status)? checkEmailSuccess,
     TResult? Function(String errCode, String err)? error,
   }) {
@@ -156,7 +156,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RegisterEntity registerEntity)? success,
+    TResult Function(RegisterEntity? registerEntity)? success,
     TResult Function(String status)? checkEmailSuccess,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
@@ -252,7 +252,7 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RegisterEntity registerEntity) success,
+    required TResult Function(RegisterEntity? registerEntity) success,
     required TResult Function(String status) checkEmailSuccess,
     required TResult Function(String errCode, String err) error,
   }) {
@@ -264,7 +264,7 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RegisterEntity registerEntity)? success,
+    TResult? Function(RegisterEntity? registerEntity)? success,
     TResult? Function(String status)? checkEmailSuccess,
     TResult? Function(String errCode, String err)? error,
   }) {
@@ -276,7 +276,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RegisterEntity registerEntity)? success,
+    TResult Function(RegisterEntity? registerEntity)? success,
     TResult Function(String status)? checkEmailSuccess,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
@@ -338,7 +338,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({RegisterEntity registerEntity});
+  $Res call({RegisterEntity? registerEntity});
 }
 
 /// @nodoc
@@ -352,13 +352,13 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? registerEntity = null,
+    Object? registerEntity = freezed,
   }) {
     return _then(_$SuccessImpl(
-      null == registerEntity
+      freezed == registerEntity
           ? _value.registerEntity
           : registerEntity // ignore: cast_nullable_to_non_nullable
-              as RegisterEntity,
+              as RegisterEntity?,
     ));
   }
 }
@@ -369,7 +369,7 @@ class _$SuccessImpl implements Success {
   const _$SuccessImpl(this.registerEntity);
 
   @override
-  final RegisterEntity registerEntity;
+  final RegisterEntity? registerEntity;
 
   @override
   String toString() {
@@ -399,7 +399,7 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RegisterEntity registerEntity) success,
+    required TResult Function(RegisterEntity? registerEntity) success,
     required TResult Function(String status) checkEmailSuccess,
     required TResult Function(String errCode, String err) error,
   }) {
@@ -411,7 +411,7 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RegisterEntity registerEntity)? success,
+    TResult? Function(RegisterEntity? registerEntity)? success,
     TResult? Function(String status)? checkEmailSuccess,
     TResult? Function(String errCode, String err)? error,
   }) {
@@ -423,7 +423,7 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RegisterEntity registerEntity)? success,
+    TResult Function(RegisterEntity? registerEntity)? success,
     TResult Function(String status)? checkEmailSuccess,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
@@ -476,9 +476,9 @@ class _$SuccessImpl implements Success {
 }
 
 abstract class Success implements RegisterState {
-  const factory Success(final RegisterEntity registerEntity) = _$SuccessImpl;
+  const factory Success(final RegisterEntity? registerEntity) = _$SuccessImpl;
 
-  RegisterEntity get registerEntity;
+  RegisterEntity? get registerEntity;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -551,7 +551,7 @@ class _$CheckEmailSuccessImpl implements CheckEmailSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RegisterEntity registerEntity) success,
+    required TResult Function(RegisterEntity? registerEntity) success,
     required TResult Function(String status) checkEmailSuccess,
     required TResult Function(String errCode, String err) error,
   }) {
@@ -563,7 +563,7 @@ class _$CheckEmailSuccessImpl implements CheckEmailSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RegisterEntity registerEntity)? success,
+    TResult? Function(RegisterEntity? registerEntity)? success,
     TResult? Function(String status)? checkEmailSuccess,
     TResult? Function(String errCode, String err)? error,
   }) {
@@ -575,7 +575,7 @@ class _$CheckEmailSuccessImpl implements CheckEmailSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RegisterEntity registerEntity)? success,
+    TResult Function(RegisterEntity? registerEntity)? success,
     TResult Function(String status)? checkEmailSuccess,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
@@ -711,7 +711,7 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RegisterEntity registerEntity) success,
+    required TResult Function(RegisterEntity? registerEntity) success,
     required TResult Function(String status) checkEmailSuccess,
     required TResult Function(String errCode, String err) error,
   }) {
@@ -723,7 +723,7 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RegisterEntity registerEntity)? success,
+    TResult? Function(RegisterEntity? registerEntity)? success,
     TResult? Function(String status)? checkEmailSuccess,
     TResult? Function(String errCode, String err)? error,
   }) {
@@ -735,7 +735,7 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RegisterEntity registerEntity)? success,
+    TResult Function(RegisterEntity? registerEntity)? success,
     TResult Function(String status)? checkEmailSuccess,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),

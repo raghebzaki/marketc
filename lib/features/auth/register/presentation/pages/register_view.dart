@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:marketc/core/dependency_injection/di.dart' as di;
-import 'package:marketc/core/router/router.dart';
 import 'package:marketc/core/shared/widgets/custom_button.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:marketc/features/auth/register/domain/entities/register_entity.dart';
@@ -40,12 +39,6 @@ class _RegisterViewState extends State<RegisterView> {
       child: BlocConsumer<RegisterCubit, RegisterState>(
         listener: (context, state) {
           state.maybeWhen(
-            success: (state) {
-              if (state.status == 1) {
-                context.pushNamed(verifyAccountPageRoute);
-                context.defaultSnackBar("Registered Successfully");
-              }
-            },
             error: (errCode, err) {
               context.defaultSnackBar("Error Code: $errCode, $err");
             },
@@ -84,7 +77,7 @@ class _RegisterViewState extends State<RegisterView> {
                             CustomFormField(
                               ctrl: registerCubit.userNameCtrl,
                               preIcon: Image.asset(AppImages.profileImg),
-                              label: S.current.full_name,
+                              hint: S.current.full_name,
                               isObscure: false,
                               validator: (value) {
                                 if (registerCubit.userNameCtrl.text.isEmpty) {
@@ -103,7 +96,7 @@ class _RegisterViewState extends State<RegisterView> {
                             CustomFormField(
                               ctrl: registerCubit.emailCtrl,
                               preIcon: Image.asset(AppImages.emailImg),
-                              label: S.current.email,
+                              hint: S.current.email,
                               isObscure: false,
                               validator: (value) {
                                 if (registerCubit.emailCtrl.text.isEmpty) {
@@ -125,7 +118,7 @@ class _RegisterViewState extends State<RegisterView> {
                             CustomFormField(
                               ctrl: registerCubit.passCtrl,
                               preIcon: Image.asset(AppImages.lockImg),
-                              label: S.current.pass,
+                              hint: S.current.pass,
                               isObscure: password,
                               sufIcon: GestureDetector(
                                 onTap: () {
@@ -156,7 +149,7 @@ class _RegisterViewState extends State<RegisterView> {
                             CustomFormField(
                               ctrl: registerCubit.passConfirmCtrl,
                               preIcon: Image.asset(AppImages.lockImg),
-                              label: S.current.pass_confirm,
+                              hint: S.current.pass_confirm,
                               isObscure: passwordConfirmation,
                               sufIcon: GestureDetector(
                                 onTap: () {
@@ -285,7 +278,7 @@ class _RegisterViewState extends State<RegisterView> {
                                             pass: registerCubit.passCtrl.text,
                                             confirmPass: registerCubit
                                                 .passConfirmCtrl.text,
-                                          ),
+                                          ),context
                                         );
                                        // if (state is Success) {
                                        //   context.pushNamed(verifyAccountPageRoute);

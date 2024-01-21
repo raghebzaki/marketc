@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:marketc/core/router/router.dart';
+import 'package:marketc/core/utils/extensions.dart';
 
 import '../../domain/entities/register_entity.dart';
 import '../../domain/use_cases/check_registered_email_usecase.dart';
@@ -17,7 +19,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   final RegisterUseCase registerUseCase;
   final CheckRegisteredEmailUseCase checkRegisteredEmailUseCase;
 
-  userRegister(RegisterEntity registerEntity) async {
+  userRegister(RegisterEntity registerEntity,BuildContext context) async {
     emit(const RegisterState.loading());
     final register =
     await registerUseCase(registerEntity);
@@ -32,6 +34,10 @@ class RegisterCubit extends Cubit<RegisterState> {
         );
       },
           (r) {
+            if (r.status == 1) {
+              context.pushNamed(verifyAccountPageRoute);
+              context.defaultSnackBar("Registered Successfully");
+            }
         emit(
           RegisterState.success(registerEntity),
         );
