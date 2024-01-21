@@ -148,6 +148,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_now": MessageLookupByLibrary.simpleMessage("Login Now"),
+        "login_successful":
+            MessageLookupByLibrary.simpleMessage("Login Successful"),
         "message": MessageLookupByLibrary.simpleMessage("Message"),
         "monthly_sub":
             MessageLookupByLibrary.simpleMessage("Monthly Subscription"),

@@ -1,6 +1,4 @@
 import 'package:get_it/get_it.dart';
-import 'package:marketc/features/customer/main/home/domain/use_cases/most_popular_use_case.dart';
-import 'package:marketc/features/customer/main/home/presentation/manager/most_popular_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/change_pass/data/data_sources/change_pass_service.dart';
@@ -39,6 +37,11 @@ import '../../features/auth/verify_account/domain/repositories/verify_account_re
 import '../../features/auth/verify_account/domain/use_cases/resend_code_usecase.dart';
 import '../../features/auth/verify_account/domain/use_cases/verify_account_usecase.dart';
 import '../../features/auth/verify_account/presentation/manager/verify_account_cubit.dart';
+import '../../features/customer/main/category_details/data/data_sources/category_details_serivce.dart';
+import '../../features/customer/main/category_details/data/repositories/category_details_repo_impl.dart';
+import '../../features/customer/main/category_details/domain/repositories/category_details_repo.dart';
+import '../../features/customer/main/category_details/domain/use_cases/get_category_products_usecase.dart';
+import '../../features/customer/main/category_details/presentation/manager/category_details_cubit.dart';
 import '../../features/customer/main/favorite/data/data_sources/favorite_service.dart';
 import '../../features/customer/main/favorite/data/repositories/favorite_repo_impl.dart';
 import '../../features/customer/main/favorite/domain/repositories/favorite_repo.dart';
@@ -50,8 +53,15 @@ import '../../features/customer/main/home/data/repositories/most_popular_repo_im
 import '../../features/customer/main/home/data/repositories/new_products_repo_impl.dart';
 import '../../features/customer/main/home/domain/repositories/most_popular_repo.dart';
 import '../../features/customer/main/home/domain/repositories/new_products_repo.dart';
+import '../../features/customer/main/home/domain/use_cases/most_popular_use_case.dart';
 import '../../features/customer/main/home/domain/use_cases/new_products_use_case.dart';
+import '../../features/customer/main/home/presentation/manager/most_popular_cubit.dart';
 import '../../features/customer/main/home/presentation/manager/new_products_cubit.dart';
+import '../../features/customer/payment/payment_summary/data/data_sources/place_order_service.dart';
+import '../../features/customer/payment/payment_summary/data/repositories/place_order_repo_impl.dart';
+import '../../features/customer/payment/payment_summary/domain/repositories/place_order_repo.dart';
+import '../../features/customer/payment/payment_summary/domain/use_cases/place_order_use_case.dart';
+import '../../features/customer/payment/payment_summary/presentation/manager/place_order_cubit.dart';
 
 final di = GetIt.instance;
 
@@ -128,6 +138,24 @@ Future<void> init() async {
   di.registerLazySingleton(() => FavoriteUseCase(di()));
   di.registerLazySingleton<FavoriteRepo>(() => FavoriteRepoImpl(di()));
   di.registerLazySingleton<FavoriteService>(() => FavoriteServiceImpl());
+
+  /// Category Details
+  di.registerFactory(
+      () => CategoryDetailsCubit(getCategoryProductsUseCase: di()));
+  di.registerLazySingleton(
+      () => GetCategoryProductsUseCase(categoryDetailsRepo: di()));
+  di.registerLazySingleton<CategoryDetailsRepo>(
+      () => CategoryDetailsRepoImpl(categoryProductsService: di()));
+  di.registerLazySingleton<CategoryProductsService>(
+      () => CategoryProductsServiceImpl());
+
+  /// Payment View
+  /// Place Order
+  di.registerFactory(() => PlaceOrderCubit(placeOrderUseCase: di()));
+  di.registerLazySingleton(() => PlaceOrderUseCase(placeOrderRepo: di()));
+  di.registerLazySingleton<PlaceOrderRepo>(
+      () => PlaceOrderRepoImpl(placeOrderService: di()));
+  di.registerLazySingleton<PlaceOrderService>(() => PlaceOrderServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();

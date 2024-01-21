@@ -198,5 +198,7 @@
   "product_price": "السعر",
   "discount_percentage": "نسبة الخصم",
   "product_category": "تصنيف المنتج",
-  "upload_product_img": "قم برفع صورة المنتج الخاص بك"
+  "upload_product_img": "قم برفع صورة المنتج الخاص بك",
+  "@_Login": {}
+
 }

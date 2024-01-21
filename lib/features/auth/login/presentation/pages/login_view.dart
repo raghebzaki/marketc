@@ -52,7 +52,7 @@ class _LoginViewState extends State<LoginView> {
             // },
             success: (state) {
               if (state!.status == 1) {
-                context.defaultSnackBar("Login Successful");
+                context.defaultSnackBar(S.of(context).login_successful);
                 // UpdateFcmTokenService.updateUserToken(UserData.id!);
                 context.pushNamed(homePageRoute);
               } else if (state.status == 0) {

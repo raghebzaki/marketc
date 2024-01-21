@@ -1909,6 +1909,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Login Successful`
+  String get login_successful {
+    return Intl.message(
+      'Login Successful',
+      name: 'login_successful',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

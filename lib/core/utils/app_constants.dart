@@ -34,5 +34,7 @@ class AppConstants {
   static const mostPopularProductsUri = "";
   static const newProductsUri = "";
   static const favoriteProductsUri = "";
+  static const categoryDetailsUri = "";
+  static const placeOrderUri = "";
 
 }

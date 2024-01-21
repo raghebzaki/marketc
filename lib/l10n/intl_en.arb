@@ -200,6 +200,8 @@
   "product_price": "Price",
   "discount_percentage": "Discount Percentage",
   "product_category": "Product Category",
-  "upload_product_img": "Upload Your Product Image"
+  "upload_product_img": "Upload Your Product Image",
+  "@_Login": {},
+  "login_successful": "Login Successful"
 
 }
