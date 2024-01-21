@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:marketc/core/utils/extensions.dart';
+import 'package:marketc/features/auth/login/domain/entities/login_entity.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../config/themes/app_text_styles.dart';
@@ -25,6 +26,8 @@ class LoginView extends StatefulWidget {
   State<LoginView> createState() => _LoginViewState();
 }
 
+TextEditingController userNameCtrl=TextEditingController();
+TextEditingController passwordCtrl=TextEditingController();
 class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
@@ -69,6 +72,7 @@ class _LoginViewState extends State<LoginView> {
           );
         },
         builder: (context, state) {
+          LoginCubit loginCubit=LoginCubit.get(context);
           return Scaffold(
             body: SafeArea(
               child: Padding(
@@ -105,8 +109,9 @@ class _LoginViewState extends State<LoginView> {
                           ),
                           Gap(5.h),
                           CustomFormField(
+                            ctrl: userNameCtrl,
                             preIcon: Image.asset(AppImages.emailImg),
-                            label: S.current.email,
+                            hint: S.current.email,
                             isObscure: false,
                           ),
                           Gap(10.h),
@@ -116,8 +121,9 @@ class _LoginViewState extends State<LoginView> {
                           ),
                           Gap(5.h),
                           CustomFormField(
+                            ctrl: passwordCtrl,
                             preIcon: Image.asset(AppImages.lockImg),
-                            label: S.current.pass,
+                            hint: S.current.pass,
                             isObscure: true,
                             sufIcon: Icon(MdiIcons.eye),
                           ),
@@ -145,7 +151,7 @@ class _LoginViewState extends State<LoginView> {
                             return CustomBtn(
                               label: S.current.login,
                               onPressed: () {
-                                context.pushNamed(bottomNavBarPageRoute);
+                                loginCubit.userLogin(LoginEntity(userName: userNameCtrl.text,pass: passwordCtrl.text));
                               },
                               fgColor: Colors.white,
                               isUpperCase: true,
@@ -171,7 +177,6 @@ class _LoginViewState extends State<LoginView> {
                           TextButton(
                             onPressed: () {
                               context.pushNamed(registerPageRoute);
-                              // context.pushNamed(registerPageRoute);
                             },
                             child: Text(
                               S.current.register_now,

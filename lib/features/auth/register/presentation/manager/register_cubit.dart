@@ -1,18 +1,17 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:marketc/features/auth/register/domain/entities/register_entity.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../domain/entities/register_entity.dart';
 import '../../domain/use_cases/check_registered_email_usecase.dart';
 import '../../domain/use_cases/register_usecase.dart';
 
+part 'register_state.dart';
+part 'register_cubit.freezed.dart';
 
-part 'client_register_state.dart';
-
-class RegisterCubit extends Cubit<RegisterStates> {
-  RegisterCubit({
-    required this.registerUseCase,
-    required this.checkRegisteredEmailUseCase,
-  }) : super(RegisterInitial());
+class RegisterCubit extends Cubit<RegisterState> {
+  RegisterCubit({required this.registerUseCase, required this.checkRegisteredEmailUseCase}) : super(const RegisterState.initial());
 
   static RegisterCubit get(context) => BlocProvider.of(context);
 
@@ -20,7 +19,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
   final CheckRegisteredEmailUseCase checkRegisteredEmailUseCase;
 
   userRegister(RegisterEntity registerEntity) async {
-    emit(RegisterLoadingState());
+    emit(RegisterState.loading());
     final register =
     await registerUseCase(registerEntity);
 
@@ -29,7 +28,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
         // defaultSnackBar(context,
         //     "Failed to register. Error Code: ${l.code} Error Message: ${l.message}");
         emit(
-          RegisterErrorState(
+          RegisterState.error(
             l.code.toString(),
             l.message,
           ),
@@ -43,7 +42,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
         //   defaultSnackBar(context, "Something went wrong while registering");
         // }
         emit(
-          RegisterSuccessState(),
+          RegisterState.success(registerEntity),
         );
       },
     );
@@ -51,13 +50,13 @@ class RegisterCubit extends Cubit<RegisterStates> {
 
 
   checkEmail(BuildContext context, String email) async {
-    emit(RegisterLoadingState());
+    emit(const RegisterState.loading());
     final checkEmail = await checkRegisteredEmailUseCase(email);
     checkEmail.fold(
           (l) => {
 
         emit(
-          RegisterErrorState(
+          RegisterState.error(
             l.code.toString(),
             l.message,
           ),
@@ -66,7 +65,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
           (r) => {
 
         emit(
-          RegisterSuccessState(),
+          RegisterState.checkEmailSuccess(r),
         ),
       },
     );

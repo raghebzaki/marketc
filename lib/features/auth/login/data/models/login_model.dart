@@ -16,13 +16,15 @@ class LoginModel extends LoginEntity {
     return LoginModel(
       status: json["status"] as num? ?? AppConstants.unknownNumValue,
       msg: json["message"] as String? ?? AppConstants.unknownStringValue,
-      userData: UserData.fromJson(json["userData"]),
+      userData: json["userData"]==null
+          ?null
+          : UserData.fromJson(json["userData"]),
     );
   }
 
   static Map<String, dynamic> toJson(LoginEntity loginEntity) {
     return {
-      'name': loginEntity.userName,
+      'email': loginEntity.userName,
       'password': loginEntity.pass,
     };
   }

@@ -22,7 +22,7 @@ import '../../features/auth/register/data/repositories/register_repo_impl.dart';
 import '../../features/auth/register/domain/repositories/register_repo.dart';
 import '../../features/auth/register/domain/use_cases/check_registered_email_usecase.dart';
 import '../../features/auth/register/domain/use_cases/register_usecase.dart';
-import '../../features/auth/register/presentation/manager/client_register_cubit.dart';
+import '../../features/auth/register/presentation/manager/register_cubit.dart';
 import '../../features/auth/reset_pass/data/data_sources/reset_pass_service.dart';
 import '../../features/auth/reset_pass/data/repositories/reset_pass_repo_impl.dart';
 import '../../features/auth/reset_pass/domain/repositories/reset_pass_repo.dart';

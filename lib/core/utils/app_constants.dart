@@ -21,14 +21,14 @@ class AppConstants {
   static String? fcmToken = "";
 
   // * API URIs
-  static const apiBaseUrl = "https://dixystoys.coddiv.com/api/";
-  static const imageUrl = "https://example.example.com/";
+  static const apiBaseUrl = "https://crm.coddiv.com/api/";
+  static const imageUrl = "https://crm.coddiv.com/";
   static const loginUri = "auth/login";
-  static const forgotPassUri = "";
-  static const resetPassUri = "";
-  static const changePassUri = "";
+  static const forgotPassUri = "auth/forget-password";
+  static const resetPassUri = "auth/reset-password";
+  static const changePassUri = "auth/change-password";
   static const registerUri = "auth/register";
-  static const verifyAccountUri = "";
+  static const verifyAccountUri = "auth/account_verification";
   static const checkEmailRegisterUri = "";
   static const resendCodeUri = "";
 

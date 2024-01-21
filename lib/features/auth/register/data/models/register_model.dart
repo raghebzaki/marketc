@@ -18,7 +18,7 @@ class RegisterModel extends RegisterEntity {
     return RegisterModel(
       status: json['status'] as num? ?? AppConstants.unknownNumValue,
       msg: json['message'] as String? ?? AppConstants.unknownStringValue,
-      id:json['user']['id'],
+      id:json['user']['id']??0,
     );
   }
 
