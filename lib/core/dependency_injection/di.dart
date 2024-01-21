@@ -1,4 +1,6 @@
 import 'package:get_it/get_it.dart';
+import 'package:marketc/features/customer/main/home/domain/use_cases/most_popular_use_case.dart';
+import 'package:marketc/features/customer/main/home/presentation/manager/most_popular_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/change_pass/data/data_sources/change_pass_service.dart';
@@ -35,6 +37,19 @@ import '../../features/auth/verify_account/domain/repositories/verify_account_re
 import '../../features/auth/verify_account/domain/use_cases/resend_code_usecase.dart';
 import '../../features/auth/verify_account/domain/use_cases/verify_account_usecase.dart';
 import '../../features/auth/verify_account/presentation/manager/verify_account_cubit.dart';
+import '../../features/customer/main/favorite/data/data_sources/favorite_service.dart';
+import '../../features/customer/main/favorite/data/repositories/favorite_repo_impl.dart';
+import '../../features/customer/main/favorite/domain/repositories/favorite_repo.dart';
+import '../../features/customer/main/favorite/domain/use_cases/favorite_use_case.dart';
+import '../../features/customer/main/favorite/presentation/manager/favorite_cubit.dart';
+import '../../features/customer/main/home/data/data_sources/most_popular_service.dart';
+import '../../features/customer/main/home/data/data_sources/new_products_service.dart';
+import '../../features/customer/main/home/data/repositories/most_popular_repo_impl.dart';
+import '../../features/customer/main/home/data/repositories/new_products_repo_impl.dart';
+import '../../features/customer/main/home/domain/repositories/most_popular_repo.dart';
+import '../../features/customer/main/home/domain/repositories/new_products_repo.dart';
+import '../../features/customer/main/home/domain/use_cases/new_products_use_case.dart';
+import '../../features/customer/main/home/presentation/manager/new_products_cubit.dart';
 
 final di = GetIt.instance;
 
@@ -89,6 +104,25 @@ Future<void> init() async {
       () => VerifyAccountRepoImpl(di(), di()));
   di.registerLazySingleton<VerifyAccountService>(
       () => VerifyAccountServiceImpl());
+
+  /// home page
+  /// most popular
+  di.registerFactory(() => MostPopularCubit(mostPopularUseCase: di()));
+  di.registerLazySingleton(() => MostPopularUseCase( di()));
+  di.registerLazySingleton<MostPopularRepo>(() => MostPopularRepoImpl( di()));
+  di.registerLazySingleton<MostPopularService>(() => MostPopularServiceImpl());
+
+  /// New Products
+  di.registerFactory(() => NewProductsCubit(newProductsUseCase: di()));
+  di.registerLazySingleton(() => NewProductsUseCase( di()));
+  di.registerLazySingleton<NewProductsRepo>(() => NewProductsRepoImpl( di()));
+  di.registerLazySingleton<NewProductsService>(() => NewProductsServiceImpl());
+
+  /// Favorite products
+  di.registerFactory(() => FavoriteCubit(favoriteUseCase: di()));
+  di.registerLazySingleton(() => FavoriteUseCase( di()));
+  di.registerLazySingleton<FavoriteRepo>(() => FavoriteRepoImpl( di()));
+  di.registerLazySingleton<FavoriteService>(() => FavoriteServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();

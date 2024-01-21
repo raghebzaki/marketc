@@ -31,5 +31,8 @@ class AppConstants {
   static const verifyAccountUri = "auth/account_verification";
   static const checkEmailRegisterUri = "";
   static const resendCodeUri = "";
+  static const mostPopularProductsUri = "";
+  static const newProductsUri = "";
+  static const favoriteProductsUri = "";
 
 }
