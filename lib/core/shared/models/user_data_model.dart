@@ -27,7 +27,7 @@ class UserData extends Equatable {
     status = json['status'] ?? AppConstants.unknownNumValue;
   }
 
-  Map<String, dynamic> toJson() => {
+  static Map<String, dynamic> toJson() => {
         "name": name,
         "email": email,
         "password": pass,

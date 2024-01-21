@@ -32,6 +32,7 @@ import '../../features/auth/reset_pass/presentation/manager/verify_account_cubit
 import '../../features/auth/verify_account/data/data_sources/verify_account_service.dart';
 import '../../features/auth/verify_account/data/repositories/verify_account_repo_impl.dart';
 import '../../features/auth/verify_account/domain/repositories/verify_account_repo.dart';
+import '../../features/auth/verify_account/domain/use_cases/resend_code_usecase.dart';
 import '../../features/auth/verify_account/domain/use_cases/verify_account_usecase.dart';
 import '../../features/auth/verify_account/presentation/manager/verify_account_cubit.dart';
 
@@ -79,13 +80,15 @@ Future<void> init() async {
       () => CheckRegisteredEmailServiceImpl());
 
   /// Verify Account
-  di.registerFactory(
-          () => VerifyAccountCubit(verifyAccountUseCase:  di(), resendCodeUseCase: di()));
+  di.registerFactory(() =>
+      VerifyAccountCubit(verifyAccountUseCase: di(), resendCodeUseCase: di()));
   di.registerLazySingleton(() => VerifyAccountUseCase(di()));
-  di.registerLazySingleton(() => ResendCodeUseCase(resetPassRepo: di()));
+  di.registerLazySingleton(
+      () => VerifyResendCodeUseCase(verifyAccountRepo: di()));
   di.registerLazySingleton<VerifyAccountRepo>(
-          () => VerifyAccountRepoImpl( di(),di()));
-  di.registerLazySingleton<VerifyAccountService>(() => VerifyAccountServiceImpl());
+      () => VerifyAccountRepoImpl(di(), di()));
+  di.registerLazySingleton<VerifyAccountService>(
+      () => VerifyAccountServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();

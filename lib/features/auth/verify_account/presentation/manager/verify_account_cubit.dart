@@ -37,7 +37,7 @@ class VerifyAccountCubit extends Cubit<VerifyAccountStates> {
     });
   }
 
-  final ResendCodeUseCase resendCodeUseCase;
+  final VerifyResendCodeUseCase resendCodeUseCase;
 
   resendCode(String email) async {
     emit(const VerifyAccountStates.loading());

@@ -30,6 +30,7 @@ class Dimensions {
   static const double p30 = 30.0;
   static const double p32 = 32.0;
   static const double p40 = 40.0;
+  static const double p50 = 50.0;
 
   static const double m5 = 5.0;
   static const double m8 = 8.0;

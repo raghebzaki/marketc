@@ -2,11 +2,12 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:marketc/core/utils/app_constants.dart';
 
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
 import 'core/router/router_generator.dart';
-import 'core/shared/widgets/error_widget.dart';
+import 'core/shared/widgets/custom_error_widget.dart';
 import 'core/utils/app_strings.dart';
 import 'core/utils/cubit_observer.dart';
 import 'generated/l10n.dart';
@@ -15,13 +16,16 @@ import 'main_view.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = AppCubitObserver();
+  await ScreenUtil.ensureScreenSize();
   await di.init();
 
-  FlutterError.onError = (FlutterErrorDetails details) {
-    FlutterError.dumpErrorToConsole(details);
-    runApp(
-      ErrorWidgetClass(
-        errorDetails: details,
+  ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: ErrorWidgetClass(
+          errorDetails: errorDetails,
+        ),
       ),
     );
   };
@@ -34,8 +38,10 @@ void main() async {
   // }
 
   String currentLocale = await CacheHelper.getAppLang();
-  var email = await CacheHelper.getData("email");
-  var pass = await CacheHelper.getData("pass");
+  var email =
+      await CacheHelper.getData("email") ?? AppConstants.unknownStringValue;
+  var pass =
+      await CacheHelper.getData("pass") ?? AppConstants.unknownStringValue;
   debugPrint("Email: $email\n Pass: $pass");
 
   runApp(

@@ -32,7 +32,19 @@ class _LoginViewState extends State<LoginView> {
       create: (context) => di.di<LoginCubit>(),
       child: BlocConsumer<LoginCubit, LoginStates>(
         listener: (context, state) {
+          // LoginCubit loginCubit = LoginCubit.get(context);
           state.maybeWhen(
+            // initial: () async {
+            //   var email =
+            //       await CacheHelper.getData("email") ?? "";
+            //   var pass =
+            //       await CacheHelper.getData("pass") ?? "";
+            //   if (email == null && pass == null || email == "" && pass == "") {
+            //     return null;
+            //   } else {
+            //     // loginCubit.userLogin();
+            //   }
+            // },
             success: (state) {
               if (state!.status == 1) {
                 context.defaultSnackBar("Login Successful");
