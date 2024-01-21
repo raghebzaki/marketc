@@ -4,6 +4,12 @@ class ResetPassArgs {
   ResetPassArgs({required this.email});
 }
 
+class ChangePassArgs {
+  final String email;
+
+  ChangePassArgs({required this.email});
+}
+
 class CategoryDetailsArgs {
   final num id;
 

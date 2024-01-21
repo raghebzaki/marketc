@@ -75,8 +75,11 @@ class AppRouters {
           ),
         );
       case changePassPageRoute:
+        final args = settings.arguments as ChangePassArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const ChangePassView(),
+          builder: (BuildContext context) => ChangePassView(
+            email: args.email,
+          ),
         );
       case changePassConfirmationPageRoute:
         return MaterialPageRoute(

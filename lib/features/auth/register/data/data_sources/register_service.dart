@@ -33,11 +33,8 @@ class RegisterServiceImpl implements RegisterService {
     );
 
     if (registerUser.statusCode == 200) {
-      if (registerUser.data['status'] == 1) {
         registerModel = RegisterModel.fromJson(registerUser.data);
         // await UpdateFcmTokenService.updateUserToken(registerModel.id!);
-        return registerModel;
-      }
     }
     return registerModel;
   }

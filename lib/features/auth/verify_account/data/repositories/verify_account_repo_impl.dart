@@ -11,7 +11,7 @@ import '../data_sources/verify_account_service.dart';
 
 class VerifyAccountRepoImpl implements VerifyAccountRepo {
   final VerifyAccountService verifyAccountService;
-  final ResendCodeService resendCodeService;
+  final VerifyResendCodeService resendCodeService;
 
   VerifyAccountRepoImpl(this.verifyAccountService, this.resendCodeService);
 

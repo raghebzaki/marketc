@@ -155,7 +155,9 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                         ),
                         Gap(15.h),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context.pushNamed(savedAddressesPageRoute);
+                          },
                           child: Text(
                             S.of(context).choose_address,
                             style: CustomTextStyle.kTextStyleF14.copyWith(

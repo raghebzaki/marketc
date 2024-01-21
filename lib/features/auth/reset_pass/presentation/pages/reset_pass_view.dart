@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
 import 'package:gap/gap.dart';
 import 'package:marketc/core/router/router.dart';
+import 'package:marketc/core/shared/arguments.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:marketc/features/auth/reset_pass/presentation/manager/verify_account_cubit.dart';
 import 'package:pinput/pinput.dart';
@@ -18,6 +19,7 @@ import '../../../../../generated/l10n.dart';
 
 class ResetPassView extends StatefulWidget {
   final String email;
+
   const ResetPassView({super.key, required this.email});
 
   @override
@@ -38,7 +40,12 @@ class _ResetPassViewState extends State<ResetPassView> {
             success: (state) {
               if (state.status == 1) {
                 context.defaultSnackBar("OTP is correct");
-                context.pushNamed(changePassPageRoute);
+                context.pushNamed(
+                  changePassPageRoute,
+                  arguments: ChangePassArgs(
+                    email: widget.email,
+                  ),
+                );
               } else {
                 context.defaultSnackBar("Failed to check OTP");
                 // defaultSnackBar(context, S.of(context).IncorrectVerificationCode);

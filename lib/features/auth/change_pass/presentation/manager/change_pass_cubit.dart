@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:marketc/features/auth/change_pass/domain/entities/change_pass_entity.dart';
@@ -37,4 +38,7 @@ class ChangePassCubit extends Cubit<ChangePassStates> {
       },
     );
   }
+
+  TextEditingController passCtrl = TextEditingController();
+  TextEditingController passConfirmCtrl = TextEditingController();
 }

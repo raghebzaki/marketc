@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:hive/hive.dart';
 import 'package:marketc/core/shared/widgets/custom_app_bar.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:marketc/features/customer/payment/saved_addresses/presentation/widgets/saved_address_item.dart';
 
+import '../../../../../../core/database/address_class.dart';
+import '../../../../../../core/database/database_db.dart';
 import '../../../../../../core/router/router.dart';
 import '../../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../../core/utils/app_colors.dart';
@@ -19,6 +22,7 @@ class SavedAddressesView extends StatefulWidget {
 }
 
 class _SavedAddressesViewState extends State<SavedAddressesView> {
+  late final Box box;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,8 +59,25 @@ class _SavedAddressesViewState extends State<SavedAddressesView> {
                 color: Colors.white,
                 child: CustomBtn(
                   label: S.of(context).add_new_address,
-                  onPressed: () {
-                    context.pushNamed(addNewAddressPageRoute);
+                  onPressed: () async {
+                    // box = await Hive.openBox("Address Database");
+
+                     Address getAddress() => Address(
+                       address: "Address 1",
+                       building: "2",
+                       flat: "15",
+                       phone: "01234567890",
+                       city: "Cairo",
+                       state: "Egypt",
+                       code: "12345",
+                     );
+
+                     await HiveBoxes.addressBox.put(
+                       10, getAddress(),
+                     );
+                     if (context.mounted) {
+                       context.pushNamed(addNewAddressPageRoute);
+                     }
                   },
                 ),
               ),

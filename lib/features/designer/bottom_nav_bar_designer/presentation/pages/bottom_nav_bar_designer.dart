@@ -10,7 +10,7 @@ import '../../../product/add_product/presentation/pages/add_product.dart';
 
 
 class BottomNavBarDesigner extends StatefulWidget {
-  const BottomNavBarDesigner({Key? key}) : super(key: key);
+  const BottomNavBarDesigner({super.key});
 
   @override
   State<BottomNavBarDesigner> createState() => _BottomNavBarDesignerState();

@@ -36,4 +36,7 @@ class LoginCubit extends Cubit<LoginStates> {
       },
     );
   }
+
+  TextEditingController emailCtrl = TextEditingController();
+  TextEditingController passCtrl = TextEditingController();
 }

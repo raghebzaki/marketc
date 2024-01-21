@@ -25,12 +25,14 @@ import '../../features/auth/register/domain/repositories/register_repo.dart';
 import '../../features/auth/register/domain/use_cases/check_registered_email_usecase.dart';
 import '../../features/auth/register/domain/use_cases/register_usecase.dart';
 import '../../features/auth/register/presentation/manager/register_cubit.dart';
+import '../../features/auth/reset_pass/data/data_sources/resend_code_service.dart';
 import '../../features/auth/reset_pass/data/data_sources/reset_pass_service.dart';
 import '../../features/auth/reset_pass/data/repositories/reset_pass_repo_impl.dart';
 import '../../features/auth/reset_pass/domain/repositories/reset_pass_repo.dart';
 import '../../features/auth/reset_pass/domain/use_cases/resend_code_usecase.dart';
 import '../../features/auth/reset_pass/domain/use_cases/reset_pass_usecase.dart';
 import '../../features/auth/reset_pass/presentation/manager/verify_account_cubit.dart';
+import '../../features/auth/verify_account/data/data_sources/resend_code_service.dart';
 import '../../features/auth/verify_account/data/data_sources/verify_account_service.dart';
 import '../../features/auth/verify_account/data/repositories/verify_account_repo_impl.dart';
 import '../../features/auth/verify_account/domain/repositories/verify_account_repo.dart';
@@ -74,6 +76,7 @@ Future<void> init() async {
   di.registerLazySingleton<ResetPassRepo>(
       () => ResetPassRepoImpl(resetPassService: di(), resendCodeService: di()));
   di.registerLazySingleton<ResetPassService>(() => ResetPassServiceImpl());
+  di.registerLazySingleton<ResendCodeService>(() => ResendCodeServiceImpl());
 
   /// Change Password
   di.registerFactory(() => ChangePassCubit(changePassUseCase: di()));
@@ -104,24 +107,26 @@ Future<void> init() async {
       () => VerifyAccountRepoImpl(di(), di()));
   di.registerLazySingleton<VerifyAccountService>(
       () => VerifyAccountServiceImpl());
+  di.registerLazySingleton<VerifyResendCodeService>(
+      () => VerifyResendCodeServiceImpl());
 
   /// home page
   /// most popular
   di.registerFactory(() => MostPopularCubit(mostPopularUseCase: di()));
-  di.registerLazySingleton(() => MostPopularUseCase( di()));
-  di.registerLazySingleton<MostPopularRepo>(() => MostPopularRepoImpl( di()));
+  di.registerLazySingleton(() => MostPopularUseCase(di()));
+  di.registerLazySingleton<MostPopularRepo>(() => MostPopularRepoImpl(di()));
   di.registerLazySingleton<MostPopularService>(() => MostPopularServiceImpl());
 
   /// New Products
   di.registerFactory(() => NewProductsCubit(newProductsUseCase: di()));
-  di.registerLazySingleton(() => NewProductsUseCase( di()));
-  di.registerLazySingleton<NewProductsRepo>(() => NewProductsRepoImpl( di()));
+  di.registerLazySingleton(() => NewProductsUseCase(di()));
+  di.registerLazySingleton<NewProductsRepo>(() => NewProductsRepoImpl(di()));
   di.registerLazySingleton<NewProductsService>(() => NewProductsServiceImpl());
 
   /// Favorite products
   di.registerFactory(() => FavoriteCubit(favoriteUseCase: di()));
-  di.registerLazySingleton(() => FavoriteUseCase( di()));
-  di.registerLazySingleton<FavoriteRepo>(() => FavoriteRepoImpl( di()));
+  di.registerLazySingleton(() => FavoriteUseCase(di()));
+  di.registerLazySingleton<FavoriteRepo>(() => FavoriteRepoImpl(di()));
   di.registerLazySingleton<FavoriteService>(() => FavoriteServiceImpl());
 
   /// external

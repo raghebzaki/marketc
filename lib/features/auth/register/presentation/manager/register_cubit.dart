@@ -24,8 +24,6 @@ class RegisterCubit extends Cubit<RegisterState> {
 
     register.fold(
           (l) {
-        // defaultSnackBar(context,
-        //     "Failed to register. Error Code: ${l.code} Error Message: ${l.message}");
         emit(
           RegisterState.error(
             l.code.toString(),
@@ -34,19 +32,12 @@ class RegisterCubit extends Cubit<RegisterState> {
         );
       },
           (r) {
-        // if (r.status == 1) {
-        //   defaultSnackBar(context, "Registered Successfully");
-        //   context.pushNamed(verifyPageRoute);
-        // } else {
-        //   defaultSnackBar(context, "Something went wrong while registering");
-        // }
         emit(
           RegisterState.success(registerEntity),
         );
       },
     );
   }
-
 
   checkEmail(BuildContext context, String email) async {
     emit(const RegisterState.loading());
@@ -64,10 +55,15 @@ class RegisterCubit extends Cubit<RegisterState> {
           (r) => {
 
         emit(
-          RegisterState.checkEmailSuccess(r),
+          RegisterState.checkEmailSuccess(r!),
         ),
       },
     );
   }
+
+  TextEditingController emailCtrl = TextEditingController();
+  TextEditingController userNameCtrl = TextEditingController();
+  TextEditingController passCtrl = TextEditingController();
+  TextEditingController passConfirmCtrl = TextEditingController();
 
 }

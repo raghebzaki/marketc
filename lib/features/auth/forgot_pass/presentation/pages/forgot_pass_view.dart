@@ -15,6 +15,7 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
+import '../../domain/entities/forget_pass_entity.dart';
 import '../manager/forgot_pass_cubit.dart';
 
 class ForgotPassView extends StatefulWidget {
@@ -25,6 +26,8 @@ class ForgotPassView extends StatefulWidget {
 }
 
 class _ForgotPassViewState extends State<ForgotPassView> {
+  GlobalKey<FormState> formKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -57,96 +60,118 @@ class _ForgotPassViewState extends State<ForgotPassView> {
           );
         },
         builder: (context, state) {
+          ForgotPassCubit forgotPassCubit = ForgotPassCubit.get(context);
           return Scaffold(
-            body: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.all(
-                  Dimensions.p16,
-                ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Center(
-                            child: Image.asset(
-                              AppImages.forgotPassImg,
-                              height: 180.h,
-                              width: 180.w,
-                            ),
-                          ),
-                          Gap(40.h),
-                          Text(
-                            S.current.forgot_pass,
-                            style: CustomTextStyle.kTextStyleF20.copyWith(
-                              color: AppColors.black80,
-                            ),
-                          ),
-                          Gap(5.h),
-                          Text(
-                            S.current.enter_email,
-                            style: CustomTextStyle.kTextStyleF12.copyWith(
-                              color: AppColors.black60,
-                            ),
-                          ),
-                          Gap(60.h),
-                          Text(
-                            S.current.email,
-                            style: CustomTextStyle.kTextStyleF12,
-                          ),
-                          Gap(5.h),
-                          CustomFormField(
-                            preIcon: Image.asset(AppImages.emailImg),
-                            label: S.current.email,
-                            isObscure: false,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                S.current.remember_pass,
-                                style: CustomTextStyle.kTextStyleF16.copyWith(
-                                  color: AppColors.black60,
-                                ),
+            body: Form(
+              key: formKey,
+              child: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.all(
+                    Dimensions.p16,
+                  ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Center(
+                              child: Image.asset(
+                                AppImages.forgotPassImg,
+                                height: 180.h,
+                                width: 180.w,
                               ),
-                              TextButton(
-                                onPressed: () {
-                                  context.pushNamed(loginPageRoute);
-                                },
-                                child: Text(
-                                  S.current.login_now,
+                            ),
+                            Gap(40.h),
+                            Text(
+                              S.current.forgot_pass,
+                              style: CustomTextStyle.kTextStyleF20.copyWith(
+                                color: AppColors.black80,
+                              ),
+                            ),
+                            Gap(5.h),
+                            Text(
+                              S.current.enter_email,
+                              style: CustomTextStyle.kTextStyleF12.copyWith(
+                                color: AppColors.black60,
+                              ),
+                            ),
+                            Gap(60.h),
+                            Text(
+                              S.current.email,
+                              style: CustomTextStyle.kTextStyleF12,
+                            ),
+                            Gap(5.h),
+                            CustomFormField(
+                              ctrl: forgotPassCubit.emailCtrl,
+                              preIcon: Image.asset(AppImages.emailImg),
+                              label: S.current.email,
+                              isObscure: false,
+                              validator: (value) {
+                                if (forgotPassCubit.emailCtrl.text.isEmpty) {
+                                  return "Please enter your email";
+                                } else if (!forgotPassCubit.emailCtrl.text
+                                    .isEmail()) {
+                                  return "Please enter a valid email";
+                                } else {
+                                  return null;
+                                }
+                              },
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  S.current.remember_pass,
                                   style: CustomTextStyle.kTextStyleF16.copyWith(
-                                    color: AppColors.black80,
+                                    color: AppColors.black60,
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      ConditionalBuilder(
-                        condition: true,
-                        builder: (BuildContext context) {
-                          return CustomBtn(
-                            label: S.current.send_code,
-                            onPressed: () {
-                              context.pushNamed(resetPassPageRoute);
-                            },
-                            fgColor: Colors.white,
-                            isUpperCase: true,
-                          );
-                        },
-                        fallback: (BuildContext context) {
-                          return const Center(
-                            child: CircularProgressIndicator(
-                              color: AppColors.secondary,
+                                TextButton(
+                                  onPressed: () {
+                                    context.pushNamed(loginPageRoute);
+                                  },
+                                  child: Text(
+                                    S.current.login_now,
+                                    style:
+                                        CustomTextStyle.kTextStyleF16.copyWith(
+                                      color: AppColors.black80,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          );
-                        },
-                      ),
-                    ],
+                          ],
+                        ),
+                        ConditionalBuilder(
+                          condition: state is! Loading,
+                          builder: (BuildContext context) {
+                            return CustomBtn(
+                              label: S.current.send_code,
+                              onPressed: () {
+                                if (formKey.currentState!.validate()) {
+                                  forgotPassCubit.userForgotPass(
+                                    ForgetPassEntity(
+                                      email: forgotPassCubit.emailCtrl.text,
+                                    ),
+                                  );
+                                }
+                              },
+                              fgColor: Colors.white,
+                              isUpperCase: true,
+                            );
+                          },
+                          fallback: (BuildContext context) {
+                            return const Center(
+                              child: CircularProgressIndicator(
+                                color: AppColors.secondary,
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

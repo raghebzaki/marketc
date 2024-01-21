@@ -3,11 +3,11 @@ import 'package:dio/dio.dart';
 import '../../../../../core/service/dio_factory.dart';
 import '../../../../../core/utils/app_constants.dart';
 
-abstract class ResendCodeService {
+abstract class VerifyResendCodeService {
   Future resendOtp(String email);
 }
 
-class ResendCodeServiceImpl implements ResendCodeService {
+class VerifyResendCodeServiceImpl implements VerifyResendCodeService {
   @override
   Future resendOtp(String email) async {
     Dio dio = await DioFactory.getDio();
