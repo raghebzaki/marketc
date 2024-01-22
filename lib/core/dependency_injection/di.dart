@@ -77,6 +77,11 @@ import '../../features/customer/orders/track_order/data/repositories/cancel_orde
 import '../../features/customer/orders/track_order/domain/repositories/cancel_order_repo.dart';
 import '../../features/customer/orders/track_order/domain/use_cases/cancel_order_usecase.dart';
 import '../../features/customer/orders/track_order/presentation/manager/cancel_order_cubit.dart';
+import '../../features/customer/payment/payment_gate_way/data/data_sources/promo_code_service.dart';
+import '../../features/customer/payment/payment_gate_way/data/repositories/promo_code_repo_impl.dart';
+import '../../features/customer/payment/payment_gate_way/domain/repositories/promo_code_repo.dart';
+import '../../features/customer/payment/payment_gate_way/domain/use_cases/promo_code_use_case.dart';
+import '../../features/customer/payment/payment_gate_way/presentation/manager/promo_code_cubit.dart';
 import '../../features/customer/payment/payment_summary/data/data_sources/place_order_service.dart';
 import '../../features/customer/payment/payment_summary/data/repositories/place_order_repo_impl.dart';
 import '../../features/customer/payment/payment_summary/domain/repositories/place_order_repo.dart';
@@ -211,6 +216,12 @@ Future<void> init() async {
   di.registerLazySingleton<PlaceOrderRepo>(
       () => PlaceOrderRepoImpl(placeOrderService: di()));
   di.registerLazySingleton<PlaceOrderService>(() => PlaceOrderServiceImpl());
+  /// PromoCode
+  di.registerFactory(() => PromoCodeCubit(promoCodeUseCase: di()));
+  di.registerLazySingleton(() => PromoCodeUseCase( di()));
+  di.registerLazySingleton<PromoCodeRepo>(
+      () => PromoCodeRepoImpl( di()));
+  di.registerLazySingleton<PromoCodeService>(() => PromoCodeServiceImpl());
   /// profile View
   /// contact us
   di.registerFactory(() => ContactUsCubit(contactUsUseCase: di()));
