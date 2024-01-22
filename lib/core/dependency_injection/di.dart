@@ -97,6 +97,11 @@ import '../../features/customer/profile/edit_profile/data/repositories/edit_prof
 import '../../features/customer/profile/edit_profile/domain/repositories/edit_profile_repo.dart';
 import '../../features/customer/profile/edit_profile/domain/use_cases/edit_profile_use_case.dart';
 import '../../features/customer/profile/edit_profile/presentation/manager/edit_profile_cubit.dart';
+import '../../features/designer/main/home/data/data_sources/designer_carousel_service.dart';
+import '../../features/designer/main/home/data/repositories/designer_carousel_repo_impl.dart';
+import '../../features/designer/main/home/domain/repositories/designer_carousel_repo.dart';
+import '../../features/designer/main/home/domain/use_cases/designer_carousel_use_case.dart';
+import '../../features/designer/main/home/presentation/manager/designer_carousel_cubit.dart';
 
 final di = GetIt.instance;
 
@@ -154,6 +159,8 @@ Future<void> init() async {
       () => VerifyAccountServiceImpl());
   di.registerLazySingleton<VerifyResendCodeService>(
       () => VerifyResendCodeServiceImpl());
+
+  /// customer
 
   /// home page
   /// most popular
@@ -233,6 +240,15 @@ Future<void> init() async {
   di.registerLazySingleton(() => EditProfileUseCase( di()));
   di.registerLazySingleton<EditProfileRepo>(() => EditProfileRepoImpl( di()));
   di.registerLazySingleton<EditProfileService>(() => EditProfileServiceImpl());
+
+  /// Designer
+
+  /// home page
+  /// carousel
+  di.registerFactory(() => DesignerCarouselCubit(carouselUseCase: di()));
+  di.registerLazySingleton(() => DesignerCarouselUseCase(di()));
+  di.registerLazySingleton<DesignerCarouselRepo>(() => DesignerCarouselRepoImpl(di()));
+  di.registerLazySingleton<DesignerCarouselService>(() => DesignerCarouselServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();
