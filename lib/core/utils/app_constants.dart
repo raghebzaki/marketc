@@ -38,5 +38,6 @@ class AppConstants {
   static const placeOrderUri = "";
   static const carouselUri = "";
   static const categoryUri = "";
+  static const getMyOrdersUri = "";
 
 }

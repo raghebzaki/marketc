@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:marketc/features/customer/orders/track_order/presentation/manager/cancel_order_cubit.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
+import '../../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/dimensions.dart';
@@ -23,6 +26,11 @@ class _TrackOrderViewState extends State<TrackOrderView> {
 
   @override
   Widget build(BuildContext context) {
+    return BlocProvider(
+  create: (context) => di.di<CancelOrderCubit>(),
+  child: BlocConsumer<CancelOrderCubit, CancelOrderStates>(
+  listener: (context, state) {},
+  builder: (context, state) {
     return Scaffold(
       backgroundColor: AppColors.primary,
       appBar: CustomAppBar(title: "${S.of(context).order_no} #254667}"),
@@ -252,5 +260,8 @@ class _TrackOrderViewState extends State<TrackOrderView> {
         ),
       ),
     );
+  },
+),
+);
   }
 }

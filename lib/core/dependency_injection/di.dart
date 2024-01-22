@@ -57,6 +57,16 @@ import '../../features/customer/main/home/domain/use_cases/most_popular_use_case
 import '../../features/customer/main/home/domain/use_cases/new_products_use_case.dart';
 import '../../features/customer/main/home/presentation/manager/most_popular_cubit.dart';
 import '../../features/customer/main/home/presentation/manager/new_products_cubit.dart';
+import '../../features/customer/orders/my_orders/data/data_sources/my_orders_service.dart';
+import '../../features/customer/orders/my_orders/data/repositories/my_orders_repo_impl.dart';
+import '../../features/customer/orders/my_orders/domain/repositories/my_orders_repo.dart';
+import '../../features/customer/orders/my_orders/domain/use_cases/my_orders_usecase.dart';
+import '../../features/customer/orders/my_orders/presentation/manager/my_orders_cubit.dart';
+import '../../features/customer/orders/track_order/data/data_sources/cancel_order_service.dart';
+import '../../features/customer/orders/track_order/data/repositories/cancel_order_repo_impl.dart';
+import '../../features/customer/orders/track_order/domain/repositories/cancel_order_repo.dart';
+import '../../features/customer/orders/track_order/domain/use_cases/cancel_order_usecase.dart';
+import '../../features/customer/orders/track_order/presentation/manager/cancel_order_cubit.dart';
 import '../../features/customer/payment/payment_summary/data/data_sources/place_order_service.dart';
 import '../../features/customer/payment/payment_summary/data/repositories/place_order_repo_impl.dart';
 import '../../features/customer/payment/payment_summary/domain/repositories/place_order_repo.dart';
@@ -148,6 +158,21 @@ Future<void> init() async {
       () => CategoryDetailsRepoImpl(categoryProductsService: di()));
   di.registerLazySingleton<CategoryProductsService>(
       () => CategoryProductsServiceImpl());
+
+  /// Orders
+  /// My Orders
+  di.registerFactory(() => MyOrdersCubit(myOrdersUseCase: di()));
+  di.registerLazySingleton(() => MyOrdersUseCase(myOrdersRepo: di()));
+  di.registerLazySingleton<MyOrdersRepo>(
+      () => MyOrdersRepoImpl(myOrdersService: di()));
+  di.registerLazySingleton<MyOrdersService>(() => MyOrdersServiceImpl());
+
+  /// Cancel Order
+  di.registerFactory(() => CancelOrderCubit(cancelOrderUseCase: di()));
+  di.registerLazySingleton(() => CancelOrderUseCase(cancelOrderRepo: di()));
+  di.registerLazySingleton<CancelOrderRepo>(
+      () => CancelOrderRepoImpl(cancelOrderService: di()));
+  di.registerLazySingleton<CancelOrderService>(() => CancelOrderServiceImpl());
 
   /// Payment View
   /// Place Order
