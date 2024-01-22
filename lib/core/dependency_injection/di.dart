@@ -1,9 +1,4 @@
 import 'package:get_it/get_it.dart';
-import 'package:marketc/features/designer/designs/data/data_sources/designs_service.dart';
-import 'package:marketc/features/designer/designs/data/repositories/designs_repo_impl.dart';
-import 'package:marketc/features/designer/designs/domain/repositories/designs_repo.dart';
-import 'package:marketc/features/designer/designs/domain/use_cases/designs_use_case.dart';
-import 'package:marketc/features/designer/designs/presentation/manager/designs_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/change_pass/data/data_sources/change_pass_service.dart';
@@ -102,11 +97,35 @@ import '../../features/customer/profile/edit_profile/data/repositories/edit_prof
 import '../../features/customer/profile/edit_profile/domain/repositories/edit_profile_repo.dart';
 import '../../features/customer/profile/edit_profile/domain/use_cases/edit_profile_use_case.dart';
 import '../../features/customer/profile/edit_profile/presentation/manager/edit_profile_cubit.dart';
+import '../../features/designer/designs/data/data_sources/designs_service.dart';
+import '../../features/designer/designs/data/repositories/designs_repo_impl.dart';
+import '../../features/designer/designs/domain/repositories/designs_repo.dart';
+import '../../features/designer/designs/domain/use_cases/designs_use_case.dart';
+import '../../features/designer/designs/presentation/manager/designs_cubit.dart';
+import '../../features/designer/main/categories/data/data_sources/delete_product_service.dart';
+import '../../features/designer/main/categories/data/data_sources/my_designer_products_service.dart';
+import '../../features/designer/main/categories/data/repositories/delete_product_repo_impl.dart';
+import '../../features/designer/main/categories/data/repositories/my_designer_products_repo_impl.dart';
+import '../../features/designer/main/categories/domain/repositories/delete_product_repo.dart';
+import '../../features/designer/main/categories/domain/repositories/my_designer_products_repo.dart';
+import '../../features/designer/main/categories/domain/use_cases/delete_products_usecase.dart';
+import '../../features/designer/main/categories/domain/use_cases/my_designer_products_usecase.dart';
+import '../../features/designer/main/categories/presentation/manager/my_designer_products_cubit.dart';
 import '../../features/designer/main/home/data/data_sources/designer_carousel_service.dart';
 import '../../features/designer/main/home/data/repositories/designer_carousel_repo_impl.dart';
 import '../../features/designer/main/home/domain/repositories/designer_carousel_repo.dart';
 import '../../features/designer/main/home/domain/use_cases/designer_carousel_use_case.dart';
 import '../../features/designer/main/home/presentation/manager/designer_carousel_cubit.dart';
+import '../../features/designer/product/add_product/data/data_sources/add_product_service.dart';
+import '../../features/designer/product/add_product/data/repositories/add_product_repo_impl.dart';
+import '../../features/designer/product/add_product/domain/repositories/add_product_repo.dart';
+import '../../features/designer/product/add_product/domain/use_cases/add_product_usecase.dart';
+import '../../features/designer/product/add_product/presentation/manager/add_product_cubit.dart';
+import '../../features/designer/product/edit_product/data/data_sources/edit_product_service.dart';
+import '../../features/designer/product/edit_product/data/repositories/edit_product_repo_impl.dart';
+import '../../features/designer/product/edit_product/domain/repositories/edit_product_repo.dart';
+import '../../features/designer/product/edit_product/domain/use_cases/edit_product_usecase.dart';
+import '../../features/designer/product/edit_product/presentation/manager/edit_product_cubit.dart';
 
 final di = GetIt.instance;
 
@@ -179,12 +198,14 @@ Future<void> init() async {
   di.registerLazySingleton(() => NewProductsUseCase(di()));
   di.registerLazySingleton<NewProductsRepo>(() => NewProductsRepoImpl(di()));
   di.registerLazySingleton<NewProductsService>(() => NewProductsServiceImpl());
- /// category
+
+  /// category
   di.registerFactory(() => CategoryCubit(carouselUseCase: di()));
   di.registerLazySingleton(() => CategoryUseCase(di()));
   di.registerLazySingleton<CategoryRepo>(() => CategoryRepoImpl(di()));
   di.registerLazySingleton<CategoryService>(() => CategoryServiceImpl());
- /// carousel
+
+  /// carousel
   di.registerFactory(() => CarouselCubit(carouselUseCase: di()));
   di.registerLazySingleton(() => CarouselUseCase(di()));
   di.registerLazySingleton<CarouselRepo>(() => CarouselRepoImpl(di()));
@@ -228,22 +249,24 @@ Future<void> init() async {
   di.registerLazySingleton<PlaceOrderRepo>(
       () => PlaceOrderRepoImpl(placeOrderService: di()));
   di.registerLazySingleton<PlaceOrderService>(() => PlaceOrderServiceImpl());
+
   /// PromoCode
   di.registerFactory(() => PromoCodeCubit(promoCodeUseCase: di()));
-  di.registerLazySingleton(() => PromoCodeUseCase( di()));
-  di.registerLazySingleton<PromoCodeRepo>(
-      () => PromoCodeRepoImpl( di()));
+  di.registerLazySingleton(() => PromoCodeUseCase(di()));
+  di.registerLazySingleton<PromoCodeRepo>(() => PromoCodeRepoImpl(di()));
   di.registerLazySingleton<PromoCodeService>(() => PromoCodeServiceImpl());
+
   /// profile View
   /// contact us
   di.registerFactory(() => ContactUsCubit(contactUsUseCase: di()));
-  di.registerLazySingleton(() => ContactUsUseCase( di()));
-  di.registerLazySingleton<ContactUsRepo>(() => ContactUsRepoImpl( di()));
+  di.registerLazySingleton(() => ContactUsUseCase(di()));
+  di.registerLazySingleton<ContactUsRepo>(() => ContactUsRepoImpl(di()));
   di.registerLazySingleton<ContactUsService>(() => ContactUsServiceImpl());
+
   /// edit profile
   di.registerFactory(() => EditProfileCubit(editProfileUseCase: di()));
-  di.registerLazySingleton(() => EditProfileUseCase( di()));
-  di.registerLazySingleton<EditProfileRepo>(() => EditProfileRepoImpl( di()));
+  di.registerLazySingleton(() => EditProfileUseCase(di()));
+  di.registerLazySingleton<EditProfileRepo>(() => EditProfileRepoImpl(di()));
   di.registerLazySingleton<EditProfileService>(() => EditProfileServiceImpl());
 
   /// Designer
@@ -252,14 +275,48 @@ Future<void> init() async {
   /// carousel
   di.registerFactory(() => DesignerCarouselCubit(carouselUseCase: di()));
   di.registerLazySingleton(() => DesignerCarouselUseCase(di()));
-  di.registerLazySingleton<DesignerCarouselRepo>(() => DesignerCarouselRepoImpl(di()));
-  di.registerLazySingleton<DesignerCarouselService>(() => DesignerCarouselServiceImpl());
+  di.registerLazySingleton<DesignerCarouselRepo>(
+      () => DesignerCarouselRepoImpl(di()));
+  di.registerLazySingleton<DesignerCarouselService>(
+      () => DesignerCarouselServiceImpl());
 
   /// Designs View
   di.registerFactory(() => DesignsCubit(designsUseCase: di()));
   di.registerLazySingleton(() => DesignsUseCase(di()));
   di.registerLazySingleton<DesignsRepo>(() => DesignsRepoImpl(di()));
   di.registerLazySingleton<DesignsService>(() => DesignsServiceImpl());
+
+  /// My Products + Delete Product
+  /// product
+  di.registerFactory(
+      () => MyDesignerProductsCubit(myDesignerProductsUseCase: di()));
+  di.registerLazySingleton(
+      () => MyDesignerProductsUseCase(myDesignerProductsRepo: di()));
+  di.registerLazySingleton<MyDesignerProductsRepo>(
+      () => MyDesignerProductsRepoImpl(myDesignerProductsService: di()));
+  di.registerLazySingleton<MyDesignerProductsService>(
+      () => MyDesignerProductsServiceImpl());
+
+  /// delete
+  di.registerLazySingleton(() => DeleteProductUseCase(deleteProductRepo: di()));
+  di.registerLazySingleton<DeleteProductRepo>(
+      () => DeleteProductRepoImpl(deleteProductService: di()));
+  di.registerLazySingleton<DeleteProductService>(
+      () => DeleteProductServiceImpl());
+
+  /// Add Product
+  di.registerFactory(() => AddProductCubit(addProductUseCase: di()));
+  di.registerLazySingleton(() => AddProductUseCase(addProductRepo: di()));
+  di.registerLazySingleton<AddProductRepo>(
+      () => AddProductRepoImpl(addProductService: di()));
+  di.registerLazySingleton<AddProductService>(() => AddProductServiceImpl());
+
+  /// Edit Product
+  di.registerFactory(() => EditProductCubit(editProductUseCase: di()));
+  di.registerLazySingleton(() => EditProductUseCase(editProductRepo: di()));
+  di.registerLazySingleton<EditProductRepo>(
+      () => EditProductRepoImpl(editProductService: di()));
+  di.registerLazySingleton<EditProductService>(() => EditProductServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();

@@ -23,7 +23,7 @@ import '../../features/customer/bottom_nav_bar/presentation/pages/bottom_nav_bar
 import '../../features/customer/main/category_details/presentation/pages/category_details_view.dart';
 import '../../features/customer/main/home/presentation/pages/home_view.dart';
 import '../../features/customer/main/product_details/presentation/pages/product_details_view.dart';
-import '../../features/designer/main/categories/presentation/pages/designer_view.dart';
+import '../../features/designer/main/categories/presentation/pages/designer_categories_view.dart';
 import '../../features/designer/main/subscriptions/presentation/pages/subscriptions_view.dart';
 import '../../features/on_boarding/presentation/pages/on_boarding_view.dart';
 import '../../features/customer/orders/my_orders/presentation/pages/my_orders.dart';

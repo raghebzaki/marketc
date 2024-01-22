@@ -47,5 +47,7 @@ class AppConstants {
 /// designer
   static const designerCarouselUri = "";
   static const designsUri = "";
+  static const designerDeleteProduct = "";
+  static const designerAddProduct = "";
 
 }
