@@ -44,7 +44,8 @@ class AppConstants {
   static const editUserProfileUri = "";
   static const deleteUserAccountUri = "";
 
-
+/// designer
   static const designerCarouselUri = "";
+  static const designsUri = "";
 
 }

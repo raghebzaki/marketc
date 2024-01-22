@@ -1,4 +1,9 @@
 import 'package:get_it/get_it.dart';
+import 'package:marketc/features/designer/designs/data/data_sources/designs_service.dart';
+import 'package:marketc/features/designer/designs/data/repositories/designs_repo_impl.dart';
+import 'package:marketc/features/designer/designs/domain/repositories/designs_repo.dart';
+import 'package:marketc/features/designer/designs/domain/use_cases/designs_use_case.dart';
+import 'package:marketc/features/designer/designs/presentation/manager/designs_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/change_pass/data/data_sources/change_pass_service.dart';
@@ -249,6 +254,12 @@ Future<void> init() async {
   di.registerLazySingleton(() => DesignerCarouselUseCase(di()));
   di.registerLazySingleton<DesignerCarouselRepo>(() => DesignerCarouselRepoImpl(di()));
   di.registerLazySingleton<DesignerCarouselService>(() => DesignerCarouselServiceImpl());
+
+  /// Designs View
+  di.registerFactory(() => DesignsCubit(designsUseCase: di()));
+  di.registerLazySingleton(() => DesignsUseCase(di()));
+  di.registerLazySingleton<DesignsRepo>(() => DesignsRepoImpl(di()));
+  di.registerLazySingleton<DesignsService>(() => DesignsServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();
