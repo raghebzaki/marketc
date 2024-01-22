@@ -47,14 +47,24 @@ import '../../features/customer/main/favorite/data/repositories/favorite_repo_im
 import '../../features/customer/main/favorite/domain/repositories/favorite_repo.dart';
 import '../../features/customer/main/favorite/domain/use_cases/favorite_use_case.dart';
 import '../../features/customer/main/favorite/presentation/manager/favorite_cubit.dart';
+import '../../features/customer/main/home/data/data_sources/carousel_service.dart';
+import '../../features/customer/main/home/data/data_sources/category_service.dart';
 import '../../features/customer/main/home/data/data_sources/most_popular_service.dart';
 import '../../features/customer/main/home/data/data_sources/new_products_service.dart';
+import '../../features/customer/main/home/data/repositories/carousel_repo_impl.dart';
+import '../../features/customer/main/home/data/repositories/category_repo_impl.dart';
 import '../../features/customer/main/home/data/repositories/most_popular_repo_impl.dart';
 import '../../features/customer/main/home/data/repositories/new_products_repo_impl.dart';
+import '../../features/customer/main/home/domain/repositories/carousel_repo.dart';
+import '../../features/customer/main/home/domain/repositories/category_repo.dart';
 import '../../features/customer/main/home/domain/repositories/most_popular_repo.dart';
 import '../../features/customer/main/home/domain/repositories/new_products_repo.dart';
+import '../../features/customer/main/home/domain/use_cases/carousel_use_case.dart';
+import '../../features/customer/main/home/domain/use_cases/category_use_case.dart';
 import '../../features/customer/main/home/domain/use_cases/most_popular_use_case.dart';
 import '../../features/customer/main/home/domain/use_cases/new_products_use_case.dart';
+import '../../features/customer/main/home/presentation/manager/carousel_cubit.dart';
+import '../../features/customer/main/home/presentation/manager/category_cubit.dart';
 import '../../features/customer/main/home/presentation/manager/most_popular_cubit.dart';
 import '../../features/customer/main/home/presentation/manager/new_products_cubit.dart';
 import '../../features/customer/orders/my_orders/data/data_sources/my_orders_service.dart';
@@ -72,6 +82,16 @@ import '../../features/customer/payment/payment_summary/data/repositories/place_
 import '../../features/customer/payment/payment_summary/domain/repositories/place_order_repo.dart';
 import '../../features/customer/payment/payment_summary/domain/use_cases/place_order_use_case.dart';
 import '../../features/customer/payment/payment_summary/presentation/manager/place_order_cubit.dart';
+import '../../features/customer/profile/contact_us/data/data_sources/contact_us_service.dart';
+import '../../features/customer/profile/contact_us/data/repositories/contact_us_repo_impl.dart';
+import '../../features/customer/profile/contact_us/domain/repositories/contact_us_repo.dart';
+import '../../features/customer/profile/contact_us/domain/use_cases/contact_us_use_case.dart';
+import '../../features/customer/profile/contact_us/presentation/manager/contact_us_cubit.dart';
+import '../../features/customer/profile/edit_profile/data/data_sources/edit_profile_service.dart';
+import '../../features/customer/profile/edit_profile/data/repositories/edit_profile_repo_impl.dart';
+import '../../features/customer/profile/edit_profile/domain/repositories/edit_profile_repo.dart';
+import '../../features/customer/profile/edit_profile/domain/use_cases/edit_profile_use_case.dart';
+import '../../features/customer/profile/edit_profile/presentation/manager/edit_profile_cubit.dart';
 
 final di = GetIt.instance;
 
@@ -142,6 +162,16 @@ Future<void> init() async {
   di.registerLazySingleton(() => NewProductsUseCase(di()));
   di.registerLazySingleton<NewProductsRepo>(() => NewProductsRepoImpl(di()));
   di.registerLazySingleton<NewProductsService>(() => NewProductsServiceImpl());
+ /// category
+  di.registerFactory(() => CategoryCubit(carouselUseCase: di()));
+  di.registerLazySingleton(() => CategoryUseCase(di()));
+  di.registerLazySingleton<CategoryRepo>(() => CategoryRepoImpl(di()));
+  di.registerLazySingleton<CategoryService>(() => CategoryServiceImpl());
+ /// carousel
+  di.registerFactory(() => CarouselCubit(carouselUseCase: di()));
+  di.registerLazySingleton(() => CarouselUseCase(di()));
+  di.registerLazySingleton<CarouselRepo>(() => CarouselRepoImpl(di()));
+  di.registerLazySingleton<CarouselService>(() => CarouselServiceImpl());
 
   /// Favorite products
   di.registerFactory(() => FavoriteCubit(favoriteUseCase: di()));
@@ -181,6 +211,17 @@ Future<void> init() async {
   di.registerLazySingleton<PlaceOrderRepo>(
       () => PlaceOrderRepoImpl(placeOrderService: di()));
   di.registerLazySingleton<PlaceOrderService>(() => PlaceOrderServiceImpl());
+  /// profile View
+  /// contact us
+  di.registerFactory(() => ContactUsCubit(contactUsUseCase: di()));
+  di.registerLazySingleton(() => ContactUsUseCase( di()));
+  di.registerLazySingleton<ContactUsRepo>(() => ContactUsRepoImpl( di()));
+  di.registerLazySingleton<ContactUsService>(() => ContactUsServiceImpl());
+  /// edit profile
+  di.registerFactory(() => EditProfileCubit(editProfileUseCase: di()));
+  di.registerLazySingleton(() => EditProfileUseCase( di()));
+  di.registerLazySingleton<EditProfileRepo>(() => EditProfileRepoImpl( di()));
+  di.registerLazySingleton<EditProfileService>(() => EditProfileServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();

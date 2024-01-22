@@ -20,7 +20,7 @@ mixin _$NewProductsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ProductEntity? productEntity) success,
+    required TResult Function(List<ProductEntity>? productEntity) success,
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
@@ -30,7 +30,7 @@ mixin _$NewProductsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ProductEntity? productEntity)? success,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
@@ -40,7 +40,7 @@ mixin _$NewProductsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ProductEntity? productEntity)? success,
+    TResult Function(List<ProductEntity>? productEntity)? success,
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
@@ -138,7 +138,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ProductEntity? productEntity) success,
+    required TResult Function(List<ProductEntity>? productEntity) success,
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
@@ -151,7 +151,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ProductEntity? productEntity)? success,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
@@ -164,7 +164,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ProductEntity? productEntity)? success,
+    TResult Function(List<ProductEntity>? productEntity)? success,
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
@@ -264,7 +264,7 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ProductEntity? productEntity) success,
+    required TResult Function(List<ProductEntity>? productEntity) success,
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
@@ -277,7 +277,7 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ProductEntity? productEntity)? success,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
@@ -290,7 +290,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ProductEntity? productEntity)? success,
+    TResult Function(List<ProductEntity>? productEntity)? success,
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
@@ -356,7 +356,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ProductEntity? productEntity});
+  $Res call({List<ProductEntity>? productEntity});
 }
 
 /// @nodoc
@@ -374,9 +374,9 @@ class __$$SuccessImplCopyWithImpl<$Res>
   }) {
     return _then(_$SuccessImpl(
       freezed == productEntity
-          ? _value.productEntity
+          ? _value._productEntity
           : productEntity // ignore: cast_nullable_to_non_nullable
-              as ProductEntity?,
+              as List<ProductEntity>?,
     ));
   }
 }
@@ -384,10 +384,18 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements Success {
-  const _$SuccessImpl(this.productEntity);
+  const _$SuccessImpl(final List<ProductEntity>? productEntity)
+      : _productEntity = productEntity;
 
+  final List<ProductEntity>? _productEntity;
   @override
-  final ProductEntity? productEntity;
+  List<ProductEntity>? get productEntity {
+    final value = _productEntity;
+    if (value == null) return null;
+    if (_productEntity is EqualUnmodifiableListView) return _productEntity;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
@@ -399,12 +407,13 @@ class _$SuccessImpl implements Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            (identical(other.productEntity, productEntity) ||
-                other.productEntity == productEntity));
+            const DeepCollectionEquality()
+                .equals(other._productEntity, _productEntity));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, productEntity);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_productEntity));
 
   @JsonKey(ignore: true)
   @override
@@ -417,7 +426,7 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ProductEntity? productEntity) success,
+    required TResult Function(List<ProductEntity>? productEntity) success,
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
@@ -430,7 +439,7 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ProductEntity? productEntity)? success,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
@@ -443,7 +452,7 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ProductEntity? productEntity)? success,
+    TResult Function(List<ProductEntity>? productEntity)? success,
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
@@ -500,9 +509,10 @@ class _$SuccessImpl implements Success {
 }
 
 abstract class Success implements NewProductsState {
-  const factory Success(final ProductEntity? productEntity) = _$SuccessImpl;
+  const factory Success(final List<ProductEntity>? productEntity) =
+      _$SuccessImpl;
 
-  ProductEntity? get productEntity;
+  List<ProductEntity>? get productEntity;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -582,7 +592,7 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ProductEntity? productEntity) success,
+    required TResult Function(List<ProductEntity>? productEntity) success,
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
@@ -595,7 +605,7 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ProductEntity? productEntity)? success,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
@@ -608,7 +618,7 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ProductEntity? productEntity)? success,
+    TResult Function(List<ProductEntity>? productEntity)? success,
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
@@ -714,7 +724,7 @@ class _$PaginationLoadingImpl implements PaginationLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ProductEntity? productEntity) success,
+    required TResult Function(List<ProductEntity>? productEntity) success,
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
@@ -727,7 +737,7 @@ class _$PaginationLoadingImpl implements PaginationLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ProductEntity? productEntity)? success,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
@@ -740,7 +750,7 @@ class _$PaginationLoadingImpl implements PaginationLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ProductEntity? productEntity)? success,
+    TResult Function(List<ProductEntity>? productEntity)? success,
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
@@ -875,7 +885,7 @@ class _$PaginationSuccessImpl implements PaginationSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ProductEntity? productEntity) success,
+    required TResult Function(List<ProductEntity>? productEntity) success,
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
@@ -888,7 +898,7 @@ class _$PaginationSuccessImpl implements PaginationSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ProductEntity? productEntity)? success,
+    TResult? Function(List<ProductEntity>? productEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
@@ -901,7 +911,7 @@ class _$PaginationSuccessImpl implements PaginationSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ProductEntity? productEntity)? success,
+    TResult Function(List<ProductEntity>? productEntity)? success,
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,

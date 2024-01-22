@@ -20,7 +20,7 @@ class MostPopularCubit extends Cubit<MostPopularState> {
       emit(const MostPopularState.paginationLoading());
     }
 
-    final getAllProduct = await getAllProducts( nextPage);
+    final getAllProduct = await mostPopularUseCase( nextPage);
 
     getAllProduct.fold(
           (l) => {

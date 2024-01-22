@@ -20,7 +20,7 @@ class NewProductsCubit extends Cubit<NewProductsState> {
       emit(const NewProductsState.paginationLoading());
     }
 
-    final getAllProduct = await getAllProducts( nextPage);
+    final getAllProduct = await newProductsUseCase( nextPage);
 
     getAllProduct.fold(
           (l) => {
