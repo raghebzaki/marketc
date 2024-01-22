@@ -49,5 +49,8 @@ class AppConstants {
   static const designsUri = "";
   static const designerDeleteProduct = "";
   static const designerAddProduct = "";
+  static const designerGetPoints = "";
+  static const designerBalance = "";
+  static const designerExchange  = "";
 
 }

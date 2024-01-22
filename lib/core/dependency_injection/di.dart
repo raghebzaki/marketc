@@ -1,4 +1,6 @@
 import 'package:get_it/get_it.dart';
+import 'package:marketc/features/designer/main/profile/presentation/manager/balance_cubit.dart';
+import 'package:marketc/features/designer/main/profile/presentation/manager/get_points_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/change_pass/data/data_sources/change_pass_service.dart';
@@ -116,6 +118,19 @@ import '../../features/designer/main/home/data/repositories/designer_carousel_re
 import '../../features/designer/main/home/domain/repositories/designer_carousel_repo.dart';
 import '../../features/designer/main/home/domain/use_cases/designer_carousel_use_case.dart';
 import '../../features/designer/main/home/presentation/manager/designer_carousel_cubit.dart';
+import '../../features/designer/main/profile/data/data_sources/balance_service.dart';
+import '../../features/designer/main/profile/data/data_sources/exchange_service.dart';
+import '../../features/designer/main/profile/data/data_sources/get_points_service.dart';
+import '../../features/designer/main/profile/data/repositories/balance_repo_impl.dart';
+import '../../features/designer/main/profile/data/repositories/exchange_repo_impl.dart';
+import '../../features/designer/main/profile/data/repositories/get_points_repo_impl.dart';
+import '../../features/designer/main/profile/domain/repositories/balance_repo.dart';
+import '../../features/designer/main/profile/domain/repositories/exchange_repo.dart';
+import '../../features/designer/main/profile/domain/repositories/get_points_repo.dart';
+import '../../features/designer/main/profile/domain/use_cases/balance_use_case.dart';
+import '../../features/designer/main/profile/domain/use_cases/exchange_use_case.dart';
+import '../../features/designer/main/profile/domain/use_cases/get_points_use_case.dart';
+import '../../features/designer/main/profile/presentation/manager/exchange_cubit.dart';
 import '../../features/designer/product/add_product/data/data_sources/add_product_service.dart';
 import '../../features/designer/product/add_product/data/repositories/add_product_repo_impl.dart';
 import '../../features/designer/product/add_product/domain/repositories/add_product_repo.dart';
@@ -317,6 +332,22 @@ Future<void> init() async {
   di.registerLazySingleton<EditProductRepo>(
       () => EditProductRepoImpl(editProductService: di()));
   di.registerLazySingleton<EditProductService>(() => EditProductServiceImpl());
+  ///profile
+  /// balance
+  di.registerFactory(() => BalanceCubit(balanceUseCase: di()));
+  di.registerLazySingleton(() => BalanceUseCase( di()));
+  di.registerLazySingleton<BalanceRepo>(() => BalanceRepoImpl( di()));
+  di.registerLazySingleton<BalanceService>(() => BalanceServiceImpl());
+  /// Exchange
+  di.registerFactory(() => ExchangeCubit(exchangeUseCase: di()));
+  di.registerLazySingleton(() => ExchangeUseCase( di()));
+  di.registerLazySingleton<ExchangeRepo>(() => ExchangeRepoImpl( di()));
+  di.registerLazySingleton<ExchangeService>(() => ExchangeServiceImpl());
+  /// Get Points
+  di.registerFactory(() => GetPointsCubit(getPointsUseCase: di()));
+  di.registerLazySingleton(() => GetPointsUseCase( di()));
+  di.registerLazySingleton<GetPointsRepo>(() => GetPointsRepoImpl( di()));
+  di.registerLazySingleton<GetPointsService>(() => GetPointsServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();
