@@ -5,6 +5,6 @@ import '../entities/designs_entity.dart';
 
 
 abstract class DesignsRepo {
-  Future<Either<Failure,List<DesignsEntity>>> getAllDesigns(DesignsEntity designsEntity,int? nextPage);
+  Future<Either<Failure,List<DesignsEntity>>> getAllDesigns(int? nextPage);
 
 }

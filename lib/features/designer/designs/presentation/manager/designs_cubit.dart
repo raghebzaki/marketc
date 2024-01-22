@@ -13,14 +13,14 @@ class DesignsCubit extends Cubit<DesignsState> {
 
   final DesignsUseCase designsUseCase;
 
-  getAllDesigns(DesignsEntity designsEntity,int? nextPage) async {
+  getAllDesigns(int? nextPage) async {
     if (nextPage == 1) {
       emit(const DesignsState.loading());
     } else {
       emit(const DesignsState.paginationLoading());
     }
 
-    final getAllDesign = await designsUseCase(designsEntity, nextPage);
+    final getAllDesign = await designsUseCase( nextPage);
 
     getAllDesign.fold(
           (l) => {

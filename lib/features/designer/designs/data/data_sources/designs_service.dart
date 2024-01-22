@@ -1,23 +1,22 @@
 import 'package:dio/dio.dart';
 import '../../../../../../core/service/dio_factory.dart';
 import '../../../../../../core/utils/app_constants.dart';
-import '../../domain/entities/designs_entity.dart';
 import '../models/designs_model.dart';
 
 abstract class DesignsService {
-  Future<List<DesignsModel>> getAllDesigns(DesignsEntity designsEntity,int? nextPage);
+  Future<List<DesignsModel>> getAllDesigns(int? nextPage);
 }
 
 class DesignsServiceImpl implements DesignsService {
 
   @override
-  Future<List<DesignsModel>> getAllDesigns(DesignsEntity designsEntity,int? nextPage) async {
+  Future<List<DesignsModel>> getAllDesigns(int? nextPage) async {
     Dio dio = await DioFactory.getDio();
     List<DesignsModel> designsList = [];
 
-    final contracts = await dio.post(
+    final contracts = await dio.get(
       AppConstants.apiBaseUrl + AppConstants.designsUri,
-      data: {
+      queryParameters: {
         "page": nextPage,
       },
     );

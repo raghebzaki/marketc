@@ -10,7 +10,7 @@ class DesignsUseCase {
 
   DesignsUseCase(this.designsRepoRepo);
 
-  Future<Either<Failure,List<DesignsEntity>>> call(DesignsEntity designsEntity,int? nextPage) async {
-    return await designsRepoRepo.getAllDesigns(designsEntity,nextPage);
+  Future<Either<Failure,List<DesignsEntity>>> call(int? nextPage) async {
+    return await designsRepoRepo.getAllDesigns(nextPage);
   }
 }

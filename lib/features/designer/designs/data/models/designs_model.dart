@@ -2,26 +2,20 @@ import '../../domain/entities/designs_entity.dart';
 
 class DesignsModel extends DesignsEntity{
   const DesignsModel({
-    super.userId,
+    super.id,
     super.name,
-    super.email,
-    super.status,
-    super.message,
+    super.image,
+
   });
 
 
   factory DesignsModel.fromJson(Map<String, dynamic> json) {
     return DesignsModel(
-      status: json["status"] ,
-      message: json["message"] ,
+      id: json["id"] ,
+      name: json["name"] ,
+      image: json["image"] ,
     );
   }
 
-  static Map<String, dynamic> toJson(DesignsEntity contactUsEntity) {
-    return {
-      'user_id': contactUsEntity.userId,
-      'name': contactUsEntity.name,
-      'email': contactUsEntity.email,
-    };
-  }
+
 }

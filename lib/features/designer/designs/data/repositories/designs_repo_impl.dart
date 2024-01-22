@@ -16,12 +16,12 @@ class DesignsRepoImpl implements DesignsRepo {
 
 
   @override
-  Future<Either<Failure, List<DesignsEntity>>> getAllDesigns(DesignsEntity contactUsEntity,int? nextPage) async {
+  Future<Either<Failure, List<DesignsEntity>>> getAllDesigns(int? nextPage) async {
     final result = await Connectivity().checkConnectivity();
     if (result == ConnectivityResult.mobile ||
         result == ConnectivityResult.wifi) {
       try {
-        final getContracts = await editProfileService.getAllDesigns(contactUsEntity,nextPage);
+        final getContracts = await editProfileService.getAllDesigns(nextPage);
         return right(getContracts);
       } on DioException catch (error) {
         return Left(ErrorHandler.handle(error).failure);
