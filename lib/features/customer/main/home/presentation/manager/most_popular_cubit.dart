@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:marketc/core/shared/entity/product_entity.dart';
+import 'package:marketc/core/shared/entities/product_entity.dart';
 import 'package:marketc/features/customer/main/home/domain/use_cases/most_popular_use_case.dart';
 
 part 'most_popular_state.dart';

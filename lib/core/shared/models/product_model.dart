@@ -1,4 +1,4 @@
-import 'package:marketc/core/shared/entity/product_entity.dart';
+import 'package:marketc/core/shared/entities/product_entity.dart';
 
 class ProductModel extends ProductEntity {
   const ProductModel({

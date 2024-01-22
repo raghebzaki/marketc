@@ -1,7 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:marketc/core/shared/entity/product_entity.dart';
+import 'package:marketc/core/shared/entities/product_entity.dart';
 import 'package:marketc/features/customer/main/home/data/data_sources/new_products_service.dart';
 import 'package:marketc/features/customer/main/home/domain/repositories/new_products_repo.dart';
 import '../../../../../../core/resources/api/data_sources.dart';

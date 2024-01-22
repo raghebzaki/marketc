@@ -13,12 +13,22 @@ class ProductEntity extends Equatable {
   final String? status;
   final String? message;
 
-  const ProductEntity({this.id, this.name, this.categoryId, this.description,
-    this.price, this.discountPercent, this.size, this.color, this.images,this.status, this.message, });
+  const ProductEntity({
+    this.id,
+    this.name,
+    this.categoryId,
+    this.description,
+    this.price,
+    this.discountPercent,
+    this.size,
+    this.color,
+    this.images,
+    this.status,
+    this.message,
+  });
 
   @override
-  List<Object?> get props =>
-      [
+  List<Object?> get props => [
         id,
         name,
         categoryId,

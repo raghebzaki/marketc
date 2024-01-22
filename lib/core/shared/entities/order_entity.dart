@@ -11,20 +11,19 @@ class OrderEntity extends Equatable {
   final String? status;
   final String? message;
 
-  const OrderEntity({
-    this.id,
-    this.orderNumber,
-    this.address,
-    this.userName,
-    this.phone,
-    this.totalPrice,
-    this.date,
-    this.status,
-    this.message});
+  const OrderEntity(
+      {this.id,
+      this.orderNumber,
+      this.address,
+      this.userName,
+      this.phone,
+      this.totalPrice,
+      this.date,
+      this.status,
+      this.message});
 
   @override
-  List<Object?> get props =>
-      [
+  List<Object?> get props => [
         id,
         orderNumber,
         address,

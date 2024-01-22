@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../../../../core/shared/entity/product_entity.dart';
+import '../../../../../../core/shared/entities/product_entity.dart';
+
+
 
 class CategoryDetailsEntity extends Equatable {
   final num? categoryId;

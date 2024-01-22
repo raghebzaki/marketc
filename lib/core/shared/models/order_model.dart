@@ -1,4 +1,4 @@
-import 'package:marketc/core/shared/entity/order_entity.dart';
+import 'package:marketc/core/shared/entities/order_entity.dart';
 
 class OrderModel extends OrderEntity {
   const OrderModel({

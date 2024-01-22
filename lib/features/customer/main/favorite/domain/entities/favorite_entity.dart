@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:marketc/core/shared/entity/product_entity.dart';
+import 'package:marketc/core/shared/entities/product_entity.dart';
 
 class FavoriteEntity extends Equatable {
   final int? id;

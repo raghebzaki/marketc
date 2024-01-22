@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:marketc/features/customer/main/home/domain/use_cases/new_products_use_case.dart';
 
-import '../../../../../../core/shared/entity/product_entity.dart';
+import '../../../../../../core/shared/entities/product_entity.dart';
 
 part 'new_products_state.dart';
 part 'new_products_cubit.freezed.dart';
