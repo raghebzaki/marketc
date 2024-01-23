@@ -146,7 +146,8 @@ final di = GetIt.instance;
 
 Future<void> init() async {
   /// Login
-  di.registerFactory(() => LoginCubit(loginUseCase: di()));
+  di.registerFactory(
+      () => LoginCubit(loginUseCase: di(), verifyResendCodeUseCase: di()));
   di.registerLazySingleton(() => LoginUseCase(loginRepo: di()));
   di.registerLazySingleton<LoginRepo>(() => LoginRepoImpl(loginService: di()));
   di.registerLazySingleton<LoginService>(() => LoginServiceImpl());
@@ -332,21 +333,24 @@ Future<void> init() async {
   di.registerLazySingleton<EditProductRepo>(
       () => EditProductRepoImpl(editProductService: di()));
   di.registerLazySingleton<EditProductService>(() => EditProductServiceImpl());
+
   ///profile
   /// balance
   di.registerFactory(() => BalanceCubit(balanceUseCase: di()));
-  di.registerLazySingleton(() => BalanceUseCase( di()));
-  di.registerLazySingleton<BalanceRepo>(() => BalanceRepoImpl( di()));
+  di.registerLazySingleton(() => BalanceUseCase(di()));
+  di.registerLazySingleton<BalanceRepo>(() => BalanceRepoImpl(di()));
   di.registerLazySingleton<BalanceService>(() => BalanceServiceImpl());
+
   /// Exchange
   di.registerFactory(() => ExchangeCubit(exchangeUseCase: di()));
-  di.registerLazySingleton(() => ExchangeUseCase( di()));
-  di.registerLazySingleton<ExchangeRepo>(() => ExchangeRepoImpl( di()));
+  di.registerLazySingleton(() => ExchangeUseCase(di()));
+  di.registerLazySingleton<ExchangeRepo>(() => ExchangeRepoImpl(di()));
   di.registerLazySingleton<ExchangeService>(() => ExchangeServiceImpl());
+
   /// Get Points
   di.registerFactory(() => GetPointsCubit(getPointsUseCase: di()));
-  di.registerLazySingleton(() => GetPointsUseCase( di()));
-  di.registerLazySingleton<GetPointsRepo>(() => GetPointsRepoImpl( di()));
+  di.registerLazySingleton(() => GetPointsUseCase(di()));
+  di.registerLazySingleton<GetPointsRepo>(() => GetPointsRepoImpl(di()));
   di.registerLazySingleton<GetPointsService>(() => GetPointsServiceImpl());
 
   /// external

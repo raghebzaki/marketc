@@ -1,3 +1,9 @@
+class VerifyAccountArgs {
+  final String email;
+
+  VerifyAccountArgs({required this.email});
+}
+
 class ResetPassArgs {
   final String email;
 

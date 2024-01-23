@@ -2039,6 +2039,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Email is already in use`
+  String get email_used {
+    return Intl.message(
+      'Email is already in use',
+      name: 'email_used',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

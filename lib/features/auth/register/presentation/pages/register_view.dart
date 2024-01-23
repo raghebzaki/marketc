@@ -82,7 +82,7 @@ class _RegisterViewState extends State<RegisterView> {
                               isObscure: false,
                               validator: (value) {
                                 if (registerCubit.userNameCtrl.text.isEmpty) {
-                                  return "User name can't be empty";
+                                  return S.current.user_name_required;
                                 } else {
                                   return null;
                                 }
@@ -100,14 +100,7 @@ class _RegisterViewState extends State<RegisterView> {
                               hint: S.current.email,
                               isObscure: false,
                               validator: (value) {
-                                if (registerCubit.emailCtrl.text.isEmpty) {
-                                  return "Please enter your email";
-                                } else if (!registerCubit.emailCtrl.text
-                                    .isEmail()) {
-                                  return "Please enter a valid email";
-                                } else {
-                                  return null;
-                                }
+                                return registerCubit.emailValid;
                               },
                             ),
                             Gap(10.h),
@@ -133,9 +126,9 @@ class _RegisterViewState extends State<RegisterView> {
                               ),
                               validator: (value) {
                                 if (registerCubit.passCtrl.text.isEmpty) {
-                                  return "Password must be entered";
+                                  return S.current.password_required;
                                 } else if (registerCubit.passCtrl.length < 8) {
-                                  return "Password must be 8 chars at least";
+                                  return S.current.pass_short;
                                 } else {
                                   return null;
                                 }
@@ -166,10 +159,10 @@ class _RegisterViewState extends State<RegisterView> {
                               validator: (value) {
                                 if (registerCubit
                                     .passConfirmCtrl.text.isEmpty) {
-                                  return "Password confirmation can't be empty";
+                                  return S.current.pass_confrirm_required;
                                 } else if (registerCubit.passConfirmCtrl.text !=
                                     registerCubit.passCtrl.text) {
-                                  return "Passwords doesn't match";
+                                  return S.current.pass_dont_match;
                                 } else {
                                   return null;
                                 }
@@ -284,6 +277,7 @@ class _RegisterViewState extends State<RegisterView> {
                                   return CustomBtn(
                                     label: S.current.register,
                                     onPressed: () async {
+                                      registerCubit.validateEmail(registerCubit.emailCtrl.text);
                                       if (formKey.currentState!.validate()) {
                                         registerCubit.userRegister(
                                           RegisterEntity(

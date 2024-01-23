@@ -12,6 +12,7 @@ import 'package:pinput/pinput.dart';
 import '../../../../../config/themes/app_text_styles.dart';
 import '../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../core/router/router.dart';
+import '../../../../../core/shared/arguments.dart';
 import '../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../core/shared/widgets/custom_form_field.dart';
 import '../../../../../core/utils/app_colors.dart';
@@ -38,7 +39,7 @@ class _LoginViewState extends State<LoginView> {
       create: (context) => di.di<LoginCubit>(),
       child: BlocConsumer<LoginCubit, LoginStates>(
         listener: (context, state) {
-          // LoginCubit loginCubit = LoginCubit.get(context);
+          LoginCubit loginCubit = LoginCubit.get(context);
           state.maybeWhen(
             // initial: () async {
             //   var email =
@@ -54,19 +55,22 @@ class _LoginViewState extends State<LoginView> {
             success: (state) async {
               if (state!.status == 1) {
                 context.defaultSnackBar(S.of(context).login_successful);
-                if(UserData.type=="customer"){
-                  context.pushNamed(homePageRoute);
-
-                }else{
-                  context.pushNamed(designerHomePageRoute);
-
+                if (UserData.type == "customer") {
+                  context.pushNamed(bottomNavBarPageRoute);
+                } else {
+                  context.pushNamed(designerBottomNavBarPageRoute);
                 }
                 // UpdateFcmTokenService.updateUserToken(UserData.id!);
               } else if (state.status == 0) {
                 if (state.msg ==
                     "Active your account first verification code sent to your email !") {
                   // await resendCodeUseCase(email.ifEmpty());
-                  context.pushNamed(verifyAccountPageRoute);
+                  loginCubit.resendCode(loginCubit.emailCtrl.text);
+                  context.pushNamed(
+                    verifyAccountPageRoute,
+                    arguments:
+                        VerifyAccountArgs(email: loginCubit.emailCtrl.text),
+                  );
                 }
                 context.defaultSnackBar(state.msg.isNullOrEmpty());
               } else {
@@ -128,7 +132,8 @@ class _LoginViewState extends State<LoginView> {
                               validator: (value) {
                                 if (loginCubit.emailCtrl.text.isEmpty) {
                                   return S.of(context).plz_enter_email;
-                                } else if (!loginCubit.emailCtrl.text.isEmail()) {
+                                } else if (!loginCubit.emailCtrl.text
+                                    .isEmail()) {
                                   return S.of(context).enter_valid_email;
                                 } else {
                                   return null;

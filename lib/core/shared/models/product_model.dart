@@ -1,36 +1,44 @@
-import 'package:marketc/core/shared/entities/product_entity.dart';
+
+import '../entities/product_entity.dart';
 
 class ProductModel extends ProductEntity {
   const ProductModel({
-      super.id,
-      super.name,
-      super.categoryId,
-      super.description,
-      super.price,
-      super.discountPercent,
-      super.size,
-      super.color,
-      super.images,
-      super.status,
-      super.message,
+    super.id,
+    super.name,
+    super.categoryId,
+    super.description,
+    super.price,
+    super.discountPercent,
+    super.size,
+    super.color,
+    super.images,
+    super.status,
+    super.message,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
-      id: json["id"] ,
+      id: json["id"],
       name: json["name"],
-      categoryId: json["category_id"] ,
+      categoryId: json["category_id"],
       description: json["description"],
-      price: json["price"] ,
+      price: json["price"],
       discountPercent: json["discount_percent"],
-      size: json["size"],
-      color: json["color"] ,
-      images: json["images"],
+      size: (json["size"])
+          .map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      color: (json["color"])
+          .map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      images: (json["images"])
+          .map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
   }
- factory ProductModel.addProductFromJson(Map<String, dynamic> json) {
+
+  factory ProductModel.addProductFromJson(Map<String, dynamic> json) {
     return ProductModel(
-      status: json["status"] ,
+      status: json["status"],
       message: json["message"],
     );
   }

@@ -125,6 +125,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "edit_product": MessageLookupByLibrary.simpleMessage("Edit Product"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "email_used":
+            MessageLookupByLibrary.simpleMessage("Email is already in use"),
         "email_wrong": MessageLookupByLibrary.simpleMessage(
             "Email is wrong, check email & try again"),
         "enter_email": MessageLookupByLibrary.simpleMessage("Enter your email"),

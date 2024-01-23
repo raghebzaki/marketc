@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketc/features/customer/payment/add_new_address/presentation/pages/add_new_address_view.dart';
+import 'package:marketc/features/customer/payment/map/presentation/pages/map_view.dart';
 import 'package:marketc/features/customer/payment/payment_details/presentation/pages/payment_details_view.dart';
 import 'package:marketc/features/customer/payment/payment_gate_way/presentation/pages/payment_gate_way_view.dart';
 import 'package:marketc/features/customer/payment/payment_summary/presentation/pages/payment_summary_view.dart';
@@ -60,8 +61,11 @@ class AppRouters {
           builder: (BuildContext context) => const RegisterView(),
         );
       case verifyAccountPageRoute:
+        final args = settings.arguments as VerifyAccountArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const VerifyAccountView(),
+          builder: (BuildContext context) => VerifyAccountView(
+            email: args.email,
+          ),
         );
       case forgotPassPageRoute:
         return MaterialPageRoute(
@@ -150,6 +154,10 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => const SavedAddressesView(),
         );
+      case mapPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const MapView(),
+        );
       case addNewAddressPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const AddNewAddressView(),
@@ -180,19 +188,19 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => const DesignerCategoriesView(),
         );
-        case addProductPageRoute:
+      case addProductPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const AddProductView(),
         );
-        case editProductPageRoute:
+      case editProductPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const EditProductView(),
         );
-        case designsPageRoute:
+      case designsPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const DesignsView(),
         );
-        case walletPageRoute:
+      case walletPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const WalletView(),
         );

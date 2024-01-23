@@ -4,10 +4,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:marketc/core/database/address_class.dart';
-import 'package:marketc/core/database/address_type_adapter.dart';
 import 'package:marketc/core/utils/app_constants.dart';
 
-import 'core/database/database_db.dart';
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
 import 'core/router/router_generator.dart';
@@ -21,8 +19,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = AppCubitObserver();
   await Hive.initFlutter();
-  Hive.registerAdapter(AddressTypeAdapter());
-  HiveBoxes.addressBox = await Hive.openBox<Address>("Address Database");
+  Hive.registerAdapter(AddressAdapter());
   await ScreenUtil.ensureScreenSize();
   await di.init();
 

@@ -14,8 +14,14 @@ class StateLoadingWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Gap(30.h),
-        const CircularProgressIndicator(
-          color: AppColors.secondary,
+        Center(
+          child: SizedBox(
+            height: 100.h,
+            width: 100.w,
+            child: const CircularProgressIndicator(
+              color: AppColors.secondary,
+            ),
+          ),
         ),
       ],
     );

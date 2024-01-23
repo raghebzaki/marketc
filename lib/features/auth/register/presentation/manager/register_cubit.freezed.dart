@@ -23,6 +23,7 @@ mixin _$RegisterState {
     required TResult Function(RegisterEntity? registerEntity) success,
     required TResult Function(String status) checkEmailSuccess,
     required TResult Function(String errCode, String err) error,
+    required TResult Function() validEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$RegisterState {
     TResult? Function(RegisterEntity? registerEntity)? success,
     TResult? Function(String status)? checkEmailSuccess,
     TResult? Function(String errCode, String err)? error,
+    TResult? Function()? validEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$RegisterState {
     TResult Function(RegisterEntity? registerEntity)? success,
     TResult Function(String status)? checkEmailSuccess,
     TResult Function(String errCode, String err)? error,
+    TResult Function()? validEmail,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +54,7 @@ mixin _$RegisterState {
     required TResult Function(Success value) success,
     required TResult Function(CheckEmailSuccess value) checkEmailSuccess,
     required TResult Function(Error value) error,
+    required TResult Function(ValidEmail value) validEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +64,7 @@ mixin _$RegisterState {
     TResult? Function(Success value)? success,
     TResult? Function(CheckEmailSuccess value)? checkEmailSuccess,
     TResult? Function(Error value)? error,
+    TResult? Function(ValidEmail value)? validEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +74,7 @@ mixin _$RegisterState {
     TResult Function(Success value)? success,
     TResult Function(CheckEmailSuccess value)? checkEmailSuccess,
     TResult Function(Error value)? error,
+    TResult Function(ValidEmail value)? validEmail,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -135,6 +141,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(RegisterEntity? registerEntity) success,
     required TResult Function(String status) checkEmailSuccess,
     required TResult Function(String errCode, String err) error,
+    required TResult Function() validEmail,
   }) {
     return initial();
   }
@@ -147,6 +154,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(RegisterEntity? registerEntity)? success,
     TResult? Function(String status)? checkEmailSuccess,
     TResult? Function(String errCode, String err)? error,
+    TResult? Function()? validEmail,
   }) {
     return initial?.call();
   }
@@ -159,6 +167,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(RegisterEntity? registerEntity)? success,
     TResult Function(String status)? checkEmailSuccess,
     TResult Function(String errCode, String err)? error,
+    TResult Function()? validEmail,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -175,6 +184,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(Success value) success,
     required TResult Function(CheckEmailSuccess value) checkEmailSuccess,
     required TResult Function(Error value) error,
+    required TResult Function(ValidEmail value) validEmail,
   }) {
     return initial(this);
   }
@@ -187,6 +197,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(Success value)? success,
     TResult? Function(CheckEmailSuccess value)? checkEmailSuccess,
     TResult? Function(Error value)? error,
+    TResult? Function(ValidEmail value)? validEmail,
   }) {
     return initial?.call(this);
   }
@@ -199,6 +210,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(Success value)? success,
     TResult Function(CheckEmailSuccess value)? checkEmailSuccess,
     TResult Function(Error value)? error,
+    TResult Function(ValidEmail value)? validEmail,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -255,6 +267,7 @@ class _$LoadingImpl implements Loading {
     required TResult Function(RegisterEntity? registerEntity) success,
     required TResult Function(String status) checkEmailSuccess,
     required TResult Function(String errCode, String err) error,
+    required TResult Function() validEmail,
   }) {
     return loading();
   }
@@ -267,6 +280,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function(RegisterEntity? registerEntity)? success,
     TResult? Function(String status)? checkEmailSuccess,
     TResult? Function(String errCode, String err)? error,
+    TResult? Function()? validEmail,
   }) {
     return loading?.call();
   }
@@ -279,6 +293,7 @@ class _$LoadingImpl implements Loading {
     TResult Function(RegisterEntity? registerEntity)? success,
     TResult Function(String status)? checkEmailSuccess,
     TResult Function(String errCode, String err)? error,
+    TResult Function()? validEmail,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -295,6 +310,7 @@ class _$LoadingImpl implements Loading {
     required TResult Function(Success value) success,
     required TResult Function(CheckEmailSuccess value) checkEmailSuccess,
     required TResult Function(Error value) error,
+    required TResult Function(ValidEmail value) validEmail,
   }) {
     return loading(this);
   }
@@ -307,6 +323,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function(Success value)? success,
     TResult? Function(CheckEmailSuccess value)? checkEmailSuccess,
     TResult? Function(Error value)? error,
+    TResult? Function(ValidEmail value)? validEmail,
   }) {
     return loading?.call(this);
   }
@@ -319,6 +336,7 @@ class _$LoadingImpl implements Loading {
     TResult Function(Success value)? success,
     TResult Function(CheckEmailSuccess value)? checkEmailSuccess,
     TResult Function(Error value)? error,
+    TResult Function(ValidEmail value)? validEmail,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -402,6 +420,7 @@ class _$SuccessImpl implements Success {
     required TResult Function(RegisterEntity? registerEntity) success,
     required TResult Function(String status) checkEmailSuccess,
     required TResult Function(String errCode, String err) error,
+    required TResult Function() validEmail,
   }) {
     return success(registerEntity);
   }
@@ -414,6 +433,7 @@ class _$SuccessImpl implements Success {
     TResult? Function(RegisterEntity? registerEntity)? success,
     TResult? Function(String status)? checkEmailSuccess,
     TResult? Function(String errCode, String err)? error,
+    TResult? Function()? validEmail,
   }) {
     return success?.call(registerEntity);
   }
@@ -426,6 +446,7 @@ class _$SuccessImpl implements Success {
     TResult Function(RegisterEntity? registerEntity)? success,
     TResult Function(String status)? checkEmailSuccess,
     TResult Function(String errCode, String err)? error,
+    TResult Function()? validEmail,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -442,6 +463,7 @@ class _$SuccessImpl implements Success {
     required TResult Function(Success value) success,
     required TResult Function(CheckEmailSuccess value) checkEmailSuccess,
     required TResult Function(Error value) error,
+    required TResult Function(ValidEmail value) validEmail,
   }) {
     return success(this);
   }
@@ -454,6 +476,7 @@ class _$SuccessImpl implements Success {
     TResult? Function(Success value)? success,
     TResult? Function(CheckEmailSuccess value)? checkEmailSuccess,
     TResult? Function(Error value)? error,
+    TResult? Function(ValidEmail value)? validEmail,
   }) {
     return success?.call(this);
   }
@@ -466,6 +489,7 @@ class _$SuccessImpl implements Success {
     TResult Function(Success value)? success,
     TResult Function(CheckEmailSuccess value)? checkEmailSuccess,
     TResult Function(Error value)? error,
+    TResult Function(ValidEmail value)? validEmail,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -554,6 +578,7 @@ class _$CheckEmailSuccessImpl implements CheckEmailSuccess {
     required TResult Function(RegisterEntity? registerEntity) success,
     required TResult Function(String status) checkEmailSuccess,
     required TResult Function(String errCode, String err) error,
+    required TResult Function() validEmail,
   }) {
     return checkEmailSuccess(status);
   }
@@ -566,6 +591,7 @@ class _$CheckEmailSuccessImpl implements CheckEmailSuccess {
     TResult? Function(RegisterEntity? registerEntity)? success,
     TResult? Function(String status)? checkEmailSuccess,
     TResult? Function(String errCode, String err)? error,
+    TResult? Function()? validEmail,
   }) {
     return checkEmailSuccess?.call(status);
   }
@@ -578,6 +604,7 @@ class _$CheckEmailSuccessImpl implements CheckEmailSuccess {
     TResult Function(RegisterEntity? registerEntity)? success,
     TResult Function(String status)? checkEmailSuccess,
     TResult Function(String errCode, String err)? error,
+    TResult Function()? validEmail,
     required TResult orElse(),
   }) {
     if (checkEmailSuccess != null) {
@@ -594,6 +621,7 @@ class _$CheckEmailSuccessImpl implements CheckEmailSuccess {
     required TResult Function(Success value) success,
     required TResult Function(CheckEmailSuccess value) checkEmailSuccess,
     required TResult Function(Error value) error,
+    required TResult Function(ValidEmail value) validEmail,
   }) {
     return checkEmailSuccess(this);
   }
@@ -606,6 +634,7 @@ class _$CheckEmailSuccessImpl implements CheckEmailSuccess {
     TResult? Function(Success value)? success,
     TResult? Function(CheckEmailSuccess value)? checkEmailSuccess,
     TResult? Function(Error value)? error,
+    TResult? Function(ValidEmail value)? validEmail,
   }) {
     return checkEmailSuccess?.call(this);
   }
@@ -618,6 +647,7 @@ class _$CheckEmailSuccessImpl implements CheckEmailSuccess {
     TResult Function(Success value)? success,
     TResult Function(CheckEmailSuccess value)? checkEmailSuccess,
     TResult Function(Error value)? error,
+    TResult Function(ValidEmail value)? validEmail,
     required TResult orElse(),
   }) {
     if (checkEmailSuccess != null) {
@@ -714,6 +744,7 @@ class _$ErrorImpl implements Error {
     required TResult Function(RegisterEntity? registerEntity) success,
     required TResult Function(String status) checkEmailSuccess,
     required TResult Function(String errCode, String err) error,
+    required TResult Function() validEmail,
   }) {
     return error(errCode, err);
   }
@@ -726,6 +757,7 @@ class _$ErrorImpl implements Error {
     TResult? Function(RegisterEntity? registerEntity)? success,
     TResult? Function(String status)? checkEmailSuccess,
     TResult? Function(String errCode, String err)? error,
+    TResult? Function()? validEmail,
   }) {
     return error?.call(errCode, err);
   }
@@ -738,6 +770,7 @@ class _$ErrorImpl implements Error {
     TResult Function(RegisterEntity? registerEntity)? success,
     TResult Function(String status)? checkEmailSuccess,
     TResult Function(String errCode, String err)? error,
+    TResult Function()? validEmail,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -754,6 +787,7 @@ class _$ErrorImpl implements Error {
     required TResult Function(Success value) success,
     required TResult Function(CheckEmailSuccess value) checkEmailSuccess,
     required TResult Function(Error value) error,
+    required TResult Function(ValidEmail value) validEmail,
   }) {
     return error(this);
   }
@@ -766,6 +800,7 @@ class _$ErrorImpl implements Error {
     TResult? Function(Success value)? success,
     TResult? Function(CheckEmailSuccess value)? checkEmailSuccess,
     TResult? Function(Error value)? error,
+    TResult? Function(ValidEmail value)? validEmail,
   }) {
     return error?.call(this);
   }
@@ -778,6 +813,7 @@ class _$ErrorImpl implements Error {
     TResult Function(Success value)? success,
     TResult Function(CheckEmailSuccess value)? checkEmailSuccess,
     TResult Function(Error value)? error,
+    TResult Function(ValidEmail value)? validEmail,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -795,4 +831,130 @@ abstract class Error implements RegisterState {
   @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ValidEmailImplCopyWith<$Res> {
+  factory _$$ValidEmailImplCopyWith(
+          _$ValidEmailImpl value, $Res Function(_$ValidEmailImpl) then) =
+      __$$ValidEmailImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ValidEmailImplCopyWithImpl<$Res>
+    extends _$RegisterStateCopyWithImpl<$Res, _$ValidEmailImpl>
+    implements _$$ValidEmailImplCopyWith<$Res> {
+  __$$ValidEmailImplCopyWithImpl(
+      _$ValidEmailImpl _value, $Res Function(_$ValidEmailImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ValidEmailImpl implements ValidEmail {
+  const _$ValidEmailImpl();
+
+  @override
+  String toString() {
+    return 'RegisterState.validEmail()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ValidEmailImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(RegisterEntity? registerEntity) success,
+    required TResult Function(String status) checkEmailSuccess,
+    required TResult Function(String errCode, String err) error,
+    required TResult Function() validEmail,
+  }) {
+    return validEmail();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(RegisterEntity? registerEntity)? success,
+    TResult? Function(String status)? checkEmailSuccess,
+    TResult? Function(String errCode, String err)? error,
+    TResult? Function()? validEmail,
+  }) {
+    return validEmail?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(RegisterEntity? registerEntity)? success,
+    TResult Function(String status)? checkEmailSuccess,
+    TResult Function(String errCode, String err)? error,
+    TResult Function()? validEmail,
+    required TResult orElse(),
+  }) {
+    if (validEmail != null) {
+      return validEmail();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(CheckEmailSuccess value) checkEmailSuccess,
+    required TResult Function(Error value) error,
+    required TResult Function(ValidEmail value) validEmail,
+  }) {
+    return validEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(CheckEmailSuccess value)? checkEmailSuccess,
+    TResult? Function(Error value)? error,
+    TResult? Function(ValidEmail value)? validEmail,
+  }) {
+    return validEmail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(CheckEmailSuccess value)? checkEmailSuccess,
+    TResult Function(Error value)? error,
+    TResult Function(ValidEmail value)? validEmail,
+    required TResult orElse(),
+  }) {
+    if (validEmail != null) {
+      return validEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ValidEmail implements RegisterState {
+  const factory ValidEmail() = _$ValidEmailImpl;
 }

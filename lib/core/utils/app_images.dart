@@ -44,6 +44,7 @@ class AppImages {
   static String increaseImg = "$imagePath/increase.png";
   static String saleHomeImg = "$imagePath/saleHome.png";
   static String uploadImg = "$imagePath/upload.png";
+  static String mapMarkerImg = "$imagePath/map_marker.png";
 
 
 

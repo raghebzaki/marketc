@@ -22,6 +22,7 @@ const String editProfilePageRoute = '/editProfile';
 const String orderDetailsPageRoute = '/orderDetails';
 const String paymentDetailsPageRoute = '/paymentDetails';
 const String savedAddressesPageRoute = '/savedAddresses';
+const String mapPageRoute = '/map';
 const String addNewAddressPageRoute = '/addNewAddress';
 const String paymentGateWayPageRoute = '/paymentGateWay';
 const String paymentSummaryPageRoute = '/paymentSummary';

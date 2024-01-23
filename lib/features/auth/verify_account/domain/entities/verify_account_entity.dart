@@ -4,7 +4,7 @@ class VerifyAccountEntity extends Equatable {
   final int? status;
   final String? msg;
   final String? email;
-  final int? otp;
+  final String? otp;
 
   const VerifyAccountEntity({
     this.status,

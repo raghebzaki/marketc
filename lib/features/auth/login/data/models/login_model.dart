@@ -16,9 +16,9 @@ class LoginModel extends LoginEntity {
     return LoginModel(
       status: json["status"] as num? ?? AppConstants.unknownNumValue,
       msg: json["message"] as String? ?? AppConstants.unknownStringValue,
-      userData: json["userData"]==null
+      userData: json["user"]==null
           ?null
-          : UserData.fromJson(json["userData"]),
+          : UserData.fromJson(json["user"]),
     );
   }
 
