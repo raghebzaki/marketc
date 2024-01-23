@@ -29,8 +29,8 @@ class AppConstants {
   static const changePassUri = "auth/change-password";
   static const registerUri = "auth/register";
   static const verifyAccountUri = "auth/account_verification";
-  static const checkEmailRegisterUri = "";
-  static const resendCodeUri = "";
+  static const checkEmailRegisterUri = "auth/check_email_before_register";
+  static const resendCodeUri = "auth/resend-code";
   static const mostPopularProductsUri = "";
   static const newProductsUri = "";
   static const favoriteProductsUri = "";

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
+import 'package:marketc/core/shared/models/user_data_model.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:pinput/pinput.dart';
@@ -50,14 +51,21 @@ class _LoginViewState extends State<LoginView> {
             //     // loginCubit.userLogin();
             //   }
             // },
-            success: (state) {
+            success: (state) async {
               if (state!.status == 1) {
                 context.defaultSnackBar(S.of(context).login_successful);
+                if(UserData.type=="customer"){
+                  context.pushNamed(homePageRoute);
+
+                }else{
+                  context.pushNamed(designerHomePageRoute);
+
+                }
                 // UpdateFcmTokenService.updateUserToken(UserData.id!);
-                context.pushNamed(homePageRoute);
               } else if (state.status == 0) {
                 if (state.msg ==
                     "Active your account first verification code sent to your email !") {
+                  // await resendCodeUseCase(email.ifEmpty());
                   context.pushNamed(verifyAccountPageRoute);
                 }
                 context.defaultSnackBar(state.msg.isNullOrEmpty());

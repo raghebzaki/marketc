@@ -12,6 +12,7 @@ class RegisterModel extends RegisterEntity {
     super.phone,
     super.pass,
     super.confirmPass,
+    super.type
   });
 
   factory RegisterModel.fromJson(Map<String, dynamic> json) {
@@ -29,6 +30,7 @@ class RegisterModel extends RegisterEntity {
       'email': registerEntity.email,
       'password': registerEntity.pass,
       'password_confirmation': registerEntity.confirmPass,
+      'type':registerEntity.type
     };
   }
 }

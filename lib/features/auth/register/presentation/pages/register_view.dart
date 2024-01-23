@@ -30,6 +30,7 @@ class _RegisterViewState extends State<RegisterView> {
   GlobalKey<FormState> formKey = GlobalKey();
   bool password = true;
   bool passwordConfirmation = true;
+  bool isCustomer = true;
   RegisterEntity registerEntity = const RegisterEntity();
 
   @override
@@ -178,85 +179,99 @@ class _RegisterViewState extends State<RegisterView> {
                             Row(
                               children: [
                                 Expanded(
-                                  child: Container(
-                                    padding:
-                                        const EdgeInsets.all(Dimensions.p8),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: AppColors.secondary,
-                                        width: 1,
-                                        style: BorderStyle.solid,
+                                  child: GestureDetector(
+                                    onTap: (){
+                                      setState(() {
+                                        isCustomer=true;
+                                      });
+                                    },
+                                    child: Container(
+                                      padding:
+                                          const EdgeInsets.all(Dimensions.p8),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: isCustomer?AppColors.secondary:AppColors.textColorGrey,
+                                          width: 2,
+                                          style: BorderStyle.solid,
+                                        ),
+                                        borderRadius: BorderRadius.circular(
+                                          Dimensions.r8,
+                                        ),
                                       ),
-                                      borderRadius: BorderRadius.circular(
-                                        Dimensions.r8,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Align(
-                                          alignment: Alignment.topLeft,
-                                          child: Text(
-                                            S.current.buyer,
-                                            style: CustomTextStyle.kTextStyleF16
-                                                .copyWith(
-                                              color: AppColors.black60,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Align(
+                                            alignment: Alignment.topLeft,
+                                            child: Text(
+                                              S.current.buyer,
+                                              style: CustomTextStyle.kTextStyleF16
+                                                  .copyWith(
+                                                color: AppColors.black60,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        Gap(20.h),
-                                        Align(
-                                          alignment: Alignment.bottomRight,
-                                          child: SvgPicture.asset(
-                                            AppImages.buyerSvg,
-                                            height: 72.h,
-                                            width: 70.w,
+                                          Gap(20.h),
+                                          Align(
+                                            alignment: Alignment.bottomRight,
+                                            child: SvgPicture.asset(
+                                              AppImages.buyerSvg,
+                                              height: 72.h,
+                                              width: 70.w,
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Gap(10.w),
                                 Expanded(
-                                  child: Container(
-                                    padding:
-                                        const EdgeInsets.all(Dimensions.p8),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: AppColors.secondary,
-                                        width: 1,
-                                        style: BorderStyle.solid,
+                                  child: GestureDetector(
+                                    onTap: (){
+                                      setState(() {
+                                        isCustomer=false;
+                                      });
+                                    },
+                                    child: Container(
+                                      padding:
+                                          const EdgeInsets.all(Dimensions.p8),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: isCustomer?AppColors.textColorGrey:AppColors.secondary,
+                                          width: 2,
+                                          style: BorderStyle.solid,
+                                        ),
+                                        borderRadius: BorderRadius.circular(
+                                          Dimensions.r8,
+                                        ),
                                       ),
-                                      borderRadius: BorderRadius.circular(
-                                        Dimensions.r8,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Align(
-                                          alignment: Alignment.topLeft,
-                                          child: Text(
-                                            S.current.seller,
-                                            style: CustomTextStyle.kTextStyleF16
-                                                .copyWith(
-                                              color: AppColors.black60,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Align(
+                                            alignment: Alignment.topLeft,
+                                            child: Text(
+                                              S.current.seller,
+                                              style: CustomTextStyle.kTextStyleF16
+                                                  .copyWith(
+                                                color: AppColors.black60,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        Gap(20.h),
-                                        Align(
-                                          alignment: Alignment.bottomRight,
-                                          child: Image.asset(
-                                            AppImages.sellerImg,
-                                            height: 72.h,
-                                            width: 70.w,
+                                          Gap(20.h),
+                                          Align(
+                                            alignment: Alignment.bottomRight,
+                                            child: Image.asset(
+                                              AppImages.sellerImg,
+                                              height: 72.h,
+                                              width: 70.w,
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -278,6 +293,7 @@ class _RegisterViewState extends State<RegisterView> {
                                             pass: registerCubit.passCtrl.text,
                                             confirmPass: registerCubit
                                                 .passConfirmCtrl.text,
+                                            type: isCustomer?'customer':'designer',
                                           ),context
                                         );
                                        // if (state is Success) {

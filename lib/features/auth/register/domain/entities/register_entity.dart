@@ -9,6 +9,7 @@ class RegisterEntity extends Equatable {
   final String? email;
   final String? pass;
   final String? confirmPass;
+  final String? type;
 
   const RegisterEntity({
     this.status,
@@ -19,6 +20,7 @@ class RegisterEntity extends Equatable {
     this.email,
     this.pass,
     this.confirmPass,
+    this.type,
   });
 
   @override
@@ -31,5 +33,6 @@ class RegisterEntity extends Equatable {
         email,
         pass,
         confirmPass,
+        type
       ];
 }
