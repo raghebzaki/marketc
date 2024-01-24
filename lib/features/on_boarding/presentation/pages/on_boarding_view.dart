@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:marketc/core/helpers/cache_helper.dart';
+import 'package:marketc/core/router/router.dart';
+import 'package:marketc/core/utils/extensions.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../config/themes/app_text_styles.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../generated/l10n.dart';
-import '../../../auth/login/presentation/pages/login_view.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
@@ -38,42 +40,37 @@ class OnBoardingViewState extends State<OnBoardingView> {
               controller: controller,
               children: [
                 Column(
-                  children:[
+                  children: [
                     Gap(140.h),
                     Padding(
-                      padding:  EdgeInsets.symmetric(vertical: 20.h),
+                      padding: EdgeInsets.symmetric(vertical: 20.h),
                       child: Image.asset(
                         AppImages.onboarding1Img,
                         height: 300.h,
                         width: 300.w,
                       ),
                     ),
-                      Padding(
-                        padding:  EdgeInsets.symmetric(
-                            horizontal: 50.w,vertical: 16.h),
-                        child: Text(
-                          S.current.onboard_1,
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 50.w, vertical: 16.h),
+                      child: Text(S.current.onboard_1,
                           textAlign: TextAlign.center,
-                          style:CustomTextStyle.onBoardingTextStyleF30
-                        ),
-                      ),
-                     Padding(
-                      padding:  EdgeInsets.symmetric(
-                          horizontal: 50.w,vertical: 16.h),
-                      child: Text(
-                        S.current.onboard_1_des,
-                        textAlign: TextAlign.center,
-                          style:CustomTextStyle.kTextStyleF14Sub
-
-                      ),
+                          style: CustomTextStyle.onBoardingTextStyleF30),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 50.w, vertical: 16.h),
+                      child: Text(S.current.onboard_1_des,
+                          textAlign: TextAlign.center,
+                          style: CustomTextStyle.kTextStyleF14Sub),
                     ),
                   ],
                 ),
                 Column(
-                  children:[
+                  children: [
                     Gap(140.h),
                     Padding(
-                      padding:  EdgeInsets.symmetric(vertical: 20.h),
+                      padding: EdgeInsets.symmetric(vertical: 20.h),
                       child: Image.asset(
                         AppImages.onboarding2Img,
                         height: 300.h,
@@ -81,31 +78,26 @@ class OnBoardingViewState extends State<OnBoardingView> {
                       ),
                     ),
                     Padding(
-                      padding:  EdgeInsets.symmetric(
-                          horizontal: 50.w,vertical: 16.h),
-                      child: Text(
-                          S.current.onboard_2,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 50.w, vertical: 16.h),
+                      child: Text(S.current.onboard_2,
                           textAlign: TextAlign.center,
-                          style:CustomTextStyle.onBoardingTextStyleF30
-                      ),
+                          style: CustomTextStyle.onBoardingTextStyleF30),
                     ),
                     Padding(
-                      padding:  EdgeInsets.symmetric(
-                          horizontal: 50.w,vertical: 16.h),
-                      child: Text(
-                          S.current.onboard_2_des,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 50.w, vertical: 16.h),
+                      child: Text(S.current.onboard_2_des,
                           textAlign: TextAlign.center,
-                          style:CustomTextStyle.kTextStyleF14Sub
-
-                      ),
+                          style: CustomTextStyle.kTextStyleF14Sub),
                     ),
                   ],
                 ),
                 Column(
-                  children:[
+                  children: [
                     Gap(140.h),
                     Padding(
-                      padding:  EdgeInsets.symmetric(vertical: 20.h),
+                      padding: EdgeInsets.symmetric(vertical: 20.h),
                       child: Image.asset(
                         AppImages.onboarding3Img,
                         height: 300.h,
@@ -113,23 +105,18 @@ class OnBoardingViewState extends State<OnBoardingView> {
                       ),
                     ),
                     Padding(
-                      padding:  EdgeInsets.symmetric(
-                          horizontal: 50.w,vertical: 16.h),
-                      child: Text(
-                          S.current.onboard_3,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 50.w, vertical: 16.h),
+                      child: Text(S.current.onboard_3,
                           textAlign: TextAlign.center,
-                          style:CustomTextStyle.onBoardingTextStyleF30
-                      ),
+                          style: CustomTextStyle.onBoardingTextStyleF30),
                     ),
                     Padding(
-                      padding:  EdgeInsets.symmetric(
-                          horizontal: 50.w,vertical: 16.h),
-                      child: Text(
-                          S.current.onboard_3_des,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 50.w, vertical: 16.h),
+                      child: Text(S.current.onboard_3_des,
                           textAlign: TextAlign.center,
-                          style:CustomTextStyle.kTextStyleF14Sub
-
-                      ),
+                          style: CustomTextStyle.kTextStyleF14Sub),
                     ),
                   ],
                 ),
@@ -144,11 +131,10 @@ class OnBoardingViewState extends State<OnBoardingView> {
                     SmoothPageIndicator(
                       controller: controller,
                       count: 3,
-                      effect:  ExpandingDotsEffect(
+                      effect: ExpandingDotsEffect(
                         dotHeight: 8.h,
                         dotWidth: 8.w,
                         dotColor: Colors.black54,
-
                         activeDotColor: AppColors.secondary,
                       ),
                     ),
@@ -158,24 +144,19 @@ class OnBoardingViewState extends State<OnBoardingView> {
                         Opacity(
                           opacity: pageIndex != 2 ? 1.0 : 0.0,
                           child: TextButton(
-                            child:  Text(
-                              S.current.skip,
-                                style: CustomTextStyle.kTextStyleF14SubBlack
-
-                            ),
+                            child: Text(S.current.skip,
+                                style: CustomTextStyle.kTextStyleF14SubBlack),
                             onPressed: () {
-                              Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(
-                                      builder: (context) => const LoginView()));
+                              context.pushReplacementNamed(loginPageRoute);
+                              CacheHelper.setData("initScreen", 1);
                             },
                           ),
                         ),
                         pageIndex != 2
                             ? TextButton(
-                                child:  Text(
-                                  S.current.next,
-                                    style: CustomTextStyle.kTextStyleF14SubBlack
-                                ),
+                                child: Text(S.current.next,
+                                    style:
+                                        CustomTextStyle.kTextStyleF14SubBlack),
                                 onPressed: () {
                                   if (!(controller.page == 2.0)) {
                                     controller.nextPage(
@@ -186,15 +167,12 @@ class OnBoardingViewState extends State<OnBoardingView> {
                                 },
                               )
                             : TextButton(
-                                child:  Text(
-                                  S.current.finish,
-                                  style: CustomTextStyle.kTextStyleF14SubBlack
-                                ),
+                                child: Text(S.current.finish,
+                                    style:
+                                        CustomTextStyle.kTextStyleF14SubBlack),
                                 onPressed: () {
-                                  Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const LoginView(),),);
+                                  context.pushReplacementNamed(loginPageRoute);
+                                  CacheHelper.setData("initScreen", 1);
                                 },
                               )
                       ],

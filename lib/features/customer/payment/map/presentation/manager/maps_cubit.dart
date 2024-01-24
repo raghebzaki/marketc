@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart' as loc;
 
@@ -40,7 +41,7 @@ class MapsCubit extends Cubit<MapsStates> {
     );
   }
 
-
+  /// Add Marker
   List<Marker> markers = [];
 
   addMarker(List<MapsModel> mapsList) {
@@ -60,6 +61,15 @@ class MapsCubit extends Cubit<MapsStates> {
       const MapsStates.newLocation(),
     );
   }
+
+  /// Convert Marker to Address data
+  convertLocation(LatLng currentPosition) async {
+    List<Placemark> placeMarks = await placemarkFromCoordinates(
+        currentPosition.latitude, currentPosition.longitude);
+    Placemark place = placeMarks[0];
+    debugPrint(place.toString());
+  }
+
 
   // late List<MapsModel> mapsList = [];
   //

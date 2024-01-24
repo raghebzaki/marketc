@@ -9,8 +9,8 @@ enum LanguageType {
   ARABIC,
 }
 
-const Locale ARABIC_LOCAL = Locale("ar", "SA");
-const Locale ENGLISH_LOCAL = Locale("en", "US");
+const Locale ARABIC_LOCAL = Locale("ar");
+const Locale ENGLISH_LOCAL = Locale("en");
 
 extension LanguageTypeExtension on LanguageType {
   String getValue() {

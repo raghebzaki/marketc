@@ -27,6 +27,7 @@ dependencies:
 
   # Service locator
   get_it: ^7.6.4
+  get: ^4.6.6
 
   # Multiple Language Support
   flutter_localizations:

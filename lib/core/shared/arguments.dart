@@ -21,3 +21,9 @@ class CategoryDetailsArgs {
 
   CategoryDetailsArgs({required this.id});
 }
+
+class NewAddressArgs {
+  final String address;
+
+  NewAddressArgs({required this.address});
+}

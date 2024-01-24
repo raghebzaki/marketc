@@ -2,9 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:marketc/core/database/address_class.dart';
-import 'package:marketc/core/utils/app_constants.dart';
 
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
@@ -41,12 +41,8 @@ void main() async {
   //   FireBaseResources().ios();
   // }
 
-  String currentLocale = await CacheHelper.getAppLang();
-  var email =
-      await CacheHelper.getData("email") ?? AppConstants.unknownStringValue;
-  var pass =
-      await CacheHelper.getData("pass") ?? AppConstants.unknownStringValue;
-  debugPrint("Email: $email\n Pass: $pass");
+  // String currentLocale = await CacheHelper.getAppLang();
+  var currentLocale = await CacheHelper.getLocal();
 
   runApp(
     MyApp(
@@ -56,16 +52,23 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
-  final String currentLang;
+  final Locale currentLang;
 
   const MyApp({super.key, required this.currentLang});
+
+  static void setLocale(BuildContext context, Locale newLocale) async {
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    state!.changeLanguage(newLocale);
+  }
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  @override
+  Locale locale = const Locale("en");
+
+  //@override
   // void initState() {
   //   super.initState();
   //
@@ -76,6 +79,12 @@ class _MyAppState extends State<MyApp> {
   //   );
   // }
 
+  changeLanguage(Locale newLocale) {
+    setState(() {
+      locale = newLocale;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -84,9 +93,9 @@ class _MyAppState extends State<MyApp> {
       splitScreenMode: true,
       // Use builder only if you need to use library outside ScreenUtilInit context
       builder: (ctx, child) {
-        return MaterialApp(
+        return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          locale: const Locale("ar"),
+          locale: widget.currentLang,
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,

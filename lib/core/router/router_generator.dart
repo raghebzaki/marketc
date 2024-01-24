@@ -159,8 +159,10 @@ class AppRouters {
           builder: (BuildContext context) => const MapView(),
         );
       case addNewAddressPageRoute:
+        final args = settings.arguments as NewAddressArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const AddNewAddressView(),
+          builder: (BuildContext context) =>
+              AddNewAddressView(address: args.address),
         );
       case paymentGateWayPageRoute:
         return MaterialPageRoute(

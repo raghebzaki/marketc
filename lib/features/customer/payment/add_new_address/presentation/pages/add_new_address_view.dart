@@ -11,11 +11,13 @@ import '../../../../../../core/shared/widgets/state_error_widget.dart';
 import '../../../../../../core/shared/widgets/state_loading_widget.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_constants.dart';
+import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
 import '../manager/add_address_cubit.dart';
 
 class AddNewAddressView extends StatefulWidget {
-  const AddNewAddressView({super.key});
+  final String address;
+  const AddNewAddressView({super.key, required this.address});
 
   @override
   State<AddNewAddressView> createState() => _AddNewAddressViewState();
@@ -24,6 +26,14 @@ class AddNewAddressView extends StatefulWidget {
 class _AddNewAddressViewState extends State<AddNewAddressView> {
   final Address address = Address();
   final HiveDatabase hiveDatabase = HiveDatabase();
+
+  TextEditingController addressCtrl = TextEditingController();
+  TextEditingController buildingCtrl = TextEditingController();
+  TextEditingController flatCtrl = TextEditingController();
+  TextEditingController phoneCtrl = TextEditingController();
+  TextEditingController stateCtrl = TextEditingController();
+  TextEditingController cityCtrl = TextEditingController();
+  TextEditingController zipCodeCtrl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,148 +46,151 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
           return Scaffold(
             backgroundColor: AppColors.primary,
             appBar: CustomAppBar(title: S.of(context).choose_address),
-            body: state.when(
-              initial: () {
-                return SafeArea(
-                  child: Stack(
-                    children: [
-                      SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            CustomFormField(
-                              ctrl: addAddressCubit.addressCtrl,
-                              label: "Address",
-                            ),
-                            CustomFormField(
-                              ctrl: addAddressCubit.buildingCtrl,
-                              label: "Building N0.",
-                            ),
-                            CustomFormField(
-                              ctrl: addAddressCubit.flatCtrl,
-                              label: "Flat N0.",
-                            ),
-                            CustomFormField(
-                              ctrl: addAddressCubit.phoneCtrl,
-                              label: "Phone",
-                            ),
-                            CustomFormField(
-                              ctrl: addAddressCubit.stateCtrl,
-                              label: "State",
-                            ),
-                            CustomFormField(
-                              ctrl: addAddressCubit.cityCtrl,
-                              label: "City",
-                            ),
-                            CustomFormField(
-                              ctrl: addAddressCubit.zipCodeCtrl,
-                              label: "Zip Code",
-                            ),
-                          ],
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Container(
-                          color: Colors.white,
-                          child: CustomBtn(
-                            label: S.current.add_new_address,
-                            onPressed: () async {
-                              addAddressCubit.addAddress(
-                                Address(
-                                  address: addAddressCubit.addressCtrl.text,
-                                  building: addAddressCubit.buildingCtrl.text,
-                                  flat: addAddressCubit.flatCtrl.text,
-                                  code: addAddressCubit.zipCodeCtrl.text,
-                                  country: addAddressCubit.stateCtrl.text,
-                                  city: addAddressCubit.cityCtrl.text,
-                                  phone: addAddressCubit.phoneCtrl.text,
-                                ),
-                              );
-                              context.pop();
-                            },
+            body: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(Dimensions.p16),
+                child: state.when(
+                  initial: () {
+                    return Stack(
+                      children: [
+                        SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              CustomFormField(
+                                ctrl: addressCtrl,
+                                label: "Address",
+                              ),
+                              CustomFormField(
+                                ctrl: buildingCtrl,
+                                label: "Building N0.",
+                              ),
+                              CustomFormField(
+                                ctrl: flatCtrl,
+                                label: "Flat N0.",
+                              ),
+                              CustomFormField(
+                                ctrl: phoneCtrl,
+                                label: "Phone",
+                              ),
+                              CustomFormField(
+                                ctrl: stateCtrl,
+                                label: "State",
+                              ),
+                              CustomFormField(
+                                ctrl: cityCtrl,
+                                label: "City",
+                              ),
+                              CustomFormField(
+                                ctrl: zipCodeCtrl,
+                                label: "Zip Code",
+                              ),
+                            ],
                           ),
                         ),
-                      )
-                    ],
-                  ),
-                );
-              },
-              loading: () {
-                return const StateLoadingWidget();
-              },
-              success: () {
-                return SafeArea(
-                  child: Stack(
-                    children: [
-                      SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            CustomFormField(
-                              ctrl: addAddressCubit.addressCtrl,
-                              label: "Address",
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Container(
+                            color: Colors.white,
+                            child: CustomBtn(
+                              label: S.current.add_new_address,
+                              onPressed: () async {
+                                addAddressCubit.addAddress(
+                                  Address(
+                                    address: addressCtrl.text,
+                                    building: buildingCtrl.text,
+                                    flat: flatCtrl.text,
+                                    code: zipCodeCtrl.text,
+                                    country: stateCtrl.text,
+                                    city: cityCtrl.text,
+                                    phone: phoneCtrl.text,
+                                  ),
+                                );
+                                context.pop();
+                              },
                             ),
-                            CustomFormField(
-                              ctrl: addAddressCubit.buildingCtrl,
-                              label: "Building N0.",
-                            ),
-                            CustomFormField(
-                              ctrl: addAddressCubit.flatCtrl,
-                              label: "Flat N0.",
-                            ),
-                            CustomFormField(
-                              ctrl: addAddressCubit.phoneCtrl,
-                              label: "Phone",
-                            ),
-                            CustomFormField(
-                              ctrl: addAddressCubit.stateCtrl,
-                              label: "State",
-                            ),
-                            CustomFormField(
-                              ctrl: addAddressCubit.cityCtrl,
-                              label: "City",
-                            ),
-                            CustomFormField(
-                              ctrl: addAddressCubit.zipCodeCtrl,
-                              label: "Zip Code",
-                            ),
-                          ],
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Container(
-                          color: Colors.white,
-                          child: CustomBtn(
-                            label: S.current.add_new_address,
-                            onPressed: () async {
-                              addAddressCubit.addAddress(
-                                Address(
-                                  address: addAddressCubit.addressCtrl.text,
-                                  building: addAddressCubit.buildingCtrl.text,
-                                  flat: addAddressCubit.flatCtrl.text,
-                                  code: addAddressCubit.zipCodeCtrl.text,
-                                  country: addAddressCubit.stateCtrl.text,
-                                  city: addAddressCubit.cityCtrl.text,
-                                  phone: addAddressCubit.phoneCtrl.text,
-                                ),
-                              );
-
-                              context.pop();
-                            },
                           ),
-                        ),
-                      )
-                    ],
-                  ),
-                );
-              },
-              error: (err) {
-                return StateErrorWidget(
-                  errCode: AppConstants.unknownNumValue.toString(),
-                  err: err,
-                );
-              },
+                        )
+                      ],
+                    );
+                  },
+                  loading: () {
+                    return const StateLoadingWidget();
+                  },
+                  success: () {
+                    return SafeArea(
+                      child: Stack(
+                        children: [
+                          SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                CustomFormField(
+                                  ctrl: addressCtrl,
+                                  label: "Address",
+                                ),
+                                CustomFormField(
+                                  ctrl: buildingCtrl,
+                                  label: "Building N0.",
+                                ),
+                                CustomFormField(
+                                  ctrl: flatCtrl,
+                                  label: "Flat N0.",
+                                ),
+                                CustomFormField(
+                                  ctrl: phoneCtrl,
+                                  label: "Phone",
+                                ),
+                                CustomFormField(
+                                  ctrl: stateCtrl,
+                                  label: "State",
+                                ),
+                                CustomFormField(
+                                  ctrl: cityCtrl,
+                                  label: "City",
+                                ),
+                                CustomFormField(
+                                  ctrl: zipCodeCtrl,
+                                  label: "Zip Code",
+                                ),
+                              ],
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Container(
+                              color: Colors.white,
+                              child: CustomBtn(
+                                label: S.current.add_new_address,
+                                onPressed: () async {
+                                  addAddressCubit.addAddress(
+                                    Address(
+                                      address: addressCtrl.text,
+                                      building:
+                                          buildingCtrl.text,
+                                      flat: flatCtrl.text,
+                                      code: zipCodeCtrl.text,
+                                      country: stateCtrl.text,
+                                      city: cityCtrl.text,
+                                      phone: phoneCtrl.text,
+                                    ),
+                                  );
 
+                                  context.pop();
+                                },
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                  error: (err) {
+                    return StateErrorWidget(
+                      errCode: AppConstants.unknownNumValue.toString(),
+                      err: err,
+                    );
+                  },
+                ),
+              ),
             ),
           );
         },

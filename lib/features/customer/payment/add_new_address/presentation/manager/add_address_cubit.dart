@@ -33,12 +33,4 @@ class AddAddressCubit extends Cubit<AddAddressStates> {
       );
     }
   }
-
-  TextEditingController addressCtrl = TextEditingController();
-  TextEditingController buildingCtrl = TextEditingController();
-  TextEditingController flatCtrl = TextEditingController();
-  TextEditingController phoneCtrl = TextEditingController();
-  TextEditingController stateCtrl = TextEditingController();
-  TextEditingController cityCtrl = TextEditingController();
-  TextEditingController zipCodeCtrl = TextEditingController();
 }

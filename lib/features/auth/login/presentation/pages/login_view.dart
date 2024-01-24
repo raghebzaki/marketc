@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
+import 'package:marketc/core/helpers/cache_helper.dart';
 import 'package:marketc/core/shared/models/user_data_model.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -55,6 +56,9 @@ class _LoginViewState extends State<LoginView> {
             success: (state) async {
               if (state!.status == 1) {
                 context.defaultSnackBar(S.of(context).login_successful);
+                var email = CacheHelper.setData("email", loginCubit.emailCtrl.text);
+                var pass = CacheHelper.setData("pass", loginCubit.passCtrl.text);
+                debugPrint("$email, $pass");
                 if (UserData.type == "customer") {
                   context.pushNamed(bottomNavBarPageRoute);
                 } else {
@@ -150,7 +154,7 @@ class _LoginViewState extends State<LoginView> {
                               ctrl: loginCubit.passCtrl,
                               preIcon: Image.asset(AppImages.lockImg),
                               hint: S.current.pass,
-                              isObscure: true,
+                              isObscure: password,
                               sufIcon: GestureDetector(
                                 onTap: () {
                                   setState(() {

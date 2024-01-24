@@ -11,10 +11,16 @@ import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
+import '../../../../../../main.dart';
 
-class SettingsView extends StatelessWidget {
+class SettingsView extends StatefulWidget {
   const SettingsView({super.key});
 
+  @override
+  State<SettingsView> createState() => _SettingsViewState();
+}
+
+class _SettingsViewState extends State<SettingsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +60,10 @@ class SettingsView extends StatelessWidget {
                               Gap(30.h),
                               GestureDetector(
                                 onTap: () {
+                                  setState(() {
+                                    MyApp.setLocale(context, const Locale("en"));
+                                  });
+
                                   CacheHelper.setAppLanguage('en');
                                   context.pop();
                                 },
@@ -75,6 +85,10 @@ class SettingsView extends StatelessWidget {
                               Gap(20.h),
                               GestureDetector(
                                 onTap: () {
+                                  setState(() {
+                                    MyApp.setLocale(context, const Locale("ar"));
+
+                                  });
                                   CacheHelper.setAppLanguage('ar');
                                   context.pop();
                                 },

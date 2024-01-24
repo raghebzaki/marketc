@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class GoogleMapBuilder extends StatefulWidget {
   // final Completer<GoogleMapController> mapController;
   final MapCreatedCallback onGoogleMapCreated;
   final Set<Marker> markers;
+  final Function(LatLng) onTap;
 
   const GoogleMapBuilder({
     super.key,
     required this.onGoogleMapCreated,
     required this.markers,
+    required this.onTap,
   });
 
   @override
@@ -37,34 +38,8 @@ class _GoogleMapBuilderState extends State<GoogleMapBuilder> {
         myLocationEnabled: true,
         onMapCreated: widget.onGoogleMapCreated,
         markers: widget.markers,
-        onTap: (LatLng latLng) {
-          Marker marker = Marker(
-            markerId: const MarkerId(
-              '1',
-            ),
-            position: LatLng(
-              latLng.latitude,
-              latLng.longitude,
-            ),
-            infoWindow: const InfoWindow(
-              title: 'this is your marker',
-            ),
-            icon: BitmapDescriptor.defaultMarker,
-          );
-          widget.markers.add(
-            marker,
-          );
-          setState(() {});
-          convertLocation(latLng);
-        },
+        onTap: widget.onTap,
       ),
     );
   }
-}
-
-convertLocation(LatLng currentPosition) async {
-  List<Placemark> placeMarks = await placemarkFromCoordinates(
-      currentPosition.latitude, currentPosition.longitude);
-  Placemark place = placeMarks[0];
-  debugPrint(place.toString());
 }
