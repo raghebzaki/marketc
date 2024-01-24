@@ -15,7 +15,7 @@ class Address extends Equatable {
   @HiveField(3)
   final String? flat;
   @HiveField(4)
-  final String? state;
+  final String? country;
   @HiveField(5)
   final String? city;
   @HiveField(6)
@@ -27,7 +27,7 @@ class Address extends Equatable {
     this.address,
     this.building,
     this.flat,
-    this.state,
+    this.country,
     this.city,
     this.code,
     this.phone,
@@ -39,7 +39,7 @@ class Address extends Equatable {
         address,
         building,
         flat,
-        state,
+        country,
         city,
         code,
         phone,

@@ -110,10 +110,10 @@ class _ForgotPassViewState extends State<ForgotPassView> {
                               isObscure: false,
                               validator: (value) {
                                 if (forgotPassCubit.emailCtrl.text.isEmpty) {
-                                  return "Please enter your email";
+                                  return S.current.plz_enter_email;
                                 } else if (!forgotPassCubit.emailCtrl.text
                                     .isEmail()) {
-                                  return "Please enter a valid email";
+                                  return S.current.enter_valid_email;
                                 } else {
                                   return null;
                                 }

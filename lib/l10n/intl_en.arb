@@ -216,5 +216,10 @@
   "otp_sent": "OTP sent to",
   "email_wrong": "Email is wrong, check email & try again",
   "failed_change_pass": "Failed to change password",
-  "email_used": "Email is already in use"
+  "email_used": "Email is already in use",
+  "@_AddressModel": {},
+  "building_no": "Building N0.",
+  "flat_no": "Flat N0.",
+  "country": "Country",
+  "city": "City"
 }

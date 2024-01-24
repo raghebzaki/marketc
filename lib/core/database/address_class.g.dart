@@ -20,7 +20,7 @@ class AddressAdapter extends TypeAdapter<Address> {
       address: fields[1] as String?,
       building: fields[2] as String?,
       flat: fields[3] as String?,
-      state: fields[4] as String?,
+      country: fields[4] as String?,
       city: fields[5] as String?,
       code: fields[6] as String?,
       phone: fields[7] as String?,
@@ -40,7 +40,7 @@ class AddressAdapter extends TypeAdapter<Address> {
       ..writeByte(3)
       ..write(obj.flat)
       ..writeByte(4)
-      ..write(obj.state)
+      ..write(obj.country)
       ..writeByte(5)
       ..write(obj.city)
       ..writeByte(6)

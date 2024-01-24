@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart' as loc;
 
@@ -110,52 +109,52 @@ class MapsCubit extends Cubit<MapsStates> {
   loc.LocationData? locationData;
   LatLng? currentLocation;
 
-  getUserCurrentLocation() async {
-    emit(const MapsStates.getUserLocationLoading());
-    try {
-      serviceEnabled = await location.serviceEnabled();
-      if (!serviceEnabled) {
-        serviceEnabled = await location.requestService();
-        if (!serviceEnabled) {
-          return;
-        }
-      }
+  // getUserCurrentLocation() async {
+  //   emit(const MapsStates.getUserLocationLoading());
+  //   try {
+  //     serviceEnabled = await location.serviceEnabled();
+  //     if (!serviceEnabled) {
+  //       serviceEnabled = await location.requestService();
+  //       if (!serviceEnabled) {
+  //         return;
+  //       }
+  //     }
+  //
+  //     permissionGranted = await location.hasPermission();
+  //     if (permissionGranted == loc.PermissionStatus.denied) {
+  //       permissionGranted = await location.requestPermission();
+  //       if (permissionGranted != loc.PermissionStatus.granted) {
+  //         return;
+  //       }
+  //     }
+  //
+  //     locationData = await location.getLocation();
+  //     currentLocation = LatLng(
+  //       locationData!.latitude!,
+  //       locationData!.longitude!,
+  //     );
+  //     if (kDebugMode) {
+  //       // print(locationData);
+  //       // print(currentLocation);
+  //     }
+  //     emit(
+  //       MapsStates.getUserLocationSuccess(currentLocation!),
+  //     );
+  //   } catch (err) {
+  //     emit(
+  //       MapsStates.getUserLocationError(
+  //         err.toString(),
+  //       ),
+  //     );
+  //   }
+  // }
 
-      permissionGranted = await location.hasPermission();
-      if (permissionGranted == loc.PermissionStatus.denied) {
-        permissionGranted = await location.requestPermission();
-        if (permissionGranted != loc.PermissionStatus.granted) {
-          return;
-        }
-      }
-
-      locationData = await location.getLocation();
-      currentLocation = LatLng(
-        locationData!.latitude!,
-        locationData!.longitude!,
-      );
-      if (kDebugMode) {
-        // print(locationData);
-        // print(currentLocation);
-      }
-      emit(
-        MapsStates.getUserLocationSuccess(currentLocation!),
-      );
-    } catch (err) {
-      emit(
-        MapsStates.getUserLocationError(
-          err.toString(),
-        ),
-      );
-    }
-  }
-
-  convertLocation(LatLng currentPosition) async {
-    List<Placemark> placeMarks = await placemarkFromCoordinates(
-        currentPosition.latitude, currentPosition.longitude);
-    Placemark place = placeMarks[0];
-    debugPrint(place.toString());
-  }
+  // convertLocation(LatLng currentPosition) async {
+  //   List<Placemark> placeMarks = await placemarkFromCoordinates(
+  //       currentPosition.latitude, currentPosition.longitude);
+  //   Placemark place = placeMarks[0];
+  //   debugPrint(place.toString());
+  // }
 
 
   Future getBytesFromAsset(String path, int height, int width) async {

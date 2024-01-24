@@ -2049,6 +2049,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Building N0.`
+  String get building_no {
+    return Intl.message(
+      'Building N0.',
+      name: 'building_no',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flat N0.`
+  String get flat_no {
+    return Intl.message(
+      'Flat N0.',
+      name: 'flat_no',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Country`
+  String get country {
+    return Intl.message(
+      'Country',
+      name: 'country',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `City`
+  String get city {
+    return Intl.message(
+      'City',
+      name: 'city',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

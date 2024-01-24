@@ -173,9 +173,9 @@ class _RegisterViewState extends State<RegisterView> {
                               children: [
                                 Expanded(
                                   child: GestureDetector(
-                                    onTap: (){
+                                    onTap: () {
                                       setState(() {
-                                        isCustomer=true;
+                                        isCustomer = true;
                                       });
                                     },
                                     child: Container(
@@ -183,7 +183,9 @@ class _RegisterViewState extends State<RegisterView> {
                                           const EdgeInsets.all(Dimensions.p8),
                                       decoration: BoxDecoration(
                                         border: Border.all(
-                                          color: isCustomer?AppColors.secondary:AppColors.textColorGrey,
+                                          color: isCustomer
+                                              ? AppColors.secondary
+                                              : AppColors.textColorGrey,
                                           width: 2,
                                           style: BorderStyle.solid,
                                         ),
@@ -199,7 +201,8 @@ class _RegisterViewState extends State<RegisterView> {
                                             alignment: Alignment.topLeft,
                                             child: Text(
                                               S.current.buyer,
-                                              style: CustomTextStyle.kTextStyleF16
+                                              style: CustomTextStyle
+                                                  .kTextStyleF16
                                                   .copyWith(
                                                 color: AppColors.black60,
                                               ),
@@ -222,9 +225,9 @@ class _RegisterViewState extends State<RegisterView> {
                                 Gap(10.w),
                                 Expanded(
                                   child: GestureDetector(
-                                    onTap: (){
+                                    onTap: () {
                                       setState(() {
-                                        isCustomer=false;
+                                        isCustomer = false;
                                       });
                                     },
                                     child: Container(
@@ -232,7 +235,9 @@ class _RegisterViewState extends State<RegisterView> {
                                           const EdgeInsets.all(Dimensions.p8),
                                       decoration: BoxDecoration(
                                         border: Border.all(
-                                          color: isCustomer?AppColors.textColorGrey:AppColors.secondary,
+                                          color: isCustomer
+                                              ? AppColors.textColorGrey
+                                              : AppColors.secondary,
                                           width: 2,
                                           style: BorderStyle.solid,
                                         ),
@@ -248,7 +253,8 @@ class _RegisterViewState extends State<RegisterView> {
                                             alignment: Alignment.topLeft,
                                             child: Text(
                                               S.current.seller,
-                                              style: CustomTextStyle.kTextStyleF16
+                                              style: CustomTextStyle
+                                                  .kTextStyleF16
                                                   .copyWith(
                                                 color: AppColors.black60,
                                               ),
@@ -277,22 +283,26 @@ class _RegisterViewState extends State<RegisterView> {
                                   return CustomBtn(
                                     label: S.current.register,
                                     onPressed: () async {
-                                      registerCubit.validateEmail(registerCubit.emailCtrl.text);
+                                      registerCubit.validateEmail(
+                                          registerCubit.emailCtrl.text);
                                       if (formKey.currentState!.validate()) {
                                         registerCubit.userRegister(
-                                          RegisterEntity(
-                                            userName:
-                                                registerCubit.userNameCtrl.text,
-                                            email: registerCubit.emailCtrl.text,
-                                            pass: registerCubit.passCtrl.text,
-                                            confirmPass: registerCubit
-                                                .passConfirmCtrl.text,
-                                            type: isCustomer?'customer':'designer',
-                                          ),context
-                                        );
-                                       // if (state is Success) {
-                                       //   context.pushNamed(verifyAccountPageRoute);
-                                       // }
+                                            RegisterEntity(
+                                              userName: registerCubit
+                                                  .userNameCtrl.text,
+                                              email:
+                                                  registerCubit.emailCtrl.text,
+                                              pass: registerCubit.passCtrl.text,
+                                              confirmPass: registerCubit
+                                                  .passConfirmCtrl.text,
+                                              type: isCustomer
+                                                  ? 'customer'
+                                                  : 'designer',
+                                            ),
+                                            context);
+                                        // if (state is Success) {
+                                        //   context.pushNamed(verifyAccountPageRoute);
+                                        // }
                                       }
                                     },
                                     fgColor: Colors.white,

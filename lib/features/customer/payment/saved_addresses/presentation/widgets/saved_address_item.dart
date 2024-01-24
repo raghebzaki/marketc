@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gap/gap.dart';
 import 'package:marketc/core/router/router.dart';
 import 'package:marketc/core/utils/extensions.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
-import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/dimensions.dart';
+import '../../../../../../generated/l10n.dart';
 
 class SavedAddressItem extends StatelessWidget {
-  final String? label;
+  final String address;
+  final String buildingNo;
+  final String flatNo;
+  final String phone;
+  final String country;
+  final String city;
 
   const SavedAddressItem({
     super.key,
-    this.label,
+    required this.address,
+    required this.buildingNo,
+    required this.flatNo,
+    required this.phone,
+    required this.country,
+    required this.city,
   });
 
   @override
@@ -26,27 +33,110 @@ class SavedAddressItem extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(Dimensions.p16),
         color: Colors.white,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(
-                  MdiIcons.mapMarkerOutline,
-                  size: 16.sp,
-                  color: AppColors.lightBlue,
-                ),
-                Gap(5.w),
                 Text(
-                  label.isNullOrEmpty(),
-                  style: CustomTextStyle.kTextStyleF14,
+                  "${S.of(context).address}:   ",
+                  style: CustomTextStyle.kTextStyleF16.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    address.isNullOrEmpty(),
+                    style: CustomTextStyle.kTextStyleF16,
+                  ),
                 ),
               ],
             ),
-            Icon(
-              MdiIcons.check,
-              size: 16.sp,
-              color: AppColors.lightBlue,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "${S.of(context).building_no}:   ",
+                  style: CustomTextStyle.kTextStyleF16.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    buildingNo.isNullOrEmpty(),
+                    style: CustomTextStyle.kTextStyleF16,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "${S.of(context).flat_no}:   ",
+                  style: CustomTextStyle.kTextStyleF16.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    flatNo.isNullOrEmpty(),
+                    style: CustomTextStyle.kTextStyleF16,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "${S.of(context).phone}:   ",
+                  style: CustomTextStyle.kTextStyleF16.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    phone.isNullOrEmpty(),
+                    style: CustomTextStyle.kTextStyleF16,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "${S.of(context).country}:   ",
+                  style: CustomTextStyle.kTextStyleF16.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    country.isNullOrEmpty(),
+                    style: CustomTextStyle.kTextStyleF16,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "${S.of(context).city}:   ",
+                  style: CustomTextStyle.kTextStyleF16.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    city.isNullOrEmpty(),
+                    style: CustomTextStyle.kTextStyleF16,
+                  ),
+                ),
+              ],
             ),
           ],
         ),

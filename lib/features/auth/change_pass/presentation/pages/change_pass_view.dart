@@ -106,9 +106,9 @@ class _ChangePassViewState extends State<ChangePassView> {
                           ),
                           validator: (value) {
                             if (changePassCubit.passCtrl.text.isEmpty) {
-                              return "Password must be entered";
+                              return S.current.password_required;
                             } else if (changePassCubit.passCtrl.length < 8) {
-                              return "Password must be 8 chars at least";
+                              return S.current.pass_short;
                             } else {
                               return null;
                             }
@@ -137,10 +137,10 @@ class _ChangePassViewState extends State<ChangePassView> {
                           ),
                           validator: (value) {
                             if (changePassCubit.passConfirmCtrl.text.isEmpty) {
-                              return "Password confirmation can't be empty";
+                              return S.current.pass_confrirm_required;
                             } else if (changePassCubit.passConfirmCtrl.text !=
                                 changePassCubit.passCtrl.text) {
-                              return "Passwords doesn't match";
+                              return S.current.pass_dont_match;
                             } else {
                               return null;
                             }

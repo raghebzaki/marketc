@@ -49,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "bad request. try again later"),
         "browse_now": MessageLookupByLibrary.simpleMessage("Browse Now"),
+        "building_no": MessageLookupByLibrary.simpleMessage("Building N0."),
         "buyer": MessageLookupByLibrary.simpleMessage("Buyer"),
         "buyer_address":
             MessageLookupByLibrary.simpleMessage("Buyer\'s Address"),
@@ -85,6 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Choose from Saved Addresses"),
         "choose_payment_way":
             MessageLookupByLibrary.simpleMessage("Choose Payment Method"),
+        "city": MessageLookupByLibrary.simpleMessage("City"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "code": MessageLookupByLibrary.simpleMessage("code"),
         "colors": MessageLookupByLibrary.simpleMessage("Colors"),
@@ -103,6 +105,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "contact_us": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "continue_browsing":
             MessageLookupByLibrary.simpleMessage("Continue Browsing"),
+        "country": MessageLookupByLibrary.simpleMessage("Country"),
         "cs": MessageLookupByLibrary.simpleMessage("Customer Support"),
         "custom_logo": MessageLookupByLibrary.simpleMessage("Embroidery logos"),
         "custom_phrases":
@@ -144,6 +147,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fifty_percent":
             MessageLookupByLibrary.simpleMessage("Get 50% of each sale"),
         "finish": MessageLookupByLibrary.simpleMessage("Finish"),
+        "flat_no": MessageLookupByLibrary.simpleMessage("Flat N0."),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
         "forgot_pass": MessageLookupByLibrary.simpleMessage("Forgot Pass"),

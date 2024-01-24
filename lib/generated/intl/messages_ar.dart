@@ -48,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "طلب غير صالح. حاول مرة أخرى لاحقًا"),
         "browse_now": MessageLookupByLibrary.simpleMessage("تصفح الآن"),
+        "building_no": MessageLookupByLibrary.simpleMessage("رقم المبنى"),
         "buyer": MessageLookupByLibrary.simpleMessage("مشتري"),
         "buyer_address": MessageLookupByLibrary.simpleMessage("عنوان المشتري"),
         "buyer_full_address":
@@ -82,6 +83,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اختر من العناوين المحفوظة"),
         "choose_payment_way":
             MessageLookupByLibrary.simpleMessage("اختر طريقة الدفع"),
+        "city": MessageLookupByLibrary.simpleMessage("المدينة"),
         "close": MessageLookupByLibrary.simpleMessage("اغلاق"),
         "code": MessageLookupByLibrary.simpleMessage("الكود "),
         "colors": MessageLookupByLibrary.simpleMessage("الألوان"),
@@ -99,6 +101,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "contact_us": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
         "continue_browsing":
             MessageLookupByLibrary.simpleMessage("استمر في التصفح"),
+        "country": MessageLookupByLibrary.simpleMessage("البلد"),
         "cs": MessageLookupByLibrary.simpleMessage("دعم العملاء"),
         "custom_logo": MessageLookupByLibrary.simpleMessage("تطريز شعارات"),
         "custom_phrases": MessageLookupByLibrary.simpleMessage("تطريز عبارات"),
@@ -138,6 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fifty_percent":
             MessageLookupByLibrary.simpleMessage("الحصول على 50% من كل بيعة"),
         "finish": MessageLookupByLibrary.simpleMessage("انتهاء"),
+        "flat_no": MessageLookupByLibrary.simpleMessage("رقم الشقة"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "طلب محظور. حاول مرة أخرى لاحقًا"),
         "forgot_pass": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
