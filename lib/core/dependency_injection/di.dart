@@ -40,10 +40,15 @@ import '../../features/auth/verify_account/domain/use_cases/resend_code_usecase.
 import '../../features/auth/verify_account/domain/use_cases/verify_account_usecase.dart';
 import '../../features/auth/verify_account/presentation/manager/verify_account_cubit.dart';
 import '../../features/customer/main/category_details/data/data_sources/category_details_serivce.dart';
+import '../../features/customer/main/category_details/data/data_sources/sub_category_service.dart';
 import '../../features/customer/main/category_details/data/repositories/category_details_repo_impl.dart';
+import '../../features/customer/main/category_details/data/repositories/sub_category_repo_impl.dart';
 import '../../features/customer/main/category_details/domain/repositories/category_details_repo.dart';
+import '../../features/customer/main/category_details/domain/repositories/sub_category_repo.dart';
 import '../../features/customer/main/category_details/domain/use_cases/get_category_products_usecase.dart';
+import '../../features/customer/main/category_details/domain/use_cases/sub_category_use_case.dart';
 import '../../features/customer/main/category_details/presentation/manager/category_details_cubit.dart';
+import '../../features/customer/main/category_details/presentation/manager/sub_category_cubit.dart';
 import '../../features/customer/main/favorite/data/data_sources/favorite_service.dart';
 import '../../features/customer/main/favorite/data/repositories/favorite_repo_impl.dart';
 import '../../features/customer/main/favorite/domain/repositories/favorite_repo.dart';
@@ -220,6 +225,11 @@ Future<void> init() async {
   di.registerLazySingleton(() => CategoryUseCase(di()));
   di.registerLazySingleton<CategoryRepo>(() => CategoryRepoImpl(di()));
   di.registerLazySingleton<CategoryService>(() => CategoryServiceImpl());
+  /// sub category
+  di.registerFactory(() => SubCategoryCubit(subCategoryUseCase: di()));
+  di.registerLazySingleton(() => SubCategoryUseCase(di()));
+  di.registerLazySingleton<SubCategoryRepo>(() => SubCategoryRepoImpl(di()));
+  di.registerLazySingleton<SubCategoryService>(() => SubCategoryServiceImpl());
 
   /// carousel
   di.registerFactory(() => CarouselCubit(carouselUseCase: di()));
