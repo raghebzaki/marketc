@@ -108,7 +108,7 @@ class SavedAddressItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "${S.of(context).country}:   ",
+                  "${S.of(context).state}:   ",
                   style: CustomTextStyle.kTextStyleF16.copyWith(
                     fontWeight: FontWeight.bold,
                   ),

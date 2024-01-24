@@ -20,6 +20,7 @@ class CustomFormField extends StatelessWidget {
   final Function(String)? onSubmitted;
   final bool? isObscure;
   final bool isCapitalized;
+  final bool? readOnly;
   final bool? isEnable;
   final int? maxLength;
   final TextEditingController? ctrl;
@@ -41,6 +42,7 @@ class CustomFormField extends StatelessWidget {
     this.isObscure = false,
     this.isCapitalized = false,
     this.isEnable = true,
+    this.readOnly = false,
     this.maxLength,
     this.ctrl,
     this.borderRadius = Dimensions.r10,
@@ -55,6 +57,7 @@ class CustomFormField extends StatelessWidget {
       textCapitalization:
       isCapitalized ? TextCapitalization.words : TextCapitalization.none,
       enabled: isEnable,
+      readOnly: readOnly!,
       maxLength: maxLength,
       onChanged: onChange,
       onFieldSubmitted: onSubmitted,

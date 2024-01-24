@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:marketc/core/router/router.dart';
 import 'package:marketc/core/utils/extensions.dart';
@@ -19,6 +23,7 @@ import '../manager/add_address_cubit.dart';
 
 class AddNewAddressView extends StatefulWidget {
   final Placemark address;
+
   const AddNewAddressView({super.key, required this.address});
 
   @override
@@ -26,6 +31,8 @@ class AddNewAddressView extends StatefulWidget {
 }
 
 class _AddNewAddressViewState extends State<AddNewAddressView> {
+  GlobalKey<FormState> initFormKey = GlobalKey();
+  GlobalKey<FormState> successFormKey = GlobalKey();
   final Address address = Address();
   final HiveDatabase hiveDatabase = HiveDatabase();
 
@@ -40,11 +47,13 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
   @override
   void initState() {
     super.initState();
-    addressCtrl=TextEditingController(text: widget.address.street);
-    stateCtrl=TextEditingController(text: widget.address.administrativeArea);
-    cityCtrl=TextEditingController(text: widget.address.subAdministrativeArea);
-    zipCodeCtrl=TextEditingController(text: widget.address.postalCode);
+    addressCtrl = TextEditingController(text: widget.address.street);
+    stateCtrl = TextEditingController(text: widget.address.administrativeArea);
+    cityCtrl =
+        TextEditingController(text: widget.address.subAdministrativeArea);
+    zipCodeCtrl = TextEditingController(text: widget.address.postalCode);
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -53,113 +62,83 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
         listener: (context, state) {},
         builder: (context, state) {
           AddAddressCubit addAddressCubit = AddAddressCubit.get(context);
-          return Scaffold(
-            backgroundColor: AppColors.primary,
-            appBar: CustomAppBar(title: S.of(context).choose_address),
-            body: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.all(Dimensions.p16),
-                child: state.when(
-                  initial: () {
-                    return Stack(
-                      children: [
-                        SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              CustomFormField(
-                                ctrl: addressCtrl,
-                                label: "Address",
-                              ),
-                              CustomFormField(
-                                ctrl: buildingCtrl,
-                                label: "Building N0.",
-                              ),
-                              CustomFormField(
-                                ctrl: flatCtrl,
-                                label: "Flat N0.",
-                              ),
-                              CustomFormField(
-                                ctrl: phoneCtrl,
-                                label: "Phone",
-                              ),
-                              CustomFormField(
-                                ctrl: stateCtrl,
-                                label: "State",
-                              ),
-                              CustomFormField(
-                                ctrl: cityCtrl,
-                                label: "City",
-                              ),
-                              CustomFormField(
-                                ctrl: zipCodeCtrl,
-                                label: "Zip Code",
-                              ),
-                            ],
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Container(
-                            color: Colors.white,
-                            child: CustomBtn(
-                              label: S.current.add_new_address,
-                              onPressed: () async {
-                                addAddressCubit.addAddress(
-                                  Address(
-                                    address: addressCtrl.text,
-                                    building: buildingCtrl.text,
-                                    flat: flatCtrl.text,
-                                    code: zipCodeCtrl.text,
-                                    country: stateCtrl.text,
-                                    city: cityCtrl.text,
-                                    phone: phoneCtrl.text,
-                                  ),
-                                );
-                                context.pushReplacementNamed(savedAddressesPageRoute);
-                              },
-                            ),
-                          ),
-                        )
-                      ],
-                    );
-                  },
-                  loading: () {
-                    return const StateLoadingWidget();
-                  },
-                  success: () {
-                    return SafeArea(
-                      child: Stack(
+          return Form(
+            key: initFormKey,
+            child: Scaffold(
+              backgroundColor: AppColors.primary,
+              appBar: CustomAppBar(title: S.of(context).choose_address),
+              body: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.all(Dimensions.p16),
+                  child: state.when(
+                    initial: () {
+                      return Stack(
                         children: [
                           SingleChildScrollView(
                             child: Column(
                               children: [
+                                Gap(20.h),
                                 CustomFormField(
                                   ctrl: addressCtrl,
-                                  label: "Address",
+                                  label: S.current.address,
+                                  readOnly: true,
                                 ),
+                                Gap(10.h),
                                 CustomFormField(
                                   ctrl: buildingCtrl,
-                                  label: "Building N0.",
+                                  label: S.current.building_no,
+                                  validator: (value) {
+                                    if (buildingCtrl.text.isEmpty) {
+                                      log(value.toString());
+                                      return S.of(context).field_required;
+                                    } else {
+                                      return null;
+                                    }
+                                  },
                                 ),
+                                Gap(10.h),
                                 CustomFormField(
                                   ctrl: flatCtrl,
-                                  label: "Flat N0.",
+                                  label: S.current.flat_no,
+                                  validator: (value) {
+                                    if (flatCtrl.text.isEmpty) {
+                                      log(value.toString());
+                                      return S.of(context).field_required;
+                                    } else {
+                                      return null;
+                                    }
+                                  },
                                 ),
+                                Gap(10.h),
                                 CustomFormField(
                                   ctrl: phoneCtrl,
-                                  label: "Phone",
+                                  label: S.current.phone,
+                                  validator: (value) {
+                                    if (phoneCtrl.text.isEmpty) {
+                                      log(value.toString());
+                                      return S.of(context).field_required;
+                                    } else {
+                                      return null;
+                                    }
+                                  },
                                 ),
+                                Gap(10.h),
                                 CustomFormField(
                                   ctrl: stateCtrl,
-                                  label: "State",
+                                  label: S.of(context).state,
+                                  readOnly: true,
                                 ),
+                                Gap(10.h),
                                 CustomFormField(
                                   ctrl: cityCtrl,
-                                  label: "City",
+                                  label: S.current.city,
+                                  readOnly: true,
                                 ),
+                                Gap(10.h),
                                 CustomFormField(
                                   ctrl: zipCodeCtrl,
-                                  label: "Zip Code",
+                                  label: S.current.code,
+                                  readOnly: true,
                                 ),
                               ],
                             ),
@@ -171,33 +150,141 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                               child: CustomBtn(
                                 label: S.current.add_new_address,
                                 onPressed: () async {
-                                  addAddressCubit.addAddress(
-                                    Address(
-                                      address: addressCtrl.text,
-                                      building:
-                                          buildingCtrl.text,
-                                      flat: flatCtrl.text,
-                                      code: zipCodeCtrl.text,
-                                      country: stateCtrl.text,
-                                      city: cityCtrl.text,
-                                      phone: phoneCtrl.text,
-                                    ),
-                                  );
-                                  context.pushReplacementNamed(savedAddressesPageRoute);
+                                  if (initFormKey.currentState!.validate()) {
+                                    addAddressCubit.addAddress(
+                                      Address(
+                                        address: addressCtrl.text,
+                                        building: buildingCtrl.text,
+                                        flat: flatCtrl.text,
+                                        code: zipCodeCtrl.text,
+                                        country: stateCtrl.text,
+                                        city: cityCtrl.text,
+                                        phone: phoneCtrl.text,
+                                      ),
+                                    );
+                                    context.pushReplacementNamed(
+                                        savedAddressesPageRoute);
+                                  }
                                 },
                               ),
                             ),
                           )
                         ],
-                      ),
-                    );
-                  },
-                  error: (err) {
-                    return StateErrorWidget(
-                      errCode: AppConstants.unknownNumValue.toString(),
-                      err: err,
-                    );
-                  },
+                      );
+                    },
+                    loading: () {
+                      return const StateLoadingWidget();
+                    },
+                    success: () {
+                      return SafeArea(
+                        child: Stack(
+                          children: [
+                            SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  Gap(20.h),
+                                  CustomFormField(
+                                    ctrl: addressCtrl,
+                                    label: S.current.address,
+                                    readOnly: true,
+                                  ),
+                                  Gap(10.h),
+                                  CustomFormField(
+                                    ctrl: buildingCtrl,
+                                    label: S.current.building_no,
+                                    validator: (value) {
+                                      if (buildingCtrl.text.isEmpty) {
+                                        log(value.toString());
+                                        return S.of(context).field_required;
+                                      } else {
+                                        return null;
+                                      }
+                                    },
+                                  ),
+                                  Gap(10.h),
+                                  CustomFormField(
+                                    ctrl: flatCtrl,
+                                    label: S.current.flat_no,
+                                    validator: (value) {
+                                      if (flatCtrl.text.isEmpty) {
+                                        log(value.toString());
+                                        return S.of(context).field_required;
+                                      } else {
+                                        return null;
+                                      }
+                                    },
+                                  ),
+                                  Gap(10.h),
+                                  CustomFormField(
+                                    ctrl: phoneCtrl,
+                                    label: S.current.phone,
+                                    validator: (value) {
+                                      if (phoneCtrl.text.isEmpty) {
+                                        log(value.toString());
+                                        return S.of(context).field_required;
+                                      } else {
+                                        return null;
+                                      }
+                                    },
+                                  ),
+                                  Gap(10.h),
+                                  CustomFormField(
+                                    ctrl: stateCtrl,
+                                    label: S.of(context).state,
+                                    readOnly: true,
+                                  ),
+                                  Gap(10.h),
+                                  CustomFormField(
+                                    ctrl: cityCtrl,
+                                    label: S.current.city,
+                                    readOnly: true,
+                                  ),
+                                  Gap(10.h),
+                                  CustomFormField(
+                                    ctrl: zipCodeCtrl,
+                                    label: S.current.code,
+                                    readOnly: true,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Container(
+                                color: Colors.white,
+                                child: CustomBtn(
+                                  label: S.current.add_new_address,
+                                  onPressed: () async {
+                                    if (initFormKey.currentState!.validate()) {
+                                      addAddressCubit.addAddress(
+                                        Address(
+                                          address: addressCtrl.text,
+                                          building: buildingCtrl.text,
+                                          flat: flatCtrl.text,
+                                          code: zipCodeCtrl.text,
+                                          country: stateCtrl.text,
+                                          city: cityCtrl.text,
+                                          phone: phoneCtrl.text,
+                                        ),
+                                      );
+                                      context.pushReplacementNamed(
+                                          savedAddressesPageRoute);
+                                    }
+                                  },
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      );
+                    },
+                    error: (err) {
+                      return StateErrorWidget(
+                        errCode: AppConstants.unknownNumValue.toString(),
+                        err: err,
+                      );
+                    },
+                  ),
                 ),
               ),
             ),

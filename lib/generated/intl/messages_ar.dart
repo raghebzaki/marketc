@@ -138,6 +138,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failed_change_pass":
             MessageLookupByLibrary.simpleMessage("فشل تغيير كلمة المرور"),
         "favorite": MessageLookupByLibrary.simpleMessage("المفضلة"),
+        "field_required":
+            MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
         "fifty_percent":
             MessageLookupByLibrary.simpleMessage("الحصول على 50% من كل بيعة"),
         "finish": MessageLookupByLibrary.simpleMessage("انتهاء"),
@@ -269,6 +271,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "slogan": MessageLookupByLibrary.simpleMessage(
             "لنساعدك في العثور على الملابس المناسبة لك\nوتطريز الشعارات والعبارات التي تحبها"),
         "soon": MessageLookupByLibrary.simpleMessage("قريباً"),
+        "state": MessageLookupByLibrary.simpleMessage("الولاية"),
         "status_of_orders":
             MessageLookupByLibrary.simpleMessage("حالة الطلبات"),
         "subscriptions": MessageLookupByLibrary.simpleMessage("الاشتراكات"),

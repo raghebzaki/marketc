@@ -144,6 +144,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failed_change_pass":
             MessageLookupByLibrary.simpleMessage("Failed to change password"),
         "favorite": MessageLookupByLibrary.simpleMessage("favorite"),
+        "field_required":
+            MessageLookupByLibrary.simpleMessage("This field is required"),
         "fifty_percent":
             MessageLookupByLibrary.simpleMessage("Get 50% of each sale"),
         "finish": MessageLookupByLibrary.simpleMessage("Finish"),
@@ -276,6 +278,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "slogan": MessageLookupByLibrary.simpleMessage(
             "Let\'s help you find the right clothing for you\n and embroider the logo and phrases you love"),
         "soon": MessageLookupByLibrary.simpleMessage("Soon"),
+        "state": MessageLookupByLibrary.simpleMessage("State"),
         "status_of_orders":
             MessageLookupByLibrary.simpleMessage("Status of orders"),
         "subscriptions": MessageLookupByLibrary.simpleMessage("Subscriptions"),

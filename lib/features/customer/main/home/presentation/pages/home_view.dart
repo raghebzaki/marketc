@@ -39,7 +39,7 @@ class HomeView extends StatelessWidget {
             preferredSize: Size(context.queryWidth.w, 56.h),
             child: SafeArea(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: Dimensions.p8.w),
+                padding: EdgeInsets.only(left: Dimensions.p8.w, top: Dimensions.p8.h, right: Dimensions.p8.w),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
