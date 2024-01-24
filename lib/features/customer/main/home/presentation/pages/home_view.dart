@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:marketc/core/helpers/cache_helper.dart';
 import 'package:marketc/core/shared/arguments.dart';
 import 'package:marketc/core/utils/app_constants.dart';
 import 'package:marketc/core/utils/extensions.dart';
@@ -223,7 +224,7 @@ class HomeView extends StatelessWidget {
                                                   height: 48.w,
                                                 ),
                                                 Text(
-                                                  state[index].nameAr!,
+                                                  CacheHelper.isEnglish()?state[index].nameEn!:state[index].nameAr!,
                                                   textAlign: TextAlign.center,
                                                   style: CustomTextStyle
                                                       .kTextStyleF14,

@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:marketc/core/database/address_class.dart';
 
@@ -68,16 +67,17 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   Locale locale = const Locale("en");
 
-  //@override
-  // void initState() {
-  //   super.initState();
-  //
-  //   FirebaseMessaging.onMessage.listen(
-  //         (RemoteMessage message) {
-  //       context.defaultSnackBar(message.notification?.title ?? AppConstants.unknownStringValue);
-  //     },
-  //   );
-  // }
+  @override
+  void initState() {
+    super.initState();
+
+    locale=widget.currentLang;
+    // FirebaseMessaging.onMessage.listen(
+    //       (RemoteMessage message) {
+    //     context.defaultSnackBar(message.notification?.title ?? AppConstants.unknownStringValue);
+    //   },
+    // );
+  }
 
   changeLanguage(Locale newLocale) {
     setState(() {
@@ -93,9 +93,9 @@ class _MyAppState extends State<MyApp> {
       splitScreenMode: true,
       // Use builder only if you need to use library outside ScreenUtilInit context
       builder: (ctx, child) {
-        return GetMaterialApp(
+        return MaterialApp(
           debugShowCheckedModeBanner: false,
-          locale: widget.currentLang,
+          locale: locale,
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,

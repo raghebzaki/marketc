@@ -72,13 +72,13 @@ class _SettingsViewState extends State<SettingsView> {
                                     Text('English - EN',
                                         style: CustomTextStyle.kTextStyleF14
                                             .copyWith(
-                                                color: AppColors.lightBlue)),
+                                                color: CacheHelper.isEnglish()?AppColors.lightBlue:AppColors.textColorSecondary)),
                                     const Spacer(),
-                                    Icon(
+                                    CacheHelper.isEnglish()?Icon(
                                       Icons.check,
                                       size: 16.sp,
                                       color: AppColors.lightBlue,
-                                    )
+                                    ):const SizedBox.shrink(),
                                   ],
                                 ),
                               ),
@@ -97,9 +97,14 @@ class _SettingsViewState extends State<SettingsView> {
                                     Text('العربية - AR',
                                         style: CustomTextStyle.kTextStyleF14
                                             .copyWith(
-                                                color: AppColors
-                                                    .textColorSecondary)),
+                                                color: CacheHelper.isEnglish()?AppColors
+                                                    .textColorSecondary:AppColors.lightBlue)),
                                     const Spacer(),
+                                    CacheHelper.isEnglish()?const SizedBox.shrink():Icon(
+                                      Icons.check,
+                                      size: 16.sp,
+                                      color: AppColors.lightBlue,
+                                    ),
                                     // Icon(Icons.check,size: 16.sp,color: AppColors.lightBlue,)
                                   ],
                                 ),

@@ -1,3 +1,5 @@
+import 'package:geocoding/geocoding.dart';
+
 class VerifyAccountArgs {
   final String email;
 
@@ -23,7 +25,7 @@ class CategoryDetailsArgs {
 }
 
 class NewAddressArgs {
-  final String address;
+  final Placemark address;
 
   NewAddressArgs({required this.address});
 }

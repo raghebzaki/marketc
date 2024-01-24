@@ -1,6 +1,7 @@
 // ignore_for_file: type_literal_in_constant_pattern
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../utils/app_constants.dart';
@@ -98,13 +99,20 @@ class CacheHelper {
 
   static Future<Locale> getLocal() async {
     String currentLang = await getAppLang();
-
     if (currentLang == LanguageType.ARABIC.getValue()) {
       debugPrint(currentLang);
       return ARABIC_LOCAL;
     } else {
       debugPrint(currentLang);
       return ENGLISH_LOCAL;
+    }
+  }
+
+  static bool isEnglish(){
+    if(Intl.getCurrentLocale()=='en'){
+      return true;
+    }else{
+      return false;
     }
   }
 }

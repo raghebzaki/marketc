@@ -7,6 +7,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../../core/helpers/cache_helper.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../core/shared/widgets/custom_search_form_field.dart';
 import '../../../../../../core/shared/widgets/product_card.dart';
@@ -90,7 +91,7 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
                                             BorderRadius.circular(Dimensions.r10),
                                       ),
                                       child: Text(
-                                        state[index].nameAr!,
+                                        CacheHelper.isEnglish()?state[index].nameEn!:state[index].nameAr!,
                                         style: CustomTextStyle.kTextStyleF14
                                             .copyWith(
                                           color: Colors.white,

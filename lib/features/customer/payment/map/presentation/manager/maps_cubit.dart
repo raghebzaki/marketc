@@ -63,11 +63,11 @@ class MapsCubit extends Cubit<MapsStates> {
   }
 
   /// Convert Marker to Address data
-  convertLocation(LatLng currentPosition) async {
+  Future<Placemark> convertLocation(LatLng currentPosition) async {
     List<Placemark> placeMarks = await placemarkFromCoordinates(
         currentPosition.latitude, currentPosition.longitude);
     Placemark place = placeMarks[0];
-    debugPrint(place.toString());
+    return place;
   }
 
 

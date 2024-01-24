@@ -71,6 +71,15 @@ class _SavedAddressesViewState extends State<SavedAddressesView> {
                                   );
                                 },
                               ),
+                              Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Container(
+                                  color: Colors.white,
+                                  child: CustomBtn(
+                                    label: S.of(context).add_new_address,
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         ),

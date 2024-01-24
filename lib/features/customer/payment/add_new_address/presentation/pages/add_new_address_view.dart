@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:marketc/core/router/router.dart';
 import 'package:marketc/core/utils/extensions.dart';
 
 import '../../../../../../core/database/address_class.dart';
@@ -16,7 +18,7 @@ import '../../../../../../generated/l10n.dart';
 import '../manager/add_address_cubit.dart';
 
 class AddNewAddressView extends StatefulWidget {
-  final String address;
+  final Placemark address;
   const AddNewAddressView({super.key, required this.address});
 
   @override
@@ -35,6 +37,14 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
   TextEditingController cityCtrl = TextEditingController();
   TextEditingController zipCodeCtrl = TextEditingController();
 
+  @override
+  void initState() {
+    super.initState();
+    addressCtrl=TextEditingController(text: widget.address.street);
+    stateCtrl=TextEditingController(text: widget.address.administrativeArea);
+    cityCtrl=TextEditingController(text: widget.address.subAdministrativeArea);
+    zipCodeCtrl=TextEditingController(text: widget.address.postalCode);
+  }
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -105,7 +115,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                                     phone: phoneCtrl.text,
                                   ),
                                 );
-                                context.pop();
+                                context.pushReplacementNamed(savedAddressesPageRoute);
                               },
                             ),
                           ),
@@ -173,8 +183,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                                       phone: phoneCtrl.text,
                                     ),
                                   );
-
-                                  context.pop();
+                                  context.pushReplacementNamed(savedAddressesPageRoute);
                                 },
                               ),
                             ),

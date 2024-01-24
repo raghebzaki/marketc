@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:marketc/core/router/router.dart';
 import 'package:marketc/core/utils/extensions.dart';
@@ -26,7 +27,7 @@ class _MapViewState extends State<MapView> {
   // final HiveDatabase hiveDatabase = HiveDatabase();
 
   List<MapsModel> markersList = [];
-  LatLng? newAddress;
+  Placemark? newAddress;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +48,7 @@ class _MapViewState extends State<MapView> {
                   GoogleMapBuilder(
                     onGoogleMapCreated: mapsCubit.mapController,
                     markers: mapsCubit.markers.map((e) => e).toSet(),
-                    onTap: (LatLng latLng) {
+                    onTap: (LatLng latLng) async {
                       Marker marker = Marker(
                         markerId: const MarkerId(
                           '1',
@@ -65,7 +66,7 @@ class _MapViewState extends State<MapView> {
                         marker,
                       );
                       setState(() {});
-                      newAddress = mapsCubit.convertLocation(latLng);
+                      newAddress = await mapsCubit.convertLocation(latLng);
                       // newAddress = latLng;
                     },
                   ),
@@ -78,7 +79,7 @@ class _MapViewState extends State<MapView> {
                         onPressed: () async {
                           context.pushNamed(addNewAddressPageRoute,
                               arguments: NewAddressArgs(
-                                address: newAddress!.longitude.toString(),
+                                address: newAddress!,
                               ));
                         },
                       ),
