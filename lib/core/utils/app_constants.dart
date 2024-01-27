@@ -53,5 +53,6 @@ class AppConstants {
   static const designerGetPoints = "";
   static const designerBalance = "";
   static const designerExchange  = "";
+  static const getColors  = "v1/colors";
 
 }

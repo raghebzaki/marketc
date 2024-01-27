@@ -1,6 +1,4 @@
 import 'package:get_it/get_it.dart';
-import 'package:marketc/features/designer/main/profile/presentation/manager/balance_cubit.dart';
-import 'package:marketc/features/designer/main/profile/presentation/manager/get_points_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/change_pass/data/data_sources/change_pass_service.dart';
@@ -135,12 +133,24 @@ import '../../features/designer/main/profile/domain/repositories/get_points_repo
 import '../../features/designer/main/profile/domain/use_cases/balance_use_case.dart';
 import '../../features/designer/main/profile/domain/use_cases/exchange_use_case.dart';
 import '../../features/designer/main/profile/domain/use_cases/get_points_use_case.dart';
+import '../../features/designer/main/profile/presentation/manager/balance_cubit.dart';
 import '../../features/designer/main/profile/presentation/manager/exchange_cubit.dart';
+import '../../features/designer/main/profile/presentation/manager/get_points_cubit.dart';
 import '../../features/designer/product/add_product/data/data_sources/add_product_service.dart';
+import '../../features/designer/product/add_product/data/data_sources/color_service.dart';
+import '../../features/designer/product/add_product/data/data_sources/size_service.dart';
 import '../../features/designer/product/add_product/data/repositories/add_product_repo_impl.dart';
+import '../../features/designer/product/add_product/data/repositories/color_repo_impl.dart';
+import '../../features/designer/product/add_product/data/repositories/size_repo_impl.dart';
 import '../../features/designer/product/add_product/domain/repositories/add_product_repo.dart';
+import '../../features/designer/product/add_product/domain/repositories/color_repo.dart';
+import '../../features/designer/product/add_product/domain/repositories/size_repo.dart';
 import '../../features/designer/product/add_product/domain/use_cases/add_product_usecase.dart';
+import '../../features/designer/product/add_product/domain/use_cases/color_use_case.dart';
+import '../../features/designer/product/add_product/domain/use_cases/size_use_case.dart';
 import '../../features/designer/product/add_product/presentation/manager/add_product_cubit.dart';
+import '../../features/designer/product/add_product/presentation/manager/color/colors_cubit.dart';
+import '../../features/designer/product/add_product/presentation/manager/size/sizes_cubit.dart';
 import '../../features/designer/product/edit_product/data/data_sources/edit_product_service.dart';
 import '../../features/designer/product/edit_product/data/repositories/edit_product_repo_impl.dart';
 import '../../features/designer/product/edit_product/domain/repositories/edit_product_repo.dart';
@@ -225,6 +235,7 @@ Future<void> init() async {
   di.registerLazySingleton(() => CategoryUseCase(di()));
   di.registerLazySingleton<CategoryRepo>(() => CategoryRepoImpl(di()));
   di.registerLazySingleton<CategoryService>(() => CategoryServiceImpl());
+
   /// sub category
   di.registerFactory(() => SubCategoryCubit(subCategoryUseCase: di()));
   di.registerLazySingleton(() => SubCategoryUseCase(di()));
@@ -362,6 +373,20 @@ Future<void> init() async {
   di.registerLazySingleton(() => GetPointsUseCase(di()));
   di.registerLazySingleton<GetPointsRepo>(() => GetPointsRepoImpl(di()));
   di.registerLazySingleton<GetPointsService>(() => GetPointsServiceImpl());
+
+  ///Add & Edit Product
+  /// Colors
+  di.registerFactory(() => ColorsCubit(colorsUseCase: di()));
+  di.registerLazySingleton(() => ColorsUseCase(colorsRepo: di()));
+  di.registerLazySingleton<ColorsRepo>(
+      () => ColorsRepoImpl(colorService: di()));
+  di.registerLazySingleton<ColorService>(() => ColorServiceImpl());
+
+  /// Sizes
+  di.registerFactory(() => SizesCubit(sizesUseCase: di()));
+  di.registerLazySingleton(() => SizesUseCase(sizesRepo: di()));
+  di.registerLazySingleton<SizesRepo>(() => SizesRepoImpl(sizeService: di()));
+  di.registerLazySingleton<SizeService>(() => SizeServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();
