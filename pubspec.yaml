@@ -68,6 +68,8 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   country_code_picker: ^3.0.0
   dotted_border: ^2.1.0 # A flutter package to let users easily add a dashed border around any widget
+  flutter_html:
+
 
   # Flutter plugin for adapting screen and font size.
   flutter_screenutil: ^5.9.0

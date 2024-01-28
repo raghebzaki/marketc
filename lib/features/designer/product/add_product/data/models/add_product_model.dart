@@ -18,9 +18,9 @@ class AddProductModel extends AddProductEntity {
   static Map<String, dynamic> toJson(AddProductEntity addProductEntity) {
     return {
       'id': addProductEntity.product!.id,
-      'name': addProductEntity.product!.name,
+      'name': addProductEntity.product!.nameAr,
       'category_id': addProductEntity.product!.categoryId,
-      'description': addProductEntity.product!.description,
+      'description': addProductEntity.product!.descriptionAr,
       'price': addProductEntity.product!.price,
       'discount_percent': addProductEntity.product!.discountPercent,
       'size': addProductEntity.product!.size,

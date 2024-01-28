@@ -1,4 +1,5 @@
 import 'package:geocoding/geocoding.dart';
+import 'package:marketc/core/shared/entities/product_entity.dart';
 
 class VerifyAccountArgs {
   final String email;
@@ -28,4 +29,10 @@ class NewAddressArgs {
   final Placemark address;
 
   NewAddressArgs({required this.address});
+}
+
+class ProductsEntityArgs {
+  final ProductEntity productEntity;
+
+  ProductsEntityArgs({required this.productEntity});
 }

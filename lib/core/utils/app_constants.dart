@@ -31,9 +31,10 @@ class AppConstants {
   static const verifyAccountUri = "auth/account_verification";
   static const checkEmailRegisterUri = "auth/check_email_before_register";
   static const resendCodeUri = "auth/resend-code";
-  static const mostPopularProductsUri = "";
-  static const newProductsUri = "";
-  static const favoriteProductsUri = "";
+  static const mostPopularProductsUri = "v1/products/popular";
+  static const newProductsUri = "v1/products";
+  static const favoriteProductsUri = "v1/products/get-my-favourite";
+  static const addFavoriteProductsUri = "v1/products/add-to-favourite";
   static const categoryDetailsUri = "";
   static const placeOrderUri = "";
   static const addPromoCodeUri = "";

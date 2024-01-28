@@ -18,9 +18,9 @@ class EditProductModel extends EditProductEntity {
   static Map<String, dynamic> toJson(EditProductEntity editProductEntity) {
     return {
       'id': editProductEntity.product!.id,
-      'name': editProductEntity.product!.name,
+      'name': editProductEntity.product!.nameAr,
       'category_id': editProductEntity.product!.categoryId,
-      'description': editProductEntity.product!.description,
+      'description': editProductEntity.product!.descriptionAr,
       'price': editProductEntity.product!.price,
       'discount_percent': editProductEntity.product!.discountPercent,
       'size': editProductEntity.product!.size,

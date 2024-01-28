@@ -1,14 +1,25 @@
 
+import 'package:marketc/core/shared/models/products_images_model.dart';
+import 'package:marketc/features/designer/product/add_product/data/models/color_model.dart';
+import 'package:marketc/features/designer/product/add_product/data/models/size_model.dart';
+
 import '../entities/product_entity.dart';
 
 class ProductModel extends ProductEntity {
   const ProductModel({
     super.id,
-    super.name,
+    super.nameAr,
+    super.nameEn,
     super.categoryId,
-    super.description,
+    super.subCategoryId,
+    super.descriptionEn,
+    super.descriptionAr,
     super.price,
     super.discountPercent,
+    super.code,
+    super.image,
+    super.priceAfterDiscount,
+    super.quantity,
     super.size,
     super.color,
     super.images,
@@ -19,20 +30,28 @@ class ProductModel extends ProductEntity {
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
       id: json["id"],
-      name: json["name"],
+      nameAr: json["name_ar"],
+      nameEn: json["name_en"],
       categoryId: json["category_id"],
-      description: json["description"],
+      descriptionAr: json["description_ar"],
+      descriptionEn: json["description_en"],
+      code: json["code"],
       price: json["price"],
-      discountPercent: json["discount_percent"],
-      size: (json["size"])
-          .map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      color: (json["color"])
-          .map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      images: (json["images"])
-          .map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      discountPercent: json["discount_percentage"],
+      priceAfterDiscount: json["price_after_discount"],
+      image: json["image"],
+      size: json["sizes"] == null
+          ? []
+          : List<ProductSizesModel>.from(
+          json["sizes"]!.map((x) => ProductSizesModel.fromJson(x))),
+      color: json["colors"] == null
+          ? []
+          : List<ProductColorsModel>.from(
+          json["colors"]!.map((x) => ProductColorsModel.fromJson(x))),
+      images: json["product_images"] == null
+          ? []
+          : List<ProductsImagesModel>.from(
+          json["product_images"]!.map((x) => ProductsImagesModel.fromJson(x))),
     );
   }
 
@@ -46,9 +65,9 @@ class ProductModel extends ProductEntity {
   static Map<String, dynamic> addProductToJson(ProductEntity productEntity) {
     return {
       'id': productEntity.id,
-      'name': productEntity.name,
+      'name': productEntity.nameAr,
       'category_id': productEntity.categoryId,
-      'description': productEntity.description,
+      'description': productEntity.descriptionAr,
       'price': productEntity.price,
       'discount_percent': productEntity.discountPercent,
       'size': productEntity.size,

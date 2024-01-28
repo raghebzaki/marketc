@@ -141,7 +141,7 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
                                   ...List.generate(
                                     10,
                                     (index) {
-                                      return const ProductCard();
+                                      return const SizedBox();
                                     },
                                   ),
                                 ],

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:marketc/core/helpers/cache_helper.dart';
 import 'package:marketc/core/router/router.dart';
+import 'package:marketc/core/shared/arguments.dart';
+import 'package:marketc/core/shared/entities/product_entity.dart';
+import 'package:marketc/core/utils/app_constants.dart';
 import 'package:marketc/core/utils/extensions.dart';
 
 import '../../../config/themes/app_text_styles.dart';
@@ -10,13 +14,14 @@ import '../../utils/app_colors.dart';
 import '../../utils/dimensions.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key});
+  final ProductEntity productEntity;
+  const ProductCard({super.key, required this.productEntity});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(productDetailsPageRoute);
+        context.pushNamed(productDetailsPageRoute,arguments:ProductsEntityArgs(productEntity: productEntity) );
       },
       child: Container(
         width: 160.w,
@@ -34,9 +39,9 @@ class ProductCard extends StatelessWidget {
             Container(
               width: double.infinity,
               height: 120,
-              decoration: const BoxDecoration(
+              decoration:  BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage("https://via.placeholder.com/160x130"),
+                  image: NetworkImage(AppConstants.imageUrl+productEntity.image!),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -46,7 +51,7 @@ class ProductCard extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'ملابس قصيرة',
+                    CacheHelper.isEnglish()?productEntity.nameEn!:productEntity.nameAr!,
                     style: CustomTextStyle.kTextStyleF12
                         .copyWith(color: AppColors.textColor),
                   ),
@@ -66,13 +71,13 @@ class ProductCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        '140.00 ${S.current.sar}',
+                        '${productEntity.price} ${S.current.sar}',
                         style: CustomTextStyle.kTextStyleF12
                             .copyWith(color: AppColors.lightBlue),
                       ),
                       Gap(8.w),
                       Text(
-                        '-30%',
+                        productEntity.discountPercent!.toString(),
                         style: CustomTextStyle.kTextStyleF12
                             .copyWith(color: AppColors.discountNumber),
                       ),

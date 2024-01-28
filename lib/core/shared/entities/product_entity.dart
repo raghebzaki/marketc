@@ -1,23 +1,34 @@
 import 'package:equatable/equatable.dart';
+import 'package:marketc/core/shared/entities/products_images_entity.dart';
+
+import '../../../features/designer/product/add_product/domain/entities/color_entity.dart';
+import '../../../features/designer/product/add_product/domain/entities/size_entity.dart';
 
 class ProductEntity extends Equatable {
   final num? id;
-  final String? name;
+  final String? nameEn;
+  final String? nameAr;
   final num? categoryId;
-  final String? description;
+  final num? subCategoryId;
+  final String? descriptionEn;
+  final String? descriptionAr;
+  final String? code;
   final String? price;
-  final String? discountPercent;
-  final List<String>? size;
-  final List<String>? color;
-  final List<String>? images;
+  final int? discountPercent;
+  final String? priceAfterDiscount;
+  final String? image;
+  final num? quantity;
+  final List<ProductSizesEntity>? size;
+  final List<ProductColorsEntity>? color;
+  final List<ProductsImagesEntity>? images;
   final String? status;
   final String? message;
 
   const ProductEntity({
+    this.nameEn, this.nameAr, this.subCategoryId, this.descriptionEn, this.descriptionAr,
+    this.code, this.priceAfterDiscount, this.image, this.quantity,
     this.id,
-    this.name,
     this.categoryId,
-    this.description,
     this.price,
     this.discountPercent,
     this.size,
@@ -28,17 +39,26 @@ class ProductEntity extends Equatable {
   });
 
   @override
-  List<Object?> get props => [
+  List<Object?> get props =>
+      [
         id,
-        name,
+        nameEn,
+        nameAr,
         categoryId,
-        description,
+        subCategoryId,
+        descriptionEn,
+        descriptionAr,
+        code,
         price,
         discountPercent,
+        priceAfterDiscount,
+        image,
+        quantity,
         size,
         color,
         images,
         status,
         message,
       ];
+
 }

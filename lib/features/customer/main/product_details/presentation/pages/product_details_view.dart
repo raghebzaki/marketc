@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:getwidget/components/carousel/gf_carousel.dart';
 import 'package:marketc/config/themes/app_text_styles.dart';
+import 'package:marketc/core/helpers/cache_helper.dart';
 import 'package:marketc/core/shared/widgets/custom_button.dart';
+import 'package:marketc/core/utils/app_constants.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../../../../../core/shared/entities/product_entity.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
 
 class ProductDetailsView extends StatefulWidget {
-  const ProductDetailsView({super.key});
+  final ProductEntity productEntity;
+
+  const ProductDetailsView({super.key, required this.productEntity});
 
   @override
   State<ProductDetailsView> createState() => _ProductDetailsViewState();
@@ -27,6 +34,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
             Dimensions.p16,
           ),
           child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,56 +44,45 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                     children: [
                       ClipRRect(
                         borderRadius: BorderRadius.circular(Dimensions.r25),
-                        child: Image.network(
-                          "https://via.placeholder.com/353x521",
+                        child: GFCarousel(
+                          viewportFraction: 1.0,
+                          items: [
+                            ...List.generate(
+                              widget.productEntity.images!.length,
+                                  (index) {
+                                return Image.network(
+                                  AppConstants.imageUrl+widget.productEntity.images![index].image!,
+                                );
+                              },
+                            ),
+                          ],
+
+                          scrollDirection: Axis.horizontal,
+                          aspectRatio: 1,
                         ),
                       ),
                       Positioned(
                         left: 250.w,
                         top: 0,
                         right: 0,
-                        bottom: 450.h,
-                        child: Icon(
-                          MdiIcons.heartOutline,
+                        bottom: 300.h,
+                        child: GestureDetector(
+                          child: Icon(
+                            MdiIcons.heartOutline,
+                          ),
                         ),
                       ),
                       Positioned(
                         left: 0,
                         top: 0,
                         right: 250.w,
-                        bottom: 450.h,
+                        bottom: 300.h,
                         child: GestureDetector(
                           onTap: () {
                             context.pop();
                           },
                           child: Icon(
                             MdiIcons.arrowLeft,
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        left: 0,
-                        top: 325.h,
-                        right: 250.w,
-                        bottom: 0,
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.vertical,
-                          child: Column(
-                            children: [
-                              ...List.generate(
-                                3,
-                                (index) => Padding(
-                                  padding: const EdgeInsets.all(Dimensions.p5),
-                                  child: ClipRRect(
-                                    borderRadius:
-                                        BorderRadius.circular(Dimensions.r10),
-                                    child: Image.network(
-                                      "https://via.placeholder.com/54x55/FFEA24",
-                                    ),
-                                  ),
-                                ),
-                              ).reversed,
-                            ],
                           ),
                         ),
                       ),
@@ -96,12 +93,14 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      S.current.short_cloths,
-                      style: CustomTextStyle.kTextStyleF20,
+                    Expanded(
+                      child: Text(
+                        CacheHelper.isEnglish()?widget.productEntity.nameEn!:widget.productEntity.nameAr!,
+                        style: CustomTextStyle.kTextStyleF20,
+                      ),
                     ),
                     Text(
-                      "30.00 ${S.current.sar}",
+                      "${widget.productEntity.price} ${S.current.sar}",
                       style: CustomTextStyle.kTextStyleF18.copyWith(
                         color: AppColors.lightBlue,
                       ),
@@ -114,12 +113,15 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                     color: AppColors.black60,
                   ),
                 ),
-                Text(
-                  S.current.product_des,
-                  style: CustomTextStyle.kTextStyleF12.copyWith(
-                    color: AppColors.black60,
-                  ),
+                Html(
+                  data: CacheHelper.isEnglish()?widget.productEntity.descriptionEn!:widget.productEntity.descriptionAr!,
                 ),
+                // Text(
+                //   S.current.product_des,
+                //   style: CustomTextStyle.kTextStyleF12.copyWith(
+                //     color: AppColors.black60,
+                //   ),
+                // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -138,12 +140,12 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                             direction: Axis.horizontal,
                             children: [
                               ...List.generate(
-                            5,
-                                    (index) => const Padding(
-                                  padding: EdgeInsets.all(Dimensions.p5),
+                                widget.productEntity.color!.length,
+                                    (index) =>  Padding(
+                                  padding: const EdgeInsets.all(Dimensions.p5),
                                   child: CircleAvatar(
                                     radius: Dimensions.r20,
-                                    backgroundColor: AppColors.lightBlue,
+                                    backgroundColor: Color(int.parse('0xff${widget.productEntity.color![index].color}')),
                                   ),
                                 ),
                               ),
@@ -168,14 +170,14 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                             direction: Axis.horizontal,
                             children: [
                               ...List.generate(
-                                9,
+                                widget.productEntity.size!.length,
                                 (index) => Padding(
                                   padding: const EdgeInsets.all(Dimensions.p5),
                                   child: CircleAvatar(
                                     radius: Dimensions.r20,
                                     backgroundColor: Colors.grey,
                                     child: Text(
-                                      "S",
+                                      CacheHelper.isEnglish()?widget.productEntity.size![index].nameEn!:widget.productEntity.size![index].nameAr!,
                                       style: CustomTextStyle.kTextStyleF14
                                           .copyWith(
                                         fontWeight: FontWeight.w500,

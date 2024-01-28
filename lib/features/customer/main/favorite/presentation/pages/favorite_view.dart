@@ -45,7 +45,7 @@ class FavoriteView extends StatelessWidget {
                     ...List.generate(
                       10,
                           (index) {
-                        return const ProductCard();
+                        return const SizedBox();
                       },
                     ),
                   ],

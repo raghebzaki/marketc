@@ -8,6 +8,8 @@ import 'package:marketc/core/utils/app_constants.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:marketc/features/customer/main/home/presentation/manager/carousel_cubit.dart';
 import 'package:marketc/features/customer/main/home/presentation/manager/category_cubit.dart';
+import 'package:marketc/features/customer/main/home/presentation/manager/most_popular_cubit.dart';
+import 'package:marketc/features/customer/main/home/presentation/manager/new_products_cubit.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/dependency_injection/di.dart' as di;
@@ -33,13 +35,22 @@ class HomeView extends StatelessWidget {
         BlocProvider(
           create: (context) => di.di<CarouselCubit>(),
         ),
+        BlocProvider(
+          create: (context) => di.di<MostPopularCubit>()..getAllProducts(1),
+        ),
+        BlocProvider(
+          create: (context) => di.di<NewProductsCubit>()..getAllProducts(1),
+        ),
       ],
       child: Scaffold(
         appBar: PreferredSize(
             preferredSize: Size(context.queryWidth.w, 56.h),
             child: SafeArea(
               child: Padding(
-                padding: EdgeInsets.only(left: Dimensions.p8.w, top: Dimensions.p8.h, right: Dimensions.p8.w),
+                padding: EdgeInsets.only(
+                    left: Dimensions.p8.w,
+                    top: Dimensions.p8.h,
+                    right: Dimensions.p8.w),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -59,7 +70,11 @@ class HomeView extends StatelessWidget {
                       ),
                     ),
                     Gap(10.w),
-                    Image.asset(AppImages.bellImg, height: 20.h, width: 20.w,)
+                    Image.asset(
+                      AppImages.bellImg,
+                      height: 20.h,
+                      width: 20.w,
+                    )
                   ],
                 ),
               ),
@@ -88,7 +103,7 @@ class HomeView extends StatelessWidget {
                       children: [
                         ...List.generate(
                           5,
-                              (index) {
+                          (index) {
                             return Padding(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: Dimensions.p8),
@@ -100,33 +115,33 @@ class HomeView extends StatelessWidget {
                                   color: const Color(0xFFF8E7DE),
                                   shape: RoundedRectangleBorder(
                                       borderRadius:
-                                      BorderRadius.circular(Dimensions.r8)),
+                                          BorderRadius.circular(Dimensions.r8)),
                                 ),
                                 child: Row(
                                   children: [
                                     Expanded(
                                       child: Padding(
                                         padding:
-                                        const EdgeInsets.all(Dimensions.p5),
+                                            const EdgeInsets.all(Dimensions.p5),
                                         child: Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               S.current.soon,
-                                              style: CustomTextStyle
-                                                  .kTextStyleF8,
+                                              style:
+                                                  CustomTextStyle.kTextStyleF8,
                                             ),
                                             Text(
                                               S.current.custom_logo,
                                               style:
-                                              CustomTextStyle.kTextStyleF16,
+                                                  CustomTextStyle.kTextStyleF16,
                                             ),
                                             Text(
                                               S.current.wide_range,
                                               textAlign: TextAlign.right,
                                               style:
-                                              CustomTextStyle.kTextStyleF10,
+                                                  CustomTextStyle.kTextStyleF10,
                                             ),
                                             Container(
                                               width: 82.w,
@@ -135,8 +150,8 @@ class HomeView extends StatelessWidget {
                                                 color: AppColors.secondary,
                                                 shape: RoundedRectangleBorder(
                                                     borderRadius:
-                                                    BorderRadius.circular(
-                                                        Dimensions.r4)),
+                                                        BorderRadius.circular(
+                                                            Dimensions.r4)),
                                               ),
                                               child: Center(
                                                 child: Text(
@@ -180,9 +195,7 @@ class HomeView extends StatelessWidget {
                     listener: (context, state) {},
                     builder: (context, state) {
                       return state.maybeWhen(
-                        loading: () {
-                          return const Center(child: CircularProgressIndicator());
-                        },
+
                         success: (state) {
                           return SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
@@ -190,7 +203,7 @@ class HomeView extends StatelessWidget {
                               children: [
                                 ...List.generate(
                                   state!.length,
-                                      (index) {
+                                  (index) {
                                     return GestureDetector(
                                       onTap: () {
                                         context.pushNamed(
@@ -210,8 +223,8 @@ class HomeView extends StatelessWidget {
                                             color: Colors.white,
                                             shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                BorderRadius.circular(
-                                                    Dimensions.r8)),
+                                                    BorderRadius.circular(
+                                                        Dimensions.r8)),
                                           ),
                                           child: Padding(
                                             padding: EdgeInsets.symmetric(
@@ -219,12 +232,15 @@ class HomeView extends StatelessWidget {
                                             child: Column(
                                               children: [
                                                 Image.network(
-                                                  AppConstants.imageUrl+state[index].image!,
+                                                  AppConstants.imageUrl +
+                                                      state[index].image!,
                                                   width: 48.w,
                                                   height: 48.w,
                                                 ),
                                                 Text(
-                                                  CacheHelper.isEnglish()?state[index].nameEn!:state[index].nameAr!,
+                                                  CacheHelper.isEnglish()
+                                                      ? state[index].nameEn!
+                                                      : state[index].nameAr!,
                                                   textAlign: TextAlign.center,
                                                   style: CustomTextStyle
                                                       .kTextStyleF14,
@@ -240,6 +256,10 @@ class HomeView extends StatelessWidget {
                               ],
                             ),
                           );
+                        },
+                        loading: () {
+                          return const Center(
+                              child: CircularProgressIndicator());
                         },
                         error: (errCode, err) {
                           return StateErrorWidget(
@@ -275,21 +295,43 @@ class HomeView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        ...List.generate(
-                          5,
-                              (index) {
-                            return const Padding(
-                              padding: EdgeInsets.all(Dimensions.p8),
-                              child: ProductCard(),
+                  BlocConsumer<MostPopularCubit, MostPopularState>(
+                    listener: (context, state) {},
+                    builder: (context, state) {
+                      return state.maybeWhen(
+                          success: (state){
+                            return SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: [
+                                  ...List.generate(
+                                    state!.length,
+                                        (index) {
+                                      return  Padding(
+                                        padding: const EdgeInsets.all(Dimensions.p8),
+                                        child: ProductCard(productEntity: state[index],),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
                             );
                           },
-                        ),
-                      ],
-                    ),
+                          loading: () {
+                            return const Center(
+                                child: CircularProgressIndicator());
+                          },
+                          error: (errCode, err) {
+                            return StateErrorWidget(
+                              errCode: errCode!,
+                              err: err!,
+                            );
+                          },
+                          orElse: (){
+                            return const SizedBox.shrink();
+                          }
+                      );
+                    },
                   ),
                   Gap(10.h),
                   Row(
@@ -313,21 +355,43 @@ class HomeView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        ...List.generate(
-                          5,
-                              (index) {
-                            return const Padding(
-                              padding: EdgeInsets.all(Dimensions.p8),
-                              child: ProductCard(),
+                  BlocConsumer<NewProductsCubit, NewProductsState>(
+                    listener: (context, state) {},
+                    builder: (context, state) {
+                      return state.maybeWhen(
+                          success: (state){
+                            return SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: [
+                                  ...List.generate(
+                                    state!.length,
+                                        (index) {
+                                      return  Padding(
+                                        padding: const EdgeInsets.all(Dimensions.p8),
+                                        child: ProductCard(productEntity: state[index],),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
                             );
                           },
-                        ),
-                      ],
-                    ),
+                          loading: () {
+                            return const Center(
+                                child: CircularProgressIndicator());
+                          },
+                          error: (errCode, err) {
+                            return StateErrorWidget(
+                              errCode: errCode!,
+                              err: err!,
+                            );
+                          },
+                          orElse: (){
+                            return const SizedBox.shrink();
+                          }
+                      );
+                    },
                   ),
                 ],
               ),

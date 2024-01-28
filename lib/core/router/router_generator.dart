@@ -107,8 +107,9 @@ class AppRouters {
           ),
         );
       case productDetailsPageRoute:
+        final args = settings.arguments as ProductsEntityArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const ProductDetailsView(),
+          builder: (BuildContext context) =>  ProductDetailsView(productEntity: args.productEntity,),
         );
       case contactUsPageRoute:
         return MaterialPageRoute(
