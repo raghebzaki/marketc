@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:marketc/features/customer/main/favorite/domain/entities/favorite_entity.dart';
+import 'package:marketc/core/shared/widgets/state_error_widget.dart';
+import 'package:marketc/core/shared/widgets/state_loading_widget.dart';
+import 'package:marketc/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../core/shared/widgets/custom_search_form_field.dart';
 import '../../../../../../core/shared/widgets/product_card.dart';
@@ -18,21 +21,21 @@ class FavoriteView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FavoriteEntity favoriteEntity = const FavoriteEntity();
-
     return BlocProvider(
-      create: (context) => di.di<FavoriteCubit>()..getAllProducts(favoriteEntity),
+      create: (context) =>
+          di.di<FavoriteCubit>()..getAllProducts(UserData.id!, 1),
       child: BlocConsumer<FavoriteCubit, FavoriteState>(
         listener: (context, state) {},
         builder: (context, state) {
           return state.maybeWhen(
+            loading: () {
+              return const StateLoadingWidget();
+            },
             success: (state) {
               return Scaffold(
                 // backgroundColor: AppColors.primary,
                 appBar: CustomAppBar(
-                  title: S
-                      .of(context)
-                      .favorite,
+                  title: S.of(context).favorite,
                 ),
                 body: SafeArea(
                   child: Padding(
@@ -59,8 +62,9 @@ class FavoriteView extends StatelessWidget {
                             children: [
                               ...List.generate(
                                 state.length,
-                                    (index) {
-                                  return ProductCard(productEntity: state[index].product!);
+                                (index) {
+                                  return ProductCard(
+                                      productEntity: state[index].product!);
                                 },
                               ),
                             ],
@@ -70,6 +74,12 @@ class FavoriteView extends StatelessWidget {
                     ),
                   ),
                 ),
+              );
+            },
+            error: (errCode, err) {
+              return StateErrorWidget(
+                errCode: errCode.isNullOrEmpty(),
+                err: err.isNullOrEmpty(),
               );
             },
             orElse: () {

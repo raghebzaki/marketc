@@ -5,45 +5,55 @@ import 'package:marketc/features/customer/main/home/domain/use_cases/new_product
 import '../../../../../../core/shared/entities/product_entity.dart';
 
 part 'new_products_state.dart';
+
 part 'new_products_cubit.freezed.dart';
 
 class NewProductsCubit extends Cubit<NewProductsState> {
-  NewProductsCubit({required this.newProductsUseCase}) : super(const NewProductsState.initial());
+  NewProductsCubit({required this.newProductsUseCase})
+      : super(const NewProductsState.initial());
+
   static NewProductsCubit get(context) => BlocProvider.of(context);
 
   final NewProductsUseCase newProductsUseCase;
 
   getAllProducts(int? nextPage) async {
-    if (nextPage == 1) {
-      emit(const NewProductsState.loading());
-    } else {
-      emit(const NewProductsState.paginationLoading());
-    }
+    // if (nextPage == 1) {
+    //   emit(const NewProductsState.loading());
+    // } else {
+    //   emit(const NewProductsState.paginationLoading());
+    // }
+    emit(const NewProductsState.loading());
 
-    final getAllProduct = await newProductsUseCase( nextPage);
+    final getAllProduct = await newProductsUseCase(nextPage);
 
     getAllProduct.fold(
-          (l) => {
-        if (nextPage == 1)
-          {
-            emit(
-              NewProductsState.error(
-                l.code.toString(),
-                l.message,
-              ),
-            ),
-          }
-        else
-          {
-            emit(
-              NewProductsState.paginationError(
-                l.code.toString(),
-                l.message,
-              ),
-            ),
-          }
+      (l) => {
+        // if (nextPage == 1)
+        //   {
+        //     emit(
+        //       NewProductsState.error(
+        //         l.code.toString(),
+        //         l.message,
+        //       ),
+        //     ),
+        //   }
+        // else
+        //   {
+        //     emit(
+        //       NewProductsState.paginationError(
+        //         l.code.toString(),
+        //         l.message,
+        //       ),
+        //     ),
+        //   }
+        emit(
+          NewProductsState.paginationError(
+            l.code.toString(),
+            l.message,
+          ),
+        ),
       },
-          (r) => {
+      (r) => {
         emit(
           NewProductsState.success(r),
         ),

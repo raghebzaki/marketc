@@ -15,7 +15,7 @@ class FavoriteCubit extends Cubit<FavoriteState> {
 
   final FavoriteUseCase favoriteUseCase;
 
-  getAllProducts(FavoriteEntity favoriteEntity) async {
+  getAllProducts(num userId, int nextPage) async {
     // if (nextPage == 1) {
     //   emit(const FavoriteState.loading());
     // } else {
@@ -23,7 +23,7 @@ class FavoriteCubit extends Cubit<FavoriteState> {
     // }
     emit(const FavoriteState.loading());
 
-    final getAllProduct = await favoriteUseCase(favoriteEntity);
+    final getAllProduct = await favoriteUseCase(userId, nextPage);
 
     getAllProduct.fold(
       (l) => {

@@ -221,5 +221,6 @@
   "field_required": "هذا الحقل مطلوب",
   "state": "الولاية",
   "@_ErrorWidget": {},
-  "error_occurred": "حدث خطأ!"
+  "error_occurred": "حدث خطأ!",
+  "err_code": "رمز الخطأ"
 }

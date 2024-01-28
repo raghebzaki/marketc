@@ -72,6 +72,11 @@ import '../../features/customer/main/home/presentation/manager/carousel_cubit.da
 import '../../features/customer/main/home/presentation/manager/category_cubit.dart';
 import '../../features/customer/main/home/presentation/manager/most_popular_cubit.dart';
 import '../../features/customer/main/home/presentation/manager/new_products_cubit.dart';
+import '../../features/customer/main/product_details/data/data_sources/add_favorite_service.dart';
+import '../../features/customer/main/product_details/data/repositories/add_favorite_repo_impl.dart';
+import '../../features/customer/main/product_details/domain/repositories/add_favorite_model.dart';
+import '../../features/customer/main/product_details/domain/use_cases/add_favorite_use_case.dart';
+import '../../features/customer/main/product_details/presentation/manager/add_favorite_cubit.dart';
 import '../../features/customer/orders/my_orders/data/data_sources/my_orders_service.dart';
 import '../../features/customer/orders/my_orders/data/repositories/my_orders_repo_impl.dart';
 import '../../features/customer/orders/my_orders/domain/repositories/my_orders_repo.dart';
@@ -253,6 +258,12 @@ Future<void> init() async {
   di.registerLazySingleton(() => FavoriteUseCase(di()));
   di.registerLazySingleton<FavoriteRepo>(() => FavoriteRepoImpl(di()));
   di.registerLazySingleton<FavoriteService>(() => FavoriteServiceImpl());
+
+  /// Add Favorite
+  di.registerFactory(() => AddFavoriteCubit(favoriteUseCase: di()));
+  di.registerLazySingleton(() => AddFavoriteUseCase(addFavoriteRepo: di()));
+  di.registerLazySingleton<AddFavoriteRepo>(() => AddFavoriteRepoImpl(addFavoriteService: di()));
+  di.registerLazySingleton<AddFavoriteService>(() => AddFavoriteServiceImpl());
 
   /// Category Details
   di.registerFactory(

@@ -19,10 +19,4 @@ class FavoriteModel extends FavoriteEntity {
           : null,
     );
   }
-
-  static Map<String, dynamic> toJson(FavoriteEntity favoriteEntity) {
-    return {
-      "user_id": favoriteEntity.userId,
-    };
-  }
 }
