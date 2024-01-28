@@ -7,9 +7,12 @@ import 'package:marketc/features/auth/login/domain/entities/login_entity.dart';
 
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
+import 'core/shared/arguments.dart';
 import 'core/shared/cubits/internet_checker_cubit.dart';
+import 'core/shared/models/user_data_model.dart';
 import 'core/utils/app_colors.dart';
 import 'features/auth/login/presentation/manager/login_cubit.dart';
+import 'generated/l10n.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -42,10 +45,77 @@ class _MainViewState extends State<MainView> {
           }
         },
         builder: (context, state) {
-          return Scaffold(
-            body: Center(
-              child: Image.asset(AppImages.splashImg),
-            ),
+          return BlocConsumer<LoginCubit, LoginStates>(
+            listener: (context, state) {
+              LoginCubit loginCubit = LoginCubit.get(context);
+
+              state.maybeWhen(
+                // initial: () async {
+                //   var email =
+                //       await CacheHelper.getData("email") ?? "";
+                //   var pass =
+                //       await CacheHelper.getData("pass") ?? "";
+                //   if (email == null && pass == null || email == "" && pass == "") {
+                //     return null;
+                //   } else {
+                //     // loginCubit.userLogin();
+                //   }
+                // },
+                success: (state) async {
+                  var email = await CacheHelper.getData("email");
+                  // var pass = await CacheHelper.getData("pass");
+                  if (state!.status == 1) {
+                    if (context.mounted) {
+                      context.defaultSnackBar(S.of(context).login_successful);
+                    }
+                    // debugPrint("$email, $pass");
+                    if (UserData.type == "customer") {
+                      if (context.mounted) {
+                        context.pushNamed(bottomNavBarPageRoute);
+                      }
+                    } else {
+                      if (context.mounted) {
+                        context.pushNamed(designerBottomNavBarPageRoute);
+                      }
+                    }
+                    // UpdateFcmTokenService.updateUserToken(UserData.id!);
+                  } else if (state.status == 0) {
+                    if (state.msg ==
+                        "Active your account first verification code sent to your email !") {
+                      // await resendCodeUseCase(email.ifEmpty());
+                      loginCubit.resendCode(email);
+                      if (context.mounted) {
+                        context.pushNamed(
+                          verifyAccountPageRoute,
+                          arguments: VerifyAccountArgs(email: email),
+                        );
+                      }
+                    }
+                    if (context.mounted) {
+                      context.defaultSnackBar(state.msg!);
+                    }
+                  } else {
+                    if (context.mounted) {
+                      context.defaultSnackBar(state.msg!);
+                    }
+                  }
+                },
+                error: (errCode, err) {
+                  context
+                      .defaultSnackBar("${S.current.err_code}: $errCode, $err");
+                },
+                orElse: () {
+                  return null;
+                },
+              );
+            },
+            builder: (context, state) {
+              return Scaffold(
+                body: Center(
+                  child: Image.asset(AppImages.splashImg),
+                ),
+              );
+            },
           );
         },
       ),
@@ -61,7 +131,6 @@ checkOnboarding(BuildContext context) async {
       context.pushNamed(onBoardingPageRoute);
     }
   } else {
-
     if (context.mounted) {
       checkRememberMe(context);
     }
@@ -81,7 +150,7 @@ checkRememberMe(BuildContext context) async {
         LoginEntity(
           userName: email,
           pass: pass,
-        ) ,context,
+        ),
       );
     }
   }

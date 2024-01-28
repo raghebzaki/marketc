@@ -10,7 +10,6 @@ import '../../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../../core/helpers/cache_helper.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../core/shared/widgets/custom_search_form_field.dart';
-import '../../../../../../core/shared/widgets/product_card.dart';
 import '../../../../../../core/shared/widgets/state_error_widget.dart';
 import '../../../../../../core/shared/widgets/state_loading_widget.dart';
 import '../../../../../../core/utils/app_colors.dart';

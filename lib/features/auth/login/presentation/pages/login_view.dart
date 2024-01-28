@@ -10,7 +10,10 @@ import 'package:pinput/pinput.dart';
 
 import '../../../../../config/themes/app_text_styles.dart';
 import '../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../core/helpers/cache_helper.dart';
 import '../../../../../core/router/router.dart';
+import '../../../../../core/shared/arguments.dart';
+import '../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../core/shared/widgets/custom_form_field.dart';
 import '../../../../../core/utils/app_colors.dart';
@@ -37,7 +40,7 @@ class _LoginViewState extends State<LoginView> {
       create: (context) => di.di<LoginCubit>(),
       child: BlocConsumer<LoginCubit, LoginStates>(
         listener: (context, state) {
-          // LoginCubit loginCubit = LoginCubit.get(context);
+          LoginCubit loginCubit = LoginCubit.get(context);
           state.maybeWhen(
             // initial: () async {
             //   var email =
@@ -51,7 +54,34 @@ class _LoginViewState extends State<LoginView> {
             //   }
             // },
             success: (state) async {
-
+              if (state!.status == 1) {
+                context.defaultSnackBar(S.of(context).login_successful);
+                var email =
+                    CacheHelper.setData("email", loginCubit.emailCtrl.text);
+                var pass =
+                    CacheHelper.setData("pass", loginCubit.passCtrl.text);
+                debugPrint("$email, $pass");
+                if (UserData.type == "customer") {
+                  context.pushNamed(bottomNavBarPageRoute);
+                } else {
+                  context.pushNamed(designerBottomNavBarPageRoute);
+                }
+                // UpdateFcmTokenService.updateUserToken(UserData.id!);
+              } else if (state.status == 0) {
+                if (state.msg ==
+                    "Active your account first verification code sent to your email !") {
+                  // await resendCodeUseCase(email.ifEmpty());
+                  loginCubit.resendCode(loginCubit.emailCtrl.text);
+                  context.pushNamed(
+                    verifyAccountPageRoute,
+                    arguments:
+                        VerifyAccountArgs(email: loginCubit.emailCtrl.text),
+                  );
+                }
+                context.defaultSnackBar(state.msg.isNullOrEmpty());
+              } else {
+                context.defaultSnackBar(state.msg.isNullOrEmpty());
+              }
             },
             error: (errCode, err) {
               context.defaultSnackBar("${S.current.err_code}: $errCode, $err");
@@ -176,7 +206,7 @@ class _LoginViewState extends State<LoginView> {
                                       LoginEntity(
                                         userName: loginCubit.emailCtrl.text,
                                         pass: loginCubit.passCtrl.text,
-                                      ),context,
+                                      ),
                                     );
                                   }
                                 },
