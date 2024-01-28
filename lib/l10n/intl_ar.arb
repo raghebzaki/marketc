@@ -219,5 +219,7 @@
   "country": "البلد",
   "city": "المدينة",
   "field_required": "هذا الحقل مطلوب",
-  "state": "الولاية"
+  "state": "الولاية",
+  "@_ErrorWidget": {},
+  "error_occurred": "حدث خطأ!"
 }

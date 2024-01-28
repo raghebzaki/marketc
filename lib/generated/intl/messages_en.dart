@@ -138,6 +138,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_valid_email":
             MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
         "err_code": MessageLookupByLibrary.simpleMessage("Error Code"),
+        "error_occurred":
+            MessageLookupByLibrary.simpleMessage("Error Occurred!"),
         "est": MessageLookupByLibrary.simpleMessage("Estimated Arrival Time"),
         "executed_request":
             MessageLookupByLibrary.simpleMessage("Executed Request"),

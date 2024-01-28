@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
+import '../../../generated/l10n.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/dimensions.dart';
 
@@ -42,7 +43,9 @@ class StateErrorWidget extends StatelessWidget {
                 ),
                 Gap(10.h),
                 Text(
-                  'Error Occurred!',
+                  S
+                      .of(context)
+                      .error_occurred,
                   style: TextStyle(
                     fontSize: Dimensions.f18,
                     fontWeight: FontWeight.bold,
@@ -50,8 +53,9 @@ class StateErrorWidget extends StatelessWidget {
                   ),
                 ),
                 Gap(10.h),
-                Text(
-                  "Error Code:",
+                Text(S
+                    .of(context)
+                    .err_code,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: Dimensions.f20,

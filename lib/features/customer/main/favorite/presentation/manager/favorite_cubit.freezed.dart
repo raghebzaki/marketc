@@ -20,7 +20,7 @@ mixin _$FavoriteState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(FavoriteEntity? favoriteEntity) success,
+    required TResult Function(List<FavoriteEntity> favoriteEntity) success,
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
@@ -30,7 +30,7 @@ mixin _$FavoriteState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(FavoriteEntity? favoriteEntity)? success,
+    TResult? Function(List<FavoriteEntity> favoriteEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
@@ -40,7 +40,7 @@ mixin _$FavoriteState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(FavoriteEntity? favoriteEntity)? success,
+    TResult Function(List<FavoriteEntity> favoriteEntity)? success,
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
@@ -138,7 +138,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(FavoriteEntity? favoriteEntity) success,
+    required TResult Function(List<FavoriteEntity> favoriteEntity) success,
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
@@ -151,7 +151,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(FavoriteEntity? favoriteEntity)? success,
+    TResult? Function(List<FavoriteEntity> favoriteEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
@@ -164,7 +164,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(FavoriteEntity? favoriteEntity)? success,
+    TResult Function(List<FavoriteEntity> favoriteEntity)? success,
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
@@ -264,7 +264,7 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(FavoriteEntity? favoriteEntity) success,
+    required TResult Function(List<FavoriteEntity> favoriteEntity) success,
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
@@ -277,7 +277,7 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(FavoriteEntity? favoriteEntity)? success,
+    TResult? Function(List<FavoriteEntity> favoriteEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
@@ -290,7 +290,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(FavoriteEntity? favoriteEntity)? success,
+    TResult Function(List<FavoriteEntity> favoriteEntity)? success,
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
@@ -356,7 +356,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({FavoriteEntity? favoriteEntity});
+  $Res call({List<FavoriteEntity> favoriteEntity});
 }
 
 /// @nodoc
@@ -370,13 +370,13 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? favoriteEntity = freezed,
+    Object? favoriteEntity = null,
   }) {
     return _then(_$SuccessImpl(
-      freezed == favoriteEntity
-          ? _value.favoriteEntity
+      null == favoriteEntity
+          ? _value._favoriteEntity
           : favoriteEntity // ignore: cast_nullable_to_non_nullable
-              as FavoriteEntity?,
+              as List<FavoriteEntity>,
     ));
   }
 }
@@ -384,10 +384,16 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements Success {
-  const _$SuccessImpl(this.favoriteEntity);
+  const _$SuccessImpl(final List<FavoriteEntity> favoriteEntity)
+      : _favoriteEntity = favoriteEntity;
 
+  final List<FavoriteEntity> _favoriteEntity;
   @override
-  final FavoriteEntity? favoriteEntity;
+  List<FavoriteEntity> get favoriteEntity {
+    if (_favoriteEntity is EqualUnmodifiableListView) return _favoriteEntity;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_favoriteEntity);
+  }
 
   @override
   String toString() {
@@ -399,12 +405,13 @@ class _$SuccessImpl implements Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            (identical(other.favoriteEntity, favoriteEntity) ||
-                other.favoriteEntity == favoriteEntity));
+            const DeepCollectionEquality()
+                .equals(other._favoriteEntity, _favoriteEntity));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, favoriteEntity);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_favoriteEntity));
 
   @JsonKey(ignore: true)
   @override
@@ -417,7 +424,7 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(FavoriteEntity? favoriteEntity) success,
+    required TResult Function(List<FavoriteEntity> favoriteEntity) success,
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
@@ -430,7 +437,7 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(FavoriteEntity? favoriteEntity)? success,
+    TResult? Function(List<FavoriteEntity> favoriteEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
@@ -443,7 +450,7 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(FavoriteEntity? favoriteEntity)? success,
+    TResult Function(List<FavoriteEntity> favoriteEntity)? success,
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
@@ -500,9 +507,10 @@ class _$SuccessImpl implements Success {
 }
 
 abstract class Success implements FavoriteState {
-  const factory Success(final FavoriteEntity? favoriteEntity) = _$SuccessImpl;
+  const factory Success(final List<FavoriteEntity> favoriteEntity) =
+      _$SuccessImpl;
 
-  FavoriteEntity? get favoriteEntity;
+  List<FavoriteEntity> get favoriteEntity;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -582,7 +590,7 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(FavoriteEntity? favoriteEntity) success,
+    required TResult Function(List<FavoriteEntity> favoriteEntity) success,
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
@@ -595,7 +603,7 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(FavoriteEntity? favoriteEntity)? success,
+    TResult? Function(List<FavoriteEntity> favoriteEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
@@ -608,7 +616,7 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(FavoriteEntity? favoriteEntity)? success,
+    TResult Function(List<FavoriteEntity> favoriteEntity)? success,
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
@@ -714,7 +722,7 @@ class _$PaginationLoadingImpl implements PaginationLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(FavoriteEntity? favoriteEntity) success,
+    required TResult Function(List<FavoriteEntity> favoriteEntity) success,
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
@@ -727,7 +735,7 @@ class _$PaginationLoadingImpl implements PaginationLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(FavoriteEntity? favoriteEntity)? success,
+    TResult? Function(List<FavoriteEntity> favoriteEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
@@ -740,7 +748,7 @@ class _$PaginationLoadingImpl implements PaginationLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(FavoriteEntity? favoriteEntity)? success,
+    TResult Function(List<FavoriteEntity> favoriteEntity)? success,
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,
@@ -875,7 +883,7 @@ class _$PaginationSuccessImpl implements PaginationSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(FavoriteEntity? favoriteEntity) success,
+    required TResult Function(List<FavoriteEntity> favoriteEntity) success,
     required TResult Function(String? errCode, String? err) error,
     required TResult Function() paginationLoading,
     required TResult Function(String? errCode, String? err) paginationError,
@@ -888,7 +896,7 @@ class _$PaginationSuccessImpl implements PaginationSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(FavoriteEntity? favoriteEntity)? success,
+    TResult? Function(List<FavoriteEntity> favoriteEntity)? success,
     TResult? Function(String? errCode, String? err)? error,
     TResult? Function()? paginationLoading,
     TResult? Function(String? errCode, String? err)? paginationError,
@@ -901,7 +909,7 @@ class _$PaginationSuccessImpl implements PaginationSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(FavoriteEntity? favoriteEntity)? success,
+    TResult Function(List<FavoriteEntity> favoriteEntity)? success,
     TResult Function(String? errCode, String? err)? error,
     TResult Function()? paginationLoading,
     TResult Function(String? errCode, String? err)? paginationError,

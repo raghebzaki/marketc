@@ -10,7 +10,7 @@ class FavoriteUseCase {
 
   FavoriteUseCase(this.favoriteRepo);
 
-  Future<Either<Failure, List<FavoriteEntity>>> call(num? userId,int? nextPage) async {
-    return await favoriteRepo.getAllProducts(userId, nextPage);
+  Future<Either<Failure, List<FavoriteEntity>>> call(FavoriteEntity favoriteEntity) async {
+    return await favoriteRepo.getAllProducts(favoriteEntity);
   }
 }

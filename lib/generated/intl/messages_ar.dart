@@ -132,6 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "أدخل كلمة المرور الجديدة أدناه"),
         "enter_valid_email": MessageLookupByLibrary.simpleMessage(
             "يرجى إدخال بريد إلكتروني صالح"),
+        "error_occurred": MessageLookupByLibrary.simpleMessage("حدث خطأ!"),
         "est": MessageLookupByLibrary.simpleMessage("وقت الوصول المتوقع"),
         "executed_request":
             MessageLookupByLibrary.simpleMessage("الطلب المنفذ"),

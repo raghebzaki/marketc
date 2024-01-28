@@ -5,6 +5,6 @@ import '../../../../../../core/resources/api/failure_class.dart';
 
 
 abstract class FavoriteRepo {
-  Future<Either<Failure, List<FavoriteEntity>>> getAllProducts(num? userId,int? nextPage);
+  Future<Either<Failure, List<FavoriteEntity>>> getAllProducts(FavoriteEntity favoriteEntity);
 
 }

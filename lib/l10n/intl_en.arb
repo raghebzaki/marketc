@@ -223,5 +223,7 @@
   "country": "Country",
   "city": "City",
   "field_required": "This field is required",
-  "state": "State"
+  "state": "State",
+  "@_ErrorWidget": {},
+  "error_occurred": "Error Occurred!"
 }

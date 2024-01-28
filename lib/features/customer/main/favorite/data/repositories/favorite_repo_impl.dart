@@ -16,12 +16,12 @@ class FavoriteRepoImpl implements FavoriteRepo {
 
 
   @override
-  Future<Either<Failure, List<FavoriteEntity>>> getAllProducts(num? userId, int? nextPage) async {
+  Future<Either<Failure, List<FavoriteEntity>>> getAllProducts(FavoriteEntity favoriteEntity) async {
     final result = await Connectivity().checkConnectivity();
     if (result == ConnectivityResult.mobile ||
         result == ConnectivityResult.wifi) {
       try {
-        final getContracts = await favoriteService.getAllProducts(userId, nextPage);
+        final getContracts = await favoriteService.getAllProducts(favoriteEntity);
         return right(getContracts);
       } on DioException catch (error) {
         return Left(ErrorHandler.handle(error).failure);
