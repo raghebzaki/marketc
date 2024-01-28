@@ -5,5 +5,6 @@ class AddFavoriteStates with _$AddFavoriteStates {
   const factory AddFavoriteStates.initial() = _Initial;
   const factory AddFavoriteStates.loading() = Loading;
   const factory AddFavoriteStates.success(final AddFavoriteEntity favorite) = Success;
+  const factory AddFavoriteStates.successCheck(final AddFavoriteEntity favorite) = SuccessCheck;
   const factory AddFavoriteStates.error(final String errCode, final String err) = Error;
 }

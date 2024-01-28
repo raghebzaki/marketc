@@ -31,4 +31,21 @@ class AddFavoriteRepoImpl implements AddFavoriteRepo {
       return Left(DataSource.noInternetConnection.getFailure());
     }
   }
+
+  @override
+  Future<Either<Failure, AddFavoriteEntity>> checkIfProductFavorite(num? userId, num? productId)  async {
+    final result = await Connectivity().checkConnectivity();
+    if (result == ConnectivityResult.mobile ||
+        result == ConnectivityResult.wifi) {
+      try {
+        final getContracts =
+        await addFavoriteService.checkIfFavoriteProduct(userId, productId);
+        return right(getContracts);
+      } on DioException catch (error) {
+        return Left(ErrorHandler.handle(error).failure);
+      }
+    } else {
+      return Left(DataSource.noInternetConnection.getFailure());
+    }
+  }
 }

@@ -4,15 +4,18 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:marketc/features/customer/main/product_details/domain/entities/add_favorite_entity.dart';
 import 'package:marketc/features/customer/main/product_details/domain/use_cases/add_favorite_use_case.dart';
 
+import '../../domain/use_cases/check_if_favorite_use_case.dart';
+
 part 'add_favorite_state.dart';
 
 part 'add_favorite_cubit.freezed.dart';
 
 class AddFavoriteCubit extends Cubit<AddFavoriteStates> {
-  AddFavoriteCubit({required this.favoriteUseCase})
+  AddFavoriteCubit({required this.checkUseCase, required this.favoriteUseCase})
       : super(const AddFavoriteStates.initial());
 
   static AddFavoriteCubit get(BuildContext context) => BlocProvider.of(context);
+  final CheckIfFavoriteUseCase checkUseCase;
 
   final AddFavoriteUseCase favoriteUseCase;
 
@@ -33,6 +36,27 @@ class AddFavoriteCubit extends Cubit<AddFavoriteStates> {
       (r) => {
         emit(
           AddFavoriteStates.success(r),
+        ),
+      },
+    );
+  }
+
+  checkFavorite(num? userId, num? productId) async {
+
+    final check = await checkUseCase(userId, productId);
+
+    check.fold(
+          (l) => {
+        emit(
+          AddFavoriteStates.error(
+            l.code.toString(),
+            l.message,
+          ),
+        ),
+      },
+          (r) => {
+        emit(
+          AddFavoriteStates.successCheck(r),
         ),
       },
     );

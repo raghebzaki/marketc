@@ -81,9 +81,8 @@ checkRememberMe(BuildContext context) async {
         LoginEntity(
           userName: email,
           pass: pass,
-        ),
+        ) ,context,
       );
-      context.pushNamed(bottomNavBarPageRoute);
     }
   }
 }

@@ -7,4 +7,6 @@ import '../../../../../../core/resources/api/failure_class.dart';
 abstract class AddFavoriteRepo {
   Future<Either<Failure, AddFavoriteEntity>> addProductToFavorites(num? userId,num? productId);
 
+  Future<Either<Failure, AddFavoriteEntity>> checkIfProductFavorite(num? userId,num? productId);
+
 }

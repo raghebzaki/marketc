@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:marketc/features/customer/main/product_details/domain/use_cases/check_if_favorite_use_case.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/change_pass/data/data_sources/change_pass_service.dart';
@@ -259,11 +260,13 @@ Future<void> init() async {
   di.registerLazySingleton<FavoriteRepo>(() => FavoriteRepoImpl(di()));
   di.registerLazySingleton<FavoriteService>(() => FavoriteServiceImpl());
 
-  /// Add Favorite
-  di.registerFactory(() => AddFavoriteCubit(favoriteUseCase: di()));
+  /// Add Favorite && check Favorite
+  di.registerFactory(() => AddFavoriteCubit(favoriteUseCase: di(), checkUseCase: di()));
   di.registerLazySingleton(() => AddFavoriteUseCase(addFavoriteRepo: di()));
+  di.registerLazySingleton(() => CheckIfFavoriteUseCase(checkIfFavoriteRepo: di()));
   di.registerLazySingleton<AddFavoriteRepo>(() => AddFavoriteRepoImpl(addFavoriteService: di()));
   di.registerLazySingleton<AddFavoriteService>(() => AddFavoriteServiceImpl());
+
 
   /// Category Details
   di.registerFactory(

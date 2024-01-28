@@ -37,7 +37,7 @@ class ProductModel extends ProductEntity {
       descriptionEn: json["description_en"],
       code: json["code"],
       price: json["price"],
-      discountPercent: json["discount_percentage"],
+      discountPercent: json["discount_percentage"]??0,
       priceAfterDiscount: json["price_after_discount"],
       image: json["image"],
       size: json["sizes"] == null

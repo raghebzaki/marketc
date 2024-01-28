@@ -69,6 +69,7 @@ dependencies:
   country_code_picker: ^3.0.0
   dotted_border: ^2.1.0 # A flutter package to let users easily add a dashed border around any widget
   flutter_html:
+  auto_height_grid_view: ^1.0.0
 
 
   # Flutter plugin for adapting screen and font size.

@@ -35,6 +35,7 @@ class AppConstants {
   static const newProductsUri = "v1/products";
   static const favoriteProductsUri = "v1/products/get-my-favourite";
   static const addFavoriteProductsUri = "v1/products/add-to-favourite";
+  static const checkIfFavoriteProductsUri = "v1/products/check-if-favourite";
   static const categoryDetailsUri = "";
   static const placeOrderUri = "";
   static const addPromoCodeUri = "";

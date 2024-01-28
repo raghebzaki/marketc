@@ -12,8 +12,8 @@ class AddFavoriteModel extends AddFavoriteEntity {
 
   factory AddFavoriteModel.fromJson(Map<String, dynamic> map) {
     return AddFavoriteModel(
-      status: map['status'] as num,
-      msg: map['success'] as String,
+      status: map['status'] ,
+      msg: map['success'] ,
     );
   }
 

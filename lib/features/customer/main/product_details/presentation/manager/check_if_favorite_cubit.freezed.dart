@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'add_favorite_cubit.dart';
+part of 'check_if_favorite_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,13 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$AddFavoriteStates {
+mixin _$CheckIfFavoriteState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(AddFavoriteEntity favorite) success,
-    required TResult Function(AddFavoriteEntity favorite) successCheck,
     required TResult Function(String errCode, String err) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,7 +29,6 @@ mixin _$AddFavoriteStates {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(AddFavoriteEntity favorite)? success,
-    TResult? Function(AddFavoriteEntity favorite)? successCheck,
     TResult? Function(String errCode, String err)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,7 +37,6 @@ mixin _$AddFavoriteStates {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AddFavoriteEntity favorite)? success,
-    TResult Function(AddFavoriteEntity favorite)? successCheck,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) =>
@@ -49,7 +46,6 @@ mixin _$AddFavoriteStates {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(SuccessCheck value) successCheck,
     required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -58,7 +54,6 @@ mixin _$AddFavoriteStates {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(SuccessCheck value)? successCheck,
     TResult? Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -67,7 +62,6 @@ mixin _$AddFavoriteStates {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(SuccessCheck value)? successCheck,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) =>
@@ -75,16 +69,17 @@ mixin _$AddFavoriteStates {
 }
 
 /// @nodoc
-abstract class $AddFavoriteStatesCopyWith<$Res> {
-  factory $AddFavoriteStatesCopyWith(
-          AddFavoriteStates value, $Res Function(AddFavoriteStates) then) =
-      _$AddFavoriteStatesCopyWithImpl<$Res, AddFavoriteStates>;
+abstract class $CheckIfFavoriteStateCopyWith<$Res> {
+  factory $CheckIfFavoriteStateCopyWith(CheckIfFavoriteState value,
+          $Res Function(CheckIfFavoriteState) then) =
+      _$CheckIfFavoriteStateCopyWithImpl<$Res, CheckIfFavoriteState>;
 }
 
 /// @nodoc
-class _$AddFavoriteStatesCopyWithImpl<$Res, $Val extends AddFavoriteStates>
-    implements $AddFavoriteStatesCopyWith<$Res> {
-  _$AddFavoriteStatesCopyWithImpl(this._value, this._then);
+class _$CheckIfFavoriteStateCopyWithImpl<$Res,
+        $Val extends CheckIfFavoriteState>
+    implements $CheckIfFavoriteStateCopyWith<$Res> {
+  _$CheckIfFavoriteStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -101,7 +96,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$AddFavoriteStatesCopyWithImpl<$Res, _$InitialImpl>
+    extends _$CheckIfFavoriteStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -115,7 +110,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'AddFavoriteStates.initial()';
+    return 'CheckIfFavoriteState.initial()';
   }
 
   @override
@@ -133,7 +128,6 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(AddFavoriteEntity favorite) success,
-    required TResult Function(AddFavoriteEntity favorite) successCheck,
     required TResult Function(String errCode, String err) error,
   }) {
     return initial();
@@ -145,7 +139,6 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(AddFavoriteEntity favorite)? success,
-    TResult? Function(AddFavoriteEntity favorite)? successCheck,
     TResult? Function(String errCode, String err)? error,
   }) {
     return initial?.call();
@@ -157,7 +150,6 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AddFavoriteEntity favorite)? success,
-    TResult Function(AddFavoriteEntity favorite)? successCheck,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
@@ -173,7 +165,6 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(SuccessCheck value) successCheck,
     required TResult Function(Error value) error,
   }) {
     return initial(this);
@@ -185,7 +176,6 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(SuccessCheck value)? successCheck,
     TResult? Function(Error value)? error,
   }) {
     return initial?.call(this);
@@ -197,7 +187,6 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(SuccessCheck value)? successCheck,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -208,7 +197,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements AddFavoriteStates {
+abstract class _Initial implements CheckIfFavoriteState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -221,7 +210,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$AddFavoriteStatesCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$CheckIfFavoriteStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -235,7 +224,7 @@ class _$LoadingImpl implements Loading {
 
   @override
   String toString() {
-    return 'AddFavoriteStates.loading()';
+    return 'CheckIfFavoriteState.loading()';
   }
 
   @override
@@ -253,7 +242,6 @@ class _$LoadingImpl implements Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(AddFavoriteEntity favorite) success,
-    required TResult Function(AddFavoriteEntity favorite) successCheck,
     required TResult Function(String errCode, String err) error,
   }) {
     return loading();
@@ -265,7 +253,6 @@ class _$LoadingImpl implements Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(AddFavoriteEntity favorite)? success,
-    TResult? Function(AddFavoriteEntity favorite)? successCheck,
     TResult? Function(String errCode, String err)? error,
   }) {
     return loading?.call();
@@ -277,7 +264,6 @@ class _$LoadingImpl implements Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AddFavoriteEntity favorite)? success,
-    TResult Function(AddFavoriteEntity favorite)? successCheck,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
@@ -293,7 +279,6 @@ class _$LoadingImpl implements Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(SuccessCheck value) successCheck,
     required TResult Function(Error value) error,
   }) {
     return loading(this);
@@ -305,7 +290,6 @@ class _$LoadingImpl implements Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(SuccessCheck value)? successCheck,
     TResult? Function(Error value)? error,
   }) {
     return loading?.call(this);
@@ -317,7 +301,6 @@ class _$LoadingImpl implements Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(SuccessCheck value)? successCheck,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -328,7 +311,7 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements AddFavoriteStates {
+abstract class Loading implements CheckIfFavoriteState {
   const factory Loading() = _$LoadingImpl;
 }
 
@@ -343,7 +326,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$AddFavoriteStatesCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$CheckIfFavoriteStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
@@ -373,7 +356,7 @@ class _$SuccessImpl implements Success {
 
   @override
   String toString() {
-    return 'AddFavoriteStates.success(favorite: $favorite)';
+    return 'CheckIfFavoriteState.success(favorite: $favorite)';
   }
 
   @override
@@ -400,7 +383,6 @@ class _$SuccessImpl implements Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(AddFavoriteEntity favorite) success,
-    required TResult Function(AddFavoriteEntity favorite) successCheck,
     required TResult Function(String errCode, String err) error,
   }) {
     return success(favorite);
@@ -412,7 +394,6 @@ class _$SuccessImpl implements Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(AddFavoriteEntity favorite)? success,
-    TResult? Function(AddFavoriteEntity favorite)? successCheck,
     TResult? Function(String errCode, String err)? error,
   }) {
     return success?.call(favorite);
@@ -424,7 +405,6 @@ class _$SuccessImpl implements Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AddFavoriteEntity favorite)? success,
-    TResult Function(AddFavoriteEntity favorite)? successCheck,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
@@ -440,7 +420,6 @@ class _$SuccessImpl implements Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(SuccessCheck value) successCheck,
     required TResult Function(Error value) error,
   }) {
     return success(this);
@@ -452,7 +431,6 @@ class _$SuccessImpl implements Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(SuccessCheck value)? successCheck,
     TResult? Function(Error value)? error,
   }) {
     return success?.call(this);
@@ -464,7 +442,6 @@ class _$SuccessImpl implements Success {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(SuccessCheck value)? successCheck,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -475,165 +452,12 @@ class _$SuccessImpl implements Success {
   }
 }
 
-abstract class Success implements AddFavoriteStates {
+abstract class Success implements CheckIfFavoriteState {
   const factory Success(final AddFavoriteEntity favorite) = _$SuccessImpl;
 
   AddFavoriteEntity get favorite;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$SuccessCheckImplCopyWith<$Res> {
-  factory _$$SuccessCheckImplCopyWith(
-          _$SuccessCheckImpl value, $Res Function(_$SuccessCheckImpl) then) =
-      __$$SuccessCheckImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({AddFavoriteEntity favorite});
-}
-
-/// @nodoc
-class __$$SuccessCheckImplCopyWithImpl<$Res>
-    extends _$AddFavoriteStatesCopyWithImpl<$Res, _$SuccessCheckImpl>
-    implements _$$SuccessCheckImplCopyWith<$Res> {
-  __$$SuccessCheckImplCopyWithImpl(
-      _$SuccessCheckImpl _value, $Res Function(_$SuccessCheckImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? favorite = null,
-  }) {
-    return _then(_$SuccessCheckImpl(
-      null == favorite
-          ? _value.favorite
-          : favorite // ignore: cast_nullable_to_non_nullable
-              as AddFavoriteEntity,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SuccessCheckImpl implements SuccessCheck {
-  const _$SuccessCheckImpl(this.favorite);
-
-  @override
-  final AddFavoriteEntity favorite;
-
-  @override
-  String toString() {
-    return 'AddFavoriteStates.successCheck(favorite: $favorite)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SuccessCheckImpl &&
-            (identical(other.favorite, favorite) ||
-                other.favorite == favorite));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, favorite);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SuccessCheckImplCopyWith<_$SuccessCheckImpl> get copyWith =>
-      __$$SuccessCheckImplCopyWithImpl<_$SuccessCheckImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(AddFavoriteEntity favorite) success,
-    required TResult Function(AddFavoriteEntity favorite) successCheck,
-    required TResult Function(String errCode, String err) error,
-  }) {
-    return successCheck(favorite);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(AddFavoriteEntity favorite)? success,
-    TResult? Function(AddFavoriteEntity favorite)? successCheck,
-    TResult? Function(String errCode, String err)? error,
-  }) {
-    return successCheck?.call(favorite);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(AddFavoriteEntity favorite)? success,
-    TResult Function(AddFavoriteEntity favorite)? successCheck,
-    TResult Function(String errCode, String err)? error,
-    required TResult orElse(),
-  }) {
-    if (successCheck != null) {
-      return successCheck(favorite);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Success value) success,
-    required TResult Function(SuccessCheck value) successCheck,
-    required TResult Function(Error value) error,
-  }) {
-    return successCheck(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Success value)? success,
-    TResult? Function(SuccessCheck value)? successCheck,
-    TResult? Function(Error value)? error,
-  }) {
-    return successCheck?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Success value)? success,
-    TResult Function(SuccessCheck value)? successCheck,
-    TResult Function(Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (successCheck != null) {
-      return successCheck(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SuccessCheck implements AddFavoriteStates {
-  const factory SuccessCheck(final AddFavoriteEntity favorite) =
-      _$SuccessCheckImpl;
-
-  AddFavoriteEntity get favorite;
-  @JsonKey(ignore: true)
-  _$$SuccessCheckImplCopyWith<_$SuccessCheckImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -648,7 +472,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$AddFavoriteStatesCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$CheckIfFavoriteStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -685,7 +509,7 @@ class _$ErrorImpl implements Error {
 
   @override
   String toString() {
-    return 'AddFavoriteStates.error(errCode: $errCode, err: $err)';
+    return 'CheckIfFavoriteState.error(errCode: $errCode, err: $err)';
   }
 
   @override
@@ -712,7 +536,6 @@ class _$ErrorImpl implements Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(AddFavoriteEntity favorite) success,
-    required TResult Function(AddFavoriteEntity favorite) successCheck,
     required TResult Function(String errCode, String err) error,
   }) {
     return error(errCode, err);
@@ -724,7 +547,6 @@ class _$ErrorImpl implements Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(AddFavoriteEntity favorite)? success,
-    TResult? Function(AddFavoriteEntity favorite)? successCheck,
     TResult? Function(String errCode, String err)? error,
   }) {
     return error?.call(errCode, err);
@@ -736,7 +558,6 @@ class _$ErrorImpl implements Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AddFavoriteEntity favorite)? success,
-    TResult Function(AddFavoriteEntity favorite)? successCheck,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
@@ -752,7 +573,6 @@ class _$ErrorImpl implements Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
-    required TResult Function(SuccessCheck value) successCheck,
     required TResult Function(Error value) error,
   }) {
     return error(this);
@@ -764,7 +584,6 @@ class _$ErrorImpl implements Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
-    TResult? Function(SuccessCheck value)? successCheck,
     TResult? Function(Error value)? error,
   }) {
     return error?.call(this);
@@ -776,7 +595,6 @@ class _$ErrorImpl implements Error {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
-    TResult Function(SuccessCheck value)? successCheck,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -787,7 +605,7 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements AddFavoriteStates {
+abstract class Error implements CheckIfFavoriteState {
   const factory Error(final String errCode, final String err) = _$ErrorImpl;
 
   String get errCode;

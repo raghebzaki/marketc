@@ -6,7 +6,7 @@ import 'package:marketc/core/shared/widgets/state_error_widget.dart';
 import 'package:marketc/core/shared/widgets/state_loading_widget.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-
+import 'package:auto_height_grid_view/auto_height_grid_view.dart';
 import '../../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
@@ -51,23 +51,18 @@ class FavoriteView extends StatelessWidget {
                             sufIcon: Icon(MdiIcons.magnify, size: 18.sp),
                           ),
                           Gap(15.h),
-                          GridView.count(
+                          AutoHeightGridView(
+                            itemCount:  state.length,
                             crossAxisCount: 2,
-                            crossAxisSpacing: 16,
-                            mainAxisSpacing: 2.0,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
+                            mainAxisSpacing: 0,
+                            crossAxisSpacing: 0,
                             physics: const NeverScrollableScrollPhysics(),
-                            childAspectRatio: 2 / 3,
-                            children: [
-                              ...List.generate(
-                                state.length,
-                                (index) {
-                                  return ProductCard(
-                                      productEntity: state[index].product!);
-                                },
-                              ),
-                            ],
+                            padding: const EdgeInsets.all(12),
+                            shrinkWrap: true,
+                            builder: (context, index) {
+                              return ProductCard(
+                                  productEntity: state[index].product!);
+                            },
                           ),
                         ],
                       ),

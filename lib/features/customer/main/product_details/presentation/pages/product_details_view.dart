@@ -30,10 +30,11 @@ class ProductDetailsView extends StatefulWidget {
 }
 
 class _ProductDetailsViewState extends State<ProductDetailsView> {
+  bool isFavorite =false;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => di.di<AddFavoriteCubit>(),
+      create: (context) => di.di<AddFavoriteCubit>()..checkFavorite(UserData.id, widget.productEntity.id),
       child: BlocConsumer<AddFavoriteCubit, AddFavoriteStates>(
         listener: (context, state) {
 
@@ -94,6 +95,27 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                                   ),
                                 );
                               },
+                              successCheck: (state) {
+                                isFavorite=state.status==0?false:true;
+                                return Positioned(
+                                  left: 250.w,
+                                  top: 0,
+                                  right: 0,
+                                  bottom: 300.h,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      addFavoriteCubit.addFavorite(
+                                          UserData.id, widget.productEntity.id);
+                                    },
+                                    child: isFavorite?Icon(
+                                      MdiIcons.heart,
+                                      color: Colors.red,
+                                    ):Icon(
+                                      MdiIcons.heartOutline,
+                                    ),
+                                  ),
+                                );
+                              },
                               loading: () {
                                 return Positioned(
                                   left: 250.w,
@@ -101,8 +123,11 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                                   right: 0,
                                   bottom: 300.h,
                                   child: GestureDetector(
-                                    child: Icon(
+                                    child: isFavorite?Icon(
                                       MdiIcons.heartOutline,
+                                    ):Icon(
+                                      MdiIcons.heart,
+                                      color: Colors.red,
                                     ),
                                   ),
                                 );
@@ -166,7 +191,12 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                               style: CustomTextStyle.kTextStyleF20,
                             ),
                           ),
-                          Text(
+                          widget.productEntity.discountPercent==0?Text(
+                            "${widget.productEntity.price} ${S.current.sar}",
+                            style: CustomTextStyle.kTextStyleF18.copyWith(
+                              color: AppColors.lightBlue,
+                            ),
+                          ):Text(
                             "${widget.productEntity.price} ${S.current.sar}",
                             style: CustomTextStyle.kTextStyleF18.copyWith(
                               color: AppColors.lightBlue,

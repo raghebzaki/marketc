@@ -56,7 +56,7 @@ class ProductCard extends StatelessWidget {
                         .copyWith(color: AppColors.textColor),
                   ),
                   Text(
-                    'تطريز شعارات',
+                    productEntity.subCategoryId==2?S.current.custom_phrases:S.current.custom_logo,
                     style: CustomTextStyle.kTextStyleF12
                         .copyWith(color: AppColors.textColorSecondary),
                   ),
@@ -65,7 +65,7 @@ class ProductCard extends StatelessWidget {
                     style: CustomTextStyle.kTextStyleF12
                         .copyWith(color: AppColors.textColorSecondary),
                   ),
-                  Row(
+                  productEntity.discountPercent==0?Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -75,9 +75,20 @@ class ProductCard extends StatelessWidget {
                         style: CustomTextStyle.kTextStyleF12
                             .copyWith(color: AppColors.lightBlue),
                       ),
+                    ],
+                  ):Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '${productEntity.priceAfterDiscount} ${S.current.sar}',
+                        style: CustomTextStyle.kTextStyleF12
+                            .copyWith(color: AppColors.lightBlue),
+                      ),
                       Gap(8.w),
                       Text(
-                        productEntity.discountPercent!.toString(),
+                        "${productEntity.discountPercent!}%",
                         style: CustomTextStyle.kTextStyleF12
                             .copyWith(color: AppColors.discountNumber),
                       ),
