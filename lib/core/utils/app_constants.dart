@@ -21,8 +21,8 @@ class AppConstants {
   static String? fcmToken = "";
 
   // * API URIs
-  static const apiBaseUrl = "https://crm.coddiv.com/api/";
-  static const imageUrl = "https://crm.coddiv.com/";
+  static const apiBaseUrl = "https://beautyproducts.website/api/";
+  static const imageUrl = "https://beautyproducts.website/";
   static const loginUri = "auth/login";
   static const forgotPassUri = "auth/forget-password";
   static const resetPassUri = "auth/reset-password";
