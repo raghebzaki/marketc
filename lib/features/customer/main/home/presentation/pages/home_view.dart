@@ -195,7 +195,6 @@ class HomeView extends StatelessWidget {
                     listener: (context, state) {},
                     builder: (context, state) {
                       return state.maybeWhen(
-
                         success: (state) {
                           return SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
@@ -282,11 +281,16 @@ class HomeView extends StatelessWidget {
                         style: CustomTextStyle.kTextStyleF16,
                       ),
                       const Spacer(),
-                      Text(
-                        S.current.more,
-                        textAlign: TextAlign.right,
-                        style: CustomTextStyle.kTextStyleF14
-                            .copyWith(color: AppColors.lightBlue),
+                      GestureDetector(
+                        onTap: () {
+                          context.pushNamed(mostPopularSeeMorePageRoute);
+                        },
+                        child: Text(
+                          S.current.more,
+                          textAlign: TextAlign.right,
+                          style: CustomTextStyle.kTextStyleF14
+                              .copyWith(color: AppColors.lightBlue),
+                        ),
                       ),
                       Gap(10.w),
                       Icon(
@@ -298,39 +302,36 @@ class HomeView extends StatelessWidget {
                   BlocConsumer<MostPopularCubit, MostPopularState>(
                     listener: (context, state) {},
                     builder: (context, state) {
-                      return state.maybeWhen(
-                          success: (state){
-                            return SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                children: [
-                                  ...List.generate(
-                                    state!.length,
-                                        (index) {
-                                      return  Padding(
-                                        padding: const EdgeInsets.all(Dimensions.p8),
-                                        child: ProductCard(productEntity: state[index],),
-                                      );
-                                    },
-                                  ),
-                                ],
+                      return state.maybeWhen(success: (state) {
+                        return SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              ...List.generate(
+                                state!.length,
+                                (index) {
+                                  return Padding(
+                                    padding:
+                                        const EdgeInsets.all(Dimensions.p8),
+                                    child: ProductCard(
+                                      productEntity: state[index],
+                                    ),
+                                  );
+                                },
                               ),
-                            );
-                          },
-                          loading: () {
-                            return const Center(
-                                child: CircularProgressIndicator());
-                          },
-                          error: (errCode, err) {
-                            return StateErrorWidget(
-                              errCode: errCode!,
-                              err: err!,
-                            );
-                          },
-                          orElse: (){
-                            return const SizedBox.shrink();
-                          }
-                      );
+                            ],
+                          ),
+                        );
+                      }, loading: () {
+                        return const Center(child: CircularProgressIndicator());
+                      }, error: (errCode, err) {
+                        return StateErrorWidget(
+                          errCode: errCode!,
+                          err: err!,
+                        );
+                      }, orElse: () {
+                        return const SizedBox.shrink();
+                      });
                     },
                   ),
                   Gap(10.h),
@@ -342,11 +343,16 @@ class HomeView extends StatelessWidget {
                         style: CustomTextStyle.kTextStyleF16,
                       ),
                       const Spacer(),
-                      Text(
-                        S.current.more,
-                        textAlign: TextAlign.right,
-                        style: CustomTextStyle.kTextStyleF14
-                            .copyWith(color: AppColors.lightBlue),
+                      GestureDetector(
+                        onTap: () {
+                          context.pushNamed(newProductsSeeMorePageRoute);
+                        },
+                        child: Text(
+                          S.current.more,
+                          textAlign: TextAlign.right,
+                          style: CustomTextStyle.kTextStyleF14
+                              .copyWith(color: AppColors.lightBlue),
+                        ),
                       ),
                       Gap(10.w),
                       Icon(
@@ -358,39 +364,36 @@ class HomeView extends StatelessWidget {
                   BlocConsumer<NewProductsCubit, NewProductsState>(
                     listener: (context, state) {},
                     builder: (context, state) {
-                      return state.maybeWhen(
-                          success: (state){
-                            return SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                children: [
-                                  ...List.generate(
-                                    state!.length,
-                                        (index) {
-                                      return  Padding(
-                                        padding: const EdgeInsets.all(Dimensions.p8),
-                                        child: ProductCard(productEntity: state[index],),
-                                      );
-                                    },
-                                  ),
-                                ],
+                      return state.maybeWhen(success: (state) {
+                        return SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              ...List.generate(
+                                state!.length,
+                                (index) {
+                                  return Padding(
+                                    padding:
+                                        const EdgeInsets.all(Dimensions.p8),
+                                    child: ProductCard(
+                                      productEntity: state[index],
+                                    ),
+                                  );
+                                },
                               ),
-                            );
-                          },
-                          loading: () {
-                            return const Center(
-                                child: CircularProgressIndicator());
-                          },
-                          error: (errCode, err) {
-                            return StateErrorWidget(
-                              errCode: errCode!,
-                              err: err!,
-                            );
-                          },
-                          orElse: (){
-                            return const SizedBox.shrink();
-                          }
-                      );
+                            ],
+                          ),
+                        );
+                      }, loading: () {
+                        return const Center(child: CircularProgressIndicator());
+                      }, error: (errCode, err) {
+                        return StateErrorWidget(
+                          errCode: errCode!,
+                          err: err!,
+                        );
+                      }, orElse: () {
+                        return const SizedBox.shrink();
+                      });
                     },
                   ),
                 ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:marketc/core/utils/extensions.dart';
 
 import '../../../generated/l10n.dart';
 import '../../utils/app_colors.dart';
@@ -64,7 +65,7 @@ class StateErrorWidget extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  errCode,
+                  errCode.isNullOrEmpty(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: Dimensions.f16,
@@ -74,7 +75,7 @@ class StateErrorWidget extends StatelessWidget {
                 ),
                 Gap(10.h),
                 Text(
-                  err,
+                  err.isNullOrEmpty(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: Dimensions.f14,
