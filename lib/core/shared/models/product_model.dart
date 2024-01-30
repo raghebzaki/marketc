@@ -34,6 +34,7 @@ class ProductModel extends ProductEntity {
       nameAr: json["name_ar"],
       nameEn: json["name_en"],
       categoryId: json["category_id"],
+      subCategoryId: json["sub_category_id"],
       descriptionAr: json["description_ar"],
       descriptionEn: json["description_en"],
       code: json["code"],
@@ -41,6 +42,7 @@ class ProductModel extends ProductEntity {
       discountPercent: json["discount_percentage"]??0,
       priceAfterDiscount: json["price_after_discount"],
       image: json["image"],
+      quantity: json["quantity"],
       size: json["sizes"] == null
           ? []
           : List<ProductSizesModel>.from(

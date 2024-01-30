@@ -48,7 +48,29 @@ class _EditProductViewState extends State<EditProductView> {
   bool customLogo = true;
   List<int> colorIds = [];
   List<int> sizeIds = [];
+  @override
+  void initState() {
+    super.initState();
+    go();
 
+  }
+  go(){
+     productNameArCtrl = TextEditingController(text: widget.productDetails.nameAr);
+     productNameEnCtrl = TextEditingController(text: widget.productDetails.nameEn);
+     productDescriptionArCtrl = TextEditingController(text: widget.productDetails.descriptionAr);
+     productDescriptionEnCtrl = TextEditingController(text: widget.productDetails.descriptionEn);
+     productPriceCtrl = TextEditingController(text: widget.productDetails.price);
+     productDiscountCtrl = TextEditingController(text: widget.productDetails.discountPercent.toString());
+     quantityCtrl = TextEditingController(text: widget.productDetails.quantity.toString());
+     catId=widget.productDetails.categoryId!;
+     customLogo=widget.productDetails.subCategoryId==3?true:false;
+     for (var color in widget.productDetails.color!) {
+       colorIds.add(color.id!.toInt());
+     }
+     for (var size in widget.productDetails.size!) {
+       sizeIds.add(size.id!.toInt());
+     }
+  }
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -239,7 +261,6 @@ class _EditProductViewState extends State<EditProductView> {
                       listener: (context, state) {
                         state.maybeWhen(
                           success: (state) {
-                            catId = state![0].id!;
                           },
                           orElse: () {
                             return null;

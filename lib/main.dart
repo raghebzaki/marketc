@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -7,6 +9,7 @@ import 'package:marketc/core/database/address_class.dart';
 
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
+import 'core/my_http.dart';
 import 'core/router/router_generator.dart';
 import 'core/shared/widgets/custom_error_widget.dart';
 import 'core/utils/app_strings.dart';
@@ -32,6 +35,7 @@ void main() async {
       ),
     );
   };
+  HttpOverrides.global = MyHttpOverrides();
 
   // await Firebase.initializeApp();
   // if (Platform.isAndroid) {

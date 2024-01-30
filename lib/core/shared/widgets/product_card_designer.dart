@@ -53,11 +53,12 @@ class ProductCardDesigner extends StatelessWidget {
               child: Column(
                 children: [
                   CachedNetworkImage(
+                    height: 120.h,
                     imageUrl: AppConstants.imageUrl + productEntity.image!,
                     imageBuilder: (context, imageProvider) {
                       return Container(
                         width: double.infinity,
-                        height: 120,
+                        height: 120.h,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: NetworkImage(
@@ -77,25 +78,27 @@ class ProductCardDesigner extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Column(
-                              children: [
-                                Text(
-                                  CacheHelper.isEnglish()
-                                      ? productEntity.nameEn!
-                                      : productEntity.nameAr!,
-                                  style: CustomTextStyle.kTextStyleF12
-                                      .copyWith(color: AppColors.textColor),
-                                ),
-                                Text(
-                                  productEntity.subCategoryId == 2
-                                      ? S.current.custom_phrases
-                                      : S.current.custom_logo,
-                                  style: CustomTextStyle.kTextStyleF12.copyWith(
-                                      color: AppColors.textColorSecondary),
-                                ),
-                              ],
+                            Expanded(
+                              child: Column(
+                                children: [
+                                  Text(
+                                    CacheHelper.isEnglish()
+                                        ? productEntity.nameEn!
+                                        : productEntity.nameAr!,
+                                    style: CustomTextStyle.kTextStyleF12
+                                        .copyWith(color: AppColors.textColor),
+                                  ),
+                                  Text(
+                                    productEntity.subCategoryId == 2
+                                        ? S.current.custom_phrases
+                                        : S.current.custom_logo,
+                                    style: CustomTextStyle.kTextStyleF12.copyWith(
+                                        color: AppColors.textColorSecondary),
+                                  ),
+                                ],
+                              ),
                             ),
-                            const Spacer(),
+                            Gap(5.w),
                             GestureDetector(
                                 onTap: () {
                                   showModalBottomSheet(

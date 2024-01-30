@@ -105,6 +105,8 @@ class _MainViewState extends State<MainView> {
                 error: (errCode, err) {
                   context
                       .defaultSnackBar("${S.current.err_code}: $errCode, $err");
+                  context.pushNamed(loginPageRoute);
+
                 },
                 orElse: () {
                   return null;

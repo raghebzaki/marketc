@@ -1,3 +1,4 @@
+
 import 'package:dio/dio.dart';
 
 import '../../../../../core/service/dio_factory.dart';
@@ -15,6 +16,12 @@ class LoginServiceImpl implements LoginService {
     Dio dio = await DioFactory.getDio();
     LoginModel loginModel = const LoginModel();
 
+    // (dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () {
+    //   HttpClient dioClient = HttpClient();
+    //   dioClient.badCertificateCallback =
+    //   ((X509Certificate cert, String host, int port) => true);
+    //   return dioClient;
+    // };
     final loginUser = await dio.post(
       AppConstants.apiBaseUrl + AppConstants.loginUri,
       data: LoginModel.toJson(loginEntity),
