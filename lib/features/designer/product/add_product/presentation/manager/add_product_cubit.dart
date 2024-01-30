@@ -61,8 +61,9 @@ class AddProductCubit extends Cubit<AddProductStates> {
     AddProductStates.uploadImage(img);
   }
 
-
-  List<File> selectedImages = []; // List of selected image// Instance of Image picker
+  List<File> selectedImages =
+      []; // List of selected image// Instance of Image picker
+  List<String> base64Images = [];
 
   getImages(context) async {
     final pickedFile = await picker.pickMultiImage(
@@ -77,6 +78,8 @@ class AddProductCubit extends Cubit<AddProductStates> {
     if (xFilePick.isNotEmpty) {
       for (var i = 0; i < xFilePick.length; i++) {
         selectedImages.add(File(xFilePick[i].path));
+        base64Images
+            .add(base64Encode(File(xFilePick[i].path).readAsBytesSync()));
       }
       AddProductStates.uploadMultipleImages(xFilePick);
     } else {
@@ -84,9 +87,7 @@ class AddProductCubit extends Cubit<AddProductStates> {
       // snackbar saying nothing is selected
       context.defaultSnackBar("Nothing is selected");
     }
-
   }
-
 
   Future<void> requestPermission() async {
     const permission = Permission.camera;

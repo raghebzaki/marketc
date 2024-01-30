@@ -18,6 +18,7 @@ class ProductModel extends ProductEntity {
     super.discountPercent,
     super.code,
     super.image,
+    super.imagesBase64,
     super.priceAfterDiscount,
     super.quantity,
     super.size,
@@ -72,7 +73,8 @@ class ProductModel extends ProductEntity {
       'discount_percent': productEntity.discountPercent,
       'size': productEntity.size,
       'color': productEntity.color,
-      'images': productEntity.images,
+      'image': productEntity.image,
+      'images': productEntity.imagesBase64,
     };
   }
 }

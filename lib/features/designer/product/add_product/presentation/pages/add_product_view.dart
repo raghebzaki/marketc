@@ -342,7 +342,7 @@ class _AddProductViewState extends State<AddProductView> {
                                           productDescriptionArCtrl.text,
                                       descriptionEn:
                                           productDescriptionEnCtrl.text,
-                                      image: addProductCubit.base64Image,
+                                      imagesBase64: addProductCubit.base64Images,
                                     ),
                                   ),
                                 );

@@ -21,12 +21,21 @@ class ProductEntity extends Equatable {
   final List<ProductSizesEntity>? size;
   final List<ProductColorsEntity>? color;
   final List<ProductsImagesEntity>? images;
+  final List<String>? imagesBase64;
   final String? status;
   final String? message;
 
   const ProductEntity({
-    this.nameEn, this.nameAr, this.subCategoryId, this.descriptionEn, this.descriptionAr,
-    this.code, this.priceAfterDiscount, this.image, this.quantity,
+    this.nameEn,
+    this.nameAr,
+    this.subCategoryId,
+    this.descriptionEn,
+    this.descriptionAr,
+    this.code,
+    this.priceAfterDiscount,
+    this.image,
+    this.imagesBase64,
+    this.quantity,
     this.id,
     this.categoryId,
     this.price,
@@ -39,8 +48,7 @@ class ProductEntity extends Equatable {
   });
 
   @override
-  List<Object?> get props =>
-      [
+  List<Object?> get props => [
         id,
         nameEn,
         nameAr,
@@ -53,6 +61,7 @@ class ProductEntity extends Equatable {
         discountPercent,
         priceAfterDiscount,
         image,
+    imagesBase64,
         quantity,
         size,
         color,
@@ -60,5 +69,4 @@ class ProductEntity extends Equatable {
         status,
         message,
       ];
-
 }
