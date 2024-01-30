@@ -11,7 +11,7 @@ import '../../../main/categories/domain/entities/my_designer_products_entity.dar
 import '../../../main/categories/presentation/manager/my_designer_products_cubit.dart';
 import '../../../main/categories/presentation/pages/designer_categories_view.dart';
 import '../../../main/profile/presentation/pages/designer_profile_view.dart';
-import '../../../product/add_product/presentation/pages/add_product.dart';
+import '../../../product/add_product/presentation/pages/add_product_view.dart';
 
 
 class BottomNavBarDesigner extends StatefulWidget {

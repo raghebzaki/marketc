@@ -78,6 +78,8 @@ dependencies:
   change_app_package_name: ^1.1.0 # Change App Package Name with single command
   flutter_timer_countdown: ^1.0.7
   uuid: ^4.3.3 # Generate a v4 (random) id
+  file_picker: ^6.1.1 # A package that allows you to use a native file explorer to pick single or multiple absolute file paths, with extension filtering support.
+  image_picker: ^1.0.7 # Flutter plugin for selecting images from the Android and iOS image library, and taking new pictures with the camera.
 
   # Maps
   google_maps_flutter: ^2.5.3

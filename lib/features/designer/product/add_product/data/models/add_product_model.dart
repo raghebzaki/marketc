@@ -3,7 +3,7 @@ import '../../domain/entities/add_product_entity.dart';
 
 class AddProductModel extends AddProductEntity {
 
-  const AddProductModel({
+  AddProductModel({
     super.status,
     super.msg,
     super.product,
@@ -17,15 +17,19 @@ class AddProductModel extends AddProductEntity {
 
   static Map<String, dynamic> toJson(AddProductEntity addProductEntity) {
     return {
-      'id': addProductEntity.product!.id,
-      'name': addProductEntity.product!.nameAr,
-      'category_id': addProductEntity.product!.categoryId,
-      'description': addProductEntity.product!.descriptionAr,
-      'price': addProductEntity.product!.price,
-      'discount_percent': addProductEntity.product!.discountPercent,
-      'size': addProductEntity.product!.size,
-      'color': addProductEntity.product!.color,
-      'images': addProductEntity.product!.images,
+      "designer_id": addProductEntity.designerId,
+      "category_id": addProductEntity.product!.categoryId,
+      "sub_category_id": addProductEntity.product!.subCategoryId,
+      "name_ar": addProductEntity.product!.nameAr,
+      "name_en": addProductEntity.product!.nameEn,
+      "price": addProductEntity.product!.price,
+      "quantity": addProductEntity.product!.quantity,
+      "discount_percentage": addProductEntity.product!.discountPercent,
+      "color_id": addProductEntity.product!.color,
+      "size_id": addProductEntity.product!.size,
+      "description_ar": addProductEntity.product!.descriptionAr,
+      "description_en": addProductEntity.product!.descriptionEn,
+      "image": addProductEntity.product!.image,
     };
   }
 

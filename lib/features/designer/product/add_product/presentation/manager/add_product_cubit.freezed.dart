@@ -22,6 +22,8 @@ mixin _$AddProductStates {
     required TResult Function() loading,
     required TResult Function(AddProductEntity addProduct) success,
     required TResult Function(String errCode, String err) error,
+    required TResult Function(XFile image) uploadImage,
+    required TResult Function(List<XFile> images) uploadMultipleImages,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +32,8 @@ mixin _$AddProductStates {
     TResult? Function()? loading,
     TResult? Function(AddProductEntity addProduct)? success,
     TResult? Function(String errCode, String err)? error,
+    TResult? Function(XFile image)? uploadImage,
+    TResult? Function(List<XFile> images)? uploadMultipleImages,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +42,8 @@ mixin _$AddProductStates {
     TResult Function()? loading,
     TResult Function(AddProductEntity addProduct)? success,
     TResult Function(String errCode, String err)? error,
+    TResult Function(XFile image)? uploadImage,
+    TResult Function(List<XFile> images)? uploadMultipleImages,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +53,8 @@ mixin _$AddProductStates {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
+    required TResult Function(UploadImage value) uploadImage,
+    required TResult Function(UploadMultipleImages value) uploadMultipleImages,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +63,8 @@ mixin _$AddProductStates {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
+    TResult? Function(UploadImage value)? uploadImage,
+    TResult? Function(UploadMultipleImages value)? uploadMultipleImages,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +73,8 @@ mixin _$AddProductStates {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
+    TResult Function(UploadImage value)? uploadImage,
+    TResult Function(UploadMultipleImages value)? uploadMultipleImages,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +140,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function(AddProductEntity addProduct) success,
     required TResult Function(String errCode, String err) error,
+    required TResult Function(XFile image) uploadImage,
+    required TResult Function(List<XFile> images) uploadMultipleImages,
   }) {
     return initial();
   }
@@ -139,6 +153,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function(AddProductEntity addProduct)? success,
     TResult? Function(String errCode, String err)? error,
+    TResult? Function(XFile image)? uploadImage,
+    TResult? Function(List<XFile> images)? uploadMultipleImages,
   }) {
     return initial?.call();
   }
@@ -150,6 +166,8 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function(AddProductEntity addProduct)? success,
     TResult Function(String errCode, String err)? error,
+    TResult Function(XFile image)? uploadImage,
+    TResult Function(List<XFile> images)? uploadMultipleImages,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -165,6 +183,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
+    required TResult Function(UploadImage value) uploadImage,
+    required TResult Function(UploadMultipleImages value) uploadMultipleImages,
   }) {
     return initial(this);
   }
@@ -176,6 +196,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
+    TResult? Function(UploadImage value)? uploadImage,
+    TResult? Function(UploadMultipleImages value)? uploadMultipleImages,
   }) {
     return initial?.call(this);
   }
@@ -187,6 +209,8 @@ class _$InitialImpl implements _Initial {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
+    TResult Function(UploadImage value)? uploadImage,
+    TResult Function(UploadMultipleImages value)? uploadMultipleImages,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -242,6 +266,8 @@ class _$LoadingImpl implements Loading {
     required TResult Function() loading,
     required TResult Function(AddProductEntity addProduct) success,
     required TResult Function(String errCode, String err) error,
+    required TResult Function(XFile image) uploadImage,
+    required TResult Function(List<XFile> images) uploadMultipleImages,
   }) {
     return loading();
   }
@@ -253,6 +279,8 @@ class _$LoadingImpl implements Loading {
     TResult? Function()? loading,
     TResult? Function(AddProductEntity addProduct)? success,
     TResult? Function(String errCode, String err)? error,
+    TResult? Function(XFile image)? uploadImage,
+    TResult? Function(List<XFile> images)? uploadMultipleImages,
   }) {
     return loading?.call();
   }
@@ -264,6 +292,8 @@ class _$LoadingImpl implements Loading {
     TResult Function()? loading,
     TResult Function(AddProductEntity addProduct)? success,
     TResult Function(String errCode, String err)? error,
+    TResult Function(XFile image)? uploadImage,
+    TResult Function(List<XFile> images)? uploadMultipleImages,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -279,6 +309,8 @@ class _$LoadingImpl implements Loading {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
+    required TResult Function(UploadImage value) uploadImage,
+    required TResult Function(UploadMultipleImages value) uploadMultipleImages,
   }) {
     return loading(this);
   }
@@ -290,6 +322,8 @@ class _$LoadingImpl implements Loading {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
+    TResult? Function(UploadImage value)? uploadImage,
+    TResult? Function(UploadMultipleImages value)? uploadMultipleImages,
   }) {
     return loading?.call(this);
   }
@@ -301,6 +335,8 @@ class _$LoadingImpl implements Loading {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
+    TResult Function(UploadImage value)? uploadImage,
+    TResult Function(UploadMultipleImages value)? uploadMultipleImages,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -383,6 +419,8 @@ class _$SuccessImpl implements Success {
     required TResult Function() loading,
     required TResult Function(AddProductEntity addProduct) success,
     required TResult Function(String errCode, String err) error,
+    required TResult Function(XFile image) uploadImage,
+    required TResult Function(List<XFile> images) uploadMultipleImages,
   }) {
     return success(addProduct);
   }
@@ -394,6 +432,8 @@ class _$SuccessImpl implements Success {
     TResult? Function()? loading,
     TResult? Function(AddProductEntity addProduct)? success,
     TResult? Function(String errCode, String err)? error,
+    TResult? Function(XFile image)? uploadImage,
+    TResult? Function(List<XFile> images)? uploadMultipleImages,
   }) {
     return success?.call(addProduct);
   }
@@ -405,6 +445,8 @@ class _$SuccessImpl implements Success {
     TResult Function()? loading,
     TResult Function(AddProductEntity addProduct)? success,
     TResult Function(String errCode, String err)? error,
+    TResult Function(XFile image)? uploadImage,
+    TResult Function(List<XFile> images)? uploadMultipleImages,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -420,6 +462,8 @@ class _$SuccessImpl implements Success {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
+    required TResult Function(UploadImage value) uploadImage,
+    required TResult Function(UploadMultipleImages value) uploadMultipleImages,
   }) {
     return success(this);
   }
@@ -431,6 +475,8 @@ class _$SuccessImpl implements Success {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
+    TResult? Function(UploadImage value)? uploadImage,
+    TResult? Function(UploadMultipleImages value)? uploadMultipleImages,
   }) {
     return success?.call(this);
   }
@@ -442,6 +488,8 @@ class _$SuccessImpl implements Success {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
+    TResult Function(UploadImage value)? uploadImage,
+    TResult Function(UploadMultipleImages value)? uploadMultipleImages,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -536,6 +584,8 @@ class _$ErrorImpl implements Error {
     required TResult Function() loading,
     required TResult Function(AddProductEntity addProduct) success,
     required TResult Function(String errCode, String err) error,
+    required TResult Function(XFile image) uploadImage,
+    required TResult Function(List<XFile> images) uploadMultipleImages,
   }) {
     return error(errCode, err);
   }
@@ -547,6 +597,8 @@ class _$ErrorImpl implements Error {
     TResult? Function()? loading,
     TResult? Function(AddProductEntity addProduct)? success,
     TResult? Function(String errCode, String err)? error,
+    TResult? Function(XFile image)? uploadImage,
+    TResult? Function(List<XFile> images)? uploadMultipleImages,
   }) {
     return error?.call(errCode, err);
   }
@@ -558,6 +610,8 @@ class _$ErrorImpl implements Error {
     TResult Function()? loading,
     TResult Function(AddProductEntity addProduct)? success,
     TResult Function(String errCode, String err)? error,
+    TResult Function(XFile image)? uploadImage,
+    TResult Function(List<XFile> images)? uploadMultipleImages,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -573,6 +627,8 @@ class _$ErrorImpl implements Error {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
+    required TResult Function(UploadImage value) uploadImage,
+    required TResult Function(UploadMultipleImages value) uploadMultipleImages,
   }) {
     return error(this);
   }
@@ -584,6 +640,8 @@ class _$ErrorImpl implements Error {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
+    TResult? Function(UploadImage value)? uploadImage,
+    TResult? Function(UploadMultipleImages value)? uploadMultipleImages,
   }) {
     return error?.call(this);
   }
@@ -595,6 +653,8 @@ class _$ErrorImpl implements Error {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
+    TResult Function(UploadImage value)? uploadImage,
+    TResult Function(UploadMultipleImages value)? uploadMultipleImages,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -612,4 +672,327 @@ abstract class Error implements AddProductStates {
   @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UploadImageImplCopyWith<$Res> {
+  factory _$$UploadImageImplCopyWith(
+          _$UploadImageImpl value, $Res Function(_$UploadImageImpl) then) =
+      __$$UploadImageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({XFile image});
+}
+
+/// @nodoc
+class __$$UploadImageImplCopyWithImpl<$Res>
+    extends _$AddProductStatesCopyWithImpl<$Res, _$UploadImageImpl>
+    implements _$$UploadImageImplCopyWith<$Res> {
+  __$$UploadImageImplCopyWithImpl(
+      _$UploadImageImpl _value, $Res Function(_$UploadImageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? image = null,
+  }) {
+    return _then(_$UploadImageImpl(
+      null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as XFile,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UploadImageImpl implements UploadImage {
+  const _$UploadImageImpl(this.image);
+
+  @override
+  final XFile image;
+
+  @override
+  String toString() {
+    return 'AddProductStates.uploadImage(image: $image)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UploadImageImpl &&
+            (identical(other.image, image) || other.image == image));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, image);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UploadImageImplCopyWith<_$UploadImageImpl> get copyWith =>
+      __$$UploadImageImplCopyWithImpl<_$UploadImageImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AddProductEntity addProduct) success,
+    required TResult Function(String errCode, String err) error,
+    required TResult Function(XFile image) uploadImage,
+    required TResult Function(List<XFile> images) uploadMultipleImages,
+  }) {
+    return uploadImage(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AddProductEntity addProduct)? success,
+    TResult? Function(String errCode, String err)? error,
+    TResult? Function(XFile image)? uploadImage,
+    TResult? Function(List<XFile> images)? uploadMultipleImages,
+  }) {
+    return uploadImage?.call(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AddProductEntity addProduct)? success,
+    TResult Function(String errCode, String err)? error,
+    TResult Function(XFile image)? uploadImage,
+    TResult Function(List<XFile> images)? uploadMultipleImages,
+    required TResult orElse(),
+  }) {
+    if (uploadImage != null) {
+      return uploadImage(image);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Error value) error,
+    required TResult Function(UploadImage value) uploadImage,
+    required TResult Function(UploadMultipleImages value) uploadMultipleImages,
+  }) {
+    return uploadImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Error value)? error,
+    TResult? Function(UploadImage value)? uploadImage,
+    TResult? Function(UploadMultipleImages value)? uploadMultipleImages,
+  }) {
+    return uploadImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Error value)? error,
+    TResult Function(UploadImage value)? uploadImage,
+    TResult Function(UploadMultipleImages value)? uploadMultipleImages,
+    required TResult orElse(),
+  }) {
+    if (uploadImage != null) {
+      return uploadImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UploadImage implements AddProductStates {
+  const factory UploadImage(final XFile image) = _$UploadImageImpl;
+
+  XFile get image;
+  @JsonKey(ignore: true)
+  _$$UploadImageImplCopyWith<_$UploadImageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UploadMultipleImagesImplCopyWith<$Res> {
+  factory _$$UploadMultipleImagesImplCopyWith(_$UploadMultipleImagesImpl value,
+          $Res Function(_$UploadMultipleImagesImpl) then) =
+      __$$UploadMultipleImagesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<XFile> images});
+}
+
+/// @nodoc
+class __$$UploadMultipleImagesImplCopyWithImpl<$Res>
+    extends _$AddProductStatesCopyWithImpl<$Res, _$UploadMultipleImagesImpl>
+    implements _$$UploadMultipleImagesImplCopyWith<$Res> {
+  __$$UploadMultipleImagesImplCopyWithImpl(_$UploadMultipleImagesImpl _value,
+      $Res Function(_$UploadMultipleImagesImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? images = null,
+  }) {
+    return _then(_$UploadMultipleImagesImpl(
+      null == images
+          ? _value._images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<XFile>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UploadMultipleImagesImpl implements UploadMultipleImages {
+  const _$UploadMultipleImagesImpl(final List<XFile> images) : _images = images;
+
+  final List<XFile> _images;
+  @override
+  List<XFile> get images {
+    if (_images is EqualUnmodifiableListView) return _images;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_images);
+  }
+
+  @override
+  String toString() {
+    return 'AddProductStates.uploadMultipleImages(images: $images)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UploadMultipleImagesImpl &&
+            const DeepCollectionEquality().equals(other._images, _images));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_images));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UploadMultipleImagesImplCopyWith<_$UploadMultipleImagesImpl>
+      get copyWith =>
+          __$$UploadMultipleImagesImplCopyWithImpl<_$UploadMultipleImagesImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AddProductEntity addProduct) success,
+    required TResult Function(String errCode, String err) error,
+    required TResult Function(XFile image) uploadImage,
+    required TResult Function(List<XFile> images) uploadMultipleImages,
+  }) {
+    return uploadMultipleImages(images);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AddProductEntity addProduct)? success,
+    TResult? Function(String errCode, String err)? error,
+    TResult? Function(XFile image)? uploadImage,
+    TResult? Function(List<XFile> images)? uploadMultipleImages,
+  }) {
+    return uploadMultipleImages?.call(images);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AddProductEntity addProduct)? success,
+    TResult Function(String errCode, String err)? error,
+    TResult Function(XFile image)? uploadImage,
+    TResult Function(List<XFile> images)? uploadMultipleImages,
+    required TResult orElse(),
+  }) {
+    if (uploadMultipleImages != null) {
+      return uploadMultipleImages(images);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Error value) error,
+    required TResult Function(UploadImage value) uploadImage,
+    required TResult Function(UploadMultipleImages value) uploadMultipleImages,
+  }) {
+    return uploadMultipleImages(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Error value)? error,
+    TResult? Function(UploadImage value)? uploadImage,
+    TResult? Function(UploadMultipleImages value)? uploadMultipleImages,
+  }) {
+    return uploadMultipleImages?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Error value)? error,
+    TResult Function(UploadImage value)? uploadImage,
+    TResult Function(UploadMultipleImages value)? uploadMultipleImages,
+    required TResult orElse(),
+  }) {
+    if (uploadMultipleImages != null) {
+      return uploadMultipleImages(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UploadMultipleImages implements AddProductStates {
+  const factory UploadMultipleImages(final List<XFile> images) =
+      _$UploadMultipleImagesImpl;
+
+  List<XFile> get images;
+  @JsonKey(ignore: true)
+  _$$UploadMultipleImagesImplCopyWith<_$UploadMultipleImagesImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

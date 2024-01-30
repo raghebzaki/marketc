@@ -15,15 +15,15 @@ class AddProductServiceImpl implements AddProductService {
   Future<AddProductModel> add(
       AddProductEntity addProductEntity) async {
     Dio dio = await DioFactory.getDio();
-    AddProductModel addProductModel = const AddProductModel();
+    AddProductModel addProductModel = AddProductModel();
 
-    final orders = await dio.post(
+    final addProduct = await dio.post(
       AppConstants.apiBaseUrl + AppConstants.designerAddProductUri,
       data: AddProductModel.toJson(addProductEntity),
     );
 
-    if (orders.statusCode == 200) {
-      addProductModel = AddProductModel.fromJson(orders.data);
+    if (addProduct.statusCode == 200) {
+      addProductModel = AddProductModel.fromJson(addProduct.data);
     }
 
     return addProductModel;

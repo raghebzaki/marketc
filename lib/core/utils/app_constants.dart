@@ -50,15 +50,13 @@ class AppConstants {
 /// designer
   static const designerCarouselUri = "";
   static const designsUri = "";
-  static const designerDeleteProductUri = "";
-  static const designerAddProductUri = "";
+  static const designerDeleteProductUri = "v1/designer/delete-product";
+  static const designerAddProductUri = "v1/designer/create-product";
   static const designerGetPointsUri = "";
   static const designerBalanceUri = "";
   static const designerExchangeUri  = "";
   static const getColorsUri  = "v1/colors";
-  static const createProductUri  = "v1/designer/create-product";
   static const updateProductUri  = "v1/designer/update-product";
-  static const deleteProductUri = "v1/designer/delete-product";
   static const myProductsUri = "v1/designer/my-products";
 
 }

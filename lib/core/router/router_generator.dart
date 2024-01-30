@@ -31,7 +31,7 @@ import '../../features/designer/main/categories/presentation/pages/designer_cate
 import '../../features/designer/main/home/presentation/pages/designer_home_view.dart';
 import '../../features/designer/main/profile/presentation/pages/designer_profile_view.dart';
 import '../../features/designer/main/subscriptions/presentation/pages/subscriptions_view.dart';
-import '../../features/designer/product/add_product/presentation/pages/add_product.dart';
+import '../../features/designer/product/add_product/presentation/pages/add_product_view.dart';
 import '../../features/designer/product/edit_product/presentation/pages/edit_product_view.dart';
 import '../../features/designer/wallet/presentation/pages/wallet_view.dart';
 import '../../features/on_boarding/presentation/pages/on_boarding_view.dart';
