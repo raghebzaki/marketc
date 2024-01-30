@@ -59,6 +59,7 @@ class _EditProductViewState extends State<EditProductView> {
   bool customLogo = true;
   List<int> colorIds = [];
   List<int> sizeIds = [];
+  List<String> base = [];
   @override
   void initState() {
     super.initState();
@@ -84,12 +85,11 @@ class _EditProductViewState extends State<EditProductView> {
      }
      for (var image in widget.productDetails.images!) {
        String? base64=await networkImageToBase64(AppConstants.imageUrl+image.image!);
-       editProductCubit.base64Images.add(base64!);
+       base.add(base64!);
        setState(() {
 
        });
      }
-
   }
   @override
   Widget build(BuildContext context) {
@@ -637,7 +637,7 @@ class _EditProductViewState extends State<EditProductView> {
                                     child: Row(
                                       children: [
                                         ...List.generate(
-                                            editProductCubit.base64Images.length,
+                                            base.length,
                                                 (index) => Padding(
                                               padding:
                                               const EdgeInsets.all(8.0),
@@ -645,7 +645,7 @@ class _EditProductViewState extends State<EditProductView> {
                                                 children: [
                                                   Image.memory(
                                                     //to show image, you type like this.
-                                                    const Base64Decoder().convert(editProductCubit.base64Images[index]),
+                                                    const Base64Decoder().convert(base[index]),
                                                     fit: BoxFit.cover,
                                                     width: 150,
                                                     height: 150,
