@@ -15,11 +15,11 @@ class SizeServiceImpl implements SizeService {
     List<ProductSizesModel> productsModelList = [];
 
     final colors = await dio.get(
-      AppConstants.apiBaseUrl + AppConstants.getColorsUri,
+      AppConstants.apiBaseUrl + AppConstants.getSizesUri,
     );
 
     if (colors.statusCode == 200) {
-      Iterable l = colors.data['data']['data'];
+      Iterable l = colors.data['data'];
       productsModelList = List<ProductSizesModel>.from(
         l.map(
               (model) => ProductSizesModel.fromJson(model),

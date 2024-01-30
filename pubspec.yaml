@@ -70,7 +70,8 @@ dependencies:
   dotted_border: ^2.1.0 # A flutter package to let users easily add a dashed border around any widget
   flutter_html:
   auto_height_grid_view: ^1.0.0
-
+  roundcheckbox: ^2.0.5
+  auto_size_text: ^3.0.0
 
   # Flutter plugin for adapting screen and font size.
   flutter_screenutil: ^5.9.0

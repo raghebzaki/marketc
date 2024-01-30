@@ -56,6 +56,7 @@ class AppConstants {
   static const designerBalanceUri = "";
   static const designerExchangeUri  = "";
   static const getColorsUri  = "v1/colors";
+  static const getSizesUri  = "v1/sizes";
   static const updateProductUri  = "v1/designer/update-product";
   static const myProductsUri = "v1/designer/my-products";
 

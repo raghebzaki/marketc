@@ -20,6 +20,8 @@ class ProductEntity extends Equatable {
   final num? quantity;
   final List<ProductSizesEntity>? size;
   final List<ProductColorsEntity>? color;
+  final List<num>? sendSize;
+  final List<num>? sendColor;
   final List<ProductsImagesEntity>? images;
   final List<String>? imagesBase64;
   final String? status;
@@ -42,6 +44,8 @@ class ProductEntity extends Equatable {
     this.discountPercent,
     this.size,
     this.color,
+    this.sendColor,
+    this.sendSize,
     this.images,
     this.status,
     this.message,
@@ -65,6 +69,8 @@ class ProductEntity extends Equatable {
         quantity,
         size,
         color,
+        sendColor,
+        sendSize,
         images,
         status,
         message,

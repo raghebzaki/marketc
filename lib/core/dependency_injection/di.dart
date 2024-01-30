@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:marketc/features/customer/main/product_details/domain/use_cases/check_if_favorite_use_case.dart';
+import 'package:marketc/features/designer/main/categories/presentation/manager/delete_product_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/change_pass/data/data_sources/change_pass_service.dart';
@@ -349,6 +350,7 @@ Future<void> init() async {
       () => MyDesignerProductsServiceImpl());
 
   /// delete
+  di.registerFactory(() => DeleteProductCubit(deleteProductUseCase: di()));
   di.registerLazySingleton(() => DeleteProductUseCase(deleteProductRepo: di()));
   di.registerLazySingleton<DeleteProductRepo>(
       () => DeleteProductRepoImpl(deleteProductService: di()));

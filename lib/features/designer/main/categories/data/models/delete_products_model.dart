@@ -10,8 +10,8 @@ class DeleteProductModel extends DeleteProductEntity {
 
   factory DeleteProductModel.fromJson(Map<String, dynamic> map) {
     return DeleteProductModel(
-      status: map['status'] as num,
-      msg: map['msg'] as String,
+      status: map['status'],
+      msg: map['msg'],
     );
   }
 

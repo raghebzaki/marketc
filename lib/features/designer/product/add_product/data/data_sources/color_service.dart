@@ -19,7 +19,7 @@ class ColorServiceImpl implements ColorService {
     );
 
     if (colors.statusCode == 200) {
-      Iterable l = colors.data['data']['data'];
+      Iterable l = colors.data['data'];
       productsModelList = List<ProductColorsModel>.from(
         l.map(
           (model) => ProductColorsModel.fromJson(model),

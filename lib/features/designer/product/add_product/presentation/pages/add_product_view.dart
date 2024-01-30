@@ -1,27 +1,30 @@
 import 'dart:math';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:dotted_border/dotted_border.dart';
-import 'package:marketc/core/utils/extensions.dart';
+import 'package:marketc/features/customer/main/home/presentation/manager/category_cubit.dart';
+import 'package:marketc/features/designer/product/add_product/presentation/manager/color/colors_cubit.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../../core/helpers/cache_helper.dart';
 import '../../../../../../core/shared/entities/product_entity.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../../core/shared/widgets/custom_form_field.dart';
+import '../../../../../../core/shared/widgets/state_error_widget.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_images.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
 import '../../domain/entities/add_product_entity.dart';
-import '../../domain/entities/color_entity.dart';
-import '../../domain/entities/size_entity.dart';
-import '../manager/add_product_cubit.dart';
+import '../manager/add_product_cubit.dart'as add;
+import '../manager/size/sizes_cubit.dart';
 
 class AddProductView extends StatefulWidget {
   const AddProductView({super.key});
@@ -31,7 +34,10 @@ class AddProductView extends StatefulWidget {
 }
 
 class _AddProductViewState extends State<AddProductView> {
-  List<String> sizes = ["2XL", "XL", "L", "M", "S"];
+  List<int> size = [1,2,3];
+  List<int> color = [4,5];
+
+  bool customLogo = false;
 
   static Color generateRandomColor() {
     Random random = Random();
@@ -53,314 +59,489 @@ class _AddProductViewState extends State<AddProductView> {
   TextEditingController productDescriptionEnCtrl = TextEditingController();
   TextEditingController productPriceCtrl = TextEditingController();
   TextEditingController productDiscountCtrl = TextEditingController();
+  TextEditingController quantityCtrl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => di.di<AddProductCubit>(),
-      child: BlocConsumer<AddProductCubit, AddProductStates>(
-        listener: (context, state) {
-          state.maybeWhen(
-            error: (errCode, err) {
-              return context
-                  .defaultSnackBar("${S.current.err_code}: $errCode, $err");
-            },
-            orElse: () {
-              return null;
-            },
-          );
-        },
-        builder: (context, state) {
-          AddProductCubit addProductCubit = AddProductCubit.get(context);
-          return Scaffold(
-            backgroundColor: AppColors.primary,
-            appBar: CustomAppBar(title: S.of(context).add_product),
-            body: SafeArea(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(Dimensions.p16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => di.di<add.AddProductCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => di.di<CategoryCubit>()..getAllCategory(),
+        ),
+        BlocProvider(
+          create: (context) => di.di<SizesCubit>()..getSizes(),
+        ),
+        BlocProvider(
+          create: (context) => di.di<ColorsCubit>()..getColors(),
+        ),
+      ],
+      child: Scaffold(
+        backgroundColor: AppColors.primary,
+        appBar: CustomAppBar(title: S.of(context).add_product),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(Dimensions.p16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Gap(25.h),
+                  CustomFormField(
+                    ctrl: productNameEnCtrl,
+                    label: S.of(context).product_name,
+                  ),
+                  Gap(10.h),
+                  CustomFormField(
+                    ctrl: productNameArCtrl,
+                    label: "Arabic Product Name",
+                  ),
+                  Gap(10.h),
+                  TextFormField(
+                    controller: productDescriptionEnCtrl,
+                    enabled: true,
+                    maxLines: null,
+                    onChanged: (value) {},
+                    style: CustomTextStyle.kFormFieldTextStyle,
+                    decoration: InputDecoration(
+                      labelText: S.of(context).product_des,
+                      isDense: true,
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: Dimensions.p10.w,
+                        vertical: Dimensions.p10.h,
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(
+                          Dimensions.r10,
+                        ),
+                        borderSide: const BorderSide(
+                          width: 1,
+                          color: Colors.black,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(
+                          Dimensions.r10,
+                        ),
+                        borderSide: const BorderSide(
+                          width: 1,
+                          color: Colors.black,
+                        ),
+                      ),
+                      labelStyle: const TextStyle(
+                        color: AppColors.textColorSecondary,
+                      ),
+                    ),
+                  ),
+                  Gap(10.h),
+                  TextFormField(
+                    controller: productDescriptionArCtrl,
+                    enabled: true,
+                    maxLines: null,
+                    onChanged: (value) {},
+                    style: CustomTextStyle.kFormFieldTextStyle,
+                    decoration: InputDecoration(
+                      labelText: "Arabic Product Description",
+                      isDense: true,
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: Dimensions.p10.w,
+                        vertical: Dimensions.p10.h,
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(
+                          Dimensions.r10,
+                        ),
+                        borderSide: const BorderSide(
+                          width: 1,
+                          color: Colors.black,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(
+                          Dimensions.r10,
+                        ),
+                        borderSide: const BorderSide(
+                          width: 1,
+                          color: Colors.black,
+                        ),
+                      ),
+                      labelStyle: const TextStyle(
+                        color: AppColors.textColorSecondary,
+                      ),
+                    ),
+                  ),
+                  Gap(10.h),
+                  Row(
                     children: [
-                      Gap(25.h),
-                      CustomFormField(
-                        ctrl: productNameEnCtrl,
-                        label: S.of(context).product_name,
-                      ),
-                      Gap(10.h),
-                      CustomFormField(
-                        ctrl: productNameArCtrl,
-                        label: "Arabic Product Name",
-                      ),
-                      Gap(10.h),
-                      TextFormField(
-                        controller: productDescriptionEnCtrl,
-                        enabled: true,
-                        maxLines: null,
-                        onChanged: (value) {},
-                        style: CustomTextStyle.kFormFieldTextStyle,
-                        decoration: InputDecoration(
-                          labelText: S.of(context).product_des,
-                          isDense: true,
-                          contentPadding: EdgeInsets.symmetric(
-                            horizontal: Dimensions.p10.w,
-                            vertical: Dimensions.p10.h,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(
-                              Dimensions.r10,
-                            ),
-                            borderSide: const BorderSide(
-                              width: 1,
-                              color: Colors.black,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(
-                              Dimensions.r10,
-                            ),
-                            borderSide: const BorderSide(
-                              width: 1,
-                              color: Colors.black,
-                            ),
-                          ),
-                          labelStyle: const TextStyle(
-                            color: AppColors.textColorSecondary,
-                          ),
+                      Flexible(
+                        child: CustomFormField(
+                          ctrl: productPriceCtrl,
+                          label: S.of(context).product_price,
                         ),
                       ),
-                      Gap(10.h),
-                      TextFormField(
-                        controller: productDescriptionArCtrl,
-                        enabled: true,
-                        maxLines: null,
-                        onChanged: (value) {},
-                        style: CustomTextStyle.kFormFieldTextStyle,
-                        decoration: InputDecoration(
-                          labelText: "Arabic Product Description",
-                          isDense: true,
-                          contentPadding: EdgeInsets.symmetric(
-                            horizontal: Dimensions.p10.w,
-                            vertical: Dimensions.p10.h,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(
-                              Dimensions.r10,
-                            ),
-                            borderSide: const BorderSide(
-                              width: 1,
-                              color: Colors.black,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(
-                              Dimensions.r10,
-                            ),
-                            borderSide: const BorderSide(
-                              width: 1,
-                              color: Colors.black,
-                            ),
-                          ),
-                          labelStyle: const TextStyle(
-                            color: AppColors.textColorSecondary,
-                          ),
+                      Gap(10.w),
+                      Flexible(
+                        child: CustomFormField(
+                          ctrl: productDiscountCtrl,
+                          label: S.of(context).discount_percentage,
                         ),
                       ),
-                      Gap(10.h),
-                      Row(
-                        children: [
-                          Flexible(
-                            child: CustomFormField(
-                              ctrl: productPriceCtrl,
-                              label: S.of(context).product_price,
-                            ),
-                          ),
-                          Gap(10.w),
-                          Flexible(
-                            child: CustomFormField(
-                              ctrl: productDiscountCtrl,
-                              label: S.of(context).discount_percentage,
-                            ),
-                          ),
-                        ],
-                      ),
-                      CustomFormField(
-                        label: S.of(context).product_category,
-                      ),
-                      Gap(10.h),
-                      Text(
-                        S.current.sizes,
-                        style: CustomTextStyle.kTextStyleF14,
-                      ),
-                      Gap(10.h),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            ...List.generate(
-                              5,
-                              (index) => Padding(
-                                padding: const EdgeInsets.all(Dimensions.p5),
-                                child: CircleAvatar(
-                                  radius: Dimensions.r20,
-                                  backgroundColor: AppColors.greyLight,
-                                  child: Text(
-                                    sizes[index],
-                                    style:
-                                        CustomTextStyle.kTextStyleF14.copyWith(
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ).reversed,
-                          ],
-                        ),
-                      ),
-                      Gap(10.h),
-                      Text(
-                        S.current.colors,
-                        style: CustomTextStyle.kTextStyleF14,
-                      ),
-                      Gap(10.h),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            ...List.generate(
-                              6,
-                              (index) => Padding(
-                                padding: const EdgeInsets.all(Dimensions.p5),
-                                child: CircleAvatar(
-                                  radius: Dimensions.r20,
-                                  backgroundColor: randomColors[index],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Gap(10.h),
-                      GestureDetector(
-                        onTap: () {
-                          addProductCubit.pickPhotoDialog(context);
-                        },
-                        child: addProductCubit.selectedImages == []
-                            ? DottedBorder(
-                                // radius: Radius.circular(Dimensions.r15),
-                                dashPattern: const [5],
-                                color: AppColors.greyColor,
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: Dimensions.p16.w,
-                                    vertical: Dimensions.p40.h,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          addProductCubit.image!.name,
-                                          style: CustomTextStyle.kTextStyleF14
-                                              .copyWith(
-                                            color: AppColors.greyColor,
+                    ],
+                  ),
+                  CustomFormField(
+                    ctrl: quantityCtrl,
+                    label: S.of(context).qty,
+                  ),
+                  Gap(10.h),
+                  BlocConsumer<CategoryCubit,CategoryState>(
+                    listener: (context, state) {},
+                    builder: (context, state) {
+                      return state.maybeWhen(
+                        success: (state) {
+                          return SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                ...List.generate(
+                                  state!.length,
+                                      (index) {
+                                    return Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: Dimensions.p8.w),
+                                      child: Container(
+                                        width: 85.w,
+                                        clipBehavior: Clip.antiAlias,
+                                        decoration: ShapeDecoration(
+                                          color: Colors.white,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  Dimensions.r8)),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: Dimensions.p12.w),
+                                          child: Column(
+                                            children: [
+                                              Text(
+                                                CacheHelper.isEnglish()
+                                                    ? state[index].nameEn!
+                                                    : state[index].nameAr!,
+                                                textAlign: TextAlign.center,
+                                                style: CustomTextStyle
+                                                    .kTextStyleF14,
+                                              )
+                                            ],
                                           ),
                                         ),
                                       ),
-                                      Gap(25.w),
-                                      Image.asset(
-                                        AppImages.uploadImg,
-                                        height: 24.h,
-                                        width: 24.w,
-                                      ),
-                                    ],
-                                  ),
+                                    );
+                                  },
                                 ),
-                              )
-                            : DottedBorder(
-                                // radius: Radius.circular(Dimensions.r15),
-                                dashPattern: const [5],
-                                color: AppColors.greyColor,
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: Dimensions.p16.w,
-                                    vertical: Dimensions.p40.h,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        S.of(context).upload_product_img,
-                                        style: CustomTextStyle.kTextStyleF14
-                                            .copyWith(
-                                          color: AppColors.greyColor,
-                                        ),
-                                      ),
-                                      Gap(25.w),
-                                      Image.asset(
-                                        AppImages.uploadImg,
-                                        height: 24.h,
-                                        width: 24.w,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                      ),
-                      ConditionalBuilder(
-                          condition: state is! Loading,
-                          builder: (BuildContext context) {
-                            return CustomBtn(
-                              label: "Add Product",
-                              onPressed: () {
-                                addProductCubit.addDesignerProduct(
-                                  AddProductEntity(
-                                    product: ProductEntity(
-                                      categoryId: 1,
-                                      subCategoryId: 2,
-                                      nameAr: productNameArCtrl.text,
-                                      nameEn: productNameEnCtrl.text,
-                                      price: productPriceCtrl.text,
-                                      quantity: 20,
-                                      discountPercent:
-                                          int.parse(productDiscountCtrl.text),
-                                      color: const [
-                                        ProductColorsEntity(
-                                          id: 4,
-                                        ),
-                                        ProductColorsEntity(
-                                          id: 5,
-                                        ),
-                                      ],
-                                      size: const [
-                                        ProductSizesEntity(
-                                          id: 1,
-                                        ),
-                                        ProductSizesEntity(
-                                          id: 3,
-                                        ),
-                                      ],
-                                      descriptionAr:
-                                          productDescriptionArCtrl.text,
-                                      descriptionEn:
-                                          productDescriptionEnCtrl.text,
-                                      imagesBase64: addProductCubit.base64Images,
-                                    ),
-                                  ),
-                                );
-                              },
-                            );
+                              ],
+                            ),
+                          );
+                        },
+                        loading: () {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        },
+                        error: (errCode, err) {
+                          return StateErrorWidget(
+                            errCode: errCode!,
+                            err: err!,
+                          );
+                        },
+                        orElse: () {
+                          return const SizedBox.shrink();
+                        },
+                      );
+                    },
+                  ),
+                  Gap(20.h),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              customLogo = true;
+                            });
                           },
-                          fallback: (BuildContext context) {
-                            return Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          })
+                          child: Container(
+                            height: 60,
+                            decoration: BoxDecoration(
+                                color: customLogo
+                                    ? AppColors.secondary
+                                    : AppColors.primary,
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  width: 1,
+                                  color: AppColors.secondary,
+                                )),
+                            child: Center(
+                              child: AutoSizeText(
+                                S.of(context).custom_logo,
+                                style: CustomTextStyle.kTextStyleF12,
+                                maxLines: 1,
+                                minFontSize: 8,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 10.0,
+                      ),
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              customLogo = false;
+                            });
+                          },
+                          child: Container(
+                            height: 60,
+                            decoration: BoxDecoration(
+                                color: customLogo
+                                    ? AppColors.primary
+                                    : AppColors.secondary,
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  width: 1,
+                                  color: AppColors.secondary,
+                                )),
+                            child: Center(
+                              child: AutoSizeText(
+                                S.of(context).custom_phrases,
+                                style: CustomTextStyle.kTextStyleF12,
+                                maxLines: 1,
+                                minFontSize: 8,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                ),
+                  Gap(10.h),
+                  Text(
+                    S.current.sizes,
+                    style: CustomTextStyle.kTextStyleF14,
+                  ),
+                  Gap(10.h),
+                  BlocConsumer<SizesCubit, SizesStates>(
+                    listener: (context, state) {},
+                    builder: (context, state) {
+                      return state.maybeWhen(
+                        success: (state) {
+                          return SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                ...List.generate(
+                                  state.length,
+                                      (index) => Padding(
+                                    padding: const EdgeInsets.all(Dimensions.p5),
+                                    child: CircleAvatar(
+                                      radius: Dimensions.r20,
+                                      backgroundColor: AppColors.greyLight,
+                                      child: Text(
+                                        CacheHelper.isEnglish()?state[index].nameEn!:state[index].nameAr!,
+                                        style: CustomTextStyle.kTextStyleF14.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                        loading: () {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        },
+                        error: (errCode, err) {
+                          return StateErrorWidget(
+                            errCode: errCode,
+                            err: err,
+                          );
+                        },
+                        orElse: () {
+                          return const SizedBox.shrink();
+                        },
+                      );
+                    },
+                  ),
+                  Gap(10.h),
+                  Text(
+                    S.current.colors,
+                    style: CustomTextStyle.kTextStyleF14,
+                  ),
+                  Gap(10.h),
+                  BlocConsumer<ColorsCubit, ColorsStates>(
+                    listener: (context, state) {},
+                    builder: (context, state) {
+                      return state.maybeWhen(
+                        success: (state) {
+                          return SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                ...List.generate(
+                                  state.length,
+                                      (index) => Padding(
+                                    padding: const EdgeInsets.all(Dimensions.p5),
+                                    child: CircleAvatar(
+                                      radius: Dimensions.r20,
+                                      backgroundColor:Color(int.parse("0xFF${state[index].color}")),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                        loading: () {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        },
+                        error: (errCode, err) {
+                          return StateErrorWidget(
+                            errCode: errCode,
+                            err: err,
+                          );
+                        },
+                        orElse: () {
+                          return const SizedBox.shrink();
+                        },
+                      );
+                    },
+                  ),
+
+                  Gap(10.h),
+                  BlocConsumer<add.AddProductCubit, add.AddProductStates>(
+                    listener: (context, state) {},
+                    builder: (context, state) {
+                      add.AddProductCubit addProductCubit =
+                      add.AddProductCubit.get(context);
+                      return Column(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              addProductCubit.pickPhotoDialog(context);
+                            },
+                            child: addProductCubit.selectedImages == []
+                                ? DottedBorder(
+                                    // radius: Radius.circular(Dimensions.r15),
+                                    dashPattern: const [5],
+                                    color: AppColors.greyColor,
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: Dimensions.p16.w,
+                                        vertical: Dimensions.p40.h,
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              addProductCubit.image!.name,
+                                              style: CustomTextStyle
+                                                  .kTextStyleF14
+                                                  .copyWith(
+                                                color: AppColors.greyColor,
+                                              ),
+                                            ),
+                                          ),
+                                          Gap(25.w),
+                                          Image.asset(
+                                            AppImages.uploadImg,
+                                            height: 24.h,
+                                            width: 24.w,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                : DottedBorder(
+                                    // radius: Radius.circular(Dimensions.r15),
+                                    dashPattern: const [5],
+                                    color: AppColors.greyColor,
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: Dimensions.p16.w,
+                                        vertical: Dimensions.p40.h,
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            S.of(context).upload_product_img,
+                                            style: CustomTextStyle.kTextStyleF14
+                                                .copyWith(
+                                              color: AppColors.greyColor,
+                                            ),
+                                          ),
+                                          Gap(25.w),
+                                          Image.asset(
+                                            AppImages.uploadImg,
+                                            height: 24.h,
+                                            width: 24.w,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                          ),
+                          ConditionalBuilder(
+                              condition: state is! add.Loading,
+                              builder: (BuildContext context) {
+                                return CustomBtn(
+                                  label: "Add Product",
+                                  onPressed: () {
+                                    addProductCubit.addDesignerProduct(
+                                      AddProductEntity(
+                                        product: ProductEntity(
+                                          categoryId: 1,
+                                          subCategoryId: 2,
+                                          nameAr: productNameArCtrl.text,
+                                          nameEn: productNameEnCtrl.text,
+                                          price: productPriceCtrl.text,
+                                          quantity:int.parse( quantityCtrl.text),
+                                          discountPercent: int.parse(
+                                              productDiscountCtrl.text),
+                                          sendSize:size,
+                                          sendColor:color,
+                                          descriptionAr:
+                                              productDescriptionArCtrl.text,
+                                          descriptionEn:
+                                              productDescriptionEnCtrl.text,
+                                          imagesBase64: addProductCubit.base64Images,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                              fallback: (BuildContext context) {
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              })
+                        ],
+                      );
+                    },
+                  ),
+                ],
               ),
             ),
-          );
-        },
+          ),
+        ),
       ),
     );
   }
