@@ -93,10 +93,12 @@ class _MainViewState extends State<MainView> {
                     }
                     if (context.mounted) {
                       context.defaultSnackBar(state.msg!);
+                      context.pushNamed(loginPageRoute);
                     }
                   } else {
                     if (context.mounted) {
                       context.defaultSnackBar(state.msg!);
+                      context.pushNamed(loginPageRoute);
                     }
                   }
                 },

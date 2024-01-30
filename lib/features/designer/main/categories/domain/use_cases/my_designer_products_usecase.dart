@@ -10,7 +10,7 @@ class MyDesignerProductsUseCase {
   MyDesignerProductsUseCase({required this.myDesignerProductsRepo});
 
   Future<Either<Failure, MyDesignerProductsEntity>> call(
-      MyDesignerProductsEntity myDesignerProductsEntity) async {
-    return await myDesignerProductsRepo.myProducts(myDesignerProductsEntity);
+      MyDesignerProductsEntity myDesignerProductsEntity,int? nextPage) async {
+    return await myDesignerProductsRepo.myProducts(myDesignerProductsEntity,nextPage);
   }
 }

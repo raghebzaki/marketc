@@ -18,9 +18,9 @@ class MyDesignerProductsCubit extends Cubit<MyDesignerProductsStates> {
 
   final MyDesignerProductsUseCase myDesignerProductsUseCase;
 
-  userLogin(MyDesignerProductsEntity myDesignerProductsEntity) async {
+  getProducts(MyDesignerProductsEntity myDesignerProductsEntity,int? nextPage) async {
     emit(const MyDesignerProductsStates.loading());
-    final login = await myDesignerProductsUseCase(myDesignerProductsEntity);
+    final login = await myDesignerProductsUseCase(myDesignerProductsEntity,nextPage);
 
     login.fold(
       (l) {

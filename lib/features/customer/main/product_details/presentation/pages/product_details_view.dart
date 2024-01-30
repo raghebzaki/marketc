@@ -77,7 +77,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                                 aspectRatio: 1,
                               ),
                             ),
-                            state.maybeWhen(
+                            UserData.type=='customer'?state.maybeWhen(
                               initial: () {
                                 return Positioned(
                                   left: 250.w,
@@ -161,7 +161,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                               orElse: () {
                                 return const SizedBox.shrink();
                               },
-                            ),
+                            ):const SizedBox.shrink(),
                             Positioned(
                               left: 0,
                               top: 0,

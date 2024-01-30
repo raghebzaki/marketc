@@ -10,9 +10,10 @@ class MyDesignerProductsModel extends MyDesignerProductsEntity {
 
   factory MyDesignerProductsModel.fromJson(Map<String, dynamic> json) {
     return MyDesignerProductsModel(
-      products: (json['products'] as List<ProductModel>)
-          .map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      products: json["data"] == null
+          ? []
+          : List<ProductModel>.from(
+          json["data"]!.map((x) => ProductModel.fromJson(x))),
     );
   }
 

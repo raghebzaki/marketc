@@ -7,24 +7,27 @@ import '../models/my_designer_products_model.dart';
 
 abstract class MyDesignerProductsService {
   Future<MyDesignerProductsModel> getProducts(
-      MyDesignerProductsEntity myDesignerProductsEntity);
+      MyDesignerProductsEntity myDesignerProductsEntity,int? nextPage);
 }
 
 class MyDesignerProductsServiceImpl implements MyDesignerProductsService {
   @override
   Future<MyDesignerProductsModel> getProducts(
-      MyDesignerProductsEntity myDesignerProductsEntity) async {
+      MyDesignerProductsEntity myDesignerProductsEntity,int? nextPage) async {
     Dio dio = await DioFactory.getDio();
     MyDesignerProductsModel myDesignerProductsModel =
         const MyDesignerProductsModel();
 
     final orders = await dio.post(
-      AppConstants.apiBaseUrl + AppConstants.getMyOrdersUri,
-      data: MyDesignerProductsModel.toJson(myDesignerProductsEntity),
+      AppConstants.apiBaseUrl + AppConstants.myProductsUri,
+      data: {
+        "designer_id":myDesignerProductsEntity.userId,
+        "page":nextPage,
+      },
     );
 
     if (orders.statusCode == 200) {
-      myDesignerProductsModel = MyDesignerProductsModel.fromJson(orders.data);
+      myDesignerProductsModel = MyDesignerProductsModel.fromJson(orders.data['data']);
     }
 
     return myDesignerProductsModel;

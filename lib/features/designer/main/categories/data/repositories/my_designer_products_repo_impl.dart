@@ -16,14 +16,14 @@ class MyDesignerProductsRepoImpl implements MyDesignerProductsRepo {
 
   @override
   Future<Either<Failure, MyDesignerProductsEntity>> myProducts(
-      MyDesignerProductsEntity myDesignerProductsEntity) async {
+      MyDesignerProductsEntity myDesignerProductsEntity,int? nextPage) async {
     final result = await Connectivity().checkConnectivity();
 
     if (result == ConnectivityResult.mobile ||
         result == ConnectivityResult.wifi) {
       try {
         final orders = await myDesignerProductsService
-            .getProducts(myDesignerProductsEntity);
+            .getProducts(myDesignerProductsEntity,nextPage);
         return right(orders);
       } on DioException catch (error) {
         return left(ErrorHandler.handle(error).failure);

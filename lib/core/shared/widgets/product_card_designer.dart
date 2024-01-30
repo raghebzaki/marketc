@@ -2,21 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:marketc/core/router/router.dart';
+import 'package:marketc/core/shared/entities/product_entity.dart';
 import 'package:marketc/core/utils/extensions.dart';
 
 import '../../../config/themes/app_text_styles.dart';
 import '../../../generated/l10n.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/dimensions.dart';
+import '../arguments.dart';
 
 class ProductCardDesigner extends StatelessWidget {
-  const ProductCardDesigner({super.key});
+  final ProductEntity productEntity;
+  const ProductCardDesigner({super.key, required this.productEntity});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(productDetailsPageRoute);
+        context.pushNamed(productDetailsPageRoute,arguments:ProductsEntityArgs(productEntity: productEntity) );
       },
       child: Container(
         width: 160.w,
