@@ -17,7 +17,7 @@ class BalanceServiceImpl implements BalanceService {
     BalanceModel balanceModel = const BalanceModel();
 
     final contracts = await dio.post(
-      AppConstants.apiBaseUrl + AppConstants.designerBalance,
+      AppConstants.apiBaseUrl + AppConstants.designerBalanceUri,
       data: BalanceModel.toJson(balanceEntity),
     );
 

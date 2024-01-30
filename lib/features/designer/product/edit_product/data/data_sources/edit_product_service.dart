@@ -16,7 +16,7 @@ class EditProductServiceImpl implements EditProductService {
     EditProductModel editProductModel = const EditProductModel();
 
     final orders = await dio.post(
-      AppConstants.apiBaseUrl + AppConstants.designerAddProduct,
+      AppConstants.apiBaseUrl + AppConstants.designerAddProductUri,
       data: EditProductModel.toJson(editProductEntity),
     );
 

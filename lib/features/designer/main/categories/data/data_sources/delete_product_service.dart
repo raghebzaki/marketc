@@ -17,7 +17,7 @@ class DeleteProductServiceImpl implements DeleteProductService {
     DeleteProductModel deleteProductModel = const DeleteProductModel();
 
     final orders = await dio.post(
-      AppConstants.apiBaseUrl + AppConstants.designerDeleteProduct,
+      AppConstants.apiBaseUrl + AppConstants.designerDeleteProductUri,
       data: DeleteProductModel.toJson(deleteProductEntity),
     );
 

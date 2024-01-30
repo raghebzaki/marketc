@@ -17,7 +17,7 @@ class GetPointsServiceImpl implements GetPointsService {
     List<GetPointsModel> getPointsList = [];
 
     final contracts = await dio.post(
-      AppConstants.apiBaseUrl + AppConstants.designerGetPoints,
+      AppConstants.apiBaseUrl + AppConstants.designerGetPointsUri,
       data: {
         'user_id':userId
       }

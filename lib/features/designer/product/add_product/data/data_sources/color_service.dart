@@ -15,7 +15,7 @@ class ColorServiceImpl implements ColorService {
     List<ProductColorsModel> productsModelList = [];
 
     final colors = await dio.get(
-      AppConstants.apiBaseUrl + AppConstants.getColors,
+      AppConstants.apiBaseUrl + AppConstants.getColorsUri,
     );
 
     if (colors.statusCode == 200) {

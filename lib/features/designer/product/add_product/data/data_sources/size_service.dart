@@ -15,7 +15,7 @@ class SizeServiceImpl implements SizeService {
     List<ProductSizesModel> productsModelList = [];
 
     final colors = await dio.get(
-      AppConstants.apiBaseUrl + AppConstants.getColors,
+      AppConstants.apiBaseUrl + AppConstants.getColorsUri,
     );
 
     if (colors.statusCode == 200) {

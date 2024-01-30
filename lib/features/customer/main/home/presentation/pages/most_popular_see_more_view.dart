@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:auto_height_grid_view/auto_height_grid_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
 import '../../../../../../core/shared/entities/product_entity.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
@@ -66,70 +67,55 @@ class _MostPopularSeeMoreViewState extends State<MostPopularSeeMoreView> {
                 return const StateLoadingWidget();
               },
               success: (state) {
-                return Padding(
-                  padding: const EdgeInsets.all(
-                    Dimensions.p16,
-                  ),
-                  child: AutoHeightGridView(
-                    controller: scrollController,
-                    itemCount: mostPopularProducts.length,
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    physics: const BouncingScrollPhysics(),
-                    padding: const EdgeInsets.all(12),
-                    shrinkWrap: true,
-                    builder: (context, index) {
-                      return ProductCard(
-                        productEntity: mostPopularProducts[index],
-                      );
-                    },
-                  ),
-                );
+                return AutoHeightGridView(
+                  controller: scrollController,
+                  itemCount: mostPopularProducts.length,
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                  physics: const BouncingScrollPhysics(),
+                  padding: const EdgeInsets.all(12),
+                  shrinkWrap: true,
+                  builder: (context, index) {
+                    return ProductCard(
+                      productEntity: mostPopularProducts[index],
+                    );
+                  },
+                ).paddingAll(Dimensions.p16,);
               },
               paginationLoading: () {
-                return Padding(
-                  padding: const EdgeInsets.all(
-                    Dimensions.p16,
-                  ),
-                  child: AutoHeightGridView(
-                    controller: scrollController,
-                    itemCount: mostPopularProducts.length,
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    physics: const BouncingScrollPhysics(),
-                    padding: const EdgeInsets.all(12),
-                    shrinkWrap: true,
-                    builder: (context, index) {
-                      return ProductCard(
-                        productEntity: mostPopularProducts[index],
-                      );
-                    },
-                  ),
-                );
+                return AutoHeightGridView(
+                  controller: scrollController,
+                  itemCount: mostPopularProducts.length,
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                  physics: const BouncingScrollPhysics(),
+                  padding: const EdgeInsets.all(12),
+                  shrinkWrap: true,
+                  builder: (context, index) {
+                    return ProductCard(
+                      productEntity: mostPopularProducts[index],
+                    );
+                  },
+                ).paddingAll(Dimensions.p16,);
               },
               paginationError: (errCode, err) {
-                return Padding(
-                  padding: const EdgeInsets.all(
-                    Dimensions.p16,
-                  ),
-                  child: AutoHeightGridView(
-                    controller: scrollController,
-                    itemCount: mostPopularProducts.length,
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    physics: const BouncingScrollPhysics(),
-                    padding: const EdgeInsets.all(12),
-                    shrinkWrap: true,
-                    builder: (context, index) {
-                      return ProductCard(
-                        productEntity: mostPopularProducts[index],
-                      );
-                    },
-                  ),
-                );
+                return AutoHeightGridView(
+                  controller: scrollController,
+                  itemCount: mostPopularProducts.length,
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                  physics: const BouncingScrollPhysics(),
+                  padding: const EdgeInsets.all(12),
+                  shrinkWrap: true,
+                  builder: (context, index) {
+                    return ProductCard(
+                      productEntity: mostPopularProducts[index],
+                    );
+                  },
+                ).paddingAll(Dimensions.p16,);
               },
               error: (errCode, err) {
                 return StateErrorWidget(

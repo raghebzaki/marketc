@@ -17,7 +17,7 @@ class ExchangeServiceImpl implements ExchangeService {
     ExchangeModel exchangeModel = const ExchangeModel();
 
     final contracts = await dio.post(
-      AppConstants.apiBaseUrl + AppConstants.designerExchange,
+      AppConstants.apiBaseUrl + AppConstants.designerExchangeUri,
       data: ExchangeModel.toJson(exchangeEntity),
     );
 

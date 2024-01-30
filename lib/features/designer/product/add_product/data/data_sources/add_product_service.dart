@@ -18,7 +18,7 @@ class AddProductServiceImpl implements AddProductService {
     AddProductModel addProductModel = const AddProductModel();
 
     final orders = await dio.post(
-      AppConstants.apiBaseUrl + AppConstants.designerAddProduct,
+      AppConstants.apiBaseUrl + AppConstants.designerAddProductUri,
       data: AddProductModel.toJson(addProductEntity),
     );
 
