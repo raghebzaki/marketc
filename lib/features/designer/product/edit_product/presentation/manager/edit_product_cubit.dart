@@ -60,8 +60,8 @@ class EditProductCubit extends Cubit<EditProductStates> {
     EditProductStates.uploadImage(img);
   }
 
-  List<File> selectedImages =
-  []; // List of selected image// Instance of Image picker
+  List<File> selectedImages = [];
+  List<XFile> xFilePick =[];
   List<String> base64Images = [];
 
   getImages(context) async {
@@ -69,7 +69,7 @@ class EditProductCubit extends Cubit<EditProductStates> {
         imageQuality: 100, // To set quality of images
         maxHeight: 1000, // To set maxheight of images that you want in your app
         maxWidth: 1000); // To set maxheight of images that you want in your app
-    List<XFile> xFilePick = pickedFile;
+    xFilePick.addAll(pickedFile) ;
 
     // if atleast 1 images is selected it will add
     // all images in selectedImages

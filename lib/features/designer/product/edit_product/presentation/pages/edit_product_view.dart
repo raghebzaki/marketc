@@ -1,11 +1,14 @@
 
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:marketc/core/utils/app_constants.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:pinput/pinput.dart';
 
@@ -18,13 +21,13 @@ import '../../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../../core/shared/widgets/custom_form_field.dart';
 import '../../../../../../core/shared/widgets/state_error_widget.dart';
 import '../../../../../../core/utils/app_colors.dart';
-import '../../../../../../core/utils/app_images.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
 import '../../../../../customer/main/home/presentation/manager/category_cubit.dart';
 import '../../../add_product/presentation/manager/color/colors_cubit.dart';
 import '../../../add_product/presentation/manager/size/sizes_cubit.dart';
 import '../../domain/entities/edit_product_entity.dart';
+import 'package:http/http.dart' as http;
 import '../manager/edit_product_cubit.dart' as edit;
 
 class EditProductView extends StatefulWidget {
@@ -36,6 +39,14 @@ class EditProductView extends StatefulWidget {
 }
 
 class _EditProductViewState extends State<EditProductView> {
+
+
+  Future<String?> networkImageToBase64(String? imageUrl) async {
+    http.Response response = await http.get(Uri.parse(imageUrl!));
+    final bytes = response.bodyBytes;
+    return  base64Encode(bytes);
+  }
+
   GlobalKey<FormState> formKey = GlobalKey();
   TextEditingController productNameArCtrl = TextEditingController();
   TextEditingController productNameEnCtrl = TextEditingController();
@@ -51,10 +62,11 @@ class _EditProductViewState extends State<EditProductView> {
   @override
   void initState() {
     super.initState();
-    go();
+    go(context);
 
   }
-  go(){
+  go(BuildContext context) async {
+    edit.EditProductCubit editProductCubit = edit.EditProductCubit.get(context);
      productNameArCtrl = TextEditingController(text: widget.productDetails.nameAr);
      productNameEnCtrl = TextEditingController(text: widget.productDetails.nameEn);
      productDescriptionArCtrl = TextEditingController(text: widget.productDetails.descriptionAr);
@@ -70,6 +82,14 @@ class _EditProductViewState extends State<EditProductView> {
      for (var size in widget.productDetails.size!) {
        sizeIds.add(size.id!.toInt());
      }
+     for (var image in widget.productDetails.images!) {
+       String? base64=await networkImageToBase64(AppConstants.imageUrl+image.image!);
+       editProductCubit.base64Images.add(base64!);
+       setState(() {
+
+       });
+     }
+
   }
   @override
   Widget build(BuildContext context) {
@@ -604,131 +624,272 @@ class _EditProductViewState extends State<EditProductView> {
                       builder: (context, state) {
                         edit.EditProductCubit editProductCubit =
                         edit.EditProductCubit.get(context);
-                        return Column(
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                editProductCubit.pickPhotoDialog(context);
-                              },
-                              child: editProductCubit.selectedImages == []
-                                  ? DottedBorder(
-                                // radius: Radius.circular(Dimensions.r15),
-                                dashPattern: const [5],
-                                color: AppColors.greyColor,
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: Dimensions.p16.w,
-                                    vertical: Dimensions.p40.h,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          editProductCubit.image!.name,
-                                          style: CustomTextStyle
-                                              .kTextStyleF14
-                                              .copyWith(
-                                            color: AppColors.greyColor,
+                        return state.maybeWhen(
+                          initial: () {
+                            return Column(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+
+                                  },
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      children: [
+                                        ...List.generate(
+                                            editProductCubit.base64Images.length,
+                                                (index) => Padding(
+                                              padding:
+                                              const EdgeInsets.all(8.0),
+                                              child: Stack(
+                                                children: [
+                                                  Image.memory(
+                                                    //to show image, you type like this.
+                                                    const Base64Decoder().convert(editProductCubit.base64Images[index]),
+                                                    fit: BoxFit.cover,
+                                                    width: 150,
+                                                    height: 150,
+                                                  ),
+                                                  Positioned(
+                                                    top:0,
+                                                    right:0,
+                                                    child: GestureDetector(
+                                                      onTap: (){
+                                                        editProductCubit.xFilePick.removeAt(index);
+                                                        editProductCubit.base64Images.removeAt(index);
+                                                        setState(() {
+
+                                                        });
+                                                      },
+                                                      child: const CircleAvatar(
+                                                          radius: 10,
+                                                          backgroundColor: Colors.white,
+                                                          child: Icon(Icons.remove,color: Colors.red,size: 20,)
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            )),
+                                        Container(
+                                          color: AppColors.textColorGrey,
+                                          height: 150,
+                                          width: 150,
+                                          padding: const EdgeInsets.all(8),
+                                          child: GestureDetector(
+                                            child: const Icon(Icons.add_photo_alternate_outlined,size: 50,),
+                                            onTap: (){
+                                              editProductCubit.getImages(context);
+                                            },
                                           ),
                                         ),
-                                      ),
-                                      Gap(25.w),
-                                      Image.asset(
-                                        AppImages.uploadImg,
-                                        height: 24.h,
-                                        width: 24.w,
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              )
-                                  : DottedBorder(
-                                // radius: Radius.circular(Dimensions.r15),
-                                dashPattern: const [5],
-                                color: AppColors.greyColor,
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: Dimensions.p16.w,
-                                    vertical: Dimensions.p40.h,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        S.of(context).upload_product_img,
-                                        style: CustomTextStyle
-                                            .kTextStyleF14
-                                            .copyWith(
-                                          color: AppColors.greyColor,
-                                        ),
-                                      ),
-                                      Gap(25.w),
-                                      Image.asset(
-                                        AppImages.uploadImg,
-                                        height: 24.h,
-                                        width: 24.w,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                            ConditionalBuilder(
-                                condition: state is! edit.Loading,
-                                builder: (BuildContext context) {
-                                  return CustomBtn(
-                                    label: S.of(context).edit_product,
-                                    onPressed: () {
-                                      if (colorIds.isEmpty) {
-                                        context.defaultSnackBar(
-                                            S.of(context).product_color_required);
-                                      } else if (sizeIds.isEmpty) {
-                                        context.defaultSnackBar(
-                                            S.of(context).product_size_required);
-                                      } else if (editProductCubit
-                                          .base64Images.isEmpty) {
-                                        context.defaultSnackBar(
-                                            S.of(context).product_image_required);
-                                      } else {
-                                        if (formKey.currentState!.validate()) {
-                                          editProductCubit.editDesignerProduct(
-                                            EditProductEntity(
-                                              product: ProductEntity(
-                                                categoryId: catId,
-                                                subCategoryId:
-                                                customLogo ? 3 : 2,
-                                                nameAr: productNameArCtrl.text,
-                                                nameEn: productNameEnCtrl.text,
-                                                price: productPriceCtrl.text,
-                                                quantity: int.parse(
-                                                    quantityCtrl.text),
-                                                discountPercent: int.parse(
-                                                    productDiscountCtrl.text),
-                                                sendSize: sizeIds,
-                                                sendColor: colorIds,
-                                                descriptionAr:
-                                                productDescriptionArCtrl
-                                                    .text,
-                                                descriptionEn:
-                                                productDescriptionEnCtrl
-                                                    .text,
-                                                imagesBase64: editProductCubit
-                                                    .base64Images,
-                                                image: editProductCubit
-                                                    .base64Images[0],
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                      }
+                                ConditionalBuilder(
+                                    condition: state is! edit.Loading,
+                                    builder: (BuildContext context) {
+                                      return CustomBtn(
+                                        label: S.of(context).add_product_btn,
+                                        onPressed: () {
+                                          if (colorIds.isEmpty) {
+                                            context.defaultSnackBar(S
+                                                .of(context)
+                                                .product_color_required);
+                                          } else if (sizeIds.isEmpty) {
+                                            context.defaultSnackBar(S
+                                                .of(context)
+                                                .product_size_required);
+                                          } else if (editProductCubit
+                                              .base64Images.isEmpty) {
+                                            context.defaultSnackBar(S
+                                                .of(context)
+                                                .product_image_required);
+                                          } else {
+                                            if (formKey.currentState!
+                                                .validate()) {
+                                              editProductCubit
+                                                  .editDesignerProduct(
+                                                EditProductEntity(
+                                                  product: ProductEntity(
+                                                    categoryId: catId,
+                                                    subCategoryId:
+                                                    customLogo ? 3 : 2,
+                                                    nameAr:
+                                                    productNameArCtrl.text,
+                                                    nameEn:
+                                                    productNameEnCtrl.text,
+                                                    price:
+                                                    productPriceCtrl.text,
+                                                    quantity: int.parse(
+                                                        quantityCtrl.text),
+                                                    discountPercent: int.parse(
+                                                        productDiscountCtrl
+                                                            .text),
+                                                    sendSize: sizeIds,
+                                                    sendColor: colorIds,
+                                                    descriptionAr:
+                                                    productDescriptionArCtrl
+                                                        .text,
+                                                    descriptionEn:
+                                                    productDescriptionEnCtrl
+                                                        .text,
+                                                    imagesBase64:
+                                                    editProductCubit
+                                                        .base64Images,
+                                                    image: editProductCubit
+                                                        .base64Images[0],
+                                                  ),
+                                                ),
+                                              );
+                                            }
+                                          }
+                                        },
+                                      );
                                     },
-                                  );
-                                },
-                                fallback: (BuildContext context) {
-                                  return const Center(
-                                    child: CircularProgressIndicator(),
-                                  );
-                                })
-                          ],
+                                    fallback: (BuildContext context) {
+                                      return const Center(
+                                        child: CircularProgressIndicator(),
+                                      );
+                                    })
+                              ],
+                            );
+                          },
+                          uploadMultipleImages: (state) {
+                            return Column(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+
+                                  },
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      children: [
+                                        ...List.generate(
+                                            state.length,
+                                                (index) => Padding(
+                                              padding:
+                                              const EdgeInsets.all(8.0),
+                                              child: Stack(
+                                                children: [
+                                                  Image.file(
+                                                    //to show image, you type like this.
+                                                    File(state[index].path),
+                                                    fit: BoxFit.cover,
+                                                    width: 150,
+                                                    height: 150,
+                                                  ),
+                                                  Positioned(
+                                                    top:0,
+                                                    right:0,
+                                                    child: GestureDetector(
+                                                      onTap: (){
+                                                        editProductCubit.xFilePick.removeAt(index);
+                                                        editProductCubit.base64Images.removeAt(index);
+                                                        setState(() {
+
+                                                        });
+                                                      },
+                                                      child: const CircleAvatar(
+                                                          radius: 10,
+                                                          backgroundColor: Colors.white,
+                                                          child: Icon(Icons.remove,color: Colors.red,size: 20,)
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            )),
+                                        Container(
+                                          color: AppColors.textColorGrey,
+                                          height: 150,
+                                          width: 150,
+                                          padding: const EdgeInsets.all(8),
+                                          child: GestureDetector(
+                                            child: const Icon(Icons.add_photo_alternate_outlined,size: 50,),
+                                            onTap: (){
+                                              editProductCubit.getImages(context);
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                ConditionalBuilder(
+                                    condition: state is! edit.Loading,
+                                    builder: (BuildContext context) {
+                                      return CustomBtn(
+                                        label: S.of(context).add_product_btn,
+                                        onPressed: () {
+                                          if (colorIds.isEmpty) {
+                                            context.defaultSnackBar(S
+                                                .of(context)
+                                                .product_color_required);
+                                          } else if (sizeIds.isEmpty) {
+                                            context.defaultSnackBar(S
+                                                .of(context)
+                                                .product_size_required);
+                                          } else if (editProductCubit
+                                              .base64Images.isEmpty) {
+                                            context.defaultSnackBar(S
+                                                .of(context)
+                                                .product_image_required);
+                                          } else {
+                                            if (formKey.currentState!
+                                                .validate()) {
+                                              editProductCubit
+                                                  .editDesignerProduct(
+                                                EditProductEntity(
+                                                  product: ProductEntity(
+                                                    categoryId: catId,
+                                                    subCategoryId:
+                                                    customLogo ? 3 : 2,
+                                                    nameAr:
+                                                    productNameArCtrl.text,
+                                                    nameEn:
+                                                    productNameEnCtrl.text,
+                                                    price:
+                                                    productPriceCtrl.text,
+                                                    quantity: int.parse(
+                                                        quantityCtrl.text),
+                                                    discountPercent: int.parse(
+                                                        productDiscountCtrl
+                                                            .text),
+                                                    sendSize: sizeIds,
+                                                    sendColor: colorIds,
+                                                    descriptionAr:
+                                                    productDescriptionArCtrl
+                                                        .text,
+                                                    descriptionEn:
+                                                    productDescriptionEnCtrl
+                                                        .text,
+                                                    imagesBase64:
+                                                    editProductCubit
+                                                        .base64Images,
+                                                    image: editProductCubit
+                                                        .base64Images[0],
+                                                  ),
+                                                ),
+                                              );
+                                            }
+                                          }
+                                        },
+                                      );
+                                    },
+                                    fallback: (BuildContext context) {
+                                      return const Center(
+                                        child: CircularProgressIndicator(),
+                                      );
+                                    })
+                              ],
+                            );
+                          },
+                          orElse: () {
+                            return const SizedBox.shrink();
+                          },
                         );
                       },
                     ),

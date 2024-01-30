@@ -64,13 +64,14 @@ class AddProductCubit extends Cubit<AddProductStates> {
   List<File> selectedImages =
       []; // List of selected image// Instance of Image picker
   List<String> base64Images = [];
-
+  List<XFile> xFilePick=[];
   getImages(context) async {
+    emit(const AddProductStates.loading());
     final pickedFile = await picker.pickMultiImage(
         imageQuality: 100, // To set quality of images
         maxHeight: 1000, // To set maxheight of images that you want in your app
         maxWidth: 1000); // To set maxheight of images that you want in your app
-    List<XFile> xFilePick = pickedFile;
+    xFilePick.addAll(pickedFile);
 
     // if atleast 1 images is selected it will add
     // all images in selectedImages
@@ -81,7 +82,7 @@ class AddProductCubit extends Cubit<AddProductStates> {
         base64Images
             .add(base64Encode(File(xFilePick[i].path).readAsBytesSync()));
       }
-      AddProductStates.uploadMultipleImages(xFilePick);
+      emit(AddProductStates.uploadMultipleImages(xFilePick));
     } else {
       // If no image is selected it will show a
       // snackbar saying nothing is selected

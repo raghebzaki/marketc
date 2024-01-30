@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketc/core/shared/models/user_data_model.dart';
 import 'package:marketc/features/designer/main/categories/domain/entities/my_designer_products_entity.dart';
 import 'package:marketc/features/designer/main/categories/presentation/manager/my_designer_products_cubit.dart';
+import 'package:marketc/features/designer/product/edit_product/presentation/manager/edit_product_cubit.dart'as edit;
 
 import '../../features/auth/change_pass/presentation/pages/change_pass_confirmation.dart';
 import '../../features/auth/change_pass/presentation/pages/change_pass_view.dart';
@@ -227,8 +228,10 @@ class AppRouters {
       case editProductPageRoute:
         final args = settings.arguments as EditProductArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) =>
-              EditProductView(productDetails: args.productDetails),
+          builder: (BuildContext context) => BlocProvider(
+            create: (context) => di.di<edit.EditProductCubit>(),
+            child: EditProductView(productDetails: args.productDetails),
+          ),
         );
       case designsPageRoute:
         return MaterialPageRoute(
