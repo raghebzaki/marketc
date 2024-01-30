@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marketc/core/shared/models/user_data_model.dart';
+import 'package:marketc/features/designer/main/categories/domain/entities/my_designer_products_entity.dart';
+import 'package:marketc/features/designer/main/categories/presentation/manager/my_designer_products_cubit.dart';
 
 import '../../features/auth/change_pass/presentation/pages/change_pass_confirmation.dart';
 import '../../features/auth/change_pass/presentation/pages/change_pass_view.dart';
@@ -211,7 +214,10 @@ class AppRouters {
         );
       case designerCategoryPageRoute:
         return MaterialPageRoute(
-          builder: (BuildContext context) => const DesignerCategoriesView(),
+          builder: (BuildContext context) => BlocProvider(
+            create: (context) => di.di<MyDesignerProductsCubit>()..getProducts(MyDesignerProductsEntity(userId: UserData.id),1),
+            child: const DesignerCategoriesView(),
+          ),
         );
       case addProductPageRoute:
         return MaterialPageRoute(

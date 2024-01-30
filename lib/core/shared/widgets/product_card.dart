@@ -76,7 +76,8 @@ class ProductCard extends StatelessWidget {
                             .copyWith(color: AppColors.lightBlue),
                       ),
                     ],
-                  ):Row(
+                  ):
+                  Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,

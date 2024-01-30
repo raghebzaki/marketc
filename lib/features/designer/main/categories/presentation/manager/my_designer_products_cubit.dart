@@ -19,17 +19,31 @@ class MyDesignerProductsCubit extends Cubit<MyDesignerProductsStates> {
   final MyDesignerProductsUseCase myDesignerProductsUseCase;
 
   getProducts(MyDesignerProductsEntity myDesignerProductsEntity,int? nextPage) async {
-    emit(const MyDesignerProductsStates.loading());
+    if (nextPage == 1) {
+      emit(const MyDesignerProductsStates.loading());
+    } else {
+       emit(const MyDesignerProductsStates.paginationLoading());
+    }
     final login = await myDesignerProductsUseCase(myDesignerProductsEntity,nextPage);
 
     login.fold(
       (l) {
-        emit(
-          MyDesignerProductsStates.error(
-            l.code.toString(),
-            l.message,
-          ),
-        );
+        if (nextPage == 1) {
+          emit(
+            MyDesignerProductsStates.error(
+              l.code.toString(),
+              l.message,
+            ),
+          );
+        } else {
+          emit(
+            MyDesignerProductsStates.paginationError(
+              l.code.toString(),
+              l.message,
+            ),
+          );
+        }
+
       },
       (r) async {
         emit(

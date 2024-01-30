@@ -3,10 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:marketc/core/router/router.dart';
 import 'package:marketc/core/shared/entities/product_entity.dart';
+import 'package:marketc/core/utils/app_constants.dart';
 import 'package:marketc/core/utils/extensions.dart';
 
 import '../../../config/themes/app_text_styles.dart';
 import '../../../generated/l10n.dart';
+import '../../helpers/cache_helper.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/dimensions.dart';
 import '../arguments.dart';
@@ -37,9 +39,9 @@ class ProductCardDesigner extends StatelessWidget {
             Container(
               width: double.infinity,
               height: 120,
-              decoration: const BoxDecoration(
+              decoration:  BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage("https://via.placeholder.com/160x130"),
+                  image: NetworkImage(AppConstants.imageUrl+productEntity.image!),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -53,12 +55,12 @@ class ProductCardDesigner extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            'ملابس قصيرة',
+                            CacheHelper.isEnglish()?productEntity.nameEn!:productEntity.nameAr!,
                             style: CustomTextStyle.kTextStyleF12
                                 .copyWith(color: AppColors.textColor),
                           ),
                           Text(
-                            'تطريز شعارات',
+                            productEntity.subCategoryId==2?S.current.custom_phrases:S.current.custom_logo,
                             style: CustomTextStyle.kTextStyleF12
                                 .copyWith(color: AppColors.textColorSecondary),
                           ),
@@ -130,24 +132,37 @@ class ProductCardDesigner extends StatelessWidget {
                       ),
                     ],
                   ),
+                  productEntity.discountPercent==0?Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '${productEntity.price} ${S.current.sar}',
+                        style: CustomTextStyle.kTextStyleF12
+                            .copyWith(color: AppColors.lightBlue),
+                      ),
+                    ],
+                  ):
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        '140.00 ${S.current.sar}',
+                        '${productEntity.priceAfterDiscount} ${S.current.sar}',
                         style: CustomTextStyle.kTextStyleF12
                             .copyWith(color: AppColors.lightBlue),
                       ),
                       Gap(8.w),
                       Text(
-                        '-30%',
+                        "${productEntity.discountPercent!}%",
                         style: CustomTextStyle.kTextStyleF12
                             .copyWith(color: AppColors.discountNumber),
                       ),
                     ],
                   ),
+
                 ],
               ),
             ),
