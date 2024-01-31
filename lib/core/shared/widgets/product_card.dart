@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:marketc/core/helpers/cache_helper.dart';
@@ -36,15 +38,24 @@ class ProductCard extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Container(
-              width: double.infinity,
-              height: 120,
-              decoration:  BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(AppConstants.imageUrl+productEntity.image!),
-                  fit: BoxFit.cover,
-                ),
-              ),
+            CachedNetworkImage(
+              imageUrl: AppConstants.imageUrl + productEntity.image!,
+              imageBuilder: (context, imageProvider) {
+                return Container(
+                  width: double.infinity,
+                  height: 120,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          AppConstants.imageUrl + productEntity.image!),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                );
+              },
+              placeholder: (context, url) => const BlurHash(hash: "L5H2EC=PM+yV0g-mq.wG9c010J}I"),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+              fit: BoxFit.cover,
             ),
             Container(
               padding: const EdgeInsets.all(Dimensions.p8),

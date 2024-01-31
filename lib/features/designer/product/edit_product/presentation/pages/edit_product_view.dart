@@ -37,7 +37,7 @@ class EditProductView extends StatefulWidget {
 
 class _EditProductViewState extends State<EditProductView> {
   GlobalKey<FormState> formKey = GlobalKey();
-  TextEditingController productNameArCtrl = TextEditingController(text: widget.productDetails.nameAr);
+  TextEditingController productNameArCtrl = TextEditingController();
   TextEditingController productNameEnCtrl = TextEditingController();
   TextEditingController productDescriptionArCtrl = TextEditingController();
   TextEditingController productDescriptionEnCtrl = TextEditingController();

@@ -1,22 +1,24 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:marketc/core/router/router.dart';
-import 'package:marketc/core/shared/entities/product_entity.dart';
 import 'package:marketc/core/shared/widgets/state_error_widget.dart';
-import 'package:marketc/core/utils/app_constants.dart';
 import 'package:marketc/core/utils/extensions.dart';
-import 'package:marketc/features/designer/main/categories/domain/entities/delete_product_entity.dart';
-import 'package:marketc/features/designer/main/categories/presentation/manager/delete_product_cubit.dart';
 
 import '../../../config/themes/app_text_styles.dart';
+import '../../../features/designer/main/categories/domain/entities/delete_product_entity.dart';
+import '../../../features/designer/main/categories/presentation/manager/delete_product_cubit.dart';
 import '../../../generated/l10n.dart';
 import '../../dependency_injection/di.dart' as di;
 import '../../helpers/cache_helper.dart';
+import '../../router/router.dart';
 import '../../utils/app_colors.dart';
+import '../../utils/app_constants.dart';
 import '../../utils/dimensions.dart';
 import '../arguments.dart';
+import '../entities/product_entity.dart';
 
 class ProductCardDesigner extends StatelessWidget {
   final ProductEntity productEntity;
@@ -50,16 +52,24 @@ class ProductCardDesigner extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Container(
-                    width: double.infinity,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(
-                            AppConstants.imageUrl + productEntity.image!),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                  CachedNetworkImage(
+                    imageUrl: AppConstants.imageUrl + productEntity.image!,
+                    imageBuilder: (context, imageProvider) {
+                      return Container(
+                        width: double.infinity,
+                        height: 120,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                                AppConstants.imageUrl + productEntity.image!),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      );
+                    },
+                    placeholder: (context, url) => const BlurHash(hash: "L5H2EC=PM+yV0g-mq.wG9c010J}I"),
+                    errorWidget: (context, url, error) => const Icon(Icons.error),
+                    fit: BoxFit.cover,
                   ),
                   Container(
                     padding: const EdgeInsets.all(Dimensions.p8),

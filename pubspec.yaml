@@ -59,7 +59,8 @@ dependencies:
   # Ui Widgets
   getwidget: ^4.0.0
   gap: ^3.0.1 # Better SizedBoxes
-  cached_network_image: ^3.2.3 # Saving images for offline use
+  cached_network_image: ^3.3.1 # Saving images for offline use
+  flutter_blurhash: ^0.8.2 # Compact representation of a placeholder for an image. Encode a blurry image under 30 caracters for instant display like used by Medium
   pinput: ^3.0.1 # Adding verification code fields
   conditional_builder_null_safety: ^0.0.6 # Show UI elements according to conditional type
   flutter_native_splash: ^2.3.0 # Customize Flutter's default white native splash screen with background color and splash image
