@@ -115,7 +115,7 @@ class AppRouters {
             child: const MostPopularSeeMoreView(),
           ),
         );
-        case newProductsSeeMorePageRoute:
+      case newProductsSeeMorePageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => BlocProvider(
             create: (context) => di.di<NewProductsCubit>()..getAllProducts(1),
@@ -215,7 +215,8 @@ class AppRouters {
       case designerCategoryPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => BlocProvider(
-            create: (context) => di.di<MyDesignerProductsCubit>()..getProducts(MyDesignerProductsEntity(userId: UserData.id),1),
+            create: (context) => di.di<MyDesignerProductsCubit>()
+              ..getProducts(MyDesignerProductsEntity(userId: UserData.id), 1),
             child: const DesignerCategoriesView(),
           ),
         );
@@ -224,8 +225,10 @@ class AppRouters {
           builder: (BuildContext context) => const AddProductView(),
         );
       case editProductPageRoute:
+        final args = settings.arguments as EditProductArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const EditProductView(),
+          builder: (BuildContext context) =>
+              EditProductView(productDetails: args.productDetails),
         );
       case designsPageRoute:
         return MaterialPageRoute(

@@ -36,3 +36,10 @@ class ProductsEntityArgs {
 
   ProductsEntityArgs({required this.productEntity});
 }
+
+class EditProductArgs {
+  final ProductEntity productDetails;
+
+  EditProductArgs({required this.productDetails});
+
+}
