@@ -27,7 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "نقوم بجمع المعلومات الشخصية ومعالجتها طوال رحلتنا معًا للحفاظ على أمان حسابك وأمانه. إليك ما نحتفظ به عنك:"),
         "add_new_address":
             MessageLookupByLibrary.simpleMessage("اضافة عنوان جديد"),
-        "add_product": MessageLookupByLibrary.simpleMessage("اضافة منتج"),
+        "add_product": MessageLookupByLibrary.simpleMessage("إضافة منتج"),
+        "add_product_btn": MessageLookupByLibrary.simpleMessage("إضافة المنتج"),
         "add_promo_code":
             MessageLookupByLibrary.simpleMessage("اضافة كود خصم خاص"),
         "add_promo_code_des": MessageLookupByLibrary.simpleMessage(
@@ -235,12 +236,37 @@ class MessageLookup extends MessageLookupByLibrary {
         "privacy_policy":
             MessageLookupByLibrary.simpleMessage("سياسة الاستخدام والشروط"),
         "processing": MessageLookupByLibrary.simpleMessage("قيد التنفيذ"),
+        "product_added_success":
+            MessageLookupByLibrary.simpleMessage("تمت إضافة المنتج بنجاح"),
         "product_category":
             MessageLookupByLibrary.simpleMessage("تصنيف المنتج"),
-        "product_des": MessageLookupByLibrary.simpleMessage(
-            "ملابس قصيرة بتطريز عبارات حيث يمكنك اختيار الملابس ذات التطريز المناسب لك وجعله لمسة من الأناقة إلى هويتك"),
+        "product_color_required": MessageLookupByLibrary.simpleMessage(
+            "يجب اختيار لون واحد على الأقل"),
+        "product_des": MessageLookupByLibrary.simpleMessage("وصف المنتج"),
+        "product_des_ar":
+            MessageLookupByLibrary.simpleMessage("وصف المنتج بالعربية"),
+        "product_des_required":
+            MessageLookupByLibrary.simpleMessage("يجب أن يحتوي المنتج على وصف"),
+        "product_des_short": MessageLookupByLibrary.simpleMessage(
+            "يجب أن يكون وصف المنتج على الأقل 10 كلمات"),
+        "product_discount_required": MessageLookupByLibrary.simpleMessage(
+            "يجب أن يحتوي المنتج على نسبة خصم"),
+        "product_image_required": MessageLookupByLibrary.simpleMessage(
+            "يجب اختيار صورة واحدة على الأقل"),
         "product_name": MessageLookupByLibrary.simpleMessage("اسم المنتج"),
+        "product_name_ar":
+            MessageLookupByLibrary.simpleMessage("اسم المنتج بالعربية"),
+        "product_name_required":
+            MessageLookupByLibrary.simpleMessage("يجب أن يحتوي المنتج على اسم"),
+        "product_name_short": MessageLookupByLibrary.simpleMessage(
+            "يجب أن يكون اسم المنتج على الأقل 5 أحرف"),
         "product_price": MessageLookupByLibrary.simpleMessage("السعر"),
+        "product_price_required":
+            MessageLookupByLibrary.simpleMessage("يجب أن يحتوي المنتج على سعر"),
+        "product_qty_required": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تكون كمية المنتج 10 على الأقل"),
+        "product_size_required": MessageLookupByLibrary.simpleMessage(
+            "يجب اختيار حجم واحد على الأقل"),
         "progress": MessageLookupByLibrary.simpleMessage("الاستمرار"),
         "purchases": MessageLookupByLibrary.simpleMessage("عمليات الشراء"),
         "qty": MessageLookupByLibrary.simpleMessage("الكمية"),

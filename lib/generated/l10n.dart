@@ -680,16 +680,6 @@ class S {
     );
   }
 
-  /// `Short clothes with embroidered phrases, where you can choose clothes with suitable embroidery to add a touch of elegance to your identity.`
-  String get product_des {
-    return Intl.message(
-      'Short clothes with embroidered phrases, where you can choose clothes with suitable embroidery to add a touch of elegance to your identity.',
-      name: 'product_des',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Colors`
   String get colors {
     return Intl.message(
@@ -1850,66 +1840,6 @@ class S {
     );
   }
 
-  /// `Add Product`
-  String get add_product {
-    return Intl.message(
-      'Add Product',
-      name: 'add_product',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Product Name`
-  String get product_name {
-    return Intl.message(
-      'Product Name',
-      name: 'product_name',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Price`
-  String get product_price {
-    return Intl.message(
-      'Price',
-      name: 'product_price',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Discount Percentage`
-  String get discount_percentage {
-    return Intl.message(
-      'Discount Percentage',
-      name: 'discount_percentage',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Product Category`
-  String get product_category {
-    return Intl.message(
-      'Product Category',
-      name: 'product_category',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Upload Your Product Image`
-  String get upload_product_img {
-    return Intl.message(
-      'Upload Your Product Image',
-      name: 'upload_product_img',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Error Code`
   String get err_code {
     return Intl.message(
@@ -2115,6 +2045,216 @@ class S {
     return Intl.message(
       'Error Occurred!',
       name: 'error_occurred',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Product`
+  String get add_product {
+    return Intl.message(
+      'Add Product',
+      name: 'add_product',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product Name`
+  String get product_name {
+    return Intl.message(
+      'Product Name',
+      name: 'product_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic Product Name`
+  String get product_name_ar {
+    return Intl.message(
+      'Arabic Product Name',
+      name: 'product_name_ar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product must have a name`
+  String get product_name_required {
+    return Intl.message(
+      'Product must have a name',
+      name: 'product_name_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product name must be 5 chars at least`
+  String get product_name_short {
+    return Intl.message(
+      'Product name must be 5 chars at least',
+      name: 'product_name_short',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product Description`
+  String get product_des {
+    return Intl.message(
+      'Product Description',
+      name: 'product_des',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic Product Description`
+  String get product_des_ar {
+    return Intl.message(
+      'Arabic Product Description',
+      name: 'product_des_ar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product must have a description`
+  String get product_des_required {
+    return Intl.message(
+      'Product must have a description',
+      name: 'product_des_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product description must be 10 words at least`
+  String get product_des_short {
+    return Intl.message(
+      'Product description must be 10 words at least',
+      name: 'product_des_short',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price`
+  String get product_price {
+    return Intl.message(
+      'Price',
+      name: 'product_price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discount Percentage`
+  String get discount_percentage {
+    return Intl.message(
+      'Discount Percentage',
+      name: 'discount_percentage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product Category`
+  String get product_category {
+    return Intl.message(
+      'Product Category',
+      name: 'product_category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upload Your Product Image`
+  String get upload_product_img {
+    return Intl.message(
+      'Upload Your Product Image',
+      name: 'upload_product_img',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product must have a price`
+  String get product_price_required {
+    return Intl.message(
+      'Product must have a price',
+      name: 'product_price_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product must have a discount percentage`
+  String get product_discount_required {
+    return Intl.message(
+      'Product must have a discount percentage',
+      name: 'product_discount_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product quantity must be 10 at least`
+  String get product_qty_required {
+    return Intl.message(
+      'Product quantity must be 10 at least',
+      name: 'product_qty_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product added successfully`
+  String get product_added_success {
+    return Intl.message(
+      'Product added successfully',
+      name: 'product_added_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Product`
+  String get add_product_btn {
+    return Intl.message(
+      'Add Product',
+      name: 'add_product_btn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You must choose 1 color at least`
+  String get product_color_required {
+    return Intl.message(
+      'You must choose 1 color at least',
+      name: 'product_color_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You must choose 1 size at least`
+  String get product_size_required {
+    return Intl.message(
+      'You must choose 1 size at least',
+      name: 'product_size_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You must choose 1 image at least`
+  String get product_image_required {
+    return Intl.message(
+      'You must choose 1 image at least',
+      name: 'product_image_required',
       desc: '',
       args: [],
     );

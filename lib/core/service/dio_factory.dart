@@ -41,7 +41,7 @@ class DioFactory {
         ),
       );
 
-      // addDioInterceptor();
+      addDioInterceptor();
 
       return dio!;
     } else {
@@ -54,7 +54,7 @@ class DioFactory {
       dio!.interceptors.add(
         PrettyDioLogger(
           requestHeader: true,
-          requestBody: true,
+          // requestBody: true,
           responseBody: true,
           responseHeader: false,
           error: true,

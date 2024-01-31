@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_new_address":
             MessageLookupByLibrary.simpleMessage("Add New Address"),
         "add_product": MessageLookupByLibrary.simpleMessage("Add Product"),
+        "add_product_btn": MessageLookupByLibrary.simpleMessage("Add Product"),
         "add_promo_code":
             MessageLookupByLibrary.simpleMessage("Add Promo Code"),
         "add_promo_code_des": MessageLookupByLibrary.simpleMessage(
@@ -242,12 +243,38 @@ class MessageLookup extends MessageLookupByLibrary {
         "privacy_policy":
             MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "processing": MessageLookupByLibrary.simpleMessage("Processing"),
+        "product_added_success":
+            MessageLookupByLibrary.simpleMessage("Product added successfully"),
         "product_category":
             MessageLookupByLibrary.simpleMessage("Product Category"),
-        "product_des": MessageLookupByLibrary.simpleMessage(
-            "Short clothes with embroidered phrases, where you can choose clothes with suitable embroidery to add a touch of elegance to your identity."),
+        "product_color_required": MessageLookupByLibrary.simpleMessage(
+            "You must choose 1 color at least"),
+        "product_des":
+            MessageLookupByLibrary.simpleMessage("Product Description"),
+        "product_des_ar":
+            MessageLookupByLibrary.simpleMessage("Arabic Product Description"),
+        "product_des_required": MessageLookupByLibrary.simpleMessage(
+            "Product must have a description"),
+        "product_des_short": MessageLookupByLibrary.simpleMessage(
+            "Product description must be 10 words at least"),
+        "product_discount_required": MessageLookupByLibrary.simpleMessage(
+            "Product must have a discount percentage"),
+        "product_image_required": MessageLookupByLibrary.simpleMessage(
+            "You must choose 1 image at least"),
         "product_name": MessageLookupByLibrary.simpleMessage("Product Name"),
+        "product_name_ar":
+            MessageLookupByLibrary.simpleMessage("Arabic Product Name"),
+        "product_name_required":
+            MessageLookupByLibrary.simpleMessage("Product must have a name"),
+        "product_name_short": MessageLookupByLibrary.simpleMessage(
+            "Product name must be 5 chars at least"),
         "product_price": MessageLookupByLibrary.simpleMessage("Price"),
+        "product_price_required":
+            MessageLookupByLibrary.simpleMessage("Product must have a price"),
+        "product_qty_required": MessageLookupByLibrary.simpleMessage(
+            "Product quantity must be 10 at least"),
+        "product_size_required": MessageLookupByLibrary.simpleMessage(
+            "You must choose 1 size at least"),
         "profit_ratio": MessageLookupByLibrary.simpleMessage("Profit ratio"),
         "progress": MessageLookupByLibrary.simpleMessage("Continue"),
         "purchases": MessageLookupByLibrary.simpleMessage("Purchases"),
