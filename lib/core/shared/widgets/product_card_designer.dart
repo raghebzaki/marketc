@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:marketc/core/shared/widgets/state_error_widget.dart';
@@ -61,15 +60,16 @@ class ProductCardDesigner extends StatelessWidget {
                         height: 120.h,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: NetworkImage(
-                                AppConstants.imageUrl + productEntity.image!),
+                            image: imageProvider,
                             fit: BoxFit.cover,
                           ),
                         ),
                       );
                     },
-                    placeholder: (context, url) => const BlurHash(hash: "L5H2EC=PM+yV0g-mq.wG9c010J}I"),
-                    errorWidget: (context, url, error) => const Icon(Icons.error),
+                    progressIndicatorBuilder: (context, url, downloadProgress) =>
+                        Center(child: CircularProgressIndicator(value: downloadProgress.progress)),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                     fit: BoxFit.cover,
                   ),
                   Container(
@@ -92,8 +92,10 @@ class ProductCardDesigner extends StatelessWidget {
                                     productEntity.subCategoryId == 2
                                         ? S.current.custom_phrases
                                         : S.current.custom_logo,
-                                    style: CustomTextStyle.kTextStyleF12.copyWith(
-                                        color: AppColors.textColorSecondary),
+                                    style: CustomTextStyle.kTextStyleF12
+                                        .copyWith(
+                                            color:
+                                                AppColors.textColorSecondary),
                                   ),
                                 ],
                               ),

@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:marketc/core/helpers/cache_helper.dart';
@@ -53,7 +52,8 @@ class ProductCard extends StatelessWidget {
                   ),
                 );
               },
-              placeholder: (context, url) => const BlurHash(hash: "L5H2EC=PM+yV0g-mq.wG9c010J}I"),
+              progressIndicatorBuilder: (context, url, downloadProgress) =>
+                  Center(child: CircularProgressIndicator(value: downloadProgress.progress)),
               errorWidget: (context, url, error) => const Icon(Icons.error),
               fit: BoxFit.cover,
             ),

@@ -11,8 +11,8 @@ class EditProductModel extends EditProductEntity {
 
   factory EditProductModel.fromJson(Map<String, dynamic> map) {
     return EditProductModel(
-      status: map['status'] as num,
-      msg: map['message'] as String,
+      status: map['status'],
+      msg: map['message'],
     );
   }
 

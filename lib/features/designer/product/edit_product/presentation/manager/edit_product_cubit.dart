@@ -16,10 +16,12 @@ import '../../domain/entities/edit_product_entity.dart';
 import '../../domain/use_cases/edit_product_usecase.dart';
 
 part 'edit_product_state.dart';
+
 part 'edit_product_cubit.freezed.dart';
 
 class EditProductCubit extends Cubit<EditProductStates> {
-  EditProductCubit({required this.editProductUseCase}) : super(const EditProductStates.initial());
+  EditProductCubit({required this.editProductUseCase})
+      : super(const EditProductStates.initial());
 
   static EditProductCubit get(BuildContext context) => BlocProvider.of(context);
 
@@ -30,7 +32,7 @@ class EditProductCubit extends Cubit<EditProductStates> {
     final edit = await editProductUseCase(editProductEntity);
 
     edit.fold(
-          (l) {
+      (l) {
         emit(
           EditProductStates.error(
             l.code.toString(),
@@ -38,7 +40,7 @@ class EditProductCubit extends Cubit<EditProductStates> {
           ),
         );
       },
-          (r) async {
+      (r) async {
         emit(
           EditProductStates.success(r),
         );
@@ -61,7 +63,7 @@ class EditProductCubit extends Cubit<EditProductStates> {
   }
 
   List<File> selectedImages = [];
-  List<XFile> xFilePick =[];
+  List<XFile> xFilePick = [];
   List<String> base64Images = [];
 
   getImages(context) async {
@@ -69,7 +71,7 @@ class EditProductCubit extends Cubit<EditProductStates> {
         imageQuality: 100, // To set quality of images
         maxHeight: 1000, // To set maxheight of images that you want in your app
         maxWidth: 1000); // To set maxheight of images that you want in your app
-    xFilePick.addAll(pickedFile) ;
+    xFilePick.addAll(pickedFile);
 
     // if atleast 1 images is selected it will add
     // all images in selectedImages
@@ -80,7 +82,7 @@ class EditProductCubit extends Cubit<EditProductStates> {
         base64Images
             .add(base64Encode(File(xFilePick[i].path).readAsBytesSync()));
       }
-      EditProductStates.uploadMultipleImages(xFilePick);
+      emit(EditProductStates.uploadMultipleImages(base64Images));
     } else {
       // If no image is selected it will show a
       // snackbar saying nothing is selected
@@ -132,4 +134,21 @@ class EditProductCubit extends Cubit<EditProductStates> {
     );
   }
 
+  /*Future<String?> networkImageToBase64(String? imageUrl) async {
+    http.Response response = await http.get(Uri.parse(imageUrl!));
+    final bytes = response.bodyBytes;
+    return base64Encode(bytes);
+  }*/
+
+  // List<String> base64Preview = [];
+
+  // previewImages(List<ProductsImagesEntity> images) async {
+  //   for (var image in images) {
+  //     String? base64 =
+  //         await networkImageToBase64(AppConstants.imageUrl + image.image!);
+  //     base64Preview.add(base64!);
+  //     debugPrint(base64Preview.toString());
+  //   }
+  //   emit(EditProductStates.previewImages(base64Preview));
+  // }
 }
