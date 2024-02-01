@@ -722,8 +722,7 @@ class _EditProductViewState extends State<EditProductView> {
                                             context.defaultSnackBar(S
                                                 .of(context)
                                                 .product_size_required);
-                                          } else if (editProductCubit
-                                              .base64Images.isEmpty) {
+                                          } else if (basePreview.isEmpty) {
                                             context.defaultSnackBar(S
                                                 .of(context)
                                                 .product_image_required);
@@ -734,6 +733,8 @@ class _EditProductViewState extends State<EditProductView> {
                                                   .editDesignerProduct(
                                                 EditProductEntity(
                                                   product: ProductEntity(
+                                                    id: widget
+                                                        .productDetails.id,
                                                     categoryId: catId,
                                                     subCategoryId:
                                                         customLogo ? 3 : 2,
@@ -756,11 +757,8 @@ class _EditProductViewState extends State<EditProductView> {
                                                     descriptionEn:
                                                         productDescriptionEnCtrl
                                                             .text,
-                                                    imagesBase64:
-                                                        editProductCubit
-                                                            .base64Images,
-                                                    image: editProductCubit
-                                                        .base64Images[0],
+                                                    imagesBase64: basePreview,
+                                                    image: basePreview[0],
                                                   ),
                                                 ),
                                               );
@@ -872,8 +870,7 @@ class _EditProductViewState extends State<EditProductView> {
                                             context.defaultSnackBar(S
                                                 .of(context)
                                                 .product_size_required);
-                                          } else if (editProductCubit
-                                              .base64Images.isEmpty) {
+                                          } else if (basePreview.isEmpty) {
                                             context.defaultSnackBar(S
                                                 .of(context)
                                                 .product_image_required);
@@ -1020,8 +1017,7 @@ class _EditProductViewState extends State<EditProductView> {
                                             context.defaultSnackBar(S
                                                 .of(context)
                                                 .product_size_required);
-                                          } else if (editProductCubit
-                                              .base64Images.isEmpty) {
+                                          } else if (basePreview.isEmpty) {
                                             context.defaultSnackBar(S
                                                 .of(context)
                                                 .product_image_required);
@@ -1168,8 +1164,7 @@ class _EditProductViewState extends State<EditProductView> {
                                             context.defaultSnackBar(S
                                                 .of(context)
                                                 .product_size_required);
-                                          } else if (editProductCubit
-                                              .base64Images.isEmpty) {
+                                          } else if (basePreview.isEmpty) {
                                             context.defaultSnackBar(S
                                                 .of(context)
                                                 .product_image_required);
