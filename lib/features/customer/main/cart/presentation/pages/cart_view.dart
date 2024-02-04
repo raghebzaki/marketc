@@ -1,16 +1,20 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:intl/intl.dart';
-import 'package:marketc/config/themes/app_text_styles.dart';
-import 'package:marketc/core/router/router.dart';
-import 'package:marketc/core/shared/widgets/custom_app_bar.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:marketc/core/shared/widgets/custom_button.dart';
-import 'package:marketc/core/utils/app_colors.dart';
+import 'package:intl/intl.dart';
+import 'package:marketc/core/utils/app_constants.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../../../../../config/themes/app_text_styles.dart';
+import '../../../../../../core/router/router.dart';
+import '../../../../../../core/shared/cubits/cart_cubit/cart_cubit.dart';
+import '../../../../../../core/shared/widgets/custom_app_bar.dart';
+import '../../../../../../core/shared/widgets/custom_button.dart';
+import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
 
@@ -22,16 +26,6 @@ class CartView extends StatefulWidget {
 }
 
 class _CartViewState extends State<CartView> {
-  // ValueKey dismissibleKey = const ValueKey(1);
-
-  List<int> products = [
-    1,
-    2,
-    3,
-    4,
-    5,
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,70 +45,88 @@ class _CartViewState extends State<CartView> {
                       physics: const NeverScrollableScrollPhysics(),
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,
-                      itemCount: products.length,
+                      itemCount: context.watch<CartCubit>().cartProducts.length,
                       itemBuilder: (ctx, index) {
-                      return Dismissible(
-                        key: ValueKey<int>(products[index]),
-                        direction: DismissDirection.endToStart,
-                        background: Container(
-                          padding: const EdgeInsets.all(Dimensions.p16),
-                          decoration: BoxDecoration(
-                            color: AppColors.errorColor,
-                            borderRadius: BorderRadius.circular(Dimensions.r15),
-                          ),
-                          child: Align(
-                            alignment: Intl.getCurrentLocale() == "en"
-                                ? Alignment.centerRight
-                                : Alignment.centerLeft,
-                            child: Icon(
-                              MdiIcons.deleteEmpty,
-                              size: 32.sp,
+                        final productItems =
+                            context.watch<CartCubit>().cartProducts[index];
+                        return Dismissible(
+                          key: ValueKey<int>(context
+                              .watch<CartCubit>()
+                              .cartProducts[index]
+                              .id!
+                              .toInt()),
+                          onDismissed: (value) {
+                            context
+                                .read<CartCubit>()
+                                .removeFromCart(productItems);
+                          },
+                          direction: DismissDirection.endToStart,
+                          background: Container(
+                            padding: const EdgeInsets.all(Dimensions.p16),
+                            decoration: BoxDecoration(
+                              color: AppColors.errorColor,
+                              borderRadius:
+                                  BorderRadius.circular(Dimensions.r15),
+                            ),
+                            child: Align(
+                              alignment: Intl.getCurrentLocale() == "en"
+                                  ? Alignment.centerRight
+                                  : Alignment.centerLeft,
+                              child: Icon(
+                                MdiIcons.deleteEmpty,
+                                size: 32.sp,
+                              ),
                             ),
                           ),
-                        ),
-                        // onDismissed: (direction) {
-                        //   setState(() {});
-                        // },
-                        child: GFListTile(
-                          shadow: const BoxShadow(),
-                          color: Colors.white,
-                          avatar: GFAvatar(
-                            size: 60.sp,
-                            shape: GFAvatarShape.standard,
-                            backgroundImage: const NetworkImage(
-                                "https://via.placeholder.com/60x60"),
-                          ),
-                          title: Text(
-                            'ملابس هودي',
-                            style: CustomTextStyle.kTextStyleF12,
-                          ),
-                          subTitle: Text(
-                            'ملابس هودي',
-                            style: CustomTextStyle.kTextStyleF12
-                                .copyWith(color: AppColors.textColorSecondary),
-                          ),
-                          description: Row(
-                            children: [
-                              Text(
-                                '87.00 SAR',
-                                style: CustomTextStyle.kTextStyleF14
-                                    .copyWith(color: AppColors.textColor),
+                          // onDismissed: (direction) {
+                          //   setState(() {});
+                          // },
+                          child: GFListTile(
+                            shadow: const BoxShadow(),
+                            color: Colors.white,
+                            avatar: GFAvatar(
+                              size: 60.sp,
+                              shape: GFAvatarShape.standard,
+                              backgroundImage: CachedNetworkImageProvider(
+                                AppConstants.imageUrl + productItems.image!,
                               ),
-                              const Spacer(),
-                              Icon(MdiIcons.plusBoxOutline),
-                              Gap(10.w),
-                              Text(
-                                '01',
-                                style: CustomTextStyle.kTextStyleF14
-                                    .copyWith(color: AppColors.textColor),
-                              ),
-                              Gap(10.w),
-                              Icon(MdiIcons.minusBoxOutline),
-                            ],
+                            ),
+                            title: Text(
+                              Intl.getCurrentLocale() == "en"
+                                  ? productItems.nameEn!
+                                  : productItems.nameAr!,
+                              style: CustomTextStyle.kTextStyleF12,
+                            ),
+                            subTitle: Text(
+                              productItems.subCategoryId == 2
+                                  ? S.current.custom_phrases
+                                  : S.current.custom_logo,
+                              style: CustomTextStyle.kTextStyleF12.copyWith(
+                                  color: AppColors.textColorSecondary),
+                            ),
+                            description: Row(
+                              children: [
+                                Text(
+                                  "${productItems.price} ${S.current.sar}",
+                                  style: CustomTextStyle.kTextStyleF14
+                                      .copyWith(color: AppColors.textColor),
+                                ),
+                                const Spacer(),
+                                Icon(MdiIcons.plusBoxOutline),
+                                Gap(10.w),
+                                Text(
+                                  '01',
+                                  style: CustomTextStyle.kTextStyleF14
+                                      .copyWith(color: AppColors.textColor),
+                                ),
+                                Gap(10.w),
+                                Icon(MdiIcons.minusBoxOutline),
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    },),
+                        );
+                      },
+                    ),
                     Gap(16.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -169,14 +181,14 @@ class _CartViewState extends State<CartView> {
                       children: [
                         Text(
                           S.current.subtotal,
-                          style: CustomTextStyle.kTextStyleF14.copyWith(
-                              color: AppColors.textColorSecondary),
+                          style: CustomTextStyle.kTextStyleF14
+                              .copyWith(color: AppColors.textColorSecondary),
                         ),
                         const Spacer(),
                         Text(
                           '109.00 SAR',
-                          style: CustomTextStyle.kTextStyleF14.copyWith(
-                              color: AppColors.textColorSecondary),
+                          style: CustomTextStyle.kTextStyleF14
+                              .copyWith(color: AppColors.textColorSecondary),
                         ),
                       ],
                     ),
@@ -186,14 +198,14 @@ class _CartViewState extends State<CartView> {
                       children: [
                         Text(
                           S.current.delivery_fee,
-                          style: CustomTextStyle.kTextStyleF14.copyWith(
-                              color: AppColors.textColorSecondary),
+                          style: CustomTextStyle.kTextStyleF14
+                              .copyWith(color: AppColors.textColorSecondary),
                         ),
                         const Spacer(),
                         Text(
                           '4.30 SAR',
-                          style: CustomTextStyle.kTextStyleF14.copyWith(
-                              color: AppColors.textColorSecondary),
+                          style: CustomTextStyle.kTextStyleF14
+                              .copyWith(color: AppColors.textColorSecondary),
                         ),
                       ],
                     ),

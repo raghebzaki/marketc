@@ -13,6 +13,7 @@ const String mostPopularSeeMorePageRoute = '/mostPopularSeeMore';
 const String newProductsSeeMorePageRoute = '/newProductsSeeMore';
 const String productDetailsPageRoute = '/productDetails';
 const String categoryDetailsPageRoute = '/categoryDetails';
+const String cartPageRoute = '/cart';
 const String contactUsPageRoute = '/contactUs';
 const String notificationsPageRoute = '/notifications';
 const String settingsPageRoute = '/settings';
@@ -38,4 +39,3 @@ const String addProductPageRoute = '/addProduct';
 const String editProductPageRoute = '/editProduct';
 const String designsPageRoute = '/designs';
 const String walletPageRoute = '/wallet';
-
