@@ -307,9 +307,8 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                           Map productId = {};
                           for (int i = 0; i < cartItems.length; i++) {
                             productId['${cartItems[i].id}'] =
-                                cartItems[i].quantity;
+                                2;
                           }
-                          print(productId);
 
                           HiveDatabase hiveDatabase = HiveDatabase();
                           var address = await hiveDatabase.addressBox;
@@ -318,7 +317,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                             PlaceOrderEntity(
                               userId: UserData.id,
                               name: UserData.name,
-                              phone: UserData.phone,
+                              phone: address.getAt(0)!.phone,
                               address: address.getAt(0)!.address,
                               buildingNo: address.getAt(0)!.building,
                               flatNo: address.getAt(0)!.flat,
@@ -326,7 +325,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               state: address.getAt(0)!.country,
                               postCode: address.getAt(0)!.code,
                               productIds: productId,
-                              coupon: "",
+                              coupon: "a22",
                             ),
                           );
                         },
