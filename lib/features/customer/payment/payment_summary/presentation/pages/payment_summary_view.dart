@@ -20,7 +20,9 @@ import '../../../../../../generated/l10n.dart';
 import '../manager/place_order_cubit.dart';
 
 class PaymentSummaryView extends StatefulWidget {
-  const PaymentSummaryView({super.key});
+  final num? finalPrice;
+
+  const PaymentSummaryView({super.key, this.finalPrice});
 
   @override
   State<PaymentSummaryView> createState() => _PaymentSummaryViewState();
@@ -29,7 +31,7 @@ class PaymentSummaryView extends StatefulWidget {
 class _PaymentSummaryViewState extends State<PaymentSummaryView> {
   @override
   Widget build(BuildContext context) {
-    var cartItems = context.watch<CartCubit>().cartProducts;
+    final cartItems = context.watch<CartCubit>().cartProducts;
     return Scaffold(
       backgroundColor: AppColors.primary,
       appBar: CustomAppBar(title: S.current.payment),
@@ -219,7 +221,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               ),
                               const Spacer(),
                               Text(
-                                '113.30 ${S.current.sar}',
+                                "${widget.finalPrice! + 4.30} ${S.current.sar}",
                                 style: CustomTextStyle.kTextStyleF14
                                     .copyWith(color: AppColors.textColor),
                               ),
@@ -248,7 +250,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               ),
                               const Spacer(),
                               Text(
-                                '109.00 ${S.current.sar}',
+                                "${widget.finalPrice} ${S.current.sar}",
                                 style: CustomTextStyle.kTextStyleF14.copyWith(
                                     color: AppColors.textColorSecondary),
                               ),
@@ -306,8 +308,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                         onPressed: () async {
                           Map productId = {};
                           for (int i = 0; i < cartItems.length; i++) {
-                            productId['${cartItems[i].id}'] =
-                                2;
+                            productId['${cartItems[i].id}'] = 2;
                           }
 
                           HiveDatabase hiveDatabase = HiveDatabase();

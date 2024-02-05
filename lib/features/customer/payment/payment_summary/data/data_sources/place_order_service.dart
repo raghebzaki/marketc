@@ -20,7 +20,9 @@ class PlaceOrderServiceImpl implements PlaceOrderService {
       data: PlaceOrderModel.toJson(placeOrderEntity),
     );
 
-    placeOrderModel = PlaceOrderModel.fromJson(order.data);
+    if (order.statusCode == 200) {
+      placeOrderModel = PlaceOrderModel.fromJson(order.data);
+    }
 
     return placeOrderModel;
   }

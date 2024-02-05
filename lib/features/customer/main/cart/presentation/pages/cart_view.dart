@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:intl/intl.dart';
+import 'package:marketc/core/shared/arguments.dart';
 import 'package:marketc/core/utils/app_constants.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -26,8 +27,20 @@ class CartView extends StatefulWidget {
 }
 
 class _CartViewState extends State<CartView> {
+  var finalPrice = 0;
+
   @override
   Widget build(BuildContext context) {
+    var totalPrice = context.watch<CartCubit>().cartProducts;
+    for (var i = 0; i < totalPrice.length; i++) {
+      if (totalPrice.length == 1) {
+        finalPrice = int.parse(totalPrice[0].price!);
+      } else {
+        finalPrice = finalPrice + int.parse(totalPrice[i].price!);
+      }
+      print(finalPrice.toString());
+    }
+
     return Scaffold(
       backgroundColor: AppColors.primary,
       appBar: CustomAppBar(
@@ -157,7 +170,7 @@ class _CartViewState extends State<CartView> {
                         ),
                         const Spacer(),
                         Text(
-                          '113.30 SAR',
+                          "${finalPrice == 0 ? 0 : finalPrice + 4.30} ${S.current.sar}",
                           style: CustomTextStyle.kTextStyleF14
                               .copyWith(color: AppColors.textColor),
                         ),
@@ -186,7 +199,7 @@ class _CartViewState extends State<CartView> {
                         ),
                         const Spacer(),
                         Text(
-                          '109.00 SAR',
+                          "$finalPrice ${S.current.sar}",
                           style: CustomTextStyle.kTextStyleF14
                               .copyWith(color: AppColors.textColorSecondary),
                         ),
@@ -203,7 +216,7 @@ class _CartViewState extends State<CartView> {
                         ),
                         const Spacer(),
                         Text(
-                          '4.30 SAR',
+                          '4.30 ${S.current.sar}',
                           style: CustomTextStyle.kTextStyleF14
                               .copyWith(color: AppColors.textColorSecondary),
                         ),
@@ -220,7 +233,12 @@ class _CartViewState extends State<CartView> {
                 child: CustomBtn(
                   label: S.of(context).complete_payment,
                   onPressed: () {
-                    context.pushNamed(paymentDetailsPageRoute);
+                    context.pushNamed(
+                      paymentDetailsPageRoute,
+                      arguments: PaymentSharedPrice(
+                        sharedPrice: finalPrice,
+                      ),
+                    );
                   },
                 ),
               ),

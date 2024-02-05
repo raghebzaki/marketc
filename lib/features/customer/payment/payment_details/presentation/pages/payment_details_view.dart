@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:marketc/config/themes/app_text_styles.dart';
 import 'package:marketc/core/router/router.dart';
+import 'package:marketc/core/shared/arguments.dart';
 import 'package:marketc/core/shared/widgets/custom_button.dart';
 import 'package:marketc/core/shared/widgets/custom_form_field.dart';
 import 'package:marketc/core/utils/app_colors.dart';
@@ -15,7 +16,9 @@ import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
 
 class PaymentDetailsView extends StatefulWidget {
-  const PaymentDetailsView({super.key});
+  final num? finalPrice;
+
+  const PaymentDetailsView({super.key, this.finalPrice});
 
   @override
   State<PaymentDetailsView> createState() => _PaymentDetailsViewState();
@@ -195,7 +198,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                             ),
                             const Spacer(),
                             Text(
-                              '113.30 ${S.current.sar}',
+                              '${widget.finalPrice == 0 ? 0 : widget.finalPrice! + 4.30} ${S.current.sar}',
                               style: CustomTextStyle.kTextStyleF14
                                   .copyWith(color: AppColors.textColor),
                             ),
@@ -224,7 +227,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                             ),
                             const Spacer(),
                             Text(
-                              '109.00 ${S.current.sar}',
+                              '${widget.finalPrice} ${S.current.sar}',
                               style: CustomTextStyle.kTextStyleF14.copyWith(
                                   color: AppColors.textColorSecondary),
                             ),
@@ -261,7 +264,10 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                 child: CustomBtn(
                   label: S.of(context).progress,
                   onPressed: () {
-                    context.pushNamed(savedAddressesPageRoute);
+                    context.pushNamed(savedAddressesPageRoute,
+                        arguments: PaymentSharedPrice(
+                          sharedPrice: widget.finalPrice!,
+                        ));
                   },
                 ),
               ),

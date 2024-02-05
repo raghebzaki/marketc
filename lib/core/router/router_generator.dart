@@ -180,12 +180,17 @@ class AppRouters {
           builder: (BuildContext context) => const OrderDetailsView(),
         );
       case paymentDetailsPageRoute:
+        final args = settings.arguments as PaymentSharedPrice;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const PaymentDetailsView(),
+          builder: (BuildContext context) =>
+              PaymentDetailsView(finalPrice: args.sharedPrice),
         );
       case savedAddressesPageRoute:
+        final args = settings.arguments as PaymentSharedPrice;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const SavedAddressesView(),
+          builder: (BuildContext context) => SavedAddressesView(
+            finalPrice: args.sharedPrice,
+          ),
         );
       case mapPageRoute:
         return MaterialPageRoute(
@@ -198,12 +203,18 @@ class AppRouters {
               AddNewAddressView(address: args.address),
         );
       case paymentGateWayPageRoute:
+        final args = settings.arguments as PaymentSharedPrice;
+
         return MaterialPageRoute(
-          builder: (BuildContext context) => const PaymentGateWayView(),
+          builder: (BuildContext context) =>
+              PaymentGateWayView(finalPrice: args.sharedPrice),
         );
       case paymentSummaryPageRoute:
+        final args = settings.arguments as PaymentSharedPrice;
+
         return MaterialPageRoute(
-          builder: (BuildContext context) => const PaymentSummaryView(),
+          builder: (BuildContext context) =>
+              PaymentSummaryView(finalPrice: args.sharedPrice),
         );
 
       /// designer

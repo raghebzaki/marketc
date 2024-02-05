@@ -1,9 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:intl/intl.dart';
 import 'package:marketc/core/helpers/cache_helper.dart';
 import 'package:marketc/core/shared/arguments.dart';
+import 'package:marketc/core/shared/widgets/state_loading_widget.dart';
 import 'package:marketc/core/utils/app_constants.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:marketc/features/customer/main/home/presentation/manager/carousel_cubit.dart';
@@ -33,7 +36,7 @@ class HomeView extends StatelessWidget {
           create: (context) => di.di<CategoryCubit>()..getAllCategory(),
         ),
         BlocProvider(
-          create: (context) => di.di<CarouselCubit>(),
+          create: (context) => di.di<CarouselCubit>()..getAds(),
         ),
         BlocProvider(
           create: (context) => di.di<MostPopularCubit>()..getAllProducts(1),
@@ -97,93 +100,147 @@ class HomeView extends StatelessWidget {
                         .copyWith(color: AppColors.textColor),
                   ),
                   Gap(10.h),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        ...List.generate(
-                          5,
-                          (index) {
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: Dimensions.p8),
-                              child: Container(
-                                width: 300.w,
-                                height: 150,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: ShapeDecoration(
-                                  color: const Color(0xFFF8E7DE),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(Dimensions.r8)),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.all(Dimensions.p5),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                  BlocConsumer<CarouselCubit, CarouselState>(
+                    listener: (context, state) {},
+                    builder: (context, state) {
+                      return state.maybeWhen(
+                        loading: () {
+                          return const StateLoadingWidget();
+                        },
+                        success: (state) {
+                          return SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                ...List.generate(
+                                  5,
+                                  (index) {
+                                    return Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: Dimensions.p8),
+                                      child: Container(
+                                        width: 300.w,
+                                        height: 150,
+                                        clipBehavior: Clip.antiAlias,
+                                        decoration: ShapeDecoration(
+                                          color: const Color(0xFFF8E7DE),
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      Dimensions.r8)),
+                                        ),
+                                        child: Row(
                                           children: [
-                                            Text(
-                                              S.current.soon,
-                                              style:
-                                                  CustomTextStyle.kTextStyleF8,
-                                            ),
-                                            Text(
-                                              S.current.custom_logo,
-                                              style:
-                                                  CustomTextStyle.kTextStyleF16,
-                                            ),
-                                            Text(
-                                              S.current.wide_range,
-                                              textAlign: TextAlign.right,
-                                              style:
-                                                  CustomTextStyle.kTextStyleF10,
-                                            ),
-                                            Container(
-                                              width: 82.w,
-                                              height: 18.h,
-                                              decoration: ShapeDecoration(
-                                                color: AppColors.secondary,
-                                                shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            Dimensions.r4)),
-                                              ),
-                                              child: Center(
-                                                child: Text(
-                                                  S.current.browse_now,
-                                                  style: CustomTextStyle
-                                                      .kTextStyleF8,
+                                            Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsets.all(
+                                                    Dimensions.p5),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      S.current.soon,
+                                                      style: CustomTextStyle
+                                                          .kTextStyleF8,
+                                                    ),
+                                                    Text(
+                                                      state![index].title!,
+                                                      style: CustomTextStyle
+                                                          .kTextStyleF16,
+                                                    ),
+                                                    Expanded(
+                                                      child: Text(
+                                                        state[index]
+                                                            .description!,
+                                                        textAlign:
+                                                            Intl.getCurrentLocale() ==
+                                                                    "en"
+                                                                ? TextAlign.left
+                                                                : TextAlign
+                                                                    .right,
+                                                        style: CustomTextStyle
+                                                            .kTextStyleF10,
+
+                                                        // overflow: TextOverflow.ellipsis,
+                                                      ),
+                                                    ),
+                                                    Align(
+                                                      alignment: Intl
+                                                                  .getCurrentLocale() ==
+                                                              "en"
+                                                          ? Alignment
+                                                              .centerRight
+                                                          : Alignment
+                                                              .centerLeft,
+                                                      child: Container(
+                                                        width: 82.w,
+                                                        height: 18.h,
+                                                        decoration:
+                                                            ShapeDecoration(
+                                                          color: AppColors
+                                                              .secondary,
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius.circular(
+                                                                      Dimensions
+                                                                          .r4)),
+                                                        ),
+                                                        child: Center(
+                                                          child: Text(
+                                                            S.current
+                                                                .browse_now,
+                                                            style: CustomTextStyle
+                                                                .kTextStyleF8,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    )
+                                                  ],
                                                 ),
                                               ),
-                                            )
+                                            ),
+                                            Container(
+                                              width: 140.w,
+                                              clipBehavior: Clip.antiAlias,
+                                              decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                                  image: state[index].image ==
+                                                          null
+                                                      ? const CachedNetworkImageProvider(
+                                                          "https://via.placeholder.com/140x140",
+                                                        )
+                                                      : CachedNetworkImageProvider(
+                                                          AppConstants
+                                                                  .imageUrl +
+                                                              state[index]
+                                                                  .image!,
+                                                        ),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
                                           ],
                                         ),
                                       ),
-                                    ),
-                                    Container(
-                                      width: 140.w,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: const BoxDecoration(
-                                        image: DecorationImage(
-                                          image: NetworkImage(
-                                              "https://via.placeholder.com/140x140"),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                                    );
+                                  },
                                 ),
-                              ),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
+                              ],
+                            ),
+                          );
+                        },
+                        error: (errCode, err) {
+                          return StateErrorWidget(
+                            errCode: errCode!,
+                            err: err!,
+                          );
+                        },
+                        orElse: () {
+                          return const SizedBox.shrink();
+                        },
+                      );
+                    },
                   ),
                   Gap(10.h),
                   Text(

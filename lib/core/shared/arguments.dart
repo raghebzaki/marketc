@@ -41,5 +41,9 @@ class EditProductArgs {
   final ProductEntity productDetails;
 
   EditProductArgs({required this.productDetails});
+}
 
+class PaymentSharedPrice {
+  final num sharedPrice;
+  PaymentSharedPrice({required this.sharedPrice});
 }

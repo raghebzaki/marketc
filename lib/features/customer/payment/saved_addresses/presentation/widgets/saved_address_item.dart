@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketc/core/router/router.dart';
+import 'package:marketc/core/shared/arguments.dart';
 import 'package:marketc/core/utils/extensions.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
@@ -7,6 +8,7 @@ import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
 
 class SavedAddressItem extends StatelessWidget {
+  final num sharedPrice;
   final String address;
   final String buildingNo;
   final String flatNo;
@@ -16,6 +18,7 @@ class SavedAddressItem extends StatelessWidget {
 
   const SavedAddressItem({
     super.key,
+    required this.sharedPrice,
     required this.address,
     required this.buildingNo,
     required this.flatNo,
@@ -28,7 +31,8 @@ class SavedAddressItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(paymentGateWayPageRoute);
+        context.pushNamed(paymentGateWayPageRoute,
+            arguments: PaymentSharedPrice(sharedPrice: sharedPrice));
       },
       child: Container(
         padding: const EdgeInsets.all(Dimensions.p16),
