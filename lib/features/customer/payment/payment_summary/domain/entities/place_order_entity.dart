@@ -10,7 +10,7 @@ class PlaceOrderEntity extends Equatable {
   final String? city;
   final String? state;
   final String? postCode;
-  final List<num>? productIds;
+  final Map? productIds;
   final String? coupon;
   final num? status;
   final String? msg;

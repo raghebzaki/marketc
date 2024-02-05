@@ -1,6 +1,8 @@
 class AppConstants {
-  static RegExp emailRegExp = RegExp(r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
-  static RegExp passRegExp = RegExp(r"(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\\$&*~]).{8,}");
+  static RegExp emailRegExp = RegExp(
+      r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
+  static RegExp passRegExp =
+      RegExp(r"(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\\$&*~]).{8,}");
   static RegExp phoneRegExp = RegExp(r"(?:[+0][1-9])?[0-9]{9,12}");
 
   //? Consts for language manager
@@ -37,7 +39,7 @@ class AppConstants {
   static const addFavoriteProductsUri = "v1/products/add-to-favourite";
   static const checkIfFavoriteProductsUri = "v1/products/check-if-favourite";
   static const categoryDetailsUri = "";
-  static const placeOrderUri = "";
+  static const placeOrderUri = "v1/order/store";
   static const addPromoCodeUri = "";
   static const carouselUri = "";
   static const categoryUri = "v1/categories";
@@ -47,17 +49,16 @@ class AppConstants {
   static const editUserProfileUri = "";
   static const deleteUserAccountUri = "";
 
-/// designer
+  /// designer
   static const designerCarouselUri = "";
   static const designsUri = "";
   static const designerDeleteProductUri = "v1/designer/delete-product";
   static const designerAddProductUri = "v1/designer/create-product";
   static const designerGetPointsUri = "";
   static const designerBalanceUri = "";
-  static const designerExchangeUri  = "";
-  static const getColorsUri  = "v1/colors";
-  static const getSizesUri  = "v1/sizes";
-  static const updateProductUri  = "v1/designer/update-product";
+  static const designerExchangeUri = "";
+  static const getColorsUri = "v1/colors";
+  static const getSizesUri = "v1/sizes";
+  static const updateProductUri = "v1/designer/update-product";
   static const myProductsUri = "v1/designer/my-products";
-
 }

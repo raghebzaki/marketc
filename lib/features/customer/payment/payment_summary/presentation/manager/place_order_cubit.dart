@@ -5,9 +5,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../domain/entities/place_order_entity.dart';
 import '../../domain/use_cases/place_order_use_case.dart';
 
-part 'place_order_states.dart';
-
 part 'place_order_cubit.freezed.dart';
+part 'place_order_states.dart';
 
 class PlaceOrderCubit extends Cubit<PlaceOrderStates> {
   PlaceOrderCubit({required this.placeOrderUseCase})
@@ -17,9 +16,9 @@ class PlaceOrderCubit extends Cubit<PlaceOrderStates> {
 
   final PlaceOrderUseCase placeOrderUseCase;
 
-  placeOrder(PlaceOrderEntity placeOrderCubit) async {
+  placeOrder(PlaceOrderEntity placeOrderEntity) async {
     emit(const PlaceOrderStates.loading());
-    final login = await placeOrderUseCase(placeOrderCubit);
+    final login = await placeOrderUseCase(placeOrderEntity);
 
     login.fold(
       (l) {

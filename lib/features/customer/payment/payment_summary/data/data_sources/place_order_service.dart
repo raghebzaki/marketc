@@ -5,8 +5,6 @@ import '../../../../../../core/utils/app_constants.dart';
 import '../../domain/entities/place_order_entity.dart';
 import '../models/place_order_model.dart';
 
-
-
 abstract class PlaceOrderService {
   Future<PlaceOrderModel> placeOrder(PlaceOrderEntity placeOrderEntity);
 }
@@ -20,12 +18,9 @@ class PlaceOrderServiceImpl implements PlaceOrderService {
     final order = await dio.post(
       AppConstants.apiBaseUrl + AppConstants.placeOrderUri,
       data: PlaceOrderModel.toJson(placeOrderEntity),
-
     );
 
-    if (order.statusCode == 200) {
-      placeOrderModel = PlaceOrderModel.fromJson(order.data);
-    }
+    placeOrderModel = PlaceOrderModel.fromJson(order.data);
 
     return placeOrderModel;
   }

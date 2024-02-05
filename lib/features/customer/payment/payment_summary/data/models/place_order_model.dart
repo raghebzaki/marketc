@@ -2,12 +2,19 @@ import '../../domain/entities/place_order_entity.dart';
 
 class PlaceOrderModel extends PlaceOrderEntity {
   const PlaceOrderModel({
-    super.status,
-    super.msg,
+    super.userId,
     super.name,
     super.phone,
     super.address,
+    super.buildingNo,
+    super.flatNo,
+    super.city,
+    super.state,
+    super.postCode,
     super.productIds,
+    super.coupon,
+    super.status,
+    super.msg,
   });
 
   factory PlaceOrderModel.fromJson(Map<String, dynamic> json) {
@@ -19,10 +26,17 @@ class PlaceOrderModel extends PlaceOrderEntity {
 
   static Map<String, dynamic> toJson(PlaceOrderEntity placeOrderEntity) {
     return {
-      "name": placeOrderEntity.name,
-      "phone": placeOrderEntity.phone,
-      "address": placeOrderEntity.address,
-      "productIds": placeOrderEntity.productIds,
+      'user_id': placeOrderEntity.userId,
+      'name': placeOrderEntity.name,
+      'phone': placeOrderEntity.phone,
+      'address': placeOrderEntity.address,
+      'building_number': placeOrderEntity.buildingNo,
+      'flot_number': placeOrderEntity.flatNo,
+      'city': placeOrderEntity.city,
+      'state': placeOrderEntity.state,
+      'post_code': placeOrderEntity.postCode,
+      'productInfo': placeOrderEntity.productIds,
+      'coupon': placeOrderEntity.coupon,
     };
   }
 }
