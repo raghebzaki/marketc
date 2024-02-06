@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class EditProfileEntity extends Equatable {
-  final int? userId;
+  final num? userId;
   final String? name;
   final String? email;
   final int? status;

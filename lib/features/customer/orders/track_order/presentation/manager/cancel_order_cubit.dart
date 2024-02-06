@@ -16,7 +16,7 @@ class CancelOrderCubit extends Cubit<CancelOrderStates> {
 
   final CancelOrderUseCase cancelOrderUseCase;
 
-  userLogin(CancelOrderEntity cancelOrderEntity) async {
+  cancelOrder(CancelOrderEntity cancelOrderEntity) async {
     emit(const CancelOrderStates.loading());
     final order = await cancelOrderUseCase(cancelOrderEntity);
 
@@ -33,6 +33,7 @@ class CancelOrderCubit extends Cubit<CancelOrderStates> {
         emit(
           CancelOrderStates.success(r),
         );
+
       },
     );
   }

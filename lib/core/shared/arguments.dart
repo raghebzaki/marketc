@@ -1,4 +1,5 @@
 import 'package:geocoding/geocoding.dart';
+import 'package:marketc/core/shared/entities/order_entity.dart';
 import 'package:marketc/core/shared/entities/product_entity.dart';
 
 class VerifyAccountArgs {
@@ -46,4 +47,11 @@ class EditProductArgs {
 class PaymentSharedPrice {
   final num sharedPrice;
   PaymentSharedPrice({required this.sharedPrice});
+}
+
+class OrderDetailsArgs {
+  final OrderEntity orderDetails;
+
+  OrderDetailsArgs({required this.orderDetails});
+
 }

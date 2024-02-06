@@ -110,11 +110,7 @@ class AppRouters {
       case homePageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => MultiBlocProvider(
-            providers: const [
-
-
-
-            ],
+            providers: const [],
             child: const HomeView(),
           ),
         );
@@ -167,8 +163,11 @@ class AppRouters {
           builder: (BuildContext context) => const OrderConfirmationView(),
         );
       case trackOrderPageRoute:
+        final args = settings.arguments as OrderDetailsArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const TrackOrderView(),
+          builder: (BuildContext context) => TrackOrderView(
+            orderEntity: args.orderDetails,
+          ),
         );
       case subscriptionsPageRoute:
         return MaterialPageRoute(
@@ -183,8 +182,10 @@ class AppRouters {
           builder: (BuildContext context) => const EditProfileView(),
         );
       case orderDetailsPageRoute:
+        final args = settings.arguments as OrderDetailsArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const OrderDetailsView(),
+          builder: (BuildContext context) =>
+              OrderDetailsView(orderDetails: args.orderDetails),
         );
       case paymentDetailsPageRoute:
         final args = settings.arguments as PaymentSharedPrice;

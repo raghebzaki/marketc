@@ -5,6 +5,7 @@ import 'package:marketc/core/router/router.dart';
 import 'package:marketc/core/shared/entities/order_entity.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
+import '../../../../../../core/shared/arguments.dart';
 import '../../../../../../core/shared/widgets/status_indicator.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/dimensions.dart';
@@ -13,7 +14,6 @@ import '../../../../../../generated/l10n.dart';
 
 class OrderContainer extends StatelessWidget {
   final OrderEntity? orderEntity;
-
 
   const OrderContainer({
     super.key,
@@ -24,7 +24,12 @@ class OrderContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(orderDetailsPageRoute);
+        context.pushNamed(
+          orderDetailsPageRoute,
+          arguments: OrderDetailsArgs(
+            orderDetails: orderEntity!,
+          ),
+        );
       },
       child: Container(
         padding: const EdgeInsets.all(Dimensions.p20),

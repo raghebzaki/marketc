@@ -116,6 +116,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "some thing went wrong, try again later"),
         "delete_account":
             MessageLookupByLibrary.simpleMessage("Delete account"),
+        "deleted_success": MessageLookupByLibrary.simpleMessage(
+            "Account deleted successfully"),
         "delivery_fee": MessageLookupByLibrary.simpleMessage("Delivery Fee"),
         "desgin_text": MessageLookupByLibrary.simpleMessage(
             "Browse our most popular designs"),
@@ -174,6 +176,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "monthly_sub_price":
             MessageLookupByLibrary.simpleMessage("Subscription 99 SAR"),
         "more": MessageLookupByLibrary.simpleMessage("More..."),
+        "msg_sent": MessageLookupByLibrary.simpleMessage(
+            "Your message sent successfully"),
         "my_orders": MessageLookupByLibrary.simpleMessage("My Orders"),
         "my_products": MessageLookupByLibrary.simpleMessage("My Products"),
         "my_wallet": MessageLookupByLibrary.simpleMessage("My wallet"),
@@ -228,6 +232,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "payment": MessageLookupByLibrary.simpleMessage("Payment"),
         "payment_alert": MessageLookupByLibrary.simpleMessage(
             "No charges will be incurred until this order is reviewed in the next step."),
+        "pending": MessageLookupByLibrary.simpleMessage("Pending"),
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
         "phone_no": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "plz_enter_email":
@@ -297,6 +302,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "send_code": MessageLookupByLibrary.simpleMessage("Send Code"),
         "send_money": MessageLookupByLibrary.simpleMessage("Send Money"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "shipped": MessageLookupByLibrary.simpleMessage("Shipped"),
         "shopping_world":
             MessageLookupByLibrary.simpleMessage("Welcome to shopping world"),
         "short_cloth_category":

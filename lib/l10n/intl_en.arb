@@ -239,5 +239,9 @@
   "add_product_btn": "Add Product",
   "product_color_required": "You must choose 1 color at least",
   "product_size_required": "You must choose 1 size at least",
-  "product_image_required": "You must choose 1 image at least"
+  "product_image_required": "You must choose 1 image at least",
+  "pending": "Pending",
+  "shipped": "Shipped",
+  "msg_sent": "Your message sent successfully",
+  "deleted_success": "Account deleted successfully"
 }

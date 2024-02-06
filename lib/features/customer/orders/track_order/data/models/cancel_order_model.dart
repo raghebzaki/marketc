@@ -16,7 +16,7 @@ class CancelOrderModel extends CancelOrderEntity {
 
   static Map<String, dynamic> toJson(CancelOrderEntity cancelOrderEntity) {
     return {
-      "orderId": cancelOrderEntity.orderId,
+      "status": 4,
     };
   }
 }

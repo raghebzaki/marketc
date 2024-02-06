@@ -24,8 +24,15 @@ class MyOrdersView extends StatefulWidget {
 }
 
 class _MyOrdersViewState extends State<MyOrdersView> {
-  num status = 0;
-
+  int status = 0;
+List<String> statusList = [
+  S.current.pending,
+  S.current.processing,
+  S.current.shipped,
+  S.current.done,
+  S.current.cancelled,
+];
+  
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -50,232 +57,232 @@ class _MyOrdersViewState extends State<MyOrdersView> {
                 padding: const EdgeInsets.all(
                   Dimensions.p16,
                 ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Gap(20.h),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  status = 0;
-                                });
-                                ordersCubit.getMyOrders(
-                                  OrderEntity(
-                                    userId: UserData.id,
-                                    orderFilter: status,
-                                  ),
-                                );
-                              },
-                              child: Container(
-                                height: 35.h,
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: Dimensions.p16.w,
-                                    vertical: Dimensions.p5.h),
-                                decoration: BoxDecoration(
-                                  color: status == 0
-                                      ? AppColors.secondary
-                                      : AppColors.primary,
-                                  borderRadius:
-                                      BorderRadius.circular(Dimensions.r10),
-                                  border: Border.all(
-                                    color: AppColors.secondary,
-                                  ),
+                child: Column(
+                  children: [
+                    Gap(20.h),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                status = 0;
+                              });
+                              ordersCubit.getMyOrders(
+                                OrderEntity(
+                                  userId: UserData.id,
+                                  orderFilter: status,
                                 ),
-                                child: Center(
-                                  child: Text(
-                                    "Pending",
-                                    style:
-                                        CustomTextStyle.kTextStyleF14.copyWith(
-                                      color: status == 0
-                                          ? AppColors.primary
-                                          : AppColors.secondary,
-                                    ),
+                              );
+                            },
+                            child: Container(
+                              height: 35.h,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: Dimensions.p16.w,
+                                  vertical: Dimensions.p5.h),
+                              decoration: BoxDecoration(
+                                color: status == 0
+                                    ? AppColors.secondary
+                                    : AppColors.primary,
+                                borderRadius:
+                                    BorderRadius.circular(Dimensions.r10),
+                                border: Border.all(
+                                  color: AppColors.secondary,
+                                ),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  S.of(context).pending,
+                                  style:
+                                      CustomTextStyle.kTextStyleF14.copyWith(
+                                    color: status == 0
+                                        ? AppColors.primary
+                                        : AppColors.secondary,
                                   ),
                                 ),
                               ),
                             ),
-                            Gap(10.h),
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  status = 1;
-                                });
-                                ordersCubit.getMyOrders(
-                                  OrderEntity(
-                                    userId: UserData.id,
-                                    orderFilter: status,
-                                  ),
-                                );
-                              },
-                              child: Container(
-                                height: 35.h,
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: Dimensions.p16.w,
-                                    vertical: Dimensions.p5.h),
-                                decoration: BoxDecoration(
-                                  color: status == 1
-                                      ? AppColors.secondary
-                                      : AppColors.primary,
-                                  borderRadius:
-                                  BorderRadius.circular(Dimensions.r10),
-                                  border: Border.all(
-                                    color: AppColors.secondary,
-                                  ),
+                          ),
+                          Gap(10.h),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                status = 1;
+                              });
+                              ordersCubit.getMyOrders(
+                                OrderEntity(
+                                  userId: UserData.id,
+                                  orderFilter: status,
                                 ),
-                                child: Center(
-                                  child: Text(
-                                    S.current.processing,
-                                    style:
-                                    CustomTextStyle.kTextStyleF14.copyWith(
-                                      color: status == 1
-                                          ? AppColors.primary
-                                          : AppColors.secondary,
-                                    ),
+                              );
+                            },
+                            child: Container(
+                              height: 35.h,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: Dimensions.p16.w,
+                                  vertical: Dimensions.p5.h),
+                              decoration: BoxDecoration(
+                                color: status == 1
+                                    ? AppColors.secondary
+                                    : AppColors.primary,
+                                borderRadius:
+                                BorderRadius.circular(Dimensions.r10),
+                                border: Border.all(
+                                  color: AppColors.secondary,
+                                ),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  S.current.processing,
+                                  style:
+                                  CustomTextStyle.kTextStyleF14.copyWith(
+                                    color: status == 1
+                                        ? AppColors.primary
+                                        : AppColors.secondary,
                                   ),
                                 ),
                               ),
                             ),
-                            Gap(10.h),
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  status = 2;
-                                });
-                                ordersCubit.getMyOrders(
-                                  OrderEntity(
-                                    userId: UserData.id,
-                                    orderFilter: status,
-                                  ),
-                                );
-                              },
-                              child: Container(
-                                height: 35.h,
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: Dimensions.p16.w,
-                                    vertical: Dimensions.p5.h),
-                                decoration: BoxDecoration(
-                                  color: status == 2
-                                      ? AppColors.secondary
-                                      : AppColors.primary,
-                                  borderRadius:
-                                  BorderRadius.circular(Dimensions.r10),
-                                  border: Border.all(
-                                    color: AppColors.secondary,
-                                  ),
+                          ),
+                          Gap(10.h),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                status = 2;
+                              });
+                              ordersCubit.getMyOrders(
+                                OrderEntity(
+                                  userId: UserData.id,
+                                  orderFilter: status,
                                 ),
-                                child: Center(
-                                  child: Text(
-                                    "Shipped",
-                                    style:
-                                    CustomTextStyle.kTextStyleF14.copyWith(
-                                      color: status == 2
-                                          ? AppColors.primary
-                                          : AppColors.secondary,
-                                    ),
+                              );
+                            },
+                            child: Container(
+                              height: 35.h,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: Dimensions.p16.w,
+                                  vertical: Dimensions.p5.h),
+                              decoration: BoxDecoration(
+                                color: status == 2
+                                    ? AppColors.secondary
+                                    : AppColors.primary,
+                                borderRadius:
+                                BorderRadius.circular(Dimensions.r10),
+                                border: Border.all(
+                                  color: AppColors.secondary,
+                                ),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  S.of(context).shipped,
+                                  style:
+                                  CustomTextStyle.kTextStyleF14.copyWith(
+                                    color: status == 2
+                                        ? AppColors.primary
+                                        : AppColors.secondary,
                                   ),
                                 ),
                               ),
                             ),
-                            Gap(10.h),
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  status = 3;
-                                });
-                                ordersCubit.getMyOrders(
-                                  OrderEntity(
-                                    userId: UserData.id,
-                                    orderFilter: status,
-                                  ),
-                                );
-                              },
-                              child: Container(
-                                height: 35.h,
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: Dimensions.p16.w,
-                                    vertical: Dimensions.p5.h),
-                                decoration: BoxDecoration(
-                                  color: status == 3
-                                      ? AppColors.secondary
-                                      : AppColors.primary,
-                                  borderRadius:
-                                  BorderRadius.circular(Dimensions.r10),
-                                  border: Border.all(
-                                    color: AppColors.secondary,
-                                  ),
+                          ),
+                          Gap(10.h),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                status = 3;
+                              });
+                              ordersCubit.getMyOrders(
+                                OrderEntity(
+                                  userId: UserData.id,
+                                  orderFilter: status,
                                 ),
-                                child: Center(
-                                  child: Text(
-                                    S.current.done,
-                                    style:
-                                    CustomTextStyle.kTextStyleF14.copyWith(
-                                      color: status == 3
-                                          ? AppColors.primary
-                                          : AppColors.secondary,
-                                    ),
+                              );
+                            },
+                            child: Container(
+                              height: 35.h,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: Dimensions.p16.w,
+                                  vertical: Dimensions.p5.h),
+                              decoration: BoxDecoration(
+                                color: status == 3
+                                    ? AppColors.secondary
+                                    : AppColors.primary,
+                                borderRadius:
+                                BorderRadius.circular(Dimensions.r10),
+                                border: Border.all(
+                                  color: AppColors.secondary,
+                                ),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  S.current.done,
+                                  style:
+                                  CustomTextStyle.kTextStyleF14.copyWith(
+                                    color: status == 3
+                                        ? AppColors.primary
+                                        : AppColors.secondary,
                                   ),
                                 ),
                               ),
                             ),
-                            Gap(10.h),
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  status = 4;
-                                });
-                                ordersCubit.getMyOrders(
-                                  OrderEntity(
-                                    userId: UserData.id,
-                                    orderFilter: status,
-                                  ),
-                                );
-                              },
-                              child: Container(
-                                height: 35.h,
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: Dimensions.p16.w,
-                                    vertical: Dimensions.p5.h),
-                                decoration: BoxDecoration(
-                                  color: status == 4
-                                      ? AppColors.secondary
-                                      : AppColors.primary,
-                                  borderRadius:
-                                  BorderRadius.circular(Dimensions.r10),
-                                  border: Border.all(
-                                    color: AppColors.secondary,
-                                  ),
+                          ),
+                          Gap(10.h),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                status = 4;
+                              });
+                              ordersCubit.getMyOrders(
+                                OrderEntity(
+                                  userId: UserData.id,
+                                  orderFilter: status,
                                 ),
-                                child: Center(
-                                  child: Text(
-                                    S.current.processing,
-                                    style:
-                                    CustomTextStyle.kTextStyleF14.copyWith(
-                                      color: status == 4
-                                          ? AppColors.primary
-                                          : AppColors.secondary,
-                                    ),
+                              );
+                            },
+                            child: Container(
+                              height: 35.h,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: Dimensions.p16.w,
+                                  vertical: Dimensions.p5.h),
+                              decoration: BoxDecoration(
+                                color: status == 4
+                                    ? AppColors.secondary
+                                    : AppColors.primary,
+                                borderRadius:
+                                BorderRadius.circular(Dimensions.r10),
+                                border: Border.all(
+                                  color: AppColors.secondary,
+                                ),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  S.current.cancelled,
+                                  style:
+                                  CustomTextStyle.kTextStyleF14.copyWith(
+                                    color: status == 4
+                                        ? AppColors.primary
+                                        : AppColors.secondary,
                                   ),
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      Gap(20.h),
-                      state.maybeWhen(
-                        loading: () {
-                          return const StateLoadingWidget();
-                        },
-                        success: (state) {
-                          return ListView.builder(
+                    ),
+                    Gap(20.h),
+                    state.maybeWhen(
+                      loading: () {
+                        return const StateLoadingWidget();
+                      },
+                      success: (state) {
+                        return state.isNotEmpty ? Expanded(
+                          child: ListView.builder(
                             scrollDirection: Axis.vertical,
                             shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
+                           physics: const BouncingScrollPhysics(),
                             itemCount: state.length,
                             itemBuilder: (ctx, index) {
                               return Padding(
@@ -285,20 +292,24 @@ class _MyOrdersViewState extends State<MyOrdersView> {
                                     orderEntity: state[index],
                                     ));
                             },
-                          );
-                        },
-                        error: (errCode, err) {
-                          return StateErrorWidget(
-                            errCode: errCode,
-                            err: err,
-                          );
-                        },
-                        orElse: () {
-                          return const SizedBox.shrink();
-                        },
-                      ),
-                    ],
-                  ),
+                          ),
+                        ) : Expanded(
+                          child: Center(
+                            child: Text("You have no ${statusList[status]} orders", style: CustomTextStyle.kTextStyleF18,
+                            textAlign: TextAlign.center,),),
+                        );
+                      },
+                      error: (errCode, err) {
+                        return StateErrorWidget(
+                          errCode: errCode,
+                          err: err,
+                        );
+                      },
+                      orElse: () {
+                        return const SizedBox.shrink();
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),

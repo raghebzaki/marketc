@@ -45,8 +45,8 @@ class AppConstants {
   static const categoryUri = "v1/categories";
   static const subCategoryUri = "v1/sub-categories";
   static const getMyOrdersUri = "v1/orders";
-  static const contactUsUri = "";
-  static const editUserProfileUri = "";
+  static const contactUsUri = "v1/send-message";
+  static const editUserProfileUri = "auth/delete_my_account";
   static const deleteUserAccountUri = "";
 
   /// designer

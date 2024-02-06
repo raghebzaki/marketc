@@ -40,7 +40,7 @@ class OrderModel extends OrderEntity {
   }
   static Map<String, dynamic> queryToJson(OrderEntity orderEntity) {
     return {
-      "filters[status][eq]": orderEntity.orderFilter,
+      "filters[status][\$eq]": orderEntity.orderFilter,
     };
   }
   factory OrderModel.addOrderFromJson(Map<String, dynamic> json) {

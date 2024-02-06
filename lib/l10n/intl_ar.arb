@@ -235,5 +235,9 @@
   "add_product_btn": "إضافة المنتج",
   "product_color_required": "يجب اختيار لون واحد على الأقل",
   "product_size_required": "يجب اختيار حجم واحد على الأقل",
-  "product_image_required": "يجب اختيار صورة واحدة على الأقل"
+  "product_image_required": "يجب اختيار صورة واحدة على الأقل",
+  "pending": "قيد الانتظار",
+  "shipped": "تم الشحن",
+  "msg_sent": "تم استلام الرسالة بنجاح",
+  "deleted_success": "تم حذف حسابك بنجاح"
 }

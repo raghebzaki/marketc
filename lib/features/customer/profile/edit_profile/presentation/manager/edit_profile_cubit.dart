@@ -12,7 +12,7 @@ class EditProfileCubit extends Cubit<EditProfileState> {
   final EditProfileUseCase editProfileUseCase;
   static EditProfileCubit get(context) => BlocProvider.of(context);
 
-  sendMessage(EditProfileEntity editProfileEntity) async {
+  deleteAccount(EditProfileEntity editProfileEntity) async {
 
     emit(const EditProfileState.loading());
 

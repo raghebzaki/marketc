@@ -16,8 +16,8 @@ class CancelOrderServiceImpl implements CancelOrderService {
     Dio dio = await DioFactory.getDio();
     CancelOrderModel cancelOrderModel = const CancelOrderModel();
 
-    final order = await dio.post(
-      AppConstants.apiBaseUrl + AppConstants.getMyOrdersUri,
+    final order = await dio.put(
+      "${AppConstants.apiBaseUrl + AppConstants.getMyOrdersUri}/${cancelOrderEntity.orderId}",
       data: CancelOrderModel.toJson(cancelOrderEntity),
     );
 

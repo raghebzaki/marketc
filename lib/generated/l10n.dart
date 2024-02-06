@@ -2259,6 +2259,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Pending`
+  String get pending {
+    return Intl.message(
+      'Pending',
+      name: 'pending',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shipped`
+  String get shipped {
+    return Intl.message(
+      'Shipped',
+      name: 'shipped',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your message sent successfully`
+  String get msg_sent {
+    return Intl.message(
+      'Your message sent successfully',
+      name: 'msg_sent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account deleted successfully`
+  String get deleted_success {
+    return Intl.message(
+      'Account deleted successfully',
+      name: 'deleted_success',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

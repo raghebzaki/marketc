@@ -24,4 +24,10 @@ class EditProfileModel extends EditProfileEntity{
       'email': contactUsEntity.email,
     };
   }
+
+  static Map<String, dynamic> deleteToJson(EditProfileEntity contactUsEntity) {
+    return {
+      'user_id': contactUsEntity.userId,
+    };
+  }
 }
