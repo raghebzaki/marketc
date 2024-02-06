@@ -91,7 +91,6 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
                               if (state!.status == 1) {
                                 total = widget.finalPrice -
                                     widget.finalPrice * 0.40;
-                                print(total);
                               }
                             },
                             orElse: () {

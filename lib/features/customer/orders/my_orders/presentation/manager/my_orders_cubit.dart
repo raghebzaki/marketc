@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../domain/entities/my_orders_entity.dart';
+import '../../../../../../core/shared/entities/order_entity.dart';
 import '../../domain/use_cases/my_orders_usecase.dart';
 
 part 'my_orders_state.dart';
@@ -17,7 +17,7 @@ class MyOrdersCubit extends Cubit<MyOrdersStates> {
 
   final MyOrdersUseCase myOrdersUseCase;
 
-  getMyOrders(MyOrdersEntity myOrdersEntity) async {
+  getMyOrders(OrderEntity myOrdersEntity) async {
     emit(const MyOrdersStates.loading());
     final login = await myOrdersUseCase(myOrdersEntity);
 

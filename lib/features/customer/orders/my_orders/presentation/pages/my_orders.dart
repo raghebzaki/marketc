@@ -4,11 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:marketc/core/shared/widgets/state_error_widget.dart';
 import 'package:marketc/core/shared/widgets/state_loading_widget.dart';
-import 'package:marketc/features/customer/orders/my_orders/domain/entities/my_orders_entity.dart';
 import 'package:marketc/features/customer/orders/my_orders/presentation/manager/my_orders_cubit.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../../core/shared/entities/order_entity.dart';
 import '../../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../core/utils/app_colors.dart';
@@ -31,7 +31,7 @@ class _MyOrdersViewState extends State<MyOrdersView> {
     return BlocProvider(
       create: (context) => di.di<MyOrdersCubit>()
         ..getMyOrders(
-          MyOrdersEntity(
+          OrderEntity(
             userId: UserData.id,
             orderFilter: status,
           ),
@@ -54,22 +54,23 @@ class _MyOrdersViewState extends State<MyOrdersView> {
                   child: Column(
                     children: [
                       Gap(20.h),
-                      Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                status = 0;
-                              });
-                              ordersCubit.getMyOrders(
-                                MyOrdersEntity(
-                                  userId: UserData.id,
-                                  orderFilter: status,
-                                ),
-                              );
-                            },
-                            child: Expanded(
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  status = 0;
+                                });
+                                ordersCubit.getMyOrders(
+                                  OrderEntity(
+                                    userId: UserData.id,
+                                    orderFilter: status,
+                                  ),
+                                );
+                              },
                               child: Container(
                                 height: 35.h,
                                 padding: EdgeInsets.symmetric(
@@ -98,21 +99,19 @@ class _MyOrdersViewState extends State<MyOrdersView> {
                                 ),
                               ),
                             ),
-                          ),
-                          Gap(10.h),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                status = 1;
-                              });
-                              ordersCubit.getMyOrders(
-                                MyOrdersEntity(
-                                  userId: UserData.id,
-                                  orderFilter: status,
-                                ),
-                              );
-                            },
-                            child: Expanded(
+                            Gap(10.h),
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  status = 1;
+                                });
+                                ordersCubit.getMyOrders(
+                                  OrderEntity(
+                                    userId: UserData.id,
+                                    orderFilter: status,
+                                  ),
+                                );
+                              },
                               child: Container(
                                 height: 35.h,
                                 padding: EdgeInsets.symmetric(
@@ -141,16 +140,14 @@ class _MyOrdersViewState extends State<MyOrdersView> {
                                 ),
                               ),
                             ),
-                          ),
-                          Gap(10.h),
-                          Expanded(
-                            child: GestureDetector(
+                            Gap(10.h),
+                            GestureDetector(
                               onTap: () {
                                 setState(() {
                                   status = 2;
                                 });
                                 ordersCubit.getMyOrders(
-                                  MyOrdersEntity(
+                                  OrderEntity(
                                     userId: UserData.id,
                                     orderFilter: status,
                                   ),
@@ -184,16 +181,14 @@ class _MyOrdersViewState extends State<MyOrdersView> {
                                 ),
                               ),
                             ),
-                          ),
-                          Gap(10.h),
-                          Expanded(
-                            child: GestureDetector(
+                            Gap(10.h),
+                            GestureDetector(
                               onTap: () {
                                 setState(() {
                                   status = 3;
                                 });
                                 ordersCubit.getMyOrders(
-                                  MyOrdersEntity(
+                                  OrderEntity(
                                     userId: UserData.id,
                                     orderFilter: status,
                                   ),
@@ -227,16 +222,14 @@ class _MyOrdersViewState extends State<MyOrdersView> {
                                 ),
                               ),
                             ),
-                          ),
-                          Gap(10.h),
-                          Expanded(
-                            child: GestureDetector(
+                            Gap(10.h),
+                            GestureDetector(
                               onTap: () {
                                 setState(() {
                                   status = 4;
                                 });
                                 ordersCubit.getMyOrders(
-                                  MyOrdersEntity(
+                                  OrderEntity(
                                     userId: UserData.id,
                                     orderFilter: status,
                                   ),
@@ -270,8 +263,8 @@ class _MyOrdersViewState extends State<MyOrdersView> {
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       Gap(20.h),
                       state.maybeWhen(
@@ -289,12 +282,8 @@ class _MyOrdersViewState extends State<MyOrdersView> {
                                 padding:
                                 const EdgeInsets.symmetric(vertical: Dimensions.p8),
                                 child: OrderContainer(
-                                  orderNo: state[index].orders.,
-                                  total: "189.00",
-                                  qty: "2",
-                                  date: "12",
-                                ),
-                              );
+                                    orderEntity: state[index],
+                                    ));
                             },
                           );
                         },

@@ -38,7 +38,6 @@ class _CartViewState extends State<CartView> {
       } else {
         finalPrice = finalPrice + int.parse(totalPrice[i].price!);
       }
-      print(finalPrice.toString());
     }
 
     return Scaffold(

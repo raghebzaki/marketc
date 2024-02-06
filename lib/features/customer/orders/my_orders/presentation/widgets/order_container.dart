@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:marketc/core/router/router.dart';
+import 'package:marketc/core/shared/entities/order_entity.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/shared/widgets/status_indicator.dart';
@@ -11,17 +12,12 @@ import '../../../../../../core/utils/extensions.dart';
 import '../../../../../../generated/l10n.dart';
 
 class OrderContainer extends StatelessWidget {
-  final String? orderNo;
-  final String? total;
-  final String? qty;
-  final DateTime? date;
+  final OrderEntity? orderEntity;
+
 
   const OrderContainer({
     super.key,
-    this.orderNo,
-    this.total,
-    this.qty,
-    this.date,
+    this.orderEntity,
   });
 
   @override
@@ -42,7 +38,7 @@ class OrderContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "${S.of(context).track_order} #$orderNo",
+                  "${S.of(context).track_order} #${orderEntity!.orderNumber}",
                   style: CustomTextStyle.kTextStyleF14,
                 ),
                 const StatusIndicator(
@@ -67,7 +63,7 @@ class OrderContainer extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "$total ${S.current.sar}",
+                      "${orderEntity!.totalPrice} ${S.current.sar}",
                       style: CustomTextStyle.kTextStyleF12,
                     ),
                   ],
@@ -81,7 +77,7 @@ class OrderContainer extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      qty!,
+                      orderEntity!.orderNumber!,
                       style: CustomTextStyle.kTextStyleF12,
                     ),
                   ],
@@ -90,7 +86,7 @@ class OrderContainer extends StatelessWidget {
             ),
             Gap(20.h),
             Text(
-              date!.stringFormat(DateFormatType.shortDate),
+              orderEntity!.date!,
               style: CustomTextStyle.kTextStyleF12.copyWith(
                 color: AppColors.textColorGrey,
               ),

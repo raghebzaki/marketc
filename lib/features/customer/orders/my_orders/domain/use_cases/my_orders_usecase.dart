@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
 import '../../../../../../core/resources/api/failure_class.dart';
-import '../entities/my_orders_entity.dart';
+import '../../../../../../core/shared/entities/order_entity.dart';
 import '../repositories/my_orders_repo.dart';
 
 class MyOrdersUseCase {
@@ -9,8 +9,8 @@ class MyOrdersUseCase {
 
   MyOrdersUseCase({required this.myOrdersRepo});
 
-  Future<Either<Failure, List<MyOrdersEntity>>> call(
-      MyOrdersEntity myOrdersEntity) async {
+  Future<Either<Failure, List<OrderEntity>>> call(
+      OrderEntity myOrdersEntity) async {
     return await myOrdersRepo.myOrders(myOrdersEntity);
   }
 }

@@ -4,6 +4,8 @@ import 'package:marketc/core/shared/models/product_model.dart';
 class OrderModel extends OrderEntity {
   const OrderModel({
     super.id,
+    super.userId,
+    super.orderFilter,
     super.orderNumber,
     super.address,
     super.userName,
@@ -31,7 +33,16 @@ class OrderModel extends OrderEntity {
             ),
     );
   }
-
+  static Map<String, dynamic> dataToJson(OrderEntity orderEntity) {
+    return {
+      "user_id": orderEntity.userId,
+    };
+  }
+  static Map<String, dynamic> queryToJson(OrderEntity orderEntity) {
+    return {
+      "filters[status][eq]": orderEntity.orderFilter,
+    };
+  }
   factory OrderModel.addOrderFromJson(Map<String, dynamic> json) {
     return OrderModel(
       status: json["status"],

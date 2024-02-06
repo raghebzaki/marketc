@@ -16,8 +16,6 @@ import '../../features/auth/verify_account/presentation/pages/verify_account_vie
 import '../../features/customer/bottom_nav_bar/presentation/pages/bottom_nav_bar.dart';
 import '../../features/customer/main/cart/presentation/pages/cart_view.dart';
 import '../../features/customer/main/category_details/presentation/pages/category_details_view.dart';
-import '../../features/customer/main/home/presentation/manager/carousel_cubit.dart';
-import '../../features/customer/main/home/presentation/manager/category_cubit.dart';
 import '../../features/customer/main/home/presentation/manager/most_popular_cubit.dart';
 import '../../features/customer/main/home/presentation/manager/new_products_cubit.dart';
 import '../../features/customer/main/home/presentation/pages/home_view.dart';
@@ -112,7 +110,7 @@ class AppRouters {
       case homePageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => MultiBlocProvider(
-            providers: [
+            providers: const [
 
 
 

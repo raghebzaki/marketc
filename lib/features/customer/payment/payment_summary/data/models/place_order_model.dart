@@ -36,7 +36,7 @@ class PlaceOrderModel extends PlaceOrderEntity {
       'state': placeOrderEntity.state,
       'post_code': placeOrderEntity.postCode,
       'productInfo': placeOrderEntity.productIds,
-      //'coupon': placeOrderEntity.coupon,
+      'coupon': placeOrderEntity.coupon,
     };
   }
 }

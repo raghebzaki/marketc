@@ -1,11 +1,11 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:marketc/core/shared/entities/order_entity.dart';
 
 import '../../../../../../core/resources/api/data_sources.dart';
 import '../../../../../../core/resources/api/error_handler.dart';
 import '../../../../../../core/resources/api/failure_class.dart';
-import '../../domain/entities/my_orders_entity.dart';
 import '../../domain/repositories/my_orders_repo.dart';
 import '../data_sources/my_orders_service.dart';
 
@@ -15,7 +15,7 @@ class MyOrdersRepoImpl implements MyOrdersRepo {
   MyOrdersRepoImpl({required this.myOrdersService});
 
   @override
-  Future<Either<Failure, List<MyOrdersEntity>>> myOrders(MyOrdersEntity myOrdersEntity) async {
+  Future<Either<Failure, List<OrderEntity>>> myOrders(OrderEntity myOrdersEntity) async {
     final result = await Connectivity().checkConnectivity();
 
     if (result == ConnectivityResult.mobile ||

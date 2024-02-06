@@ -3,18 +3,22 @@ import 'package:marketc/core/shared/entities/product_entity.dart';
 
 class OrderEntity extends Equatable {
   final num? id;
+  final num? userId;
+  final num? orderFilter;
   final String? orderNumber;
   final String? address;
   final String? userName;
   final String? phone;
-  final String? totalPrice;
+  final num? totalPrice;
   final String? date;
-  final String? status;
+  final int? status;
   final String? message;
   final List<ProductEntity>? products;
 
   const OrderEntity(
       {this.id,
+      this.userId,
+      this.orderFilter,
       this.orderNumber,
       this.address,
       this.userName,
@@ -28,6 +32,8 @@ class OrderEntity extends Equatable {
   @override
   List<Object?> get props => [
         id,
+        userId,
+        orderFilter,
         orderNumber,
         address,
         userName,

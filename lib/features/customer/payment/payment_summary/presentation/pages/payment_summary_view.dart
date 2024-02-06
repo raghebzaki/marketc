@@ -287,9 +287,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                 listener: (context, state) {
                   state.maybeWhen(
                     success: (state) {
-                      if (state.status == 200) {
                         context.pushNamed(orderConfirmationPageRoute);
-                      }
                     },
                     orElse: () {
                       return null;
