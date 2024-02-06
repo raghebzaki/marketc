@@ -15,7 +15,7 @@ class MyOrdersRepoImpl implements MyOrdersRepo {
   MyOrdersRepoImpl({required this.myOrdersService});
 
   @override
-  Future<Either<Failure, MyOrdersEntity>> myOrders(MyOrdersEntity myOrdersEntity) async {
+  Future<Either<Failure, List<MyOrdersEntity>>> myOrders(MyOrdersEntity myOrdersEntity) async {
     final result = await Connectivity().checkConnectivity();
 
     if (result == ConnectivityResult.mobile ||

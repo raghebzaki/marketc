@@ -44,7 +44,7 @@ class AppConstants {
   static const carouselUri = "v1/ads";
   static const categoryUri = "v1/categories";
   static const subCategoryUri = "v1/sub-categories";
-  static const getMyOrdersUri = "";
+  static const getMyOrdersUri = "v1/orders";
   static const contactUsUri = "";
   static const editUserProfileUri = "";
   static const deleteUserAccountUri = "";

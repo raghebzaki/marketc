@@ -17,7 +17,7 @@ class MyOrdersCubit extends Cubit<MyOrdersStates> {
 
   final MyOrdersUseCase myOrdersUseCase;
 
-  userLogin(MyOrdersEntity myOrdersEntity) async {
+  getMyOrders(MyOrdersEntity myOrdersEntity) async {
     emit(const MyOrdersStates.loading());
     final login = await myOrdersUseCase(myOrdersEntity);
 

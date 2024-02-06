@@ -20,10 +20,16 @@ class MyOrdersModel extends MyOrdersEntity {
     );
   }
 
-  static Map<String, dynamic> toJson(MyOrdersEntity myOrdersEntity) {
+  static Map<String, dynamic> dataToJson(MyOrdersEntity myOrdersEntity) {
     return {
-      "userId": myOrdersEntity.userId,
-      "orderFilter": myOrdersEntity.orderFilter,
+      "user_id": myOrdersEntity.userId,
     };
   }
+  static Map<String, dynamic> queryToJson(MyOrdersEntity myOrdersEntity) {
+    return {
+      "filters[status][eq]": myOrdersEntity.orderFilter,
+    };
+  }
+
+
 }

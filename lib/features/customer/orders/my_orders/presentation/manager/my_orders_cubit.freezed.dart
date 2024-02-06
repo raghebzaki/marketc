@@ -20,7 +20,7 @@ mixin _$MyOrdersStates {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(MyOrdersEntity myOrdersEntity) success,
+    required TResult Function(List<MyOrdersEntity> myOrders) success,
     required TResult Function(String errCode, String err) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$MyOrdersStates {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(MyOrdersEntity myOrdersEntity)? success,
+    TResult? Function(List<MyOrdersEntity> myOrders)? success,
     TResult? Function(String errCode, String err)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$MyOrdersStates {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(MyOrdersEntity myOrdersEntity)? success,
+    TResult Function(List<MyOrdersEntity> myOrders)? success,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) =>
@@ -126,7 +126,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(MyOrdersEntity myOrdersEntity) success,
+    required TResult Function(List<MyOrdersEntity> myOrders) success,
     required TResult Function(String errCode, String err) error,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(MyOrdersEntity myOrdersEntity)? success,
+    TResult? Function(List<MyOrdersEntity> myOrders)? success,
     TResult? Function(String errCode, String err)? error,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(MyOrdersEntity myOrdersEntity)? success,
+    TResult Function(List<MyOrdersEntity> myOrders)? success,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
@@ -240,7 +240,7 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(MyOrdersEntity myOrdersEntity) success,
+    required TResult Function(List<MyOrdersEntity> myOrders) success,
     required TResult Function(String errCode, String err) error,
   }) {
     return loading();
@@ -251,7 +251,7 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(MyOrdersEntity myOrdersEntity)? success,
+    TResult? Function(List<MyOrdersEntity> myOrders)? success,
     TResult? Function(String errCode, String err)? error,
   }) {
     return loading?.call();
@@ -262,7 +262,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(MyOrdersEntity myOrdersEntity)? success,
+    TResult Function(List<MyOrdersEntity> myOrders)? success,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
@@ -320,7 +320,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({MyOrdersEntity myOrdersEntity});
+  $Res call({List<MyOrdersEntity> myOrders});
 }
 
 /// @nodoc
@@ -334,13 +334,13 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? myOrdersEntity = null,
+    Object? myOrders = null,
   }) {
     return _then(_$SuccessImpl(
-      null == myOrdersEntity
-          ? _value.myOrdersEntity
-          : myOrdersEntity // ignore: cast_nullable_to_non_nullable
-              as MyOrdersEntity,
+      null == myOrders
+          ? _value._myOrders
+          : myOrders // ignore: cast_nullable_to_non_nullable
+              as List<MyOrdersEntity>,
     ));
   }
 }
@@ -348,14 +348,20 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements Success {
-  const _$SuccessImpl(this.myOrdersEntity);
+  const _$SuccessImpl(final List<MyOrdersEntity> myOrders)
+      : _myOrders = myOrders;
 
+  final List<MyOrdersEntity> _myOrders;
   @override
-  final MyOrdersEntity myOrdersEntity;
+  List<MyOrdersEntity> get myOrders {
+    if (_myOrders is EqualUnmodifiableListView) return _myOrders;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_myOrders);
+  }
 
   @override
   String toString() {
-    return 'MyOrdersStates.success(myOrdersEntity: $myOrdersEntity)';
+    return 'MyOrdersStates.success(myOrders: $myOrders)';
   }
 
   @override
@@ -363,12 +369,12 @@ class _$SuccessImpl implements Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            (identical(other.myOrdersEntity, myOrdersEntity) ||
-                other.myOrdersEntity == myOrdersEntity));
+            const DeepCollectionEquality().equals(other._myOrders, _myOrders));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, myOrdersEntity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_myOrders));
 
   @JsonKey(ignore: true)
   @override
@@ -381,10 +387,10 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(MyOrdersEntity myOrdersEntity) success,
+    required TResult Function(List<MyOrdersEntity> myOrders) success,
     required TResult Function(String errCode, String err) error,
   }) {
-    return success(myOrdersEntity);
+    return success(myOrders);
   }
 
   @override
@@ -392,10 +398,10 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(MyOrdersEntity myOrdersEntity)? success,
+    TResult? Function(List<MyOrdersEntity> myOrders)? success,
     TResult? Function(String errCode, String err)? error,
   }) {
-    return success?.call(myOrdersEntity);
+    return success?.call(myOrders);
   }
 
   @override
@@ -403,12 +409,12 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(MyOrdersEntity myOrdersEntity)? success,
+    TResult Function(List<MyOrdersEntity> myOrders)? success,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(myOrdersEntity);
+      return success(myOrders);
     }
     return orElse();
   }
@@ -452,9 +458,9 @@ class _$SuccessImpl implements Success {
 }
 
 abstract class Success implements MyOrdersStates {
-  const factory Success(final MyOrdersEntity myOrdersEntity) = _$SuccessImpl;
+  const factory Success(final List<MyOrdersEntity> myOrders) = _$SuccessImpl;
 
-  MyOrdersEntity get myOrdersEntity;
+  List<MyOrdersEntity> get myOrders;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -534,7 +540,7 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(MyOrdersEntity myOrdersEntity) success,
+    required TResult Function(List<MyOrdersEntity> myOrders) success,
     required TResult Function(String errCode, String err) error,
   }) {
     return error(errCode, err);
@@ -545,7 +551,7 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(MyOrdersEntity myOrdersEntity)? success,
+    TResult? Function(List<MyOrdersEntity> myOrders)? success,
     TResult? Function(String errCode, String err)? error,
   }) {
     return error?.call(errCode, err);
@@ -556,7 +562,7 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(MyOrdersEntity myOrdersEntity)? success,
+    TResult Function(List<MyOrdersEntity> myOrders)? success,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {

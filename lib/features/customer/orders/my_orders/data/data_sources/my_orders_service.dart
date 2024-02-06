@@ -6,24 +6,30 @@ import '../../domain/entities/my_orders_entity.dart';
 import '../models/my_orders_model.dart';
 
 abstract class MyOrdersService {
-  Future<MyOrdersModel> getOrders(MyOrdersEntity myOrdersEntity);
+  Future<List<MyOrdersModel>> getOrders(MyOrdersEntity myOrdersEntity);
 }
 
 class MyOrdersServiceImpl implements MyOrdersService {
   @override
-  Future<MyOrdersModel> getOrders(MyOrdersEntity myOrdersEntity) async {
+  Future<List<MyOrdersModel>> getOrders(MyOrdersEntity myOrdersEntity) async {
     Dio dio = await DioFactory.getDio();
-    MyOrdersModel myOrdersModel = const MyOrdersModel();
+    List<MyOrdersModel> ordersList = [];
 
     final orders = await dio.post(
       AppConstants.apiBaseUrl + AppConstants.getMyOrdersUri,
-      data: MyOrdersModel.toJson(myOrdersEntity),
+      queryParameters: MyOrdersModel.queryToJson(myOrdersEntity),
+      data: MyOrdersModel.dataToJson(myOrdersEntity),
     );
 
     if (orders.statusCode == 200) {
-      myOrdersModel = MyOrdersModel.fromJson(orders.data);
+      Iterable l = orders.data;
+      ordersList = List<MyOrdersModel>.from(
+        l.map(
+              (model) => MyOrdersModel.fromJson(model),
+        ),
+      );
     }
 
-    return myOrdersModel;
+    return ordersList;
   }
 }

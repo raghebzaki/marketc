@@ -5,6 +5,6 @@ import '../../../../../../core/resources/api/failure_class.dart';
 
 
 abstract class CarouselRepo {
-  Future<Either<Failure, List<CarouselEntity>>> getAllCarousel();
+  Future<Either<Failure, List<CarouselEntity>>> getAllCarousel(int nextPage);
 
 }

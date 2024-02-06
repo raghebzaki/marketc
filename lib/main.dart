@@ -15,6 +15,10 @@ import 'core/router/router_generator.dart';
 import 'core/shared/widgets/custom_error_widget.dart';
 import 'core/utils/app_strings.dart';
 import 'core/utils/cubit_observer.dart';
+import 'features/customer/main/home/presentation/manager/carousel_cubit.dart';
+import 'features/customer/main/home/presentation/manager/category_cubit.dart';
+import 'features/customer/main/home/presentation/manager/most_popular_cubit.dart';
+import 'features/customer/main/home/presentation/manager/new_products_cubit.dart';
 import 'generated/l10n.dart';
 import 'main_view.dart';
 
@@ -92,8 +96,27 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CartCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => CartCubit(),
+        ),
+        BlocProvider(
+          create: (context) =>
+          di.di<CarouselCubit>()..getAds(1),
+        ),
+        BlocProvider(
+          create: (context) => di.di<CategoryCubit>()..getAllCategory(),
+        ),
+        BlocProvider(
+          create: (context) =>
+          di.di<NewProductsCubit>()..getAllProducts(1),
+        ),
+        BlocProvider(
+          create: (context) =>
+          di.di<MostPopularCubit>()..getAllProducts(1),
+        ),
+      ],
       child: ScreenUtilInit(
         designSize: const Size(360, 800),
         minTextAdapt: true,
