@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:marketc/core/shared/arguments.dart';
+import 'package:marketc/core/shared/cubits/cart_cubit/cart_cubit.dart';
 import 'package:marketc/core/shared/widgets/state_loading_widget.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:pinput/pinput.dart';
@@ -58,6 +59,16 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
   Widget build(BuildContext context) {
     num total = 0;
 
+    totalPrice(){
+      for (int i = 0; i < context.watch<CartCubit>().cartProducts.length; i++) {
+        if(context.watch<CartCubit>().cartProducts[i].discountPercent==0){
+          total+=double.parse(context.watch<CartCubit>().cartProducts[i].price!);
+
+        }else{
+          total+=double.parse(context.watch<CartCubit>().cartProducts[i].priceAfterDiscount!);
+        }
+      }
+    }
     return BlocProvider(
       create: (context) => di.di<PromoCodeCubit>(),
       child: Scaffold(
@@ -89,8 +100,7 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
                           state.maybeWhen(
                             success: (state) {
                               if (state!.status == 1) {
-                                total = widget.finalPrice -
-                                    widget.finalPrice * 0.40;
+                                total = total - total * 0.40;
                               }
                             },
                             orElse: () {

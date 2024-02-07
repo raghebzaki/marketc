@@ -6,6 +6,7 @@ import 'package:marketc/core/utils/extensions.dart';
 
 import '../../../../../../core/database/database_hive.dart';
 import '../../../../../../core/router/router.dart';
+import '../../../../../../core/shared/cubits/cart_cubit/cart_cubit.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../../core/shared/widgets/state_error_widget.dart';
@@ -35,6 +36,7 @@ class _ProfileSavedAddressesViewState extends State<ProfileSavedAddressesView> {
       child: BlocConsumer<SavedAddressesCubit, SavedAddressesStates>(
         listener: (context, state) {},
         builder: (context, state) {
+          context.watch<CartCubit>().cartProducts.clear();
           return Scaffold(
             backgroundColor: AppColors.primary,
             appBar: CustomAppBar(title: S.of(context).saved_addresses),

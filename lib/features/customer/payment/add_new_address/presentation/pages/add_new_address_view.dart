@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:marketc/core/router/router.dart';
+import 'package:marketc/core/shared/arguments.dart';
 import 'package:marketc/core/utils/extensions.dart';
 
 import '../../../../../../core/database/address_class.dart';
@@ -163,7 +164,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                                       ),
                                     );
                                     context.pushReplacementNamed(
-                                        savedAddressesPageRoute);
+                                        savedAddressesPageRoute,arguments: PaymentSharedPrice(sharedPrice: 0));
                                   }
                                 },
                               ),
@@ -268,7 +269,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                                         ),
                                       );
                                       context.pushReplacementNamed(
-                                          savedAddressesPageRoute);
+                                          savedAddressesPageRoute,arguments: PaymentSharedPrice(sharedPrice: 0));
                                     }
                                   },
                                 ),
