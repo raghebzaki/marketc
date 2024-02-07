@@ -17,15 +17,14 @@ class EditProfileModel extends EditProfileEntity{
     );
   }
 
-  static Map<String, dynamic> toJson(EditProfileEntity contactUsEntity) {
+  static Map<String, dynamic> editAccountToJson(EditProfileEntity contactUsEntity) {
     return {
       'user_id': contactUsEntity.userId,
       'name': contactUsEntity.name,
-      'email': contactUsEntity.email,
     };
   }
 
-  static Map<String, dynamic> deleteToJson(EditProfileEntity contactUsEntity) {
+  static Map<String, dynamic> deleteAccountToJson(EditProfileEntity contactUsEntity) {
     return {
       'user_id': contactUsEntity.userId,
     };

@@ -5,6 +5,6 @@ import '../entities/designer_carousel_entity.dart';
 
 
 abstract class DesignerCarouselRepo {
-  Future<Either<Failure, List<DesignerCarouselEntity>>> getAllCarousel();
+  Future<Either<Failure, List<DesignerCarouselEntity>>> getAllCarousel(int nextPage);
 
 }

@@ -239,5 +239,6 @@
   "pending": "قيد الانتظار",
   "shipped": "تم الشحن",
   "msg_sent": "تم استلام الرسالة بنجاح",
-  "deleted_success": "تم حذف حسابك بنجاح"
+  "deleted_success": "تم حذف حسابك بنجاح",
+  "update_account": "تحديث الحساب"
 }

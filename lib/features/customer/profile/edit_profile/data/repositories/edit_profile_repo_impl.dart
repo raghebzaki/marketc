@@ -16,13 +16,29 @@ class EditProfileRepoImpl implements EditProfileRepo {
 
 
   @override
-  Future<Either<Failure, EditProfileEntity>> editProfile(EditProfileEntity contactUsEntity) async {
+  Future<Either<Failure, EditProfileEntity>> deleteProfile(EditProfileEntity editProfileEntity) async {
     final result = await Connectivity().checkConnectivity();
     if (result == ConnectivityResult.mobile ||
         result == ConnectivityResult.wifi) {
       try {
-        final getContracts = await editProfileService.sendMessage(contactUsEntity);
-        return right(getContracts);
+        final delete = await editProfileService.deleteAccount(editProfileEntity);
+        return right(delete);
+      } on DioException catch (error) {
+        return Left(ErrorHandler.handle(error).failure);
+      }
+    } else {
+      return Left(DataSource.noInternetConnection.getFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, EditProfileEntity>> editProfile(EditProfileEntity editProfileEntity) async {
+    final result = await Connectivity().checkConnectivity();
+    if (result == ConnectivityResult.mobile ||
+        result == ConnectivityResult.wifi) {
+      try {
+        final edit = await editProfileService.editAccount(editProfileEntity);
+        return right(edit);
       } on DioException catch (error) {
         return Left(ErrorHandler.handle(error).failure);
       }

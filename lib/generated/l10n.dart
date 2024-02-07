@@ -2299,6 +2299,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Update Account`
+  String get update_account {
+    return Intl.message(
+      'Update Account',
+      name: 'update_account',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

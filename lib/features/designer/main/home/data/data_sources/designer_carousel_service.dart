@@ -5,23 +5,26 @@ import '../../../../../../core/utils/app_constants.dart';
 import '../models/designer_carousel_model.dart';
 
 abstract class DesignerCarouselService {
-  Future<List<DesignerCarouselModel>> getAllCarousel();
+  Future<List<DesignerCarouselModel>> getAllCarousel(int nextPage);
 }
 
 class DesignerCarouselServiceImpl implements DesignerCarouselService {
 
   @override
-  Future<List<DesignerCarouselModel>> getAllCarousel() async {
+  Future<List<DesignerCarouselModel>> getAllCarousel(int nextPage) async {
 
     Dio dio = await DioFactory.getDio();
     List<DesignerCarouselModel> carouselList = [];
 
-    final contracts = await dio.get(
+    final ads = await dio.get(
       AppConstants.apiBaseUrl + AppConstants.designerCarouselUri,
+        queryParameters: {
+          "page": nextPage,
+        }
     );
 
-    if (contracts.statusCode == 200) {
-      Iterable l = contracts.data['data'];
+    if (ads.statusCode == 200) {
+      Iterable l = ads.data['data']['data'];
       carouselList = List<DesignerCarouselModel>.from(
         l.map(
               (model) => DesignerCarouselModel.fromJson(model),

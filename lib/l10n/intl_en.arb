@@ -243,5 +243,6 @@
   "pending": "Pending",
   "shipped": "Shipped",
   "msg_sent": "Your message sent successfully",
-  "deleted_success": "Account deleted successfully"
+  "deleted_success": "Account deleted successfully",
+  "update_account": "Update Account"
 }

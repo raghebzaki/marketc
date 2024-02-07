@@ -5,12 +5,12 @@ import '../../../../../../core/resources/api/failure_class.dart';
 import '../repositories/edit_profile_repo.dart';
 
 
-class EditProfileUseCase {
+class DeleteAccountUseCase {
   final EditProfileRepo editProfileRepo;
 
-  EditProfileUseCase(this.editProfileRepo);
+  DeleteAccountUseCase(this.editProfileRepo);
 
   Future<Either<Failure,EditProfileEntity>> call(EditProfileEntity editProfileEntity) async {
-    return await editProfileRepo.editProfile(editProfileEntity);
+    return await editProfileRepo.deleteProfile(editProfileEntity);
   }
 }

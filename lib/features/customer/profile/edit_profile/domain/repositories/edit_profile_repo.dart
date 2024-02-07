@@ -5,6 +5,7 @@ import '../entities/edit_profile_entity.dart';
 
 
 abstract class EditProfileRepo {
+  Future<Either<Failure,EditProfileEntity>> deleteProfile(EditProfileEntity editProfileEntity);
   Future<Either<Failure,EditProfileEntity>> editProfile(EditProfileEntity editProfileEntity);
 
 }

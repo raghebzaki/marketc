@@ -330,6 +330,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "المستخدم غير مصرح له، جرب مرة أخرى في وقت لاحق"),
         "unknown_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "update_account": MessageLookupByLibrary.simpleMessage("تحديث الحساب"),
         "upload_product_img": MessageLookupByLibrary.simpleMessage(
             "قم برفع صورة المنتج الخاص بك"),
         "use_points": MessageLookupByLibrary.simpleMessage("استخدام النقاط"),

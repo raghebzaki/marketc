@@ -1,14 +1,55 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:intl/intl.dart';
+
 import '../../../../../../config/themes/app_text_styles.dart';
+import '../../../../../../core/shared/widgets/state_loading_widget.dart';
 import '../../../../../../core/utils/app_colors.dart';
+import '../../../../../../core/utils/app_constants.dart';
 import '../../../../../../core/utils/app_images.dart';
 import '../../../../../../core/utils/dimensions.dart';
+import '../../../../../../core/shared/widgets/state_error_widget.dart';
 import '../../../../../../generated/l10n.dart';
+import '../../domain/entities/designer_carousel_entity.dart';
+import '../manager/designer_carousel_cubit.dart';
 
-class DesignerHomeView extends StatelessWidget {
+class DesignerHomeView extends StatefulWidget {
   const DesignerHomeView({super.key});
+
+  @override
+  State<DesignerHomeView> createState() => _DesignerHomeViewState();
+}
+
+class _DesignerHomeViewState extends State<DesignerHomeView> {
+  ScrollController scrollController = ScrollController();
+
+  var nextPage = 1;
+  var isLoading = false;
+  List<DesignerCarouselEntity> ads = [];
+
+  void scrollListener() async {
+    var currentPositions = scrollController.position.pixels;
+    var maxScrollLength = scrollController.position.maxScrollExtent;
+    if (currentPositions >= 0.7 * maxScrollLength) {
+      if (!isLoading) {
+        isLoading = true;
+        await BlocProvider.of<DesignerCarouselCubit>(context).getAds(
+          ++nextPage,
+        );
+        isLoading = false;
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    scrollController.addListener(scrollListener);
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -61,92 +102,390 @@ class DesignerHomeView extends StatelessWidget {
                       .copyWith(color: AppColors.textColor),
                 ),
                 Gap(20.h),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      ...List.generate(
-                        5,
-                        (index) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: Dimensions.p8),
-                            child: Container(
-                              width: 300.w,
-                              height: 150,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: ShapeDecoration(
-                                color: const Color(0xFFF8E7DE),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius:
-                                        BorderRadius.circular(Dimensions.r8)),
-                              ),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    child: Padding(
-                                      padding:
-                                          const EdgeInsets.all(Dimensions.p5),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                BlocConsumer<DesignerCarouselCubit, DesignerCarouselState>(
+                  listener: (context, state) {
+                    state.maybeWhen(
+                      success: (state) {
+                        ads.addAll(state!);
+                      },
+                      orElse: () {
+                        return null;
+                      },
+                    );
+                  },
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      loading: () {
+                        return const StateLoadingWidget();
+                      },
+                      success: (state) {
+                        return SingleChildScrollView(
+                          controller: scrollController,
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              ...List.generate(
+                                ads.length,
+                                    (index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: Dimensions.p8),
+                                    child: Container(
+                                      width: 300.w,
+                                      height: 150,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: ShapeDecoration(
+                                        color: const Color(0xFFF8E7DE),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                                Dimensions.r8)),
+                                      ),
+                                      child: Row(
                                         children: [
-                                          Text(
-                                            S.current.soon,
-                                            style: CustomTextStyle.kTextStyleF8,
-                                          ),
-                                          Text(
-                                            S.current.custom_logo,
-                                            style:
-                                                CustomTextStyle.kTextStyleF16,
-                                          ),
-                                          Text(
-                                            S.current.wide_range,
-                                            textAlign: TextAlign.right,
-                                            style:
-                                                CustomTextStyle.kTextStyleF10,
-                                          ),
-                                          Container(
-                                            width: 82.w,
-                                            height: 18.h,
-                                            decoration: ShapeDecoration(
-                                              color: AppColors.secondary,
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          Dimensions.r4)),
-                                            ),
-                                            child: Center(
-                                              child: Text(
-                                                S.current.browse_now,
-                                                style: CustomTextStyle
-                                                    .kTextStyleF8,
+                                          Expanded(
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(
+                                                  Dimensions.p5),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    S.current.soon,
+                                                    style: CustomTextStyle
+                                                        .kTextStyleF8,
+                                                  ),
+                                                  Text(
+                                                    ads[index].title!,
+                                                    style: CustomTextStyle
+                                                        .kTextStyleF16,
+                                                  ),
+                                                  Expanded(
+                                                    child: Text(
+                                                      ads[index].description!,
+                                                      textAlign:
+                                                      Intl.getCurrentLocale() ==
+                                                          "en"
+                                                          ? TextAlign.left
+                                                          : TextAlign.right,
+                                                      style: CustomTextStyle
+                                                          .kTextStyleF10,
+
+                                                      // overflow: TextOverflow.ellipsis,
+                                                    ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                    Intl.getCurrentLocale() ==
+                                                        "en"
+                                                        ? Alignment
+                                                        .centerRight
+                                                        : Alignment
+                                                        .centerLeft,
+                                                    child: Container(
+                                                      width: 82.w,
+                                                      height: 18.h,
+                                                      decoration:
+                                                      ShapeDecoration(
+                                                        color:
+                                                        AppColors.secondary,
+                                                        shape: RoundedRectangleBorder(
+                                                            borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                Dimensions
+                                                                    .r4)),
+                                                      ),
+                                                      child: Center(
+                                                        child: Text(
+                                                          S.current.browse_now,
+                                                          style: CustomTextStyle
+                                                              .kTextStyleF8,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  )
+                                                ],
                                               ),
                                             ),
-                                          )
+                                          ),
+                                          Container(
+                                            width: 140.w,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image: ads[index].image ==
+                                                    null
+                                                    ? const CachedNetworkImageProvider(
+                                                  "https://via.placeholder.com/140x140",
+                                                )
+                                                    : CachedNetworkImageProvider(
+                                                  AppConstants.imageUrl +
+                                                      ads[index].image!,
+                                                ),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),
-                                  ),
-                                  Container(
-                                    width: 140.w,
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: const BoxDecoration(
-                                      image: DecorationImage(
-                                        image: NetworkImage(
-                                            "https://via.placeholder.com/140x140"),
-                                        fit: BoxFit.cover,
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                      paginationLoading: () {
+                        return SingleChildScrollView(
+                          controller: scrollController,
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              ...List.generate(
+                                ads.length,
+                                    (index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: Dimensions.p8),
+                                    child: Container(
+                                      width: 300.w,
+                                      height: 150,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: ShapeDecoration(
+                                        color: const Color(0xFFF8E7DE),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                                Dimensions.r8)),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(
+                                                  Dimensions.p5),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    S.current.soon,
+                                                    style: CustomTextStyle
+                                                        .kTextStyleF8,
+                                                  ),
+                                                  Text(
+                                                    ads[index].title!,
+                                                    style: CustomTextStyle
+                                                        .kTextStyleF16,
+                                                  ),
+                                                  Expanded(
+                                                    child: Text(
+                                                      ads[index].description!,
+                                                      textAlign:
+                                                      Intl.getCurrentLocale() ==
+                                                          "en"
+                                                          ? TextAlign.left
+                                                          : TextAlign.right,
+                                                      style: CustomTextStyle
+                                                          .kTextStyleF10,
+
+                                                      // overflow: TextOverflow.ellipsis,
+                                                    ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                    Intl.getCurrentLocale() ==
+                                                        "en"
+                                                        ? Alignment
+                                                        .centerRight
+                                                        : Alignment
+                                                        .centerLeft,
+                                                    child: Container(
+                                                      width: 82.w,
+                                                      height: 18.h,
+                                                      decoration:
+                                                      ShapeDecoration(
+                                                        color:
+                                                        AppColors.secondary,
+                                                        shape: RoundedRectangleBorder(
+                                                            borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                Dimensions
+                                                                    .r4)),
+                                                      ),
+                                                      child: Center(
+                                                        child: Text(
+                                                          S.current.browse_now,
+                                                          style: CustomTextStyle
+                                                              .kTextStyleF8,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            width: 140.w,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image: ads[index].image ==
+                                                    null
+                                                    ? const CachedNetworkImageProvider(
+                                                  "https://via.placeholder.com/140x140",
+                                                )
+                                                    : CachedNetworkImageProvider(
+                                                  AppConstants.imageUrl +
+                                                      ads[index].image!,
+                                                ),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  );
+                                },
                               ),
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
+                            ],
+                          ),
+                        );
+                      },
+                      paginationError: (errCode, err) {
+                        return SingleChildScrollView(
+                          controller: scrollController,
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              ...List.generate(
+                                ads.length,
+                                    (index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: Dimensions.p8),
+                                    child: Container(
+                                      width: 300.w,
+                                      height: 150,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: ShapeDecoration(
+                                        color: const Color(0xFFF8E7DE),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                                Dimensions.r8)),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(
+                                                  Dimensions.p5),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    S.current.soon,
+                                                    style: CustomTextStyle
+                                                        .kTextStyleF8,
+                                                  ),
+                                                  Text(
+                                                    ads[index].title!,
+                                                    style: CustomTextStyle
+                                                        .kTextStyleF16,
+                                                  ),
+                                                  Expanded(
+                                                    child: Text(
+                                                      ads[index].description!,
+                                                      textAlign:
+                                                      Intl.getCurrentLocale() ==
+                                                          "en"
+                                                          ? TextAlign.left
+                                                          : TextAlign.right,
+                                                      style: CustomTextStyle
+                                                          .kTextStyleF10,
+
+                                                      // overflow: TextOverflow.ellipsis,
+                                                    ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                    Intl.getCurrentLocale() ==
+                                                        "en"
+                                                        ? Alignment
+                                                        .centerRight
+                                                        : Alignment
+                                                        .centerLeft,
+                                                    child: Container(
+                                                      width: 82.w,
+                                                      height: 18.h,
+                                                      decoration:
+                                                      ShapeDecoration(
+                                                        color:
+                                                        AppColors.secondary,
+                                                        shape: RoundedRectangleBorder(
+                                                            borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                Dimensions
+                                                                    .r4)),
+                                                      ),
+                                                      child: Center(
+                                                        child: Text(
+                                                          S.current.browse_now,
+                                                          style: CustomTextStyle
+                                                              .kTextStyleF8,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            width: 140.w,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image: ads[index].image ==
+                                                    null
+                                                    ? const CachedNetworkImageProvider(
+                                                  "https://via.placeholder.com/140x140",
+                                                )
+                                                    : CachedNetworkImageProvider(
+                                                  AppConstants.imageUrl +
+                                                      ads[index].image!,
+                                                ),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                      error: (errCode, err) {
+                        return StateErrorWidget(
+                          errCode: errCode!,
+                          err: err!,
+                        );
+                      },
+                      orElse: () {
+                        return const SizedBox.shrink();
+                      },
+                    );
+                  },
                 ),
                 Gap(10.h),
                 Row(

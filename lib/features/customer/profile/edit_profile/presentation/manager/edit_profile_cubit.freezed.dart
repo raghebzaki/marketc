@@ -21,6 +21,8 @@ mixin _$EditProfileState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(EditProfileEntity? editProfileEntity) success,
+    required TResult Function(EditProfileEntity? editProfileEntity)
+        deleteSuccess,
     required TResult Function(String? errCode, String? err) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,6 +31,7 @@ mixin _$EditProfileState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(EditProfileEntity? editProfileEntity)? success,
+    TResult? Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
     TResult? Function(String? errCode, String? err)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,6 +40,7 @@ mixin _$EditProfileState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(EditProfileEntity? editProfileEntity)? success,
+    TResult Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
     TResult Function(String? errCode, String? err)? error,
     required TResult orElse(),
   }) =>
@@ -46,6 +50,7 @@ mixin _$EditProfileState {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +59,7 @@ mixin _$EditProfileState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +68,7 @@ mixin _$EditProfileState {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) =>
@@ -127,6 +134,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(EditProfileEntity? editProfileEntity) success,
+    required TResult Function(EditProfileEntity? editProfileEntity)
+        deleteSuccess,
     required TResult Function(String? errCode, String? err) error,
   }) {
     return initial();
@@ -138,6 +147,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(EditProfileEntity? editProfileEntity)? success,
+    TResult? Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
     TResult? Function(String? errCode, String? err)? error,
   }) {
     return initial?.call();
@@ -149,6 +159,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(EditProfileEntity? editProfileEntity)? success,
+    TResult Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
     TResult Function(String? errCode, String? err)? error,
     required TResult orElse(),
   }) {
@@ -164,6 +175,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(Error value) error,
   }) {
     return initial(this);
@@ -175,6 +187,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(Error value)? error,
   }) {
     return initial?.call(this);
@@ -186,6 +199,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -241,6 +255,8 @@ class _$LoadingImpl implements Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(EditProfileEntity? editProfileEntity) success,
+    required TResult Function(EditProfileEntity? editProfileEntity)
+        deleteSuccess,
     required TResult Function(String? errCode, String? err) error,
   }) {
     return loading();
@@ -252,6 +268,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(EditProfileEntity? editProfileEntity)? success,
+    TResult? Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
     TResult? Function(String? errCode, String? err)? error,
   }) {
     return loading?.call();
@@ -263,6 +280,7 @@ class _$LoadingImpl implements Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(EditProfileEntity? editProfileEntity)? success,
+    TResult Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
     TResult Function(String? errCode, String? err)? error,
     required TResult orElse(),
   }) {
@@ -278,6 +296,7 @@ class _$LoadingImpl implements Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(Error value) error,
   }) {
     return loading(this);
@@ -289,6 +308,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(Error value)? error,
   }) {
     return loading?.call(this);
@@ -300,6 +320,7 @@ class _$LoadingImpl implements Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -382,6 +403,8 @@ class _$SuccessImpl implements Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(EditProfileEntity? editProfileEntity) success,
+    required TResult Function(EditProfileEntity? editProfileEntity)
+        deleteSuccess,
     required TResult Function(String? errCode, String? err) error,
   }) {
     return success(editProfileEntity);
@@ -393,6 +416,7 @@ class _$SuccessImpl implements Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(EditProfileEntity? editProfileEntity)? success,
+    TResult? Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
     TResult? Function(String? errCode, String? err)? error,
   }) {
     return success?.call(editProfileEntity);
@@ -404,6 +428,7 @@ class _$SuccessImpl implements Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(EditProfileEntity? editProfileEntity)? success,
+    TResult Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
     TResult Function(String? errCode, String? err)? error,
     required TResult orElse(),
   }) {
@@ -419,6 +444,7 @@ class _$SuccessImpl implements Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(Error value) error,
   }) {
     return success(this);
@@ -430,6 +456,7 @@ class _$SuccessImpl implements Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(Error value)? error,
   }) {
     return success?.call(this);
@@ -441,6 +468,7 @@ class _$SuccessImpl implements Success {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -458,6 +486,160 @@ abstract class Success implements EditProfileState {
   EditProfileEntity? get editProfileEntity;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteSuccessImplCopyWith<$Res> {
+  factory _$$DeleteSuccessImplCopyWith(
+          _$DeleteSuccessImpl value, $Res Function(_$DeleteSuccessImpl) then) =
+      __$$DeleteSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({EditProfileEntity? editProfileEntity});
+}
+
+/// @nodoc
+class __$$DeleteSuccessImplCopyWithImpl<$Res>
+    extends _$EditProfileStateCopyWithImpl<$Res, _$DeleteSuccessImpl>
+    implements _$$DeleteSuccessImplCopyWith<$Res> {
+  __$$DeleteSuccessImplCopyWithImpl(
+      _$DeleteSuccessImpl _value, $Res Function(_$DeleteSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? editProfileEntity = freezed,
+  }) {
+    return _then(_$DeleteSuccessImpl(
+      freezed == editProfileEntity
+          ? _value.editProfileEntity
+          : editProfileEntity // ignore: cast_nullable_to_non_nullable
+              as EditProfileEntity?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteSuccessImpl implements DeleteSuccess {
+  const _$DeleteSuccessImpl(this.editProfileEntity);
+
+  @override
+  final EditProfileEntity? editProfileEntity;
+
+  @override
+  String toString() {
+    return 'EditProfileState.deleteSuccess(editProfileEntity: $editProfileEntity)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteSuccessImpl &&
+            (identical(other.editProfileEntity, editProfileEntity) ||
+                other.editProfileEntity == editProfileEntity));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, editProfileEntity);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteSuccessImplCopyWith<_$DeleteSuccessImpl> get copyWith =>
+      __$$DeleteSuccessImplCopyWithImpl<_$DeleteSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(EditProfileEntity? editProfileEntity) success,
+    required TResult Function(EditProfileEntity? editProfileEntity)
+        deleteSuccess,
+    required TResult Function(String? errCode, String? err) error,
+  }) {
+    return deleteSuccess(editProfileEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(EditProfileEntity? editProfileEntity)? success,
+    TResult? Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
+    TResult? Function(String? errCode, String? err)? error,
+  }) {
+    return deleteSuccess?.call(editProfileEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(EditProfileEntity? editProfileEntity)? success,
+    TResult Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
+    TResult Function(String? errCode, String? err)? error,
+    required TResult orElse(),
+  }) {
+    if (deleteSuccess != null) {
+      return deleteSuccess(editProfileEntity);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(Error value) error,
+  }) {
+    return deleteSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(Error value)? error,
+  }) {
+    return deleteSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (deleteSuccess != null) {
+      return deleteSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteSuccess implements EditProfileState {
+  const factory DeleteSuccess(final EditProfileEntity? editProfileEntity) =
+      _$DeleteSuccessImpl;
+
+  EditProfileEntity? get editProfileEntity;
+  @JsonKey(ignore: true)
+  _$$DeleteSuccessImplCopyWith<_$DeleteSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -536,6 +718,8 @@ class _$ErrorImpl implements Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(EditProfileEntity? editProfileEntity) success,
+    required TResult Function(EditProfileEntity? editProfileEntity)
+        deleteSuccess,
     required TResult Function(String? errCode, String? err) error,
   }) {
     return error(errCode, err);
@@ -547,6 +731,7 @@ class _$ErrorImpl implements Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(EditProfileEntity? editProfileEntity)? success,
+    TResult? Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
     TResult? Function(String? errCode, String? err)? error,
   }) {
     return error?.call(errCode, err);
@@ -558,6 +743,7 @@ class _$ErrorImpl implements Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(EditProfileEntity? editProfileEntity)? success,
+    TResult Function(EditProfileEntity? editProfileEntity)? deleteSuccess,
     TResult Function(String? errCode, String? err)? error,
     required TResult orElse(),
   }) {
@@ -573,6 +759,7 @@ class _$ErrorImpl implements Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(Error value) error,
   }) {
     return error(this);
@@ -584,6 +771,7 @@ class _$ErrorImpl implements Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(Error value)? error,
   }) {
     return error?.call(this);
@@ -595,6 +783,7 @@ class _$ErrorImpl implements Error {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {

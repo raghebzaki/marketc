@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:marketc/config/themes/app_text_styles.dart';
 import 'package:marketc/core/router/router.dart';
 import 'package:marketc/core/shared/widgets/custom_app_bar.dart';
+import 'package:marketc/core/shared/widgets/custom_button.dart';
 import 'package:marketc/core/shared/widgets/custom_form_field.dart';
 import 'package:marketc/core/utils/app_colors.dart';
 import 'package:marketc/core/utils/extensions.dart';
@@ -23,8 +24,8 @@ class EditProfileView extends StatefulWidget {
 }
 
 class _EditProfileViewState extends State<EditProfileView> {
-  TextEditingController nameCtrl = TextEditingController();
-  TextEditingController email = TextEditingController();
+  TextEditingController nameCtrl = TextEditingController(text: UserData.name);
+  TextEditingController emailCtrl = TextEditingController(text: UserData.email);
   TextEditingController password = TextEditingController();
 
   @override
@@ -35,6 +36,10 @@ class _EditProfileViewState extends State<EditProfileView> {
         listener: (context, state) {
           state.maybeWhen(
             success: (state) {
+              context.defaultSnackBar("Account updated successfully");
+
+            },
+            deleteSuccess: (state) {
               context.defaultSnackBar(S.of(context).deleted_success);
               context.pushNamed(loginPageRoute);
             },
@@ -78,7 +83,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                     ),
                     Gap(5.h),
                     CustomFormField(
-                      hint: UserData.name,
+                      hint: S.current.full_name,
                       ctrl: nameCtrl,
                     ),
                     Gap(10.h),
@@ -89,8 +94,8 @@ class _EditProfileViewState extends State<EditProfileView> {
                     ),
                     Gap(5.h),
                     CustomFormField(
-                      hint: 'ahmedd1203@gmail.com',
-                      ctrl: email,
+                      hint: S.current.email,
+                      ctrl: emailCtrl,
                     ),
                     Gap(10.h),
                     Text(
@@ -129,6 +134,19 @@ class _EditProfileViewState extends State<EditProfileView> {
                         ),
                       ],
                     ),
+                    // const Spacer(),
+                    CustomBtn(
+                      label: S.of(context).update_account,
+                      onPressed: () {
+                        editProfileCubit.editProfile(
+                          EditProfileEntity(
+                            userId: UserData.id,
+                            name: nameCtrl.text,
+                            email: emailCtrl.text
+                          ),
+                        );
+                      },
+                    )
                   ],
                 ),
               ),

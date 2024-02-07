@@ -339,6 +339,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "some thing went wrong, try again later"),
         "unprocessable_content_error": MessageLookupByLibrary.simpleMessage(
             "unprocessable data, check it and try again"),
+        "update_account":
+            MessageLookupByLibrary.simpleMessage("Update Account"),
         "upload_product_img":
             MessageLookupByLibrary.simpleMessage("Upload Your Product Image"),
         "use_points": MessageLookupByLibrary.simpleMessage("use points"),

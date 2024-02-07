@@ -10,7 +10,7 @@ class DesignerCarouselUseCase {
 
   DesignerCarouselUseCase(this.carouselRepo);
 
-  Future<Either<Failure, List<DesignerCarouselEntity>>> call() async {
-    return await carouselRepo.getAllCarousel();
+  Future<Either<Failure, List<DesignerCarouselEntity>>> call(int nextPage) async {
+    return await carouselRepo.getAllCarousel(nextPage);
   }
 }

@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:marketc/features/customer/main/product_details/domain/use_cases/check_if_favorite_use_case.dart';
+import 'package:marketc/features/customer/profile/edit_profile/domain/use_cases/edit_account_use_Case.dart';
 import 'package:marketc/features/designer/main/categories/presentation/manager/delete_product_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -107,7 +108,7 @@ import '../../features/customer/profile/contact_us/presentation/manager/contact_
 import '../../features/customer/profile/edit_profile/data/data_sources/edit_profile_service.dart';
 import '../../features/customer/profile/edit_profile/data/repositories/edit_profile_repo_impl.dart';
 import '../../features/customer/profile/edit_profile/domain/repositories/edit_profile_repo.dart';
-import '../../features/customer/profile/edit_profile/domain/use_cases/edit_profile_use_case.dart';
+import '../../features/customer/profile/edit_profile/domain/use_cases/delete_account_use_case.dart';
 import '../../features/customer/profile/edit_profile/presentation/manager/edit_profile_cubit.dart';
 import '../../features/designer/designs/data/data_sources/designs_service.dart';
 import '../../features/designer/designs/data/repositories/designs_repo_impl.dart';
@@ -316,7 +317,8 @@ Future<void> init() async {
   di.registerLazySingleton<ContactUsService>(() => ContactUsServiceImpl());
 
   /// edit profile
-  di.registerFactory(() => EditProfileCubit(editProfileUseCase: di()));
+  di.registerFactory(() => EditProfileCubit(deleteAccountUseCase: di(), editProfileUseCase: di()));
+  di.registerLazySingleton(() => DeleteAccountUseCase(di()));
   di.registerLazySingleton(() => EditProfileUseCase(di()));
   di.registerLazySingleton<EditProfileRepo>(() => EditProfileRepoImpl(di()));
   di.registerLazySingleton<EditProfileService>(() => EditProfileServiceImpl());
