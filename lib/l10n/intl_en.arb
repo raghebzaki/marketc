@@ -244,5 +244,9 @@
   "shipped": "Shipped",
   "msg_sent": "Your message sent successfully",
   "deleted_success": "Account deleted successfully",
-  "update_account": "Update Account"
+  "update_account": "Update Account",
+  "user_balance": "User Balance",
+  "youHaveNo": "You have no ",
+  "orders": " orders"
+
 }

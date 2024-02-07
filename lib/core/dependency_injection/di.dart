@@ -129,21 +129,7 @@ import '../../features/designer/main/home/data/repositories/designer_carousel_re
 import '../../features/designer/main/home/domain/repositories/designer_carousel_repo.dart';
 import '../../features/designer/main/home/domain/use_cases/designer_carousel_use_case.dart';
 import '../../features/designer/main/home/presentation/manager/designer_carousel_cubit.dart';
-import '../../features/designer/main/profile/data/data_sources/balance_service.dart';
-import '../../features/designer/main/profile/data/data_sources/exchange_service.dart';
-import '../../features/designer/main/profile/data/data_sources/get_points_service.dart';
-import '../../features/designer/main/profile/data/repositories/balance_repo_impl.dart';
-import '../../features/designer/main/profile/data/repositories/exchange_repo_impl.dart';
-import '../../features/designer/main/profile/data/repositories/get_points_repo_impl.dart';
-import '../../features/designer/main/profile/domain/repositories/balance_repo.dart';
-import '../../features/designer/main/profile/domain/repositories/exchange_repo.dart';
-import '../../features/designer/main/profile/domain/repositories/get_points_repo.dart';
-import '../../features/designer/main/profile/domain/use_cases/balance_use_case.dart';
-import '../../features/designer/main/profile/domain/use_cases/exchange_use_case.dart';
-import '../../features/designer/main/profile/domain/use_cases/get_points_use_case.dart';
-import '../../features/designer/main/profile/presentation/manager/balance_cubit.dart';
-import '../../features/designer/main/profile/presentation/manager/exchange_cubit.dart';
-import '../../features/designer/main/profile/presentation/manager/get_points_cubit.dart';
+
 import '../../features/designer/product/add_product/data/data_sources/add_product_service.dart';
 import '../../features/designer/product/add_product/data/data_sources/color_service.dart';
 import '../../features/designer/product/add_product/data/data_sources/size_service.dart';
@@ -164,6 +150,21 @@ import '../../features/designer/product/edit_product/data/repositories/edit_prod
 import '../../features/designer/product/edit_product/domain/repositories/edit_product_repo.dart';
 import '../../features/designer/product/edit_product/domain/use_cases/edit_product_usecase.dart';
 import '../../features/designer/product/edit_product/presentation/manager/edit_product_cubit.dart';
+import '../../features/designer/profile/user_balance/data/data_sources/balance_service.dart';
+import '../../features/designer/profile/user_balance/data/data_sources/exchange_service.dart';
+import '../../features/designer/profile/user_balance/data/data_sources/get_points_service.dart';
+import '../../features/designer/profile/user_balance/data/repositories/balance_repo_impl.dart';
+import '../../features/designer/profile/user_balance/data/repositories/exchange_repo_impl.dart';
+import '../../features/designer/profile/user_balance/data/repositories/get_points_repo_impl.dart';
+import '../../features/designer/profile/user_balance/domain/repositories/balance_repo.dart';
+import '../../features/designer/profile/user_balance/domain/repositories/exchange_repo.dart';
+import '../../features/designer/profile/user_balance/domain/repositories/get_points_repo.dart';
+import '../../features/designer/profile/user_balance/domain/use_cases/balance_use_case.dart';
+import '../../features/designer/profile/user_balance/domain/use_cases/exchange_use_case.dart';
+import '../../features/designer/profile/user_balance/domain/use_cases/get_points_use_case.dart';
+import '../../features/designer/profile/user_balance/presentation/manager/balance_cubit.dart';
+import '../../features/designer/profile/user_balance/presentation/manager/exchange_cubit.dart';
+import '../../features/designer/profile/user_balance/presentation/manager/get_points_cubit.dart';
 
 final di = GetIt.instance;
 

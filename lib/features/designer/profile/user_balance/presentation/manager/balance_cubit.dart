@@ -1,7 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:marketc/features/designer/main/profile/domain/entities/balance_entity.dart';
-import 'package:marketc/features/designer/main/profile/domain/use_cases/balance_use_case.dart';
+
+import '../../domain/entities/balance_entity.dart';
+import '../../domain/use_cases/balance_use_case.dart';
+
 
 part 'balance_state.dart';
 part 'balance_cubit.freezed.dart';

@@ -240,5 +240,8 @@
   "shipped": "تم الشحن",
   "msg_sent": "تم استلام الرسالة بنجاح",
   "deleted_success": "تم حذف حسابك بنجاح",
-  "update_account": "تحديث الحساب"
+  "update_account": "تحديث الحساب",
+  "user_balance": "حساباتي",
+  "youHaveNo": "لا يوجد طلبات ",
+  "orders": " "
 }

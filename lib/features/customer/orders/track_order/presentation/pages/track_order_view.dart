@@ -219,7 +219,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("ORder accepted"),
+                                    const Text("ORder accepted"),
                                     Text(
                                         "${date.stringFormat(DateFormatType.dayMonthYear)}, ${time.stringFormat(
                                       formatType:

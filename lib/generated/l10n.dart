@@ -2309,6 +2309,36 @@ class S {
       args: [],
     );
   }
+
+  /// `User Balance`
+  String get user_balance {
+    return Intl.message(
+      'User Balance',
+      name: 'user_balance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have no `
+  String get youHaveNo {
+    return Intl.message(
+      'You have no ',
+      name: 'youHaveNo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` orders`
+  String get orders {
+    return Intl.message(
+      ' orders',
+      name: 'orders',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

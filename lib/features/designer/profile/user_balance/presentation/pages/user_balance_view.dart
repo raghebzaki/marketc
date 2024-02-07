@@ -10,8 +10,8 @@ import 'package:marketc/core/utils/extensions.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../generated/l10n.dart';
 
-class DesignerProfileView extends StatelessWidget {
-  const DesignerProfileView({super.key});
+class UserBalanceView extends StatelessWidget {
+  const UserBalanceView({super.key});
 
   @override
   Widget build(BuildContext context) {

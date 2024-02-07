@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:marketc/features/designer/main/profile/domain/entities/exchange_entity.dart';
 
+import '../../domain/entities/exchange_entity.dart';
 import '../../domain/use_cases/exchange_use_case.dart';
 
 part 'exchange_state.dart';

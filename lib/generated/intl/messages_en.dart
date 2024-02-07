@@ -215,6 +215,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "order_problem": MessageLookupByLibrary.simpleMessage(
             "In case you encounter any issues, you can contact"),
         "order_summary": MessageLookupByLibrary.simpleMessage("Order Summary"),
+        "orders": MessageLookupByLibrary.simpleMessage(" orders"),
         "otp_sent": MessageLookupByLibrary.simpleMessage("OTP sent to"),
         "pass": MessageLookupByLibrary.simpleMessage("Password"),
         "pass_change_success": MessageLookupByLibrary.simpleMessage(
@@ -344,6 +345,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "upload_product_img":
             MessageLookupByLibrary.simpleMessage("Upload Your Product Image"),
         "use_points": MessageLookupByLibrary.simpleMessage("use points"),
+        "user_balance": MessageLookupByLibrary.simpleMessage("User Balance"),
         "user_name_required":
             MessageLookupByLibrary.simpleMessage("User name can\'t be empty"),
         "user_profile": MessageLookupByLibrary.simpleMessage("Profile"),
@@ -361,6 +363,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Yearly Subscription"),
         "yearly_sub_price":
             MessageLookupByLibrary.simpleMessage("Subscription 899 SAR"),
+        "youHaveNo": MessageLookupByLibrary.simpleMessage("You have no "),
         "you_think": MessageLookupByLibrary.simpleMessage(
             "What are you thinking about?"),
         "your_info_1": MessageLookupByLibrary.simpleMessage(

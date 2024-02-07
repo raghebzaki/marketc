@@ -295,7 +295,7 @@ List<String> statusList = [
                           ),
                         ) : Expanded(
                           child: Center(
-                            child: Text("You have no ${statusList[status]} orders", style: CustomTextStyle.kTextStyleF18,
+                            child: Text(S.current.youHaveNo+statusList[status]+S.current.orders, style: CustomTextStyle.kTextStyleF18,
                             textAlign: TextAlign.center,),),
                         );
                       },

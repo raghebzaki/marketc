@@ -1,9 +1,15 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/dependency_injection/di.dart'as di;
 import '../../../main/cart/presentation/pages/cart_view.dart';
 import '../../../main/favorite/presentation/pages/favorite_view.dart';
+import '../../../main/home/presentation/manager/carousel_cubit.dart';
+import '../../../main/home/presentation/manager/category_cubit.dart';
+import '../../../main/home/presentation/manager/most_popular_cubit.dart';
+import '../../../main/home/presentation/manager/new_products_cubit.dart';
 import '../../../main/home/presentation/pages/home_view.dart';
 import '../../../main/profile/presentation/pages/profile_view.dart';
 import '../../../../../core/utils/app_images.dart';
@@ -20,7 +26,26 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   int currentIndex=0;
   final List<Widget> _body =[
-    const HomeView(),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+          di.di<CarouselCubit>()..getAds(1),
+        ),
+        BlocProvider(
+          create: (context) => di.di<CategoryCubit>()..getAllCategory(),
+        ),
+        BlocProvider(
+          create: (context) =>
+          di.di<NewProductsCubit>()..getAllProducts(1),
+        ),
+        BlocProvider(
+          create: (context) =>
+          di.di<MostPopularCubit>()..getAllProducts(1),
+        ),
+      ], child: const HomeView(),
+    ),
+
     const CartView(),
     const FavoriteView(),
     const ProfileView(),

@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:marketc/features/designer/main/profile/domain/entities/get_points_entity.dart';
 
+import '../../domain/entities/get_points_entity.dart';
 import '../../domain/use_cases/get_points_use_case.dart';
 
 part 'get_points_state.dart';

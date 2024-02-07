@@ -207,6 +207,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "order_problem": MessageLookupByLibrary.simpleMessage(
             "في حالة تواجهك لأي مشكلة يمكنك التواصل مع"),
         "order_summary": MessageLookupByLibrary.simpleMessage("ملخص الطلب"),
+        "orders": MessageLookupByLibrary.simpleMessage(" "),
         "otp_sent":
             MessageLookupByLibrary.simpleMessage("تم إرسال رمز التحقق إلى"),
         "pass": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
@@ -334,6 +335,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "upload_product_img": MessageLookupByLibrary.simpleMessage(
             "قم برفع صورة المنتج الخاص بك"),
         "use_points": MessageLookupByLibrary.simpleMessage("استخدام النقاط"),
+        "user_balance": MessageLookupByLibrary.simpleMessage("حساباتي"),
         "user_name_required": MessageLookupByLibrary.simpleMessage(
             "اسم المستخدم لا يمكن أن يكون فارغًا"),
         "user_profile":
@@ -351,6 +353,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "yearly_sub": MessageLookupByLibrary.simpleMessage("اشتراك سنة"),
         "yearly_sub_price":
             MessageLookupByLibrary.simpleMessage("اشتراك 899 ريال"),
+        "youHaveNo": MessageLookupByLibrary.simpleMessage("لا يوجد طلبات "),
         "you_think": MessageLookupByLibrary.simpleMessage("بما تفكر؟"),
         "your_info_1": MessageLookupByLibrary.simpleMessage(
             "• المعلومات التي تقدمها من خلال التطبيق لدينا")

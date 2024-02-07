@@ -17,6 +17,8 @@ import '../../features/auth/verify_account/presentation/pages/verify_account_vie
 import '../../features/customer/bottom_nav_bar/presentation/pages/bottom_nav_bar.dart';
 import '../../features/customer/main/cart/presentation/pages/cart_view.dart';
 import '../../features/customer/main/category_details/presentation/pages/category_details_view.dart';
+import '../../features/customer/main/home/presentation/manager/carousel_cubit.dart';
+import '../../features/customer/main/home/presentation/manager/category_cubit.dart';
 import '../../features/customer/main/home/presentation/manager/most_popular_cubit.dart';
 import '../../features/customer/main/home/presentation/manager/new_products_cubit.dart';
 import '../../features/customer/main/home/presentation/pages/home_view.dart';
@@ -41,10 +43,12 @@ import '../../features/designer/bottom_nav_bar_designer/presentation/pages/botto
 import '../../features/designer/designs/presentation/pages/designs_view.dart';
 import '../../features/designer/main/categories/presentation/pages/designer_categories_view.dart';
 import '../../features/designer/main/home/presentation/pages/designer_home_view.dart';
-import '../../features/designer/main/profile/presentation/pages/designer_profile_view.dart';
+import '../../features/designer/main/profile/presentation/pages/profile_view.dart';
 import '../../features/designer/main/subscriptions/presentation/pages/subscriptions_view.dart';
 import '../../features/designer/product/add_product/presentation/pages/add_product_view.dart';
 import '../../features/designer/product/edit_product/presentation/pages/edit_product_view.dart';
+import '../../features/designer/profile/settings/presentation/pages/settings_view.dart';
+import '../../features/designer/profile/user_balance/presentation/pages/user_balance_view.dart';
 import '../../features/designer/wallet/presentation/pages/wallet_view.dart';
 import '../../features/on_boarding/presentation/pages/on_boarding_view.dart';
 import '../../main_view.dart';
@@ -111,8 +115,23 @@ class AppRouters {
       case homePageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => MultiBlocProvider(
-            providers: const [],
-            child: const HomeView(),
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                di.di<CarouselCubit>()..getAds(1),
+              ),
+              BlocProvider(
+                create: (context) => di.di<CategoryCubit>()..getAllCategory(),
+              ),
+              BlocProvider(
+                create: (context) =>
+                di.di<NewProductsCubit>()..getAllProducts(1),
+              ),
+              BlocProvider(
+                create: (context) =>
+                di.di<MostPopularCubit>()..getAllProducts(1),
+              ),
+            ], child: const HomeView(),
           ),
         );
       case mostPopularSeeMorePageRoute:
@@ -241,6 +260,14 @@ class AppRouters {
       case designerProfilePageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const DesignerProfileView(),
+        );
+        case userBalancePageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const UserBalanceView(),
+        );
+        case designerSettingPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const DesignerSettingsView(),
         );
       case designerCategoryPageRoute:
         return MaterialPageRoute(
