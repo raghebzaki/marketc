@@ -28,7 +28,8 @@ class _DesignerCategoriesViewState extends State<DesignerCategoriesView> {
 
   var nextPage = 1;
   var isLoading = false;
-  List<ProductEntity> products=[];
+  List<ProductEntity> products = [];
+
   void scrollListener() async {
     var currentPositions = scrollController.position.pixels;
     var maxScrollLength = scrollController.position.maxScrollExtent;
@@ -43,6 +44,7 @@ class _DesignerCategoriesViewState extends State<DesignerCategoriesView> {
       }
     }
   }
+
   @override
   void initState() {
     super.initState();
@@ -61,11 +63,10 @@ class _DesignerCategoriesViewState extends State<DesignerCategoriesView> {
       listener: (context, state) {
         state.maybeWhen(
           success: (state) {
-            if(nextPage==1){
-              products=state.products!;
-            }else{
+            if (nextPage == 1) {
+              products = state.products!;
+            } else {
               products.addAll(state.products!);
-
             }
           },
           orElse: () {
@@ -94,52 +95,55 @@ class _DesignerCategoriesViewState extends State<DesignerCategoriesView> {
                         return const StateLoadingWidget();
                       },
                       success: (state) {
-                        return AutoHeightGridView(
-                          itemCount:  products.length,
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 10,
-                          crossAxisSpacing: 10,
-                          physics: const NeverScrollableScrollPhysics(),
-                          padding: const EdgeInsets.all(12),
-                          shrinkWrap: true,
-                          builder: (context, index) {
-                            return  ProductCardDesigner(
-                                 productEntity: products[index]
-                            );
-                          },
-                        );
+                        return products.isNotEmpty
+                            ? AutoHeightGridView(
+                                itemCount: products.length,
+                                crossAxisCount: 2,
+                                mainAxisSpacing: 10,
+                                crossAxisSpacing: 10,
+                                physics: const NeverScrollableScrollPhysics(),
+                                padding: const EdgeInsets.all(12),
+                                shrinkWrap: true,
+                                builder: (context, index) {
+                                  return ProductCardDesigner(
+                                      productEntity: products[index]);
+                                },
+                              )
+                            : Text(S.of(context).no_products_yet);
                       },
                       paginationLoading: () {
-                        return AutoHeightGridView(
-                          itemCount: products.length,
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 10,
-                          crossAxisSpacing: 10,
-                          physics: const NeverScrollableScrollPhysics(),
-                          padding: const EdgeInsets.all(12),
-                          shrinkWrap: true,
-                          builder: (context, index) {
-                            return  ProductCardDesigner(
-                                productEntity: products[index]
-                            );
-                          },
-                        );
+                        return products.isNotEmpty
+                            ? AutoHeightGridView(
+                                itemCount: products.length,
+                                crossAxisCount: 2,
+                                mainAxisSpacing: 10,
+                                crossAxisSpacing: 10,
+                                physics: const NeverScrollableScrollPhysics(),
+                                padding: const EdgeInsets.all(12),
+                                shrinkWrap: true,
+                                builder: (context, index) {
+                                  return ProductCardDesigner(
+                                      productEntity: products[index]);
+                                },
+                              )
+                            : Text(S.of(context).no_products_yet);
                       },
                       paginationError: (errCode, err) {
-                        return AutoHeightGridView(
-                          itemCount:  products.length,
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 10,
-                          crossAxisSpacing: 10,
-                          physics: const NeverScrollableScrollPhysics(),
-                          padding: const EdgeInsets.all(12),
-                          shrinkWrap: true,
-                          builder: (context, index) {
-                            return  ProductCardDesigner(
-                                productEntity: products[index]
-                            );
-                          },
-                        );
+                        return products.isNotEmpty
+                            ? AutoHeightGridView(
+                                itemCount: products.length,
+                                crossAxisCount: 2,
+                                mainAxisSpacing: 10,
+                                crossAxisSpacing: 10,
+                                physics: const NeverScrollableScrollPhysics(),
+                                padding: const EdgeInsets.all(12),
+                                shrinkWrap: true,
+                                builder: (context, index) {
+                                  return ProductCardDesigner(
+                                      productEntity: products[index]);
+                                },
+                              )
+                            : Text(S.of(context).no_products_yet);
                       },
                       error: (errCode, err) {
                         return StateErrorWidget(

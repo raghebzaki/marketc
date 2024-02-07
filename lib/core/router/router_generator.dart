@@ -38,6 +38,7 @@ import '../../features/customer/payment/saved_addresses/presentation/pages/saved
 import '../../features/customer/profile/contact_us/presentation/pages/contact_us_view.dart';
 import '../../features/customer/profile/edit_profile/presentation/pages/edit_profile_view.dart';
 import '../../features/customer/profile/notifications/presentation/pages/notifications_view.dart';
+import '../../features/customer/profile/saved_addresses/presentation/pages/profile_saved_addresses_view.dart';
 import '../../features/customer/profile/settings/presentation/pages/settings_view.dart';
 import '../../features/designer/bottom_nav_bar_designer/presentation/pages/bottom_nav_bar_designer.dart';
 import '../../features/designer/designs/presentation/pages/designs_view.dart';
@@ -219,6 +220,10 @@ class AppRouters {
           builder: (BuildContext context) => SavedAddressesView(
             finalPrice: args.sharedPrice,
           ),
+        );
+        case profileSavedAddressesPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const ProfileSavedAddressesView(),
         );
       case mapPageRoute:
         return MaterialPageRoute(

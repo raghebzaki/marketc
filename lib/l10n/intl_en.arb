@@ -247,6 +247,9 @@
   "update_account": "Update Account",
   "user_balance": "User Balance",
   "youHaveNo": "You have no ",
-  "orders": " orders"
-
+  "orders": " orders",
+  "no_products_yet": "You have no products yet",
+  "shipped_status": "shipped",
+  "done_status": "completed",
+  "cancelled_status": "cancelled"
 }

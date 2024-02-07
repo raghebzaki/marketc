@@ -28,9 +28,9 @@ class _MyOrdersViewState extends State<MyOrdersView> {
 List<String> statusList = [
   S.current.pending,
   S.current.processing,
-  S.current.shipped,
-  S.current.done,
-  S.current.cancelled,
+  S.current.shipped_status,
+  S.current.done_status,
+  S.current.cancelled_status,
 ];
   
   @override

@@ -243,5 +243,9 @@
   "update_account": "تحديث الحساب",
   "user_balance": "حساباتي",
   "youHaveNo": "لا يوجد طلبات ",
-  "orders": " "
+  "orders": " ",
+  "no_products_yet": "لا يوجد لديك منتجات حتي الان",
+  "shipped_status": "قيد الشحن",
+  "done_status": "مكتملة",
+  "cancelled_status": "ملغية"
 }

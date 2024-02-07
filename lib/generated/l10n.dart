@@ -2339,6 +2339,46 @@ class S {
       args: [],
     );
   }
+
+  /// `You have no products yet`
+  String get no_products_yet {
+    return Intl.message(
+      'You have no products yet',
+      name: 'no_products_yet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `shipped`
+  String get shipped_status {
+    return Intl.message(
+      'shipped',
+      name: 'shipped_status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `completed`
+  String get done_status {
+    return Intl.message(
+      'completed',
+      name: 'done_status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `cancelled`
+  String get cancelled_status {
+    return Intl.message(
+      'cancelled',
+      name: 'cancelled_status',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

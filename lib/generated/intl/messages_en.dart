@@ -70,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel_order": MessageLookupByLibrary.simpleMessage("Cancel Order"),
         "cancel_yes": MessageLookupByLibrary.simpleMessage("Yes, Cancel"),
         "cancelled": MessageLookupByLibrary.simpleMessage("Cancelled"),
+        "cancelled_status": MessageLookupByLibrary.simpleMessage("cancelled"),
         "card_date": MessageLookupByLibrary.simpleMessage("Expiry Date"),
         "card_holder_name":
             MessageLookupByLibrary.simpleMessage("Cardholder Name"),
@@ -128,6 +129,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "do_not_have_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "done": MessageLookupByLibrary.simpleMessage("Completed"),
+        "done_status": MessageLookupByLibrary.simpleMessage("completed"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "edit_product": MessageLookupByLibrary.simpleMessage("Edit Product"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
@@ -189,6 +191,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("success with not content"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(
             "Please check your internet connection"),
+        "no_products_yet":
+            MessageLookupByLibrary.simpleMessage("You have no products yet"),
         "not_found_error": MessageLookupByLibrary.simpleMessage(
             "url not found, try again later"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
@@ -304,6 +308,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "send_money": MessageLookupByLibrary.simpleMessage("Send Money"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "shipped": MessageLookupByLibrary.simpleMessage("Shipped"),
+        "shipped_status": MessageLookupByLibrary.simpleMessage("shipped"),
         "shopping_world":
             MessageLookupByLibrary.simpleMessage("Welcome to shopping world"),
         "short_cloth_category":

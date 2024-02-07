@@ -67,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel_order": MessageLookupByLibrary.simpleMessage("الغاء الطلب"),
         "cancel_yes": MessageLookupByLibrary.simpleMessage("نعم، إلغاء"),
         "cancelled": MessageLookupByLibrary.simpleMessage("الملغية"),
+        "cancelled_status": MessageLookupByLibrary.simpleMessage("ملغية"),
         "card_date": MessageLookupByLibrary.simpleMessage("تاريخ الاصدار"),
         "card_holder_name":
             MessageLookupByLibrary.simpleMessage("اسم مالك البطاقة"),
@@ -122,6 +123,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "do_not_have_account":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "done": MessageLookupByLibrary.simpleMessage("المنفذة"),
+        "done_status": MessageLookupByLibrary.simpleMessage("مكتملة"),
         "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
         "edit_product": MessageLookupByLibrary.simpleMessage("تعديل المنتج"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
@@ -182,6 +184,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_content": MessageLookupByLibrary.simpleMessage("نجاح بدون محتوى"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(
             "يُرجى التحقق من اتصالك بالإنترنت"),
+        "no_products_yet": MessageLookupByLibrary.simpleMessage(
+            "لا يوجد لديك منتجات حتي الان"),
         "not_found_error": MessageLookupByLibrary.simpleMessage(
             "url غير موجود , حاول مرة أخرى لاحقًا"),
         "notifications": MessageLookupByLibrary.simpleMessage("الاشعارات"),
@@ -296,6 +300,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "send_money": MessageLookupByLibrary.simpleMessage("تحويل الأموال"),
         "settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
         "shipped": MessageLookupByLibrary.simpleMessage("تم الشحن"),
+        "shipped_status": MessageLookupByLibrary.simpleMessage("قيد الشحن"),
         "shopping_world":
             MessageLookupByLibrary.simpleMessage("مرحبًا بك في عالم التسوق"),
         "short_cloth_category":
