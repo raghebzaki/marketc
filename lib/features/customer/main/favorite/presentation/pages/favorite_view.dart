@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:marketc/core/router/router.dart';
 import 'package:marketc/core/shared/widgets/state_error_widget.dart';
 import 'package:marketc/core/shared/widgets/state_loading_widget.dart';
 import 'package:marketc/core/utils/extensions.dart';
@@ -32,39 +33,46 @@ class FavoriteView extends StatelessWidget {
               return const StateLoadingWidget();
             },
             success: (state) {
-              return Scaffold(
-                // backgroundColor: AppColors.primary,
-                appBar: CustomAppBar(
-                  title: S.of(context).favorite,
-                ),
-                body: SafeArea(
-                  child: Padding(
-                    padding: const EdgeInsets.all(
-                      Dimensions.p16,
-                    ),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Gap(20.h),
-                          CustomSearchFormField(
-                            label: S.current.you_think,
-                            sufIcon: Icon(MdiIcons.magnify, size: 18.sp),
-                          ),
-                          Gap(15.h),
-                          AutoHeightGridView(
-                            itemCount:  state.length,
-                            crossAxisCount: 2,
-                            mainAxisSpacing: 0,
-                            crossAxisSpacing: 0,
-                            physics: const NeverScrollableScrollPhysics(),
-                            padding: const EdgeInsets.all(12),
-                            shrinkWrap: true,
-                            builder: (context, index) {
-                              return ProductCard(
-                                  productEntity: state[index].product!);
-                            },
-                          ),
-                        ],
+              return PopScope(
+                canPop: false,
+                onPopInvoked: (bool didPop) async {
+                  if (didPop) return;
+                  context.pushNamed(bottomNavBarPageRoute);
+                },
+                child: Scaffold(
+                  // backgroundColor: AppColors.primary,
+                  appBar: CustomAppBar(
+                    title: S.of(context).favorite,
+                  ),
+                  body: SafeArea(
+                    child: Padding(
+                      padding: const EdgeInsets.all(
+                        Dimensions.p16,
+                      ),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Gap(20.h),
+                            CustomSearchFormField(
+                              label: S.current.you_think,
+                              sufIcon: Icon(MdiIcons.magnify, size: 18.sp),
+                            ),
+                            Gap(15.h),
+                            AutoHeightGridView(
+                              itemCount:  state.length,
+                              crossAxisCount: 2,
+                              mainAxisSpacing: 0,
+                              crossAxisSpacing: 0,
+                              physics: const NeverScrollableScrollPhysics(),
+                              padding: const EdgeInsets.all(12),
+                              shrinkWrap: true,
+                              builder: (context, index) {
+                                return ProductCard(
+                                    productEntity: state[index].product!);
+                              },
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
