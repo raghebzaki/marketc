@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:marketc/core/database/address_class.dart';
 import 'package:marketc/core/shared/arguments.dart';
 import 'package:marketc/core/shared/cubits/cart_cubit/cart_cubit.dart';
 import 'package:marketc/core/shared/widgets/state_loading_widget.dart';
@@ -12,6 +13,7 @@ import 'package:pinput/pinput.dart';
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../../core/router/router.dart';
+import '../../../../../../core/shared/entities/product_entity.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../../core/shared/widgets/custom_form_field.dart';
@@ -23,7 +25,8 @@ import '../../domain/entities/promo_code_entity.dart';
 import '../manager/promo_code_cubit.dart';
 
 class PaymentGateWayView extends StatefulWidget {
-  const PaymentGateWayView({super.key,});
+  final Address address;
+  const PaymentGateWayView({super.key, required this.address,});
 
   @override
   State<PaymentGateWayView> createState() => _PaymentGateWayViewState();
@@ -53,28 +56,19 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
 
   TextEditingController pinCtrl = TextEditingController();
 
-  num total = 0;
 
-  totalPrice() {
-    for (int i = 0; i < context.watch<CartCubit>().cartProducts.length; i++) {
-      if (context.watch<CartCubit>().cartProducts[i].discountPercent == 0) {
-        total +=
-            double.parse(context.watch<CartCubit>().cartProducts[i].price!);
-      } else {
-        total += double.parse(
-            context.watch<CartCubit>().cartProducts[i].priceAfterDiscount!);
-      }
-    }
-  }
 
   @override
   void initState() {
     super.initState();
-    totalPrice();
   }
 
   @override
   Widget build(BuildContext context) {
+    List<ProductEntity> totalPrice = context.watch<CartCubit>().cartProducts;
+
+    var total=(totalPrice.map((e) => e.discountPercent==0?int.parse(e.price!) * e.userQuantity!:int.parse(e.priceAfterDiscount!) * e.userQuantity!)
+        .reduce((value, element) => value + element)+30);
     return BlocProvider(
       create: (context) => di.di<PromoCodeCubit>(),
       child: Scaffold(
@@ -312,6 +306,7 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
                         paymentSummaryPageRoute,
                         arguments: PaymentSharedPrice(
                           sharedPrice: total,
+                          address: widget.address
                         ),
                       );
                     },

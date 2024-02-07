@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:marketc/core/database/database_hive.dart';
+import 'package:marketc/core/database/address_class.dart';
 import 'package:marketc/core/shared/cubits/cart_cubit/cart_cubit.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:marketc/features/customer/payment/payment_summary/domain/entities/place_order_entity.dart';
@@ -20,9 +20,10 @@ import '../../../../../../generated/l10n.dart';
 import '../manager/place_order_cubit.dart';
 
 class PaymentSummaryView extends StatefulWidget {
+  final Address address;
   final num? finalPrice;
 
-  const PaymentSummaryView({super.key, this.finalPrice});
+  const PaymentSummaryView({super.key, required this.finalPrice, required this.address});
 
   @override
   State<PaymentSummaryView> createState() => _PaymentSummaryViewState();
@@ -72,15 +73,15 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                                 S.of(context).receiver_information,
                                 style: CustomTextStyle.kTextStyleF14,
                               ),
-                              TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  S.of(context).edit,
-                                  style: CustomTextStyle.kTextStyleF14.copyWith(
-                                    color: AppColors.lightBlue,
-                                  ),
-                                ),
-                              ),
+                              // TextButton(
+                              //   onPressed: () {},
+                              //   child: Text(
+                              //     S.of(context).edit,
+                              //     style: CustomTextStyle.kTextStyleF14.copyWith(
+                              //       color: AppColors.lightBlue,
+                              //     ),
+                              //   ),
+                              // ),
                             ],
                           ),
                           Gap(10.h),
@@ -104,7 +105,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                           ),
                           Gap(5.h),
                           Text(
-                            "+966 54 335 9611",
+                            widget.address.phone!,
                             style: CustomTextStyle.kTextStyleF14,
                           ),
                           Gap(10.h),
@@ -116,7 +117,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                           ),
                           Gap(5.h),
                           Text(
-                            "جدة, الفيصلية, الممكلة العربية السعودية",
+                            widget.address.address!,
                             style: CustomTextStyle.kTextStyleF14,
                           ),
                         ],
@@ -139,15 +140,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                                 S.current.payment,
                                 style: CustomTextStyle.kTextStyleF14,
                               ),
-                              TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  S.of(context).edit,
-                                  style: CustomTextStyle.kTextStyleF14.copyWith(
-                                    color: AppColors.lightBlue,
-                                  ),
-                                ),
-                              ),
+
                             ],
                           ),
                           Gap(20.h),
@@ -191,23 +184,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                             S.of(context).order_summary,
                             style: CustomTextStyle.kTextStyleF14,
                           ),
-                          Gap(15.h),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                S.current.order_no,
-                                style: CustomTextStyle.kTextStyleF14
-                                    .copyWith(color: AppColors.textColor),
-                              ),
-                              const Spacer(),
-                              Text(
-                                '#234465',
-                                style: CustomTextStyle.kTextStyleF14
-                                    .copyWith(color: AppColors.textColor),
-                              ),
-                            ],
-                          ),
+
                           Gap(15.h),
                           Row(
                             mainAxisSize: MainAxisSize.min,
@@ -221,7 +198,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               ),
                               const Spacer(),
                               Text(
-                                "${widget.finalPrice! + 4.30} ${S.current.sar}",
+                                "${widget.finalPrice} ${S.current.sar}",
                                 style: CustomTextStyle.kTextStyleF14
                                     .copyWith(color: AppColors.textColor),
                               ),
@@ -250,7 +227,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               ),
                               const Spacer(),
                               Text(
-                                "${widget.finalPrice} ${S.current.sar}",
+                                "${widget.finalPrice!- 30} ${S.current.sar}",
                                 style: CustomTextStyle.kTextStyleF14.copyWith(
                                     color: AppColors.textColorSecondary),
                               ),
@@ -267,7 +244,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               ),
                               const Spacer(),
                               Text(
-                                '4.30 ${S.current.sar}',
+                                '30 ${S.current.sar}',
                                 style: CustomTextStyle.kTextStyleF14.copyWith(
                                     color: AppColors.textColorSecondary),
                               ),
@@ -309,20 +286,17 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                             productId['${cartItems[i].id}'] = 2;
                           }
 
-                          HiveDatabase hiveDatabase = HiveDatabase();
-                          var address = await hiveDatabase.addressBox;
-
                           placeOrderCubit.placeOrder(
                             PlaceOrderEntity(
                               userId: UserData.id,
                               name: UserData.name,
-                              phone: address.getAt(0)!.phone,
-                              address: address.getAt(0)!.address,
-                              buildingNo: address.getAt(0)!.building,
-                              flatNo: address.getAt(0)!.flat,
-                              city: address.getAt(0)!.city,
-                              state: address.getAt(0)!.country,
-                              postCode: address.getAt(0)!.code,
+                              phone: widget.address.phone,
+                              address: widget.address.address,
+                              buildingNo: widget.address.building,
+                              flatNo: widget.address.flat,
+                              city: widget.address.city,
+                              state: widget.address.country,
+                              postCode: widget.address.code,
                               productIds: productId,
                               coupon: "a22",
                             ),

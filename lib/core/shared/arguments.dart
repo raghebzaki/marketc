@@ -1,4 +1,5 @@
 import 'package:geocoding/geocoding.dart';
+import 'package:marketc/core/database/address_class.dart';
 import 'package:marketc/core/shared/entities/order_entity.dart';
 import 'package:marketc/core/shared/entities/product_entity.dart';
 
@@ -32,6 +33,12 @@ class NewAddressArgs {
   NewAddressArgs({required this.address});
 }
 
+class AddressArgs {
+  final Address address;
+
+  AddressArgs({required this.address});
+}
+
 class ProductsEntityArgs {
   final ProductEntity productEntity;
 
@@ -46,7 +53,8 @@ class EditProductArgs {
 
 class PaymentSharedPrice {
   final num sharedPrice;
-  PaymentSharedPrice({required this.sharedPrice});
+  final Address address;
+  PaymentSharedPrice( {required this.address,required this.sharedPrice});
 }
 
 class OrderDetailsArgs {

@@ -29,6 +29,7 @@ class ProductDetailsView extends StatefulWidget {
 
 class _ProductDetailsViewState extends State<ProductDetailsView> {
   bool isFavorite = false;
+  int quantity=1;
 
   @override
   Widget build(BuildContext context) {
@@ -355,10 +356,19 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                         Row(
                           children: [
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                setState(() {
+                                  if(widget.productEntity.quantity!>=widget.productEntity.userQuantity!){
+                                    widget.productEntity.userQuantity=widget.productEntity.userQuantity!+1;
+                                  }else{
+
+                                  }
+
+                                });
+                              },
                               child: CircleAvatar(
                                 radius: Dimensions.r15,
-                                backgroundColor: Colors.grey,
+                                backgroundColor: widget.productEntity.quantity!>=widget.productEntity.userQuantity!?Colors.grey:Colors.grey[200],
                                 child: Center(
                                   child: Text(
                                     "+",
@@ -371,10 +381,16 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                               ),
                             ),
                             Gap(15.w),
-                            const Text("1"),
+                            Text("${widget.productEntity.userQuantity}"),
                             Gap(15.w),
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                setState(() {
+                                  if(widget.productEntity.userQuantity!>1){
+                                    widget.productEntity.userQuantity=widget.productEntity.userQuantity!-1;
+                                  }
+                                });
+                              },
                               child: CircleAvatar(
                                 radius: Dimensions.r15,
                                 backgroundColor: Colors.grey,

@@ -184,11 +184,8 @@ class AppRouters {
           builder: (BuildContext context) => const OrderConfirmationView(),
         );
       case trackOrderPageRoute:
-        final args = settings.arguments as OrderDetailsArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => TrackOrderView(
-            orderEntity: args.orderDetails,
-          ),
+          builder: (BuildContext context) => const TrackOrderView(),
         );
       case subscriptionsPageRoute:
         return MaterialPageRoute(
@@ -209,16 +206,13 @@ class AppRouters {
               OrderDetailsView(orderDetails: args.orderDetails),
         );
       case paymentDetailsPageRoute:
+        final args = settings.arguments as AddressArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) =>
-              PaymentDetailsView(),
+          builder: (BuildContext context) => PaymentDetailsView(address: args.address),
         );
       case savedAddressesPageRoute:
-        final args = settings.arguments as PaymentSharedPrice;
         return MaterialPageRoute(
-          builder: (BuildContext context) => SavedAddressesView(
-            finalPrice: args.sharedPrice,
-          ),
+          builder: (BuildContext context) => const SavedAddressesView(),
         );
         case profileSavedAddressesPageRoute:
         return MaterialPageRoute(
@@ -235,15 +229,17 @@ class AppRouters {
               AddNewAddressView(address: args.address),
         );
       case paymentGateWayPageRoute:
+        final args = settings.arguments as AddressArgs;
+
         return MaterialPageRoute(
           builder: (BuildContext context) =>
-              PaymentGateWayView(),
+              PaymentGateWayView(address: args.address),
         );
       case paymentSummaryPageRoute:
         final args = settings.arguments as PaymentSharedPrice;
         return MaterialPageRoute(
           builder: (BuildContext context) =>
-              PaymentSummaryView(finalPrice: args.sharedPrice),
+              PaymentSummaryView(finalPrice: args.sharedPrice,address: args.address),
         );
 
       /// designer

@@ -6,7 +6,7 @@ import 'package:marketc/features/designer/product/add_product/data/models/size_m
 import '../entities/product_entity.dart';
 
 class ProductModel extends ProductEntity {
-  const ProductModel({
+   ProductModel({
     super.id,
     super.nameAr,
     super.nameEn,
@@ -21,6 +21,7 @@ class ProductModel extends ProductEntity {
     super.imagesBase64,
     super.priceAfterDiscount,
     super.quantity,
+    super.userQuantity,
     super.size,
     super.color,
     super.images,

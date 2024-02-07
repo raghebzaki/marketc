@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:marketc/core/router/router.dart';
-import 'package:marketc/core/shared/entities/order_entity.dart';
 import 'package:marketc/features/customer/orders/track_order/presentation/manager/cancel_order_cubit.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -17,9 +16,8 @@ import '../../../../../../generated/l10n.dart';
 import '../../domain/entities/cancel_order_entity.dart';
 
 class TrackOrderView extends StatefulWidget {
-  final OrderEntity orderEntity;
 
-  const TrackOrderView({super.key, required this.orderEntity});
+  const TrackOrderView({super.key, });
 
   @override
   State<TrackOrderView> createState() => _TrackOrderViewState();
@@ -50,7 +48,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
             backgroundColor: AppColors.primary,
             appBar: CustomAppBar(
                 title:
-                    "${S.of(context).order_no} ${widget.orderEntity.orderNumber}"),
+                    "${S.of(context).order_no} 55555"),
             body: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(
@@ -102,7 +100,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                           onTap: () {
                                             cancelOrderCubit.cancelOrder(
                                               CancelOrderEntity(
-                                                orderId: widget.orderEntity.id,
+                                                orderId: 1,
                                               ),
                                             );
                                           },
@@ -192,7 +190,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                 style: CustomTextStyle.kTextStyleF14,
                               ),
                               Text(
-                                "${widget.orderEntity.orderNumber}",
+                                "5555555",
                                 style: CustomTextStyle.kTextStyleF14.copyWith(
                                   color: AppColors.textColorGrey,
                                 ),
@@ -210,9 +208,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                 CircleAvatar(
                                   radius: Dimensions.r15,
                                   backgroundColor:
-                                      widget.orderEntity.status == 1
-                                          ? AppColors.secondary
-                                          : AppColors.primary,
+                                           AppColors.secondary,
                                   child: Icon(MdiIcons.check),
                                 ),
                                 Gap(20.w),

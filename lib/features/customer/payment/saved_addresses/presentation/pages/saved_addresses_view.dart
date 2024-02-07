@@ -18,8 +18,7 @@ import '../manager/saved_addresses_cubit.dart';
 import '../widgets/saved_address_item.dart';
 
 class SavedAddressesView extends StatefulWidget {
-  final num? finalPrice;
-  const SavedAddressesView({super.key, this.finalPrice});
+  const SavedAddressesView({super.key,});
 
   @override
   State<SavedAddressesView> createState() => _SavedAddressesViewState();
@@ -63,13 +62,7 @@ class _SavedAddressesViewState extends State<SavedAddressesView> {
                                     padding: const EdgeInsets.only(
                                         bottom: Dimensions.p16),
                                     child: SavedAddressItem(
-                                      sharedPrice: widget.finalPrice!,
-                                      address: state[index].address!,
-                                      buildingNo: state[index].building!,
-                                      flatNo: state[index].flat!,
-                                      phone: state[index].phone!,
-                                      country: state[index].country!,
-                                      city: state[index].city!,
+                                      address: state[index],
                                     ),
                                   );
                                 },

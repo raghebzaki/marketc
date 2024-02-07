@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketc/core/database/address_class.dart';
 import 'package:marketc/core/router/router.dart';
 import 'package:marketc/core/shared/arguments.dart';
 import 'package:marketc/core/utils/extensions.dart';
@@ -8,31 +9,18 @@ import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
 
 class SavedAddressItem extends StatelessWidget {
-  final num sharedPrice;
-  final String address;
-  final String buildingNo;
-  final String flatNo;
-  final String phone;
-  final String country;
-  final String city;
+  final Address address;
 
   const SavedAddressItem({
     super.key,
-    required this.sharedPrice,
     required this.address,
-    required this.buildingNo,
-    required this.flatNo,
-    required this.phone,
-    required this.country,
-    required this.city,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(paymentDetailsPageRoute,
-            arguments: PaymentSharedPrice(sharedPrice: sharedPrice));
+        context.pushNamed(paymentDetailsPageRoute,arguments: AddressArgs(address: address));
       },
       child: Container(
         padding: const EdgeInsets.all(Dimensions.p16),
@@ -51,7 +39,7 @@ class SavedAddressItem extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    address.isNullOrEmpty(),
+                    address.address.isNullOrEmpty(),
                     style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
@@ -68,7 +56,7 @@ class SavedAddressItem extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    buildingNo.isNullOrEmpty(),
+                    address.building.isNullOrEmpty(),
                     style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
@@ -85,7 +73,7 @@ class SavedAddressItem extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    flatNo.isNullOrEmpty(),
+                    address.flat.isNullOrEmpty(),
                     style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
@@ -102,7 +90,7 @@ class SavedAddressItem extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    phone.isNullOrEmpty(),
+                    address.phone.isNullOrEmpty(),
                     style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
@@ -119,7 +107,7 @@ class SavedAddressItem extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    country.isNullOrEmpty(),
+                    address.country.isNullOrEmpty(),
                     style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
@@ -136,7 +124,7 @@ class SavedAddressItem extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    city.isNullOrEmpty(),
+                    address.city.isNullOrEmpty(),
                     style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),

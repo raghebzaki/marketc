@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:intl/intl.dart';
-import 'package:marketc/core/shared/arguments.dart';
 import 'package:marketc/core/utils/app_constants.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -27,19 +26,19 @@ class CartView extends StatefulWidget {
 }
 
 class _CartViewState extends State<CartView> {
-  var finalPrice = 0;
+  double finalPrice = 0;
 
   @override
   Widget build(BuildContext context) {
     var totalPrice = context.watch<CartCubit>().cartProducts;
     for (var i = 0; i < totalPrice.length; i++) {
-      if (totalPrice.length == 1) {
-        finalPrice = int.parse(totalPrice[0].price!);
+      if (totalPrice[i].discountPercent==0) {
+        finalPrice += double.parse(totalPrice[i].price!)*totalPrice[i].userQuantity!;
       } else {
-        finalPrice = finalPrice + int.parse(totalPrice[i].price!);
+        finalPrice += double.parse(totalPrice[i].priceAfterDiscount!)*totalPrice[i].userQuantity!;
       }
     }
-    return PopScope(
+   return PopScope(
       canPop: false,
       onPopInvoked: (bool didPop) async {
         if (didPop) return;
@@ -124,20 +123,37 @@ class _CartViewState extends State<CartView> {
                               description: Row(
                                 children: [
                                   Text(
-                                    "${productItems.price} ${S.current.sar}",
+                                    productItems.discountPercent==0?"${productItems.price} ${S.current.sar}":"${productItems.priceAfterDiscount} ${S.current.sar}",
                                     style: CustomTextStyle.kTextStyleF14
                                         .copyWith(color: AppColors.textColor),
                                   ),
                                   const Spacer(),
-                                  Icon(MdiIcons.plusBoxOutline),
+                                  GestureDetector(
+                                    onTap: (){
+                                      setState(() {
+                                        if(productItems.userQuantity!<=productItems.quantity!){
+                                          productItems.userQuantity=productItems.userQuantity!+1;
+                                        }
+                                      });
+                                    },
+                                      child: Icon(MdiIcons.plusBoxOutline)
+                                  ),
                                   Gap(10.w),
-                                  Text(
-                                    '01',
+                                  Text(productItems.userQuantity.toString(),
                                     style: CustomTextStyle.kTextStyleF14
                                         .copyWith(color: AppColors.textColor),
                                   ),
                                   Gap(10.w),
-                                  Icon(MdiIcons.minusBoxOutline),
+                                  GestureDetector(
+                                      onTap: (){
+                                        setState(() {
+                                          if(productItems.userQuantity!>=1){
+                                            productItems.userQuantity=productItems.userQuantity!-1;
+                                          }
+                                        });
+                                      },
+                                      child: Icon(MdiIcons.minusBoxOutline)
+                                  ),
                                 ],
                               ),
                             ),
@@ -174,7 +190,8 @@ class _CartViewState extends State<CartView> {
                           ),
                           const Spacer(),
                           Text(
-                            "${finalPrice == 0 ? 0 : finalPrice + 4.30} ${S.current.sar}",
+                             "${(totalPrice.map((e) => e.discountPercent==0?int.parse(e.price!) * e.userQuantity!:int.parse(e.priceAfterDiscount!) * e.userQuantity!)
+                              .reduce((value, element) => value + element) + 30)} ${S.current.sar}",
                             style: CustomTextStyle.kTextStyleF14
                                 .copyWith(color: AppColors.textColor),
                           ),
@@ -203,7 +220,8 @@ class _CartViewState extends State<CartView> {
                           ),
                           const Spacer(),
                           Text(
-                            "$finalPrice ${S.current.sar}",
+                            "${(totalPrice.map((e) => e.discountPercent==0?int.parse(e.price!) * e.userQuantity!:int.parse(e.priceAfterDiscount!) * e.userQuantity!)
+                                .reduce((value, element) => value + element))} ${S.current.sar}",
                             style: CustomTextStyle.kTextStyleF14
                                 .copyWith(color: AppColors.textColorSecondary),
                           ),
@@ -220,7 +238,7 @@ class _CartViewState extends State<CartView> {
                           ),
                           const Spacer(),
                           Text(
-                            '4.30 ${S.current.sar}',
+                            '30 ${S.current.sar}',
                             style: CustomTextStyle.kTextStyleF14
                                 .copyWith(color: AppColors.textColorSecondary),
                           ),
@@ -239,9 +257,6 @@ class _CartViewState extends State<CartView> {
                     onPressed: () {
                       context.pushNamed(
                         savedAddressesPageRoute,
-                        arguments: PaymentSharedPrice(
-                          sharedPrice: finalPrice,
-                        ),
                       );
                     },
                   ),

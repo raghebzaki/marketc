@@ -18,6 +18,7 @@ class ProductEntity extends Equatable {
   final String? priceAfterDiscount;
   final String? image;
   final num? quantity;
+  late  num? userQuantity;
   final List<ProductSizesEntity>? size;
   final List<ProductColorsEntity>? color;
   final List<num>? sendSize;
@@ -27,7 +28,7 @@ class ProductEntity extends Equatable {
   final String? status;
   final String? message;
 
-  const ProductEntity({
+   ProductEntity({
     this.nameEn,
     this.nameAr,
     this.subCategoryId,
@@ -38,6 +39,7 @@ class ProductEntity extends Equatable {
     this.image,
     this.imagesBase64,
     this.quantity,
+    this.userQuantity=1,
     this.id,
     this.categoryId,
     this.price,
@@ -67,6 +69,7 @@ class ProductEntity extends Equatable {
         image,
     imagesBase64,
         quantity,
+    userQuantity,
         size,
         color,
         sendColor,

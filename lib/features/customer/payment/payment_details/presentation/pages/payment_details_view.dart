@@ -1,11 +1,13 @@
-import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:marketc/config/themes/app_text_styles.dart';
+import 'package:marketc/core/database/address_class.dart';
 import 'package:marketc/core/router/router.dart';
+import 'package:marketc/core/shared/arguments.dart';
+import 'package:marketc/core/shared/entities/product_entity.dart';
 import 'package:marketc/core/shared/widgets/custom_button.dart';
 import 'package:marketc/core/shared/widgets/custom_form_field.dart';
 import 'package:marketc/core/utils/app_colors.dart';
@@ -18,8 +20,8 @@ import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
 
 class PaymentDetailsView extends StatefulWidget {
-  final String? address;
-  const PaymentDetailsView({super.key, this.address});
+  final Address? address;
+  const PaymentDetailsView({super.key, required this.address});
 
   @override
   State<PaymentDetailsView> createState() => _PaymentDetailsViewState();
@@ -32,26 +34,19 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
   @override
   void initState() {
     super.initState();
-    TextEditingController addressCtrl = TextEditingController(text: widget.address);
+    addressCtrl = TextEditingController(text: widget.address!.address!);
+    phoneCtrl = TextEditingController(text: widget.address!.phone!);
   }
 
   bool switchOnOff = true;
-TextEditingController nameCtrl = TextEditingController(text: UserData.name);
+  TextEditingController nameCtrl = TextEditingController(text: UserData.name);
+  TextEditingController addressCtrl = TextEditingController();
+  TextEditingController phoneCtrl = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
-    num total = 0;
-
-
-      for (int i = 0; i < context.watch<CartCubit>().cartProducts.length; i++) {
-        if (context.watch<CartCubit>().cartProducts[i].discountPercent == 0) {
-          total +=
-              double.parse(context.watch<CartCubit>().cartProducts[i].price!);
-        } else {
-          total += double.parse(
-              context.watch<CartCubit>().cartProducts[i].priceAfterDiscount!);
-        }
-      }
+    List<ProductEntity> totalPrice = context.watch<CartCubit>().cartProducts;
 
     return Scaffold(
       backgroundColor: AppColors.primary,
@@ -163,13 +158,15 @@ TextEditingController nameCtrl = TextEditingController(text: UserData.name);
                         ),
                         Gap(10.h),
                         CustomFormField(
-                          preIcon: CountryCodePicker(
-                            initialSelection: 'SA',
-                            favorite: const ['966', 'SA'],
-                            onChanged: (code) {
-                              // registerCubit.countryCode = code.dialCode!;
-                            },
-                          ),
+                          isEnable: false,
+                          ctrl: phoneCtrl,
+                          // preIcon: CountryCodePicker(
+                          //   initialSelection: 'SA',
+                          //   favorite: const ['966', 'SA'],
+                          //   onChanged: (code) {
+                          //     // registerCubit.countryCode = code.dialCode!;
+                          //   },
+                          // ),
                           hint: S.of(context).buyer_phone,
                         ),
                         Gap(15.h),
@@ -179,6 +176,8 @@ TextEditingController nameCtrl = TextEditingController(text: UserData.name);
                         ),
                         Gap(10.h),
                         CustomFormField(
+                          isEnable: false,
+                          ctrl: addressCtrl,
                           hint: S.of(context).buyer_full_address,
                         ),
                         Gap(15.h),
@@ -195,23 +194,6 @@ TextEditingController nameCtrl = TextEditingController(text: UserData.name);
                         ),
                         Gap(15.h),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              S.current.order_no,
-                              style: CustomTextStyle.kTextStyleF14
-                                  .copyWith(color: AppColors.textColor),
-                            ),
-                            const Spacer(),
-                            Text(
-                              '#234465',
-                              style: CustomTextStyle.kTextStyleF14
-                                  .copyWith(color: AppColors.textColor),
-                            ),
-                          ],
-                        ),
-                        Gap(15.h),
-                        Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -223,7 +205,8 @@ TextEditingController nameCtrl = TextEditingController(text: UserData.name);
                             ),
                             const Spacer(),
                             Text(
-                              '${total + 4.30} ${S.current.sar}',
+                              "${(totalPrice.map((e) => e.discountPercent==0?int.parse(e.price!) * e.userQuantity!:int.parse(e.priceAfterDiscount!) * e.userQuantity!)
+                                  .reduce((value, element) => value + element)+30)} ${S.current.sar}",
                               style: CustomTextStyle.kTextStyleF14
                                   .copyWith(color: AppColors.textColor),
                             ),
@@ -252,7 +235,8 @@ TextEditingController nameCtrl = TextEditingController(text: UserData.name);
                             ),
                             const Spacer(),
                             Text(
-                              '${total} ${S.current.sar}',
+                              "${(totalPrice.map((e) => e.discountPercent==0?int.parse(e.price!) * e.userQuantity!:int.parse(e.priceAfterDiscount!) * e.userQuantity!)
+                                  .reduce((value, element) => value + element))} ${S.current.sar}",
                               style: CustomTextStyle.kTextStyleF14.copyWith(
                                   color: AppColors.textColorSecondary),
                             ),
@@ -269,7 +253,7 @@ TextEditingController nameCtrl = TextEditingController(text: UserData.name);
                             ),
                             const Spacer(),
                             Text(
-                              '4.30 ${S.current.sar}',
+                              '30 ${S.current.sar}',
                               style: CustomTextStyle.kTextStyleF14.copyWith(
                                   color: AppColors.textColorSecondary),
                             ),
@@ -289,7 +273,7 @@ TextEditingController nameCtrl = TextEditingController(text: UserData.name);
                 child: CustomBtn(
                   label: S.of(context).progress,
                   onPressed: () {
-                    context.pushNamed(paymentGateWayPageRoute,);
+                    context.pushNamed(paymentGateWayPageRoute,arguments: AddressArgs(address: widget.address!));
                   },
                 ),
               ),
