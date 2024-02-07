@@ -23,9 +23,7 @@ import '../../domain/entities/promo_code_entity.dart';
 import '../manager/promo_code_cubit.dart';
 
 class PaymentGateWayView extends StatefulWidget {
-  final num finalPrice;
-
-  const PaymentGateWayView({super.key, required this.finalPrice});
+  const PaymentGateWayView({super.key,});
 
   @override
   State<PaymentGateWayView> createState() => _PaymentGateWayViewState();
@@ -55,20 +53,28 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
 
   TextEditingController pinCtrl = TextEditingController();
 
-  @override
-  Widget build(BuildContext context) {
-    num total = 0;
+  num total = 0;
 
-    totalPrice(){
-      for (int i = 0; i < context.watch<CartCubit>().cartProducts.length; i++) {
-        if(context.watch<CartCubit>().cartProducts[i].discountPercent==0){
-          total+=double.parse(context.watch<CartCubit>().cartProducts[i].price!);
-
-        }else{
-          total+=double.parse(context.watch<CartCubit>().cartProducts[i].priceAfterDiscount!);
-        }
+  totalPrice() {
+    for (int i = 0; i < context.watch<CartCubit>().cartProducts.length; i++) {
+      if (context.watch<CartCubit>().cartProducts[i].discountPercent == 0) {
+        total +=
+            double.parse(context.watch<CartCubit>().cartProducts[i].price!);
+      } else {
+        total += double.parse(
+            context.watch<CartCubit>().cartProducts[i].priceAfterDiscount!);
       }
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    totalPrice();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => di.di<PromoCodeCubit>(),
       child: Scaffold(

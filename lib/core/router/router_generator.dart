@@ -209,10 +209,9 @@ class AppRouters {
               OrderDetailsView(orderDetails: args.orderDetails),
         );
       case paymentDetailsPageRoute:
-        final args = settings.arguments as PaymentSharedPrice;
         return MaterialPageRoute(
           builder: (BuildContext context) =>
-              PaymentDetailsView(finalPrice: args.sharedPrice),
+              PaymentDetailsView(),
         );
       case savedAddressesPageRoute:
         final args = settings.arguments as PaymentSharedPrice;
@@ -236,15 +235,12 @@ class AppRouters {
               AddNewAddressView(address: args.address),
         );
       case paymentGateWayPageRoute:
-        final args = settings.arguments as PaymentSharedPrice;
-
         return MaterialPageRoute(
           builder: (BuildContext context) =>
-              PaymentGateWayView(finalPrice: args.sharedPrice),
+              PaymentGateWayView(),
         );
       case paymentSummaryPageRoute:
         final args = settings.arguments as PaymentSharedPrice;
-
         return MaterialPageRoute(
           builder: (BuildContext context) =>
               PaymentSummaryView(finalPrice: args.sharedPrice),

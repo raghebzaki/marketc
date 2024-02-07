@@ -1,34 +1,58 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:marketc/config/themes/app_text_styles.dart';
 import 'package:marketc/core/router/router.dart';
-import 'package:marketc/core/shared/arguments.dart';
 import 'package:marketc/core/shared/widgets/custom_button.dart';
 import 'package:marketc/core/shared/widgets/custom_form_field.dart';
 import 'package:marketc/core/utils/app_colors.dart';
 import 'package:marketc/core/utils/extensions.dart';
 
+import '../../../../../../core/shared/cubits/cart_cubit/cart_cubit.dart';
+import '../../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
 
 class PaymentDetailsView extends StatefulWidget {
-  final num? finalPrice;
-
-  const PaymentDetailsView({super.key, this.finalPrice});
+  final String? address;
+  const PaymentDetailsView({super.key, this.address});
 
   @override
   State<PaymentDetailsView> createState() => _PaymentDetailsViewState();
 }
 
 class _PaymentDetailsViewState extends State<PaymentDetailsView> {
+
+
+
+  @override
+  void initState() {
+    super.initState();
+    TextEditingController addressCtrl = TextEditingController(text: widget.address);
+  }
+
   bool switchOnOff = true;
+TextEditingController nameCtrl = TextEditingController(text: UserData.name);
 
   @override
   Widget build(BuildContext context) {
+    num total = 0;
+
+
+      for (int i = 0; i < context.watch<CartCubit>().cartProducts.length; i++) {
+        if (context.watch<CartCubit>().cartProducts[i].discountPercent == 0) {
+          total +=
+              double.parse(context.watch<CartCubit>().cartProducts[i].price!);
+        } else {
+          total += double.parse(
+              context.watch<CartCubit>().cartProducts[i].priceAfterDiscount!);
+        }
+      }
+
     return Scaffold(
       backgroundColor: AppColors.primary,
       appBar: CustomAppBar(title: S.of(context).payment),
@@ -129,6 +153,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                         ),
                         Gap(10.h),
                         CustomFormField(
+                          ctrl: nameCtrl,
                           hint: S.of(context).buyer_full_name,
                         ),
                         Gap(15.h),
@@ -198,7 +223,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                             ),
                             const Spacer(),
                             Text(
-                              '${widget.finalPrice == 0 ? 0 : widget.finalPrice! + 4.30} ${S.current.sar}',
+                              '${total + 4.30} ${S.current.sar}',
                               style: CustomTextStyle.kTextStyleF14
                                   .copyWith(color: AppColors.textColor),
                             ),
@@ -227,7 +252,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                             ),
                             const Spacer(),
                             Text(
-                              '${widget.finalPrice} ${S.current.sar}',
+                              '${total} ${S.current.sar}',
                               style: CustomTextStyle.kTextStyleF14.copyWith(
                                   color: AppColors.textColorSecondary),
                             ),
@@ -264,10 +289,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                 child: CustomBtn(
                   label: S.of(context).progress,
                   onPressed: () {
-                    context.pushNamed(savedAddressesPageRoute,
-                        arguments: PaymentSharedPrice(
-                          sharedPrice: widget.finalPrice!,
-                        ));
+                    context.pushNamed(paymentGateWayPageRoute,);
                   },
                 ),
               ),

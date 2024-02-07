@@ -31,7 +31,7 @@ class SavedAddressItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(paymentGateWayPageRoute,
+        context.pushNamed(paymentDetailsPageRoute,
             arguments: PaymentSharedPrice(sharedPrice: sharedPrice));
       },
       child: Container(

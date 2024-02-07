@@ -238,7 +238,7 @@ class _CartViewState extends State<CartView> {
                     label: S.of(context).complete_payment,
                     onPressed: () {
                       context.pushNamed(
-                        paymentDetailsPageRoute,
+                        savedAddressesPageRoute,
                         arguments: PaymentSharedPrice(
                           sharedPrice: finalPrice,
                         ),
