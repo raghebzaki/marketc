@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class PromoCodeEntity extends Equatable {
-  final int? userId;
+  final num? userId;
   final String? coupon;
   final int? status;
   final String? message;

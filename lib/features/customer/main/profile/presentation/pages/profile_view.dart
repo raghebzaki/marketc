@@ -7,6 +7,7 @@ import 'package:marketc/core/router/router.dart';
 import 'package:marketc/core/utils/app_colors.dart';
 import 'package:marketc/core/utils/extensions.dart';
 
+import '../../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../../generated/l10n.dart';
 
 class ProfileView extends StatelessWidget {
@@ -30,7 +31,7 @@ class ProfileView extends StatelessWidget {
               title: Column(
                 children: [
                   Text(
-                    'محمود شاهين',
+                    UserData.name!,
                     style: CustomTextStyle.kTextStyleF20,
                   ),
                   Text(

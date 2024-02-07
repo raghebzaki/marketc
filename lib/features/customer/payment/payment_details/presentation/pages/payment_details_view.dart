@@ -273,7 +273,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                 child: CustomBtn(
                   label: S.of(context).progress,
                   onPressed: () {
-                    context.pushNamed(paymentGateWayPageRoute,arguments: AddressArgs(address: widget.address!));
+                    context.pushNamed(paymentGateWayPageRoute,arguments: AddressArgs(nameCtrl.text, address: widget.address!, ));
                   },
                 ),
               ),

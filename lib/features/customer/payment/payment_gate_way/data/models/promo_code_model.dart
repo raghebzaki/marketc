@@ -17,7 +17,7 @@ class PromoCodeModel extends PromoCodeEntity {
 
   static Map<String, dynamic> toJson(PromoCodeEntity promoCodeEntity) {
     return {
-      // "user_id": promoCodeEntity.userId,
+      "user_id": promoCodeEntity.userId,
       "coupon": promoCodeEntity.coupon,
     };
   }

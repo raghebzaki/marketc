@@ -20,7 +20,7 @@ class SavedAddressItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(paymentDetailsPageRoute,arguments: AddressArgs(address: address));
+        context.pushNamed(paymentDetailsPageRoute,arguments: AddressArgs("",address: address));
       },
       child: Container(
         padding: const EdgeInsets.all(Dimensions.p16),

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'cancel_order_cubit.dart';
+part of 'track_order_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,12 +15,13 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$CancelOrderStates {
+mixin _$TrackOrderStates {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(CancelOrderEntity cancelOrder) success,
+    required TResult Function(TrackOrderEntity trackOrder) success,
+    required TResult Function(CancelOrderEntity cancelOrder) cancelSuccess,
     required TResult Function(String errCode, String err) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +29,8 @@ mixin _$CancelOrderStates {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(CancelOrderEntity cancelOrder)? success,
+    TResult? Function(TrackOrderEntity trackOrder)? success,
+    TResult? Function(CancelOrderEntity cancelOrder)? cancelSuccess,
     TResult? Function(String errCode, String err)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +38,8 @@ mixin _$CancelOrderStates {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(CancelOrderEntity cancelOrder)? success,
+    TResult Function(TrackOrderEntity trackOrder)? success,
+    TResult Function(CancelOrderEntity cancelOrder)? cancelSuccess,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) =>
@@ -46,6 +49,7 @@ mixin _$CancelOrderStates {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(CancelSuccess value) cancelSuccess,
     required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +58,7 @@ mixin _$CancelOrderStates {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(CancelSuccess value)? cancelSuccess,
     TResult? Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +67,7 @@ mixin _$CancelOrderStates {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(CancelSuccess value)? cancelSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) =>
@@ -69,16 +75,16 @@ mixin _$CancelOrderStates {
 }
 
 /// @nodoc
-abstract class $CancelOrderStatesCopyWith<$Res> {
-  factory $CancelOrderStatesCopyWith(
-          CancelOrderStates value, $Res Function(CancelOrderStates) then) =
-      _$CancelOrderStatesCopyWithImpl<$Res, CancelOrderStates>;
+abstract class $TrackOrderStatesCopyWith<$Res> {
+  factory $TrackOrderStatesCopyWith(
+          TrackOrderStates value, $Res Function(TrackOrderStates) then) =
+      _$TrackOrderStatesCopyWithImpl<$Res, TrackOrderStates>;
 }
 
 /// @nodoc
-class _$CancelOrderStatesCopyWithImpl<$Res, $Val extends CancelOrderStates>
-    implements $CancelOrderStatesCopyWith<$Res> {
-  _$CancelOrderStatesCopyWithImpl(this._value, this._then);
+class _$TrackOrderStatesCopyWithImpl<$Res, $Val extends TrackOrderStates>
+    implements $TrackOrderStatesCopyWith<$Res> {
+  _$TrackOrderStatesCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -95,7 +101,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$CancelOrderStatesCopyWithImpl<$Res, _$InitialImpl>
+    extends _$TrackOrderStatesCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -109,7 +115,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'CancelOrderStates.initial()';
+    return 'TrackOrderStates.initial()';
   }
 
   @override
@@ -126,7 +132,8 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(CancelOrderEntity cancelOrder) success,
+    required TResult Function(TrackOrderEntity trackOrder) success,
+    required TResult Function(CancelOrderEntity cancelOrder) cancelSuccess,
     required TResult Function(String errCode, String err) error,
   }) {
     return initial();
@@ -137,7 +144,8 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(CancelOrderEntity cancelOrder)? success,
+    TResult? Function(TrackOrderEntity trackOrder)? success,
+    TResult? Function(CancelOrderEntity cancelOrder)? cancelSuccess,
     TResult? Function(String errCode, String err)? error,
   }) {
     return initial?.call();
@@ -148,7 +156,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(CancelOrderEntity cancelOrder)? success,
+    TResult Function(TrackOrderEntity trackOrder)? success,
+    TResult Function(CancelOrderEntity cancelOrder)? cancelSuccess,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
@@ -164,6 +173,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(CancelSuccess value) cancelSuccess,
     required TResult Function(Error value) error,
   }) {
     return initial(this);
@@ -175,6 +185,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(CancelSuccess value)? cancelSuccess,
     TResult? Function(Error value)? error,
   }) {
     return initial?.call(this);
@@ -186,6 +197,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(CancelSuccess value)? cancelSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -196,7 +208,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements CancelOrderStates {
+abstract class _Initial implements TrackOrderStates {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -209,7 +221,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$CancelOrderStatesCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$TrackOrderStatesCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -223,7 +235,7 @@ class _$LoadingImpl implements Loading {
 
   @override
   String toString() {
-    return 'CancelOrderStates.loading()';
+    return 'TrackOrderStates.loading()';
   }
 
   @override
@@ -240,7 +252,8 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(CancelOrderEntity cancelOrder) success,
+    required TResult Function(TrackOrderEntity trackOrder) success,
+    required TResult Function(CancelOrderEntity cancelOrder) cancelSuccess,
     required TResult Function(String errCode, String err) error,
   }) {
     return loading();
@@ -251,7 +264,8 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(CancelOrderEntity cancelOrder)? success,
+    TResult? Function(TrackOrderEntity trackOrder)? success,
+    TResult? Function(CancelOrderEntity cancelOrder)? cancelSuccess,
     TResult? Function(String errCode, String err)? error,
   }) {
     return loading?.call();
@@ -262,7 +276,8 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(CancelOrderEntity cancelOrder)? success,
+    TResult Function(TrackOrderEntity trackOrder)? success,
+    TResult Function(CancelOrderEntity cancelOrder)? cancelSuccess,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
@@ -278,6 +293,7 @@ class _$LoadingImpl implements Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(CancelSuccess value) cancelSuccess,
     required TResult Function(Error value) error,
   }) {
     return loading(this);
@@ -289,6 +305,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(CancelSuccess value)? cancelSuccess,
     TResult? Function(Error value)? error,
   }) {
     return loading?.call(this);
@@ -300,6 +317,7 @@ class _$LoadingImpl implements Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(CancelSuccess value)? cancelSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -310,7 +328,7 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements CancelOrderStates {
+abstract class Loading implements TrackOrderStates {
   const factory Loading() = _$LoadingImpl;
 }
 
@@ -320,12 +338,12 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({CancelOrderEntity cancelOrder});
+  $Res call({TrackOrderEntity trackOrder});
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$CancelOrderStatesCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$TrackOrderStatesCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
@@ -334,13 +352,13 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cancelOrder = null,
+    Object? trackOrder = null,
   }) {
     return _then(_$SuccessImpl(
-      null == cancelOrder
-          ? _value.cancelOrder
-          : cancelOrder // ignore: cast_nullable_to_non_nullable
-              as CancelOrderEntity,
+      null == trackOrder
+          ? _value.trackOrder
+          : trackOrder // ignore: cast_nullable_to_non_nullable
+              as TrackOrderEntity,
     ));
   }
 }
@@ -348,14 +366,14 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements Success {
-  const _$SuccessImpl(this.cancelOrder);
+  const _$SuccessImpl(this.trackOrder);
 
   @override
-  final CancelOrderEntity cancelOrder;
+  final TrackOrderEntity trackOrder;
 
   @override
   String toString() {
-    return 'CancelOrderStates.success(cancelOrder: $cancelOrder)';
+    return 'TrackOrderStates.success(trackOrder: $trackOrder)';
   }
 
   @override
@@ -363,12 +381,12 @@ class _$SuccessImpl implements Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            (identical(other.cancelOrder, cancelOrder) ||
-                other.cancelOrder == cancelOrder));
+            (identical(other.trackOrder, trackOrder) ||
+                other.trackOrder == trackOrder));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, cancelOrder);
+  int get hashCode => Object.hash(runtimeType, trackOrder);
 
   @JsonKey(ignore: true)
   @override
@@ -381,10 +399,11 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(CancelOrderEntity cancelOrder) success,
+    required TResult Function(TrackOrderEntity trackOrder) success,
+    required TResult Function(CancelOrderEntity cancelOrder) cancelSuccess,
     required TResult Function(String errCode, String err) error,
   }) {
-    return success(cancelOrder);
+    return success(trackOrder);
   }
 
   @override
@@ -392,10 +411,11 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(CancelOrderEntity cancelOrder)? success,
+    TResult? Function(TrackOrderEntity trackOrder)? success,
+    TResult? Function(CancelOrderEntity cancelOrder)? cancelSuccess,
     TResult? Function(String errCode, String err)? error,
   }) {
-    return success?.call(cancelOrder);
+    return success?.call(trackOrder);
   }
 
   @override
@@ -403,12 +423,13 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(CancelOrderEntity cancelOrder)? success,
+    TResult Function(TrackOrderEntity trackOrder)? success,
+    TResult Function(CancelOrderEntity cancelOrder)? cancelSuccess,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(cancelOrder);
+      return success(trackOrder);
     }
     return orElse();
   }
@@ -419,6 +440,7 @@ class _$SuccessImpl implements Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(CancelSuccess value) cancelSuccess,
     required TResult Function(Error value) error,
   }) {
     return success(this);
@@ -430,6 +452,7 @@ class _$SuccessImpl implements Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(CancelSuccess value)? cancelSuccess,
     TResult? Function(Error value)? error,
   }) {
     return success?.call(this);
@@ -441,6 +464,7 @@ class _$SuccessImpl implements Success {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(CancelSuccess value)? cancelSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -451,12 +475,165 @@ class _$SuccessImpl implements Success {
   }
 }
 
-abstract class Success implements CancelOrderStates {
-  const factory Success(final CancelOrderEntity cancelOrder) = _$SuccessImpl;
+abstract class Success implements TrackOrderStates {
+  const factory Success(final TrackOrderEntity trackOrder) = _$SuccessImpl;
+
+  TrackOrderEntity get trackOrder;
+  @JsonKey(ignore: true)
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CancelSuccessImplCopyWith<$Res> {
+  factory _$$CancelSuccessImplCopyWith(
+          _$CancelSuccessImpl value, $Res Function(_$CancelSuccessImpl) then) =
+      __$$CancelSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CancelOrderEntity cancelOrder});
+}
+
+/// @nodoc
+class __$$CancelSuccessImplCopyWithImpl<$Res>
+    extends _$TrackOrderStatesCopyWithImpl<$Res, _$CancelSuccessImpl>
+    implements _$$CancelSuccessImplCopyWith<$Res> {
+  __$$CancelSuccessImplCopyWithImpl(
+      _$CancelSuccessImpl _value, $Res Function(_$CancelSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? cancelOrder = null,
+  }) {
+    return _then(_$CancelSuccessImpl(
+      null == cancelOrder
+          ? _value.cancelOrder
+          : cancelOrder // ignore: cast_nullable_to_non_nullable
+              as CancelOrderEntity,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CancelSuccessImpl implements CancelSuccess {
+  const _$CancelSuccessImpl(this.cancelOrder);
+
+  @override
+  final CancelOrderEntity cancelOrder;
+
+  @override
+  String toString() {
+    return 'TrackOrderStates.cancelSuccess(cancelOrder: $cancelOrder)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CancelSuccessImpl &&
+            (identical(other.cancelOrder, cancelOrder) ||
+                other.cancelOrder == cancelOrder));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, cancelOrder);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CancelSuccessImplCopyWith<_$CancelSuccessImpl> get copyWith =>
+      __$$CancelSuccessImplCopyWithImpl<_$CancelSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(TrackOrderEntity trackOrder) success,
+    required TResult Function(CancelOrderEntity cancelOrder) cancelSuccess,
+    required TResult Function(String errCode, String err) error,
+  }) {
+    return cancelSuccess(cancelOrder);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(TrackOrderEntity trackOrder)? success,
+    TResult? Function(CancelOrderEntity cancelOrder)? cancelSuccess,
+    TResult? Function(String errCode, String err)? error,
+  }) {
+    return cancelSuccess?.call(cancelOrder);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(TrackOrderEntity trackOrder)? success,
+    TResult Function(CancelOrderEntity cancelOrder)? cancelSuccess,
+    TResult Function(String errCode, String err)? error,
+    required TResult orElse(),
+  }) {
+    if (cancelSuccess != null) {
+      return cancelSuccess(cancelOrder);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(CancelSuccess value) cancelSuccess,
+    required TResult Function(Error value) error,
+  }) {
+    return cancelSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(CancelSuccess value)? cancelSuccess,
+    TResult? Function(Error value)? error,
+  }) {
+    return cancelSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(CancelSuccess value)? cancelSuccess,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (cancelSuccess != null) {
+      return cancelSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CancelSuccess implements TrackOrderStates {
+  const factory CancelSuccess(final CancelOrderEntity cancelOrder) =
+      _$CancelSuccessImpl;
 
   CancelOrderEntity get cancelOrder;
   @JsonKey(ignore: true)
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+  _$$CancelSuccessImplCopyWith<_$CancelSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -471,7 +648,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$CancelOrderStatesCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$TrackOrderStatesCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -508,7 +685,7 @@ class _$ErrorImpl implements Error {
 
   @override
   String toString() {
-    return 'CancelOrderStates.error(errCode: $errCode, err: $err)';
+    return 'TrackOrderStates.error(errCode: $errCode, err: $err)';
   }
 
   @override
@@ -534,7 +711,8 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(CancelOrderEntity cancelOrder) success,
+    required TResult Function(TrackOrderEntity trackOrder) success,
+    required TResult Function(CancelOrderEntity cancelOrder) cancelSuccess,
     required TResult Function(String errCode, String err) error,
   }) {
     return error(errCode, err);
@@ -545,7 +723,8 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(CancelOrderEntity cancelOrder)? success,
+    TResult? Function(TrackOrderEntity trackOrder)? success,
+    TResult? Function(CancelOrderEntity cancelOrder)? cancelSuccess,
     TResult? Function(String errCode, String err)? error,
   }) {
     return error?.call(errCode, err);
@@ -556,7 +735,8 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(CancelOrderEntity cancelOrder)? success,
+    TResult Function(TrackOrderEntity trackOrder)? success,
+    TResult Function(CancelOrderEntity cancelOrder)? cancelSuccess,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
@@ -572,6 +752,7 @@ class _$ErrorImpl implements Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(CancelSuccess value) cancelSuccess,
     required TResult Function(Error value) error,
   }) {
     return error(this);
@@ -583,6 +764,7 @@ class _$ErrorImpl implements Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(CancelSuccess value)? cancelSuccess,
     TResult? Function(Error value)? error,
   }) {
     return error?.call(this);
@@ -594,6 +776,7 @@ class _$ErrorImpl implements Error {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(CancelSuccess value)? cancelSuccess,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -604,7 +787,7 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements CancelOrderStates {
+abstract class Error implements TrackOrderStates {
   const factory Error(final String errCode, final String err) = _$ErrorImpl;
 
   String get errCode;

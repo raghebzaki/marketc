@@ -233,13 +233,13 @@ class AppRouters {
 
         return MaterialPageRoute(
           builder: (BuildContext context) =>
-              PaymentGateWayView(address: args.address),
+              PaymentGateWayView(address: args.address, name: args.name!,),
         );
       case paymentSummaryPageRoute:
         final args = settings.arguments as PaymentSharedPrice;
         return MaterialPageRoute(
           builder: (BuildContext context) =>
-              PaymentSummaryView(finalPrice: args.sharedPrice,address: args.address),
+              PaymentSummaryView(finalPrice: args.sharedPrice,address: args.address, name: args.name),
         );
 
       /// designer

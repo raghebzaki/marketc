@@ -250,7 +250,7 @@ class _HomeViewState extends State<HomeView> {
                                                           "https://via.placeholder.com/140x140",
                                                         )
                                                       : CachedNetworkImageProvider(
-                                                          AppConstants.imageUrl +
+                                                          AppConstants.fullImgUrl +
                                                               ads[index].image!,
                                                         ),
                                                   fit: BoxFit.cover,

@@ -22,8 +22,9 @@ import '../manager/place_order_cubit.dart';
 class PaymentSummaryView extends StatefulWidget {
   final Address address;
   final num? finalPrice;
+  final String name;
 
-  const PaymentSummaryView({super.key, required this.finalPrice, required this.address});
+  const PaymentSummaryView({super.key, required this.finalPrice, required this.address, required this.name});
 
   @override
   State<PaymentSummaryView> createState() => _PaymentSummaryViewState();
@@ -93,7 +94,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                           ),
                           Gap(5.h),
                           Text(
-                            "زهراء الفاطمية",
+                            widget.name,
                             style: CustomTextStyle.kTextStyleF14,
                           ),
                           Gap(10.h),
@@ -289,7 +290,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                           placeOrderCubit.placeOrder(
                             PlaceOrderEntity(
                               userId: UserData.id,
-                              name: UserData.name,
+                              name: widget.name,
                               phone: widget.address.phone,
                               address: widget.address.address,
                               buildingNo: widget.address.building,
@@ -298,7 +299,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               state: widget.address.country,
                               postCode: widget.address.code,
                               productIds: productId,
-                              coupon: "a22",
+                              coupon: "",
                             ),
                           );
                         },

@@ -39,4 +39,21 @@ class PlaceOrderModel extends PlaceOrderEntity {
       // 'coupon': placeOrderEntity.coupon,
     };
   }
+
+  static Map<String, dynamic> toJsonIncludingCoupon(PlaceOrderEntity placeOrderEntity) {
+    return {
+      'user_id': placeOrderEntity.userId,
+      'name': placeOrderEntity.name,
+      'phone': placeOrderEntity.phone,
+      'address': placeOrderEntity.address,
+      'building_number': placeOrderEntity.buildingNo,
+      'flot_number': placeOrderEntity.flatNo,
+      'city': placeOrderEntity.city,
+      'state': placeOrderEntity.state,
+      'post_code': placeOrderEntity.postCode,
+      'productInfo': placeOrderEntity.productIds,
+      'coupon': placeOrderEntity.coupon,
+    };
+  }
+
 }

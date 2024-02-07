@@ -35,8 +35,9 @@ class NewAddressArgs {
 
 class AddressArgs {
   final Address address;
+  final String? name;
 
-  AddressArgs({required this.address});
+  AddressArgs(this.name, {required this.address});
 }
 
 class ProductsEntityArgs {
@@ -54,7 +55,8 @@ class EditProductArgs {
 class PaymentSharedPrice {
   final num sharedPrice;
   final Address address;
-  PaymentSharedPrice( {required this.address,required this.sharedPrice});
+  final String name;
+  PaymentSharedPrice(  {required this.address,required this.sharedPrice, required this.name,});
 }
 
 class OrderDetailsArgs {

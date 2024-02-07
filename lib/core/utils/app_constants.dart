@@ -25,6 +25,7 @@ class AppConstants {
   // * API URIs
   static const apiBaseUrl = "https://beautyproducts.website/api/";
   static const imageUrl = "https://beautyproducts.website/";
+  static const fullImgUrl = "https://beautyproducts.website/uploads/users/";
   static const loginUri = "auth/login";
   static const forgotPassUri = "auth/forget-password";
   static const resetPassUri = "auth/reset-password";

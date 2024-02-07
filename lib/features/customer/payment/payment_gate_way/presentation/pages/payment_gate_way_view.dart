@@ -14,6 +14,7 @@ import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../../core/router/router.dart';
 import '../../../../../../core/shared/entities/product_entity.dart';
+import '../../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../../core/shared/widgets/custom_form_field.dart';
@@ -26,7 +27,8 @@ import '../manager/promo_code_cubit.dart';
 
 class PaymentGateWayView extends StatefulWidget {
   final Address address;
-  const PaymentGateWayView({super.key, required this.address,});
+  final String name;
+  const PaymentGateWayView({super.key, required this.address, required this.name});
 
   @override
   State<PaymentGateWayView> createState() => _PaymentGateWayViewState();
@@ -186,6 +188,7 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
                                                 onPressed: () {
                                                   promoCodeCubit.sendMessage(
                                                     PromoCodeEntity(
+                                                      userId: UserData.id,
                                                       coupon:
                                                           pinCtrl.toString(),
                                                     ),
@@ -305,6 +308,7 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
                       context.pushNamed(
                         paymentSummaryPageRoute,
                         arguments: PaymentSharedPrice(
+                          name: widget.name,
                           sharedPrice: total,
                           address: widget.address
                         ),

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:marketc/core/router/router.dart';
-import 'package:marketc/features/customer/orders/track_order/presentation/manager/cancel_order_cubit.dart';
+import 'package:marketc/features/customer/orders/track_order/presentation/manager/track_order_cubit.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
@@ -29,9 +29,13 @@ class _TrackOrderViewState extends State<TrackOrderView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => di.di<CancelOrderCubit>(),
-      child: BlocConsumer<CancelOrderCubit, CancelOrderStates>(
+    return MultiBlocProvider(
+  providers: [
+    BlocProvider(
+      create: (context) => di.di<TrackOrderCubit>(),
+    ),
+  ],
+  child: BlocConsumer<TrackOrderCubit, TrackOrderStates>(
         listener: (context, state) {
           state.maybeWhen(
             success: (state) {
@@ -43,7 +47,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
           );
         },
         builder: (context, state) {
-          CancelOrderCubit cancelOrderCubit = CancelOrderCubit.get(context);
+          TrackOrderCubit trackOrderCubit = TrackOrderCubit.get(context);
           return Scaffold(
             backgroundColor: AppColors.primary,
             appBar: CustomAppBar(
@@ -98,7 +102,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                         Gap(24.h),
                                         GestureDetector(
                                           onTap: () {
-                                            cancelOrderCubit.cancelOrder(
+                                            trackOrderCubit.cancelOrder(
                                               CancelOrderEntity(
                                                 orderId: 1,
                                               ),
@@ -314,6 +318,6 @@ class _TrackOrderViewState extends State<TrackOrderView> {
           );
         },
       ),
-    );
+);
   }
 }

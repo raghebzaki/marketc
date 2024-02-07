@@ -86,10 +86,15 @@ import '../../features/customer/orders/my_orders/domain/repositories/my_orders_r
 import '../../features/customer/orders/my_orders/domain/use_cases/my_orders_usecase.dart';
 import '../../features/customer/orders/my_orders/presentation/manager/my_orders_cubit.dart';
 import '../../features/customer/orders/track_order/data/data_sources/cancel_order_service.dart';
+import '../../features/customer/orders/track_order/data/data_sources/track_order_service.dart';
 import '../../features/customer/orders/track_order/data/repositories/cancel_order_repo_impl.dart';
+import '../../features/customer/orders/track_order/data/repositories/track_order_repo_impl.dart';
 import '../../features/customer/orders/track_order/domain/repositories/cancel_order_repo.dart';
+import '../../features/customer/orders/track_order/domain/repositories/track_order_repo.dart';
 import '../../features/customer/orders/track_order/domain/use_cases/cancel_order_usecase.dart';
+import '../../features/customer/orders/track_order/domain/use_cases/track_order_usecase.dart';
 import '../../features/customer/orders/track_order/presentation/manager/cancel_order_cubit.dart';
+import '../../features/customer/orders/track_order/presentation/manager/track_order_cubit.dart';
 import '../../features/customer/payment/payment_gate_way/data/data_sources/promo_code_service.dart';
 import '../../features/customer/payment/payment_gate_way/data/repositories/promo_code_repo_impl.dart';
 import '../../features/customer/payment/payment_gate_way/domain/repositories/promo_code_repo.dart';
@@ -290,11 +295,17 @@ Future<void> init() async {
   di.registerLazySingleton<MyOrdersService>(() => MyOrdersServiceImpl());
 
   /// Cancel Order
-  di.registerFactory(() => CancelOrderCubit(cancelOrderUseCase: di()));
   di.registerLazySingleton(() => CancelOrderUseCase(cancelOrderRepo: di()));
   di.registerLazySingleton<CancelOrderRepo>(
       () => CancelOrderRepoImpl(cancelOrderService: di()));
   di.registerLazySingleton<CancelOrderService>(() => CancelOrderServiceImpl());
+
+  /// Track Order
+  di.registerFactory(() => TrackOrderCubit(trackOrderUseCase: di(), cancelOrderUseCase: di()));
+  di.registerLazySingleton(() => TrackOrderUseCase(trackOrderRepo:  di()));
+  di.registerLazySingleton<TrackOrderRepo>(
+      () => TrackOrderRepoImpl(trackOrderService:  di()));
+  di.registerLazySingleton<TrackOrderService>(() => TrackOrderServiceImpl());
 
   /// Payment View
   /// Place Order
