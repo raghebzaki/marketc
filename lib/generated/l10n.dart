@@ -2410,11 +2410,51 @@ class S {
     );
   }
 
+  /// `The order was delivered successfully!`
+  String get track4 {
+    return Intl.message(
+      'The order was delivered successfully!',
+      name: 'track4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your order is ready to arrive`
+  String get track2 {
+    return Intl.message(
+      'Your order is ready to arrive',
+      name: 'track2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Receipt request accepted`
+  String get track1 {
+    return Intl.message(
+      'Receipt request accepted',
+      name: 'track1',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Tax`
   String get tax {
     return Intl.message(
       'Tax',
       name: 'tax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have no favorites yet`
+  String get youHaveNoFavoritesYet {
+    return Intl.message(
+      'You have no favorites yet',
+      name: 'youHaveNoFavoritesYet',
       desc: '',
       args: [],
     );

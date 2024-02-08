@@ -81,7 +81,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Row(
+                              widget.orderDetails.address==null?const SizedBox.shrink():Row(
                                 children: [
                                   Image.asset(
                                     AppImages.mapPointerImg,
@@ -242,7 +242,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                           ),
                         ),
                         Text(
-                          "${widget.orderDetails.totalPrice! - 30} ${S.current.sar}",
+                          "${widget.orderDetails.price} ${S.current.sar}",
                           style: CustomTextStyle.kTextStyleF14,
                         ),
                       ],
@@ -257,7 +257,21 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                             color: AppColors.textColorGrey,
                           ),
                         ),
-                        Text("30 ${S.current.sar}",
+                        Text("40 ${S.current.sar}",
+                            style: CustomTextStyle.kTextStyleF14),
+                      ],
+                    ),
+                    Gap(15.h),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          S.of(context).tax,
+                          style: CustomTextStyle.kTextStyleF14.copyWith(
+                            color: AppColors.textColorGrey,
+                          ),
+                        ),
+                        Text("${widget.orderDetails.tax} ${S.current.sar}",
                             style: CustomTextStyle.kTextStyleF14),
                       ],
                     ),

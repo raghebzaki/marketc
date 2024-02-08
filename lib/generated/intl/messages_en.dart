@@ -340,6 +340,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "timeout_error":
             MessageLookupByLibrary.simpleMessage("time out, try again late"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
+        "track1":
+            MessageLookupByLibrary.simpleMessage("Receipt request accepted"),
+        "track2": MessageLookupByLibrary.simpleMessage(
+            "Your order is ready to arrive"),
+        "track4": MessageLookupByLibrary.simpleMessage(
+            "The order was delivered successfully!"),
         "track_order": MessageLookupByLibrary.simpleMessage("Track Order"),
         "track_order_btn":
             MessageLookupByLibrary.simpleMessage("Track Your Order"),
@@ -373,6 +379,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "yearly_sub_price":
             MessageLookupByLibrary.simpleMessage("Subscription 899 SAR"),
         "youHaveNo": MessageLookupByLibrary.simpleMessage("You have no "),
+        "youHaveNoFavoritesYet":
+            MessageLookupByLibrary.simpleMessage("You have no favorites yet"),
         "you_think": MessageLookupByLibrary.simpleMessage(
             "What are you thinking about?"),
         "yourCartIsEmpty":

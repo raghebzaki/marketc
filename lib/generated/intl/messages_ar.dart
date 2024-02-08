@@ -335,6 +335,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "timeout_error": MessageLookupByLibrary.simpleMessage(
             "انتهت المهلة , حاول مرة أخرى لاحقًا"),
         "total": MessageLookupByLibrary.simpleMessage("المجموع"),
+        "track1": MessageLookupByLibrary.simpleMessage("تم قبول طلب الاستلام"),
+        "track2": MessageLookupByLibrary.simpleMessage("طلبك جاهز للوصول"),
+        "track4": MessageLookupByLibrary.simpleMessage("تم تسليم الطلب بنجاح!"),
         "track_order": MessageLookupByLibrary.simpleMessage("تتبع الطلب"),
         "track_order_btn": MessageLookupByLibrary.simpleMessage("تتبع طلبك"),
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(
@@ -364,6 +367,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "yearly_sub_price":
             MessageLookupByLibrary.simpleMessage("اشتراك 899 ريال"),
         "youHaveNo": MessageLookupByLibrary.simpleMessage("لا يوجد طلبات "),
+        "youHaveNoFavoritesYet":
+            MessageLookupByLibrary.simpleMessage("ليس لديك مفضلة حتى الآن"),
         "you_think": MessageLookupByLibrary.simpleMessage("بما تفكر؟"),
         "yourCartIsEmpty":
             MessageLookupByLibrary.simpleMessage("سلة المشتريات لديك فارغة"),

@@ -84,7 +84,7 @@ class FavoriteView extends StatelessWidget {
                               children: [
                                 Center(
                                   child: Text(
-                                    "You have no favorites yet",
+                                    S.of(context).youHaveNoFavoritesYet,
                                     style:  CustomTextStyle.kTextStyleF20,
                                   ),
                                 ),

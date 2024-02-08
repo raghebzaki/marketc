@@ -212,19 +212,22 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                 CircleAvatar(
                                   radius: Dimensions.r15,
                                   backgroundColor:
-                                           AppColors.secondary,
+                                  widget.orderDetails.acceptanceDate!=""
+                                      ? AppColors.secondary:AppColors.primary,
                                   child: Icon(MdiIcons.check),
                                 ),
                                 Gap(20.w),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(S.of(context).order_confirmed),
+                                    Text(S.of(context).track1),
+                                    widget.orderDetails.acceptanceDate!=""?
                                     Text(
-                                        "${date.stringFormat(DateFormatType.dayMonthYear)}, ${time.stringFormat(
-                                      formatType:
-                                          TimeFormatType.hoursMinutesPeriod,
-                                    )}"),
+                                      DateTime.parse(
+                                        widget.orderDetails.acceptanceDate!,
+                                      ).stringFormat(
+                                        DateFormatType.hyphenatedDate,
+                                      ),):const Text('')
                                   ],
                                 ),
                               ],
@@ -238,7 +241,8 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                               children: [
                                 CircleAvatar(
                                   radius: Dimensions.r15,
-                                  backgroundColor: AppColors.secondary,
+                                  backgroundColor: widget.orderDetails.preparingDate!=""
+                                      ? AppColors.secondary:AppColors.primary,
                                   child: Icon(MdiIcons.check),
                                 ),
                                 Gap(20.w),
@@ -246,11 +250,13 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(S.of(context).prepare_order),
+                                    widget.orderDetails.preparingDate!=""?
                                     Text(
-                                        "${date.stringFormat(DateFormatType.dayMonthYear)}, ${time.stringFormat(
-                                      formatType:
-                                          TimeFormatType.hoursMinutesPeriod,
-                                    )}"),
+                                      DateTime.parse(
+                                        widget.orderDetails.preparingDate!,
+                                      ).stringFormat(
+                                        DateFormatType.hyphenatedDate,
+                                      ),):const Text('')
                                   ],
                                 ),
                               ],
@@ -264,19 +270,22 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                               children: [
                                 CircleAvatar(
                                   radius: Dimensions.r15,
-                                  backgroundColor: AppColors.secondary,
+                                  backgroundColor: widget.orderDetails.availabilityDate!=""
+                                      ? AppColors.secondary:AppColors.primary,
                                   child: Icon(MdiIcons.check),
                                 ),
                                 Gap(20.w),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(S.of(context).prepare_order),
+                                    Text(S.of(context).track2),
+                                    widget.orderDetails.availabilityDate!=""?
                                     Text(
-                                        "${date.stringFormat(DateFormatType.dayMonthYear)}, ${time.stringFormat(
-                                      formatType:
-                                          TimeFormatType.hoursMinutesPeriod,
-                                    )}"),
+                                      DateTime.parse(
+                                        widget.orderDetails.availabilityDate!,
+                                      ).stringFormat(
+                                        DateFormatType.hyphenatedDate,
+                                      ),):const Text('')
                                   ],
                                 ),
                               ],
@@ -290,19 +299,22 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                               children: [
                                 CircleAvatar(
                                   radius: Dimensions.r15,
-                                  backgroundColor: AppColors.secondary,
+                                  backgroundColor: widget.orderDetails.receivedDate!=""
+                                      ? AppColors.secondary:AppColors.primary,
                                   child: Icon(MdiIcons.check),
                                 ),
                                 Gap(20.w),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(S.of(context).prepare_order),
+                                    Text(S.of(context).track4),
+                                    widget.orderDetails.receivedDate!=""?
                                     Text(
-                                        "${date.stringFormat(DateFormatType.dayMonthYear)}, ${time.stringFormat(
-                                      formatType:
-                                          TimeFormatType.hoursMinutesPeriod,
-                                    )}"),
+                                      DateTime.parse(
+                                        widget.orderDetails.receivedDate!,
+                                      ).stringFormat(
+                                        DateFormatType.hyphenatedDate,
+                                      ),):const Text('')
                                   ],
                                 ),
                               ],

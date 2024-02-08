@@ -255,5 +255,9 @@
   "yourCartIsEmpty": "Your cart is empty.",
   "otpIsCorrect": "OTP is correct",
   "failedToCheckOtp": "Failed to check OTP",
-  "tax": "Tax"
+  "track4": "The order was delivered successfully!",
+  "track2": "Your order is ready to arrive",
+  "track1": "Receipt request accepted",
+  "tax": "Tax",
+  "youHaveNoFavoritesYet": "You have no favorites yet"
 }

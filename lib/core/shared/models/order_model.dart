@@ -11,9 +11,15 @@ class OrderModel extends OrderEntity {
     super.userName,
     super.phone,
     super.totalPrice,
+    super.price,
+    super.tax,
     super.date,
     super.status,
     super.message,
+    super.acceptanceDate,
+    super.preparingDate,
+    super.availabilityDate,
+    super.receivedDate,
     super.products,
   });
 
@@ -39,9 +45,15 @@ class OrderModel extends OrderEntity {
       status: json["status"],
       orderNumber: json["order_number"],
       totalPrice: json["total_amount"],
+      price: json["amount"],
+      tax: json["tax"],
       userName: json["name"],
       phone: json["phone"],
       date: json["created_at"],
+      acceptanceDate: json["acceptance_date"]??'',
+      preparingDate: json["preparing_date"]??'',
+      availabilityDate: json["availability_date"]??'',
+      receivedDate: json["received_date"]??'',
       products: json["products"] == null
           ? []
           : List<ProductModel>.from(
