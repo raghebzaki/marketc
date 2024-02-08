@@ -128,12 +128,12 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                             ],
                           ),
                         ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(Dimensions.r15),
-                          child: Image.network(
-                            "https://via.placeholder.com/124x104",
-                          ),
-                        ),
+                        // ClipRRect(
+                        //   borderRadius: BorderRadius.circular(Dimensions.r15),
+                        //   child: Image.network(
+                        //     "https://via.placeholder.com/124x104",
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -241,7 +241,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                           ),
                         ),
                         Text(
-                          "${widget.orderDetails.totalPrice! - 4.30} ${S.current.sar}",
+                          "${widget.orderDetails.totalPrice! - 30} ${S.current.sar}",
                           style: CustomTextStyle.kTextStyleF14,
                         ),
                       ],
@@ -256,7 +256,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                             color: AppColors.textColorGrey,
                           ),
                         ),
-                        Text("4.30 ${S.current.sar}",
+                        Text("30 ${S.current.sar}",
                             style: CustomTextStyle.kTextStyleF14),
                       ],
                     ),

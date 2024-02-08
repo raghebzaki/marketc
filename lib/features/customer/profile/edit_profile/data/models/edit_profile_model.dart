@@ -21,6 +21,7 @@ class EditProfileModel extends EditProfileEntity{
     return {
       'user_id': contactUsEntity.userId,
       'name': contactUsEntity.name,
+      'email': contactUsEntity.email,
     };
   }
 

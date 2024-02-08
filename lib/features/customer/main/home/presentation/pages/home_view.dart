@@ -20,6 +20,7 @@ import 'package:marketc/features/customer/main/home/presentation/manager/new_pro
 
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/router/router.dart';
+import '../../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../../core/shared/widgets/custom_search_form_field.dart';
 import '../../../../../../core/shared/widgets/product_card.dart';
 import '../../../../../../core/shared/widgets/state_error_widget.dart';
@@ -70,11 +71,11 @@ class _HomeViewState extends State<HomeView> {
         if (didPop) return;
         if (Platform.isAndroid) {
           SystemNavigator.pop();
-          return ;
+          return;
         } else if (Platform.isIOS) {
           exit(0);
         } else {
-          return ;
+          return;
         }
       },
       child: Scaffold(
@@ -90,8 +91,12 @@ class _HomeViewState extends State<HomeView> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const CircleAvatar(
+                    CircleAvatar(
                       radius: Dimensions.r21,
+                      backgroundColor: Colors.transparent,
+                      backgroundImage: CachedNetworkImageProvider(
+                        AppConstants.imageUrl + UserData.avatar!,
+                      ),
                     ),
                     Gap(10.w),
                     Expanded(
@@ -167,8 +172,9 @@ class _HomeViewState extends State<HomeView> {
                                         decoration: ShapeDecoration(
                                           color: const Color(0xFFF8E7DE),
                                           shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(
-                                                  Dimensions.r8)),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      Dimensions.r8)),
                                         ),
                                         child: Row(
                                           children: [
@@ -197,7 +203,8 @@ class _HomeViewState extends State<HomeView> {
                                                             Intl.getCurrentLocale() ==
                                                                     "en"
                                                                 ? TextAlign.left
-                                                                : TextAlign.right,
+                                                                : TextAlign
+                                                                    .right,
                                                         style: CustomTextStyle
                                                             .kTextStyleF10,
 
@@ -205,30 +212,30 @@ class _HomeViewState extends State<HomeView> {
                                                       ),
                                                     ),
                                                     Align(
-                                                      alignment:
-                                                          Intl.getCurrentLocale() ==
-                                                                  "en"
-                                                              ? Alignment
-                                                                  .centerRight
-                                                              : Alignment
-                                                                  .centerLeft,
+                                                      alignment: Intl
+                                                                  .getCurrentLocale() ==
+                                                              "en"
+                                                          ? Alignment
+                                                              .centerRight
+                                                          : Alignment
+                                                              .centerLeft,
                                                       child: Container(
                                                         width: 82.w,
                                                         height: 18.h,
                                                         decoration:
                                                             ShapeDecoration(
-                                                          color:
-                                                              AppColors.secondary,
+                                                          color: AppColors
+                                                              .secondary,
                                                           shape: RoundedRectangleBorder(
                                                               borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          Dimensions
-                                                                              .r4)),
+                                                                  BorderRadius.circular(
+                                                                      Dimensions
+                                                                          .r4)),
                                                         ),
                                                         child: Center(
                                                           child: Text(
-                                                            S.current.browse_now,
+                                                            S.current
+                                                                .browse_now,
                                                             style: CustomTextStyle
                                                                 .kTextStyleF8,
                                                           ),
@@ -250,7 +257,8 @@ class _HomeViewState extends State<HomeView> {
                                                           "https://via.placeholder.com/140x140",
                                                         )
                                                       : CachedNetworkImageProvider(
-                                                          AppConstants.fullImgUrl +
+                                                          AppConstants
+                                                                  .fullImgUrl +
                                                               ads[index].image!,
                                                         ),
                                                   fit: BoxFit.cover,
@@ -275,7 +283,7 @@ class _HomeViewState extends State<HomeView> {
                               children: [
                                 ...List.generate(
                                   ads.length,
-                                      (index) {
+                                  (index) {
                                     return Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: Dimensions.p8),
@@ -286,8 +294,9 @@ class _HomeViewState extends State<HomeView> {
                                         decoration: ShapeDecoration(
                                           color: const Color(0xFFF8E7DE),
                                           shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(
-                                                  Dimensions.r8)),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      Dimensions.r8)),
                                         ),
                                         child: Row(
                                           children: [
@@ -297,7 +306,7 @@ class _HomeViewState extends State<HomeView> {
                                                     Dimensions.p5),
                                                 child: Column(
                                                   crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
                                                       S.current.soon,
@@ -313,10 +322,11 @@ class _HomeViewState extends State<HomeView> {
                                                       child: Text(
                                                         ads[index].description!,
                                                         textAlign:
-                                                        Intl.getCurrentLocale() ==
-                                                            "en"
-                                                            ? TextAlign.left
-                                                            : TextAlign.right,
+                                                            Intl.getCurrentLocale() ==
+                                                                    "en"
+                                                                ? TextAlign.left
+                                                                : TextAlign
+                                                                    .right,
                                                         style: CustomTextStyle
                                                             .kTextStyleF10,
 
@@ -324,30 +334,30 @@ class _HomeViewState extends State<HomeView> {
                                                       ),
                                                     ),
                                                     Align(
-                                                      alignment:
-                                                      Intl.getCurrentLocale() ==
-                                                          "en"
+                                                      alignment: Intl
+                                                                  .getCurrentLocale() ==
+                                                              "en"
                                                           ? Alignment
-                                                          .centerRight
+                                                              .centerRight
                                                           : Alignment
-                                                          .centerLeft,
+                                                              .centerLeft,
                                                       child: Container(
                                                         width: 82.w,
                                                         height: 18.h,
                                                         decoration:
-                                                        ShapeDecoration(
-                                                          color:
-                                                          AppColors.secondary,
+                                                            ShapeDecoration(
+                                                          color: AppColors
+                                                              .secondary,
                                                           shape: RoundedRectangleBorder(
                                                               borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                  Dimensions
-                                                                      .r4)),
+                                                                  BorderRadius.circular(
+                                                                      Dimensions
+                                                                          .r4)),
                                                         ),
                                                         child: Center(
                                                           child: Text(
-                                                            S.current.browse_now,
+                                                            S.current
+                                                                .browse_now,
                                                             style: CustomTextStyle
                                                                 .kTextStyleF8,
                                                           ),
@@ -364,14 +374,15 @@ class _HomeViewState extends State<HomeView> {
                                               decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                   image: ads[index].image ==
-                                                      null
+                                                          null
                                                       ? const CachedNetworkImageProvider(
-                                                    "https://via.placeholder.com/140x140",
-                                                  )
+                                                          "https://via.placeholder.com/140x140",
+                                                        )
                                                       : CachedNetworkImageProvider(
-                                                    AppConstants.imageUrl +
-                                                        ads[index].image!,
-                                                  ),
+                                                          AppConstants
+                                                                  .imageUrl +
+                                                              ads[index].image!,
+                                                        ),
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
@@ -394,7 +405,7 @@ class _HomeViewState extends State<HomeView> {
                               children: [
                                 ...List.generate(
                                   ads.length,
-                                      (index) {
+                                  (index) {
                                     return Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: Dimensions.p8),
@@ -405,8 +416,9 @@ class _HomeViewState extends State<HomeView> {
                                         decoration: ShapeDecoration(
                                           color: const Color(0xFFF8E7DE),
                                           shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(
-                                                  Dimensions.r8)),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      Dimensions.r8)),
                                         ),
                                         child: Row(
                                           children: [
@@ -416,7 +428,7 @@ class _HomeViewState extends State<HomeView> {
                                                     Dimensions.p5),
                                                 child: Column(
                                                   crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
                                                       S.current.soon,
@@ -432,10 +444,11 @@ class _HomeViewState extends State<HomeView> {
                                                       child: Text(
                                                         ads[index].description!,
                                                         textAlign:
-                                                        Intl.getCurrentLocale() ==
-                                                            "en"
-                                                            ? TextAlign.left
-                                                            : TextAlign.right,
+                                                            Intl.getCurrentLocale() ==
+                                                                    "en"
+                                                                ? TextAlign.left
+                                                                : TextAlign
+                                                                    .right,
                                                         style: CustomTextStyle
                                                             .kTextStyleF10,
 
@@ -443,30 +456,30 @@ class _HomeViewState extends State<HomeView> {
                                                       ),
                                                     ),
                                                     Align(
-                                                      alignment:
-                                                      Intl.getCurrentLocale() ==
-                                                          "en"
+                                                      alignment: Intl
+                                                                  .getCurrentLocale() ==
+                                                              "en"
                                                           ? Alignment
-                                                          .centerRight
+                                                              .centerRight
                                                           : Alignment
-                                                          .centerLeft,
+                                                              .centerLeft,
                                                       child: Container(
                                                         width: 82.w,
                                                         height: 18.h,
                                                         decoration:
-                                                        ShapeDecoration(
-                                                          color:
-                                                          AppColors.secondary,
+                                                            ShapeDecoration(
+                                                          color: AppColors
+                                                              .secondary,
                                                           shape: RoundedRectangleBorder(
                                                               borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                  Dimensions
-                                                                      .r4)),
+                                                                  BorderRadius.circular(
+                                                                      Dimensions
+                                                                          .r4)),
                                                         ),
                                                         child: Center(
                                                           child: Text(
-                                                            S.current.browse_now,
+                                                            S.current
+                                                                .browse_now,
                                                             style: CustomTextStyle
                                                                 .kTextStyleF8,
                                                           ),
@@ -483,14 +496,15 @@ class _HomeViewState extends State<HomeView> {
                                               decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                   image: ads[index].image ==
-                                                      null
+                                                          null
                                                       ? const CachedNetworkImageProvider(
-                                                    "https://via.placeholder.com/140x140",
-                                                  )
+                                                          "https://via.placeholder.com/140x140",
+                                                        )
                                                       : CachedNetworkImageProvider(
-                                                    AppConstants.imageUrl +
-                                                        ads[index].image!,
-                                                  ),
+                                                          AppConstants
+                                                                  .imageUrl +
+                                                              ads[index].image!,
+                                                        ),
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
@@ -642,7 +656,8 @@ class _HomeViewState extends State<HomeView> {
                                 state!.length,
                                 (index) {
                                   return Padding(
-                                    padding: const EdgeInsets.all(Dimensions.p8),
+                                    padding:
+                                        const EdgeInsets.all(Dimensions.p8),
                                     child: ProductCard(
                                       productEntity: state[index],
                                     ),
@@ -703,7 +718,8 @@ class _HomeViewState extends State<HomeView> {
                                 state!.length,
                                 (index) {
                                   return Padding(
-                                    padding: const EdgeInsets.all(Dimensions.p8),
+                                    padding:
+                                        const EdgeInsets.all(Dimensions.p8),
                                     child: ProductCard(
                                       productEntity: state[index],
                                     ),

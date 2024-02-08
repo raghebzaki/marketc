@@ -266,6 +266,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                   state.maybeWhen(
                     success: (state) {
                         context.pushNamed(orderConfirmationPageRoute);
+                        cartItems.clear();
                     },
                     orElse: () {
                       return null;

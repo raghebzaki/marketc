@@ -34,16 +34,17 @@ class _ForgotPassViewState extends State<ForgotPassView> {
       create: (context) => di.di<ForgotPassCubit>(),
       child: BlocConsumer<ForgotPassCubit, ForgotPassStates>(
         listener: (context, state) {
+          ForgotPassCubit forgotPassCubit = ForgotPassCubit.get(context);
           state.maybeWhen(
             success: (state) {
               if (state.statusCode == 1) {
                 context.defaultSnackBar(
-                  "${S.of(context).otp_sent} ${state.email}",
+                  "${S.of(context).otp_sent} ${forgotPassCubit.emailCtrl.text}",
                 );
                 context.pushNamed(
                   resetPassPageRoute,
                   arguments: ResetPassArgs(
-                    email: state.email.isNullOrEmpty(),
+                    email: forgotPassCubit.emailCtrl.text.isNullOrEmpty(),
                   ),
                 );
               } else {

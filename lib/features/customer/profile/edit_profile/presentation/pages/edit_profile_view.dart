@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,6 +14,7 @@ import 'package:marketc/features/customer/profile/edit_profile/presentation/mana
 
 import '../../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../../core/shared/models/user_data_model.dart';
+import '../../../../../../core/utils/app_constants.dart';
 import '../../../../../../generated/l10n.dart';
 import '../../domain/entities/edit_profile_entity.dart';
 
@@ -37,7 +39,6 @@ class _EditProfileViewState extends State<EditProfileView> {
           state.maybeWhen(
             success: (state) {
               context.defaultSnackBar("Account updated successfully");
-
             },
             deleteSuccess: (state) {
               context.defaultSnackBar(S.of(context).deleted_success);
@@ -65,13 +66,16 @@ class _EditProfileViewState extends State<EditProfileView> {
                       child: Container(
                         width: 80.w,
                         height: 80.w,
-                        decoration: const ShapeDecoration(
+                        decoration: ShapeDecoration(
                           image: DecorationImage(
-                            image: NetworkImage(
-                                "https://via.placeholder.com/73x73"),
+                            image: UserData.avatar != "" || UserData.avatar != null
+                                ? CachedNetworkImageProvider(
+                                    AppConstants.imageUrl + UserData.avatar!)
+                                : const CachedNetworkImageProvider(
+                                    "https://via.placeholder.com/73x73"),
                             fit: BoxFit.cover,
                           ),
-                          shape: OvalBorder(),
+                          shape: const OvalBorder(),
                         ),
                       ),
                     ),
@@ -140,10 +144,9 @@ class _EditProfileViewState extends State<EditProfileView> {
                       onPressed: () {
                         editProfileCubit.editProfile(
                           EditProfileEntity(
-                            userId: UserData.id,
-                            name: nameCtrl.text,
-                            email: emailCtrl.text
-                          ),
+                              userId: UserData.id,
+                              name: nameCtrl.text,
+                              email: emailCtrl.text),
                         );
                       },
                     )

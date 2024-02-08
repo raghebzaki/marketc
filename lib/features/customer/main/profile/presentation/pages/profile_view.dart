@@ -34,12 +34,6 @@ class ProfileView extends StatelessWidget {
                     UserData.name!,
                     style: CustomTextStyle.kTextStyleF20,
                   ),
-                  Text(
-                    '+970 59 533 3781',
-                    textAlign: TextAlign.justify,
-                    style: CustomTextStyle.kTextStyleF14
-                        .copyWith(color: AppColors.textColorSecondary),
-                  )
                 ],
               ),
               centerTitle: false,

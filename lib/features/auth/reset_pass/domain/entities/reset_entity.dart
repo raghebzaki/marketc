@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class ResetPassEntity extends Equatable {
-  final int? status;
+  final String? status;
   final String? msg;
   final String? email;
   final int? otp;

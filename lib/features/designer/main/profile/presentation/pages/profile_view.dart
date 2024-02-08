@@ -16,112 +16,119 @@ class DesignerProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(70.0.h), // here the desired height
-          child: AppBar(
-            backgroundColor: Colors.white,
-            elevation: 0,
-            title: Column(
-              children: [
-                Text(
-                  UserData.name!,
-                  style: CustomTextStyle.kTextStyleF20,
+      child: PopScope(
+        canPop: false,
+        onPopInvoked: (bool didPop) async {
+          if (didPop) return;
+          context.pushNamed(designerBottomNavBarPageRoute);
+        },
+        child: Scaffold(
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(70.0.h), // here the desired height
+            child: AppBar(
+              backgroundColor: Colors.white,
+              elevation: 0,
+              title: Column(
+                children: [
+                  Text(
+                    UserData.name!,
+                    style: CustomTextStyle.kTextStyleF20,
+                  ),
+                ],
+              ),
+              centerTitle: false,
+              automaticallyImplyLeading: false,
+              actions: [
+                IconButton(
+                  onPressed: () {
+                    context.pushNamed(loginPageRoute);
+                    CacheHelper.removeData("email");
+                    CacheHelper.removeData("pass");
+                  },
+                  icon: Icon(
+                    Icons.logout,
+                    color: AppColors.lightBlue,
+                    size: 16.sp,
+                  ),
                 ),
               ],
             ),
-            centerTitle: false,
-            automaticallyImplyLeading: false,
-            actions: [
-              IconButton(
-                onPressed: () {
-                  context.pushNamed(loginPageRoute);
-                  CacheHelper.removeData("email");
-                  CacheHelper.removeData("pass");
-                },
-                icon: Icon(
-                  Icons.logout,
-                  color: AppColors.lightBlue,
-                  size: 16.sp,
-                ),
-              ),
-            ],
           ),
-        ),
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Gap(10.h),
-                Container(
-                  color: Colors.white,
-                  padding: EdgeInsets.all(16.0.sp),
-                  child: ListTile(
-                    onTap: () {
-                      context.pushNamed(editProfilePageRoute);
-                    },
-                    title: Opacity(
-                      opacity: 0.90,
-                      child: Text(
-                        S.current.user_profile,
-                        style: CustomTextStyle.kTextStyleF16
-                            .copyWith(color: AppColors.textColorSecondary),
+          body: SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Gap(10.h),
+                  Container(
+                    color: Colors.white,
+                    padding: EdgeInsets.all(16.0.sp),
+                    child: ListTile(
+                      onTap: () {
+                        context.pushNamed(editProfilePageRoute);
+                      },
+                      title: Opacity(
+                        opacity: 0.90,
+                        child: Text(
+                          S.current.user_profile,
+                          style: CustomTextStyle.kTextStyleF16
+                              .copyWith(color: AppColors.textColorSecondary),
+                        ),
+                      ),
+                      trailing: Icon(
+                        Icons.arrow_forward_ios_sharp,
+                        color: AppColors.lightBlue,
+                        size: 16.sp,
                       ),
                     ),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios_sharp,
-                      color: AppColors.lightBlue,
-                      size: 16.sp,
-                    ),
                   ),
-                ),
-                Gap(10.h),
-                Container(
-                  color: Colors.white,
-                  padding: EdgeInsets.all(16.0.sp),
-                  child: ListTile(
-                    onTap: () {
-                      context.pushNamed(userBalancePageRoute);
-                    },
-                    title: Opacity(
-                      opacity: 0.90,
-                      child: Text(
-                        S.of(context).user_balance,
-                        style: CustomTextStyle.kTextStyleF16
-                            .copyWith(color: AppColors.textColorSecondary),
+                  Gap(10.h),
+                  Container(
+                    color: Colors.white,
+                    padding: EdgeInsets.all(16.0.sp),
+                    child: ListTile(
+                      onTap: () {
+                        context.pushNamed(userBalancePageRoute);
+                      },
+                      title: Opacity(
+                        opacity: 0.90,
+                        child: Text(
+                          S.of(context).user_balance,
+                          style: CustomTextStyle.kTextStyleF16
+                              .copyWith(color: AppColors.textColorSecondary),
+                        ),
+                      ),
+                      trailing: Icon(
+                        Icons.arrow_forward_ios_sharp,
+                        color: AppColors.lightBlue,
+                        size: 16.sp,
                       ),
                     ),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios_sharp,
-                      color: AppColors.lightBlue,
-                      size: 16.sp,
-                    ),
                   ),
-                ),
-                Gap(10.h),
-                Container(
-                  color: Colors.white,
-                  padding: EdgeInsets.all(16.0.sp),
-                  child: ListTile(
-                    onTap: () {
-                      context.pushNamed(designerSettingPageRoute);
-                    },
-                    title: Opacity(
-                      opacity: 0.90,
-                      child: Text(
-                        S.current.settings,
-                        style: CustomTextStyle.kTextStyleF16
-                            .copyWith(color: AppColors.textColorSecondary),
+                  Gap(10.h),
+                  Container(
+                    color: Colors.white,
+                    padding: EdgeInsets.all(16.0.sp),
+                    child: ListTile(
+                      onTap: () {
+                        context.pushNamed(designerSettingPageRoute);
+                      },
+                      title: Opacity(
+                        opacity: 0.90,
+                        child: Text(
+                          S.current.settings,
+                          style: CustomTextStyle.kTextStyleF16
+                              .copyWith(color: AppColors.textColorSecondary),
+                        ),
+                      ),
+                      trailing: Icon(
+                        Icons.arrow_forward_ios_sharp,
+                        color: AppColors.lightBlue,
+                        size: 16.sp,
                       ),
                     ),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios_sharp,
-                      color: AppColors.lightBlue,
-                      size: 16.sp,
-                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

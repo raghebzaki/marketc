@@ -104,12 +104,12 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
                         return const CircularProgressIndicator();
                       },
                       success: (state) {
-                        return SingleChildScrollView(
+                        return state!.isNotEmpty ? SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: [
                               ...List.generate(
-                                state!.length,
+                                state.length,
                                 (index) {
                                   return BlocConsumer<CategoryDetailsCubit,
                                       CategoryDetailsStates>(
@@ -161,6 +161,17 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
                               ),
                             ],
                           ),
+                        ) : Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Center(
+                              child: Text(
+                                "You have no favorites yet",
+                                style:  CustomTextStyle.kTextStyleF20,
+                              ),
+                            ),
+                          ],
                         );
                       },
                       error: (errCode, err) {

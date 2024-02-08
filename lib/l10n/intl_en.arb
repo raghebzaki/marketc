@@ -252,5 +252,7 @@
   "shipped_status": "shipped",
   "done_status": "completed",
   "cancelled_status": "cancelled",
-  "yourCartIsEmpty": "Your cart is empty."
+  "yourCartIsEmpty": "Your cart is empty.",
+  "otpIsCorrect": "OTP is correct",
+  "failedToCheckOtp": "Failed to check OTP"
 }

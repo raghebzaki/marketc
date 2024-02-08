@@ -19,7 +19,7 @@ class ChangePassModel extends ChangePassEntity {
   static Map<String, dynamic> toJson(ChangePassEntity changePassEntity) {
     return {
       'email': changePassEntity.email,
-      'new_password': changePassEntity.pass,
+      'password': changePassEntity.pass,
       'password_confirmation': changePassEntity.confirmPass,
     };
   }

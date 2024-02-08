@@ -142,6 +142,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "est": MessageLookupByLibrary.simpleMessage("وقت الوصول المتوقع"),
         "executed_request":
             MessageLookupByLibrary.simpleMessage("الطلب المنفذ"),
+        "failedToCheckOtp":
+            MessageLookupByLibrary.simpleMessage("Failed to check OTP"),
         "failed_change_pass":
             MessageLookupByLibrary.simpleMessage("فشل تغيير كلمة المرور"),
         "favorite": MessageLookupByLibrary.simpleMessage("المفضلة"),
@@ -212,6 +214,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "في حالة تواجهك لأي مشكلة يمكنك التواصل مع"),
         "order_summary": MessageLookupByLibrary.simpleMessage("ملخص الطلب"),
         "orders": MessageLookupByLibrary.simpleMessage(" "),
+        "otpIsCorrect": MessageLookupByLibrary.simpleMessage("OTP is correct"),
         "otp_sent":
             MessageLookupByLibrary.simpleMessage("تم إرسال رمز التحقق إلى"),
         "pass": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
@@ -290,6 +293,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تذكر كلمة المرور؟"),
         "resend_code":
             MessageLookupByLibrary.simpleMessage("إعادة إرسال الكود"),
+        "sar": MessageLookupByLibrary.simpleMessage("ريال"),
         "saved_address":
             MessageLookupByLibrary.simpleMessage("العناوين المحفوظة"),
         "saved_addresses":

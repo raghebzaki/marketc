@@ -156,7 +156,7 @@ class _ChangePassViewState extends State<ChangePassView> {
                         ),
                         Gap(15.h),
                         ConditionalBuilder(
-                          condition: state is Loading,
+                          condition: state is! Loading,
                           builder: (BuildContext context) {
                             return CustomBtn(
                               label: S.current.change_pass,

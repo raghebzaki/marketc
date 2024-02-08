@@ -2389,6 +2389,26 @@ class S {
       args: [],
     );
   }
+
+  /// `OTP is correct`
+  String get otpIsCorrect {
+    return Intl.message(
+      'OTP is correct',
+      name: 'otpIsCorrect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to check OTP`
+  String get failedToCheckOtp {
+    return Intl.message(
+      'Failed to check OTP',
+      name: 'failedToCheckOtp',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

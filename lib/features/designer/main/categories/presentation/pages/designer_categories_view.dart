@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:marketc/config/themes/app_text_styles.dart';
 import 'package:marketc/core/shared/entities/product_entity.dart';
 import 'package:marketc/core/shared/models/user_data_model.dart';
 import 'package:marketc/core/shared/widgets/product_card_designer.dart';
@@ -10,6 +11,7 @@ import 'package:marketc/core/utils/extensions.dart';
 import 'package:marketc/features/designer/main/categories/domain/entities/my_designer_products_entity.dart';
 import 'package:marketc/features/designer/main/categories/presentation/manager/my_designer_products_cubit.dart';
 
+import '../../../../../../core/router/router.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../core/shared/widgets/state_error_widget.dart';
 import '../../../../../../core/shared/widgets/state_loading_widget.dart';
@@ -75,87 +77,136 @@ class _DesignerCategoriesViewState extends State<DesignerCategoriesView> {
         );
       },
       builder: (context, state) {
-        return Scaffold(
-          // backgroundColor: AppColors.primary,
-          appBar: CustomAppBar(
-            title: S.of(context).my_products,
-          ),
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(
-                Dimensions.p16,
-              ),
-              child: SingleChildScrollView(
-                controller: scrollController,
-                child: Column(
-                  children: [
-                    Gap(10.h),
-                    state.maybeWhen(
-                      loading: () {
-                        return const StateLoadingWidget();
-                      },
-                      success: (state) {
-                        return products.isNotEmpty
-                            ? AutoHeightGridView(
-                                itemCount: products.length,
-                                crossAxisCount: 2,
-                                mainAxisSpacing: 10,
-                                crossAxisSpacing: 10,
-                                physics: const NeverScrollableScrollPhysics(),
-                                padding: const EdgeInsets.all(12),
-                                shrinkWrap: true,
-                                builder: (context, index) {
-                                  return ProductCardDesigner(
-                                      productEntity: products[index]);
-                                },
-                              )
-                            : Text(S.of(context).no_products_yet);
-                      },
-                      paginationLoading: () {
-                        return products.isNotEmpty
-                            ? AutoHeightGridView(
-                                itemCount: products.length,
-                                crossAxisCount: 2,
-                                mainAxisSpacing: 10,
-                                crossAxisSpacing: 10,
-                                physics: const NeverScrollableScrollPhysics(),
-                                padding: const EdgeInsets.all(12),
-                                shrinkWrap: true,
-                                builder: (context, index) {
-                                  return ProductCardDesigner(
-                                      productEntity: products[index]);
-                                },
-                              )
-                            : Text(S.of(context).no_products_yet);
-                      },
-                      paginationError: (errCode, err) {
-                        return products.isNotEmpty
-                            ? AutoHeightGridView(
-                                itemCount: products.length,
-                                crossAxisCount: 2,
-                                mainAxisSpacing: 10,
-                                crossAxisSpacing: 10,
-                                physics: const NeverScrollableScrollPhysics(),
-                                padding: const EdgeInsets.all(12),
-                                shrinkWrap: true,
-                                builder: (context, index) {
-                                  return ProductCardDesigner(
-                                      productEntity: products[index]);
-                                },
-                              )
-                            : Text(S.of(context).no_products_yet);
-                      },
-                      error: (errCode, err) {
-                        return StateErrorWidget(
-                          errCode: errCode.isNullOrEmpty(),
-                          err: err.isNullOrEmpty(),
-                        );
-                      },
-                      orElse: () {
-                        return const SizedBox.shrink();
-                      },
-                    ),
-                  ],
+        return PopScope(
+          canPop: false,
+          onPopInvoked: (bool didPop) async {
+            if (didPop) return;
+            context.pushNamed(designerBottomNavBarPageRoute);
+          },
+          child: Scaffold(
+            // backgroundColor: AppColors.primary,
+            appBar: CustomAppBar(
+              title: S.of(context).my_products,
+            ),
+            body: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(
+                  Dimensions.p16,
+                ),
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  child: Column(
+                    children: [
+                      Gap(10.h),
+                      state.maybeWhen(
+                        loading: () {
+                          return const StateLoadingWidget();
+                        },
+                        success: (state) {
+                          return products.isNotEmpty
+                              ? AutoHeightGridView(
+                                  itemCount: products.length,
+                                  crossAxisCount: 2,
+                                  mainAxisSpacing: 10,
+                                  crossAxisSpacing: 10,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  padding: const EdgeInsets.all(12),
+                                  shrinkWrap: true,
+                                  builder: (context, index) {
+                                    return ProductCardDesigner(
+                                        productEntity: products[index]);
+                                  },
+                                )
+                              : SizedBox(
+                                  height: context.queryHeight - 150,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Center(
+                                        child: Text(
+                                          S.of(context).no_products_yet,
+                                          style: CustomTextStyle.kTextStyleF20,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                        },
+                        paginationLoading: () {
+                          return products.isNotEmpty
+                              ? AutoHeightGridView(
+                                  itemCount: products.length,
+                                  crossAxisCount: 2,
+                                  mainAxisSpacing: 10,
+                                  crossAxisSpacing: 10,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  padding: const EdgeInsets.all(12),
+                                  shrinkWrap: true,
+                                  builder: (context, index) {
+                                    return ProductCardDesigner(
+                                        productEntity: products[index]);
+                                  },
+                                )
+                              : SizedBox(
+                            height: context.queryHeight - 150,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Center(
+                                  child: Text(
+                                    S.of(context).no_products_yet,
+                                    style: CustomTextStyle.kTextStyleF20,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                        paginationError: (errCode, err) {
+                          return products.isNotEmpty
+                              ? AutoHeightGridView(
+                                  itemCount: products.length,
+                                  crossAxisCount: 2,
+                                  mainAxisSpacing: 10,
+                                  crossAxisSpacing: 10,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  padding: const EdgeInsets.all(12),
+                                  shrinkWrap: true,
+                                  builder: (context, index) {
+                                    return ProductCardDesigner(
+                                        productEntity: products[index]);
+                                  },
+                                )
+                              : SizedBox(
+                            height: context.queryHeight - 150,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Center(
+                                  child: Text(
+                                    S.of(context).no_products_yet,
+                                    style: CustomTextStyle.kTextStyleF20,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                        error: (errCode, err) {
+                          return StateErrorWidget(
+                            errCode: errCode.isNullOrEmpty(),
+                            err: err.isNullOrEmpty(),
+                          );
+                        },
+                        orElse: () {
+                          return const SizedBox.shrink();
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

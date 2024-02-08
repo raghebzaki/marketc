@@ -248,5 +248,8 @@
   "shipped_status": "قيد الشحن",
   "done_status": "مكتملة",
   "cancelled_status": "ملغية",
-  "yourCartIsEmpty": "سلة المشتريات لديك فارغة"
+  "yourCartIsEmpty": "سلة المشتريات لديك فارغة",
+  "sar": "ريال",
+  "otpIsCorrect": "OTP is correct",
+  "failedToCheckOtp": "Failed to check OTP"
 }

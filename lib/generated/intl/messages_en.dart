@@ -148,6 +148,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "est": MessageLookupByLibrary.simpleMessage("Estimated Arrival Time"),
         "executed_request":
             MessageLookupByLibrary.simpleMessage("Executed Request"),
+        "failedToCheckOtp":
+            MessageLookupByLibrary.simpleMessage("Failed to check OTP"),
         "failed_change_pass":
             MessageLookupByLibrary.simpleMessage("Failed to change password"),
         "favorite": MessageLookupByLibrary.simpleMessage("favorite"),
@@ -220,6 +222,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "In case you encounter any issues, you can contact"),
         "order_summary": MessageLookupByLibrary.simpleMessage("Order Summary"),
         "orders": MessageLookupByLibrary.simpleMessage(" orders"),
+        "otpIsCorrect": MessageLookupByLibrary.simpleMessage("OTP is correct"),
         "otp_sent": MessageLookupByLibrary.simpleMessage("OTP sent to"),
         "pass": MessageLookupByLibrary.simpleMessage("Password"),
         "pass_change_success": MessageLookupByLibrary.simpleMessage(

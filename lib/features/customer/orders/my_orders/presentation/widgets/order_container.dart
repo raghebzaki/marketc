@@ -82,7 +82,7 @@ class OrderContainer extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      orderEntity!.orderNumber!,
+                      orderEntity!.products!.length.toString(),
                       style: CustomTextStyle.kTextStyleF12,
                     ),
                   ],
@@ -91,7 +91,11 @@ class OrderContainer extends StatelessWidget {
             ),
             Gap(20.h),
             Text(
-              orderEntity!.date!,
+              DateTime.parse(
+                orderEntity!.date!,
+              ).stringFormat(
+                DateFormatType.hyphenatedDate,
+              ),
               style: CustomTextStyle.kTextStyleF12.copyWith(
                 color: AppColors.textColorGrey,
               ),

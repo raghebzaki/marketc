@@ -17,7 +17,12 @@ class NotificationsView extends StatefulWidget {
 }
 
 class _NotificationsViewState extends State<NotificationsView> {
-  bool isClick=true;
+  List<bool> isClick = [
+    true,
+    true,
+    true,
+    true,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +46,15 @@ class _NotificationsViewState extends State<NotificationsView> {
                   ),
                 ) ,
                 trailing: Switch(
-                  value: isClick,
+                  value: isClick[0],
                   activeColor: AppColors.secondary,
                   onChanged: (bool value) {
                     // This is called when the user toggles the switch.
                     setState(() {
-                      isClick = value;
+                      isClick[0] = value;
+                      if (value == false) {
+                        isClick[1] = isClick[2] = isClick[3] = value;
+                      }
                     });
                   },
                 ),
@@ -69,13 +77,17 @@ class _NotificationsViewState extends State<NotificationsView> {
                   ),
                 ) ,
                 trailing:Switch(
-                  value: isClick,
+                  value: isClick[1],
                   activeColor: AppColors.secondary,
                   onChanged: (bool value) {
                     // This is called when the user toggles the switch.
-                    setState(() {
-                      isClick = value;
-                    });
+                    if (isClick[0] == false) {
+                      return null;
+                    } else {
+                      setState(() {
+                        isClick[1] = value;
+                      });
+                    }
                   },
                 ),
               ),
@@ -97,13 +109,17 @@ class _NotificationsViewState extends State<NotificationsView> {
                   ),
                 ) ,
                 trailing: Switch(
-                  value: isClick,
+                  value: isClick[2],
                   activeColor: AppColors.secondary,
                   onChanged: (bool value) {
                     // This is called when the user toggles the switch.
-                    setState(() {
-                      isClick = value;
-                    });
+                    if (isClick[0] == false) {
+                      return null;
+                    } else {
+                      setState(() {
+                        isClick[2] = value;
+                      });
+                    }
                   },
                 ),
               ),
@@ -125,13 +141,17 @@ class _NotificationsViewState extends State<NotificationsView> {
                   ),
                 ) ,
                 trailing: Switch(
-                  value: isClick,
+                  value: isClick[3],
                   activeColor: AppColors.secondary,
                   onChanged: (bool value) {
                     // This is called when the user toggles the switch.
-                    setState(() {
-                      isClick = value;
-                    });
+                    if (isClick[0] == false) {
+                      return null;
+                    } else {
+                      setState(() {
+                        isClick[3] = value;
+                      });
+                    }
                   },
                 ),
               ),

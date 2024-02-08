@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:marketc/config/themes/app_text_styles.dart';
 import 'package:marketc/core/router/router.dart';
 import 'package:marketc/core/shared/widgets/state_error_widget.dart';
 import 'package:marketc/core/shared/widgets/state_loading_widget.dart';
@@ -49,31 +50,46 @@ class FavoriteView extends StatelessWidget {
                       padding: const EdgeInsets.all(
                         Dimensions.p16,
                       ),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Gap(20.h),
-                            CustomSearchFormField(
-                              label: S.current.you_think,
-                              sufIcon: Icon(MdiIcons.magnify, size: 18.sp),
+                      child: state.isNotEmpty
+                          ? SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  Gap(20.h),
+                                  CustomSearchFormField(
+                                    label: S.current.you_think,
+                                    sufIcon:
+                                        Icon(MdiIcons.magnify, size: 18.sp),
+                                  ),
+                                  Gap(15.h),
+                                  AutoHeightGridView(
+                                    itemCount: state.length,
+                                    crossAxisCount: 2,
+                                    mainAxisSpacing: 0,
+                                    crossAxisSpacing: 0,
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    padding: const EdgeInsets.all(12),
+                                    shrinkWrap: true,
+                                    builder: (context, index) {
+                                      return ProductCard(
+                                          productEntity: state[index].product!);
+                                    },
+                                  ),
+                                ],
+                              ),
+                            )
+                          : Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Center(
+                                  child: Text(
+                                    "You have no favorites yet",
+                                    style:  CustomTextStyle.kTextStyleF20,
+                                  ),
+                                ),
+                              ],
                             ),
-                            Gap(15.h),
-                            AutoHeightGridView(
-                              itemCount:  state.length,
-                              crossAxisCount: 2,
-                              mainAxisSpacing: 0,
-                              crossAxisSpacing: 0,
-                              physics: const NeverScrollableScrollPhysics(),
-                              padding: const EdgeInsets.all(12),
-                              shrinkWrap: true,
-                              builder: (context, index) {
-                                return ProductCard(
-                                    productEntity: state[index].product!);
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
                     ),
                   ),
                 ),
