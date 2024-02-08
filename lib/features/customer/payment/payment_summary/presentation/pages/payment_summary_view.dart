@@ -24,10 +24,11 @@ class PaymentSummaryView extends StatefulWidget {
   final Address address;
   final num? finalPrice;
   final String name;
+  final String coupon;
 
 
 
-  const PaymentSummaryView({super.key, required this.finalPrice, required this.address, required this.name});
+  const PaymentSummaryView({super.key, required this.finalPrice, required this.address, required this.name, required this.coupon});
 
   @override
   State<PaymentSummaryView> createState() => _PaymentSummaryViewState();
@@ -323,7 +324,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               state: widget.address.country,
                               postCode: widget.address.code,
                               productIds: productId,
-                              coupon: "",
+                              coupon: widget.coupon,
                             ),
                           );
                         },

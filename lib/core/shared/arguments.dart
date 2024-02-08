@@ -56,7 +56,8 @@ class PaymentSharedPrice {
   final num sharedPrice;
   final Address address;
   final String name;
-  PaymentSharedPrice(  {required this.address,required this.sharedPrice, required this.name,});
+  final String coupon;
+  PaymentSharedPrice(   {required this.coupon, required this.address,required this.sharedPrice, required this.name,});
 }
 
 class OrderDetailsArgs {

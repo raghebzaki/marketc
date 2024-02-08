@@ -22,7 +22,7 @@ class PromoCodeServiceImpl implements PromoCodeService {
       data: PromoCodeModel.toJson(promoCodeEntity),
     );
     if (addPromo.statusCode == 200) {
-      promoCodeModelModel=PromoCodeModel.fromJson(addPromo.data);
+      promoCodeModelModel = PromoCodeModel.fromJson(addPromo.data);
     }
 
     return promoCodeModelModel;

@@ -1,5 +1,6 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -60,6 +61,9 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
 
   TextEditingController pinCtrl = TextEditingController();
 
+bool isCoupon = false;
+num totalWithCoupon = 0;
+
   @override
   void initState() {
     super.initState();
@@ -70,10 +74,10 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
     List<ProductEntity> totalPrice = context.watch<CartCubit>().cartProducts;
 
     var total = (totalPrice
-            .map((e) => e.discountPercent == 0
-                ? int.parse(e.price!) * e.userQuantity!
-                : int.parse(e.priceAfterDiscount!) * e.userQuantity!)
-            .reduce((value, element) => value + element));
+        .map((e) => e.discountPercent == 0
+            ? int.parse(e.price!) * e.userQuantity!
+            : int.parse(e.priceAfterDiscount!) * e.userQuantity!)
+        .reduce((value, element) => value + element));
     return BlocProvider(
       create: (context) => di.di<PromoCodeCubit>(),
       child: Scaffold(
@@ -104,9 +108,19 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
                         listener: (context, state) {
                           state.maybeWhen(
                             success: (state) {
-                              if (state!.status == 1) {
-                                total = total - total * 0.40;
+                              if (state!.statusCode == true) {
+                                isCoupon = true;
+
+                                totalWithCoupon = total -
+                                    total *
+                                        num.parse(state.couponData!.discount
+                                            .toString()) /
+                                        100;
+                                context.defaultSnackBar("Promo code applied successfully");
                               }
+                            },
+                            error: (errCode, err) {
+                              context.defaultSnackBar("Coupon is expired");
                             },
                             orElse: () {
                               return null;
@@ -153,8 +167,14 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
                                           onChanged: (value) {
                                             // UserData.otp = value;
                                           },
+                                          inputFormatters: [
+                                            FilteringTextInputFormatter.allow(
+                                              RegExp("[a-z A-Z á-ú Á-Ú 0-9]"),
+                                            ),
+                                          ],
                                           closeKeyboardWhenCompleted: false,
                                           onSubmitted: (value) {},
+                                          keyboardType: TextInputType.text,
                                           length: 4,
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
@@ -192,8 +212,7 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
                                                   promoCodeCubit.sendMessage(
                                                     PromoCodeEntity(
                                                       userId: UserData.id,
-                                                      coupon:
-                                                          pinCtrl.toString(),
+                                                      coupon: pinCtrl.text,
                                                     ),
                                                   );
                                                   context.pop();
@@ -311,11 +330,12 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
                       context.pushNamed(
                         paymentSummaryPageRoute,
                         arguments: PaymentSharedPrice(
+                          coupon: isCoupon ? pinCtrl.text : "",
                             name: widget.name,
-                            sharedPrice: total,
-                            address: widget.address),
+                            sharedPrice: isCoupon ? totalWithCoupon : total,
+                            address: widget.address
+                        ),
                       );
-                      print(total);
                     },
                   ),
                 ),

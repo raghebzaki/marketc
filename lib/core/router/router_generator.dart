@@ -251,7 +251,7 @@ class AppRouters {
         final args = settings.arguments as PaymentSharedPrice;
         return MaterialPageRoute(
           builder: (BuildContext context) =>
-              PaymentSummaryView(finalPrice: args.sharedPrice,address: args.address, name: args.name),
+              PaymentSummaryView(finalPrice: args.sharedPrice,address: args.address, name: args.name, coupon: args.coupon,),
         );
 
       /// designer
