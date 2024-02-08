@@ -251,14 +251,13 @@ class _HomeViewState extends State<HomeView> {
                                               clipBehavior: Clip.antiAlias,
                                               decoration: BoxDecoration(
                                                 image: DecorationImage(
-                                                  image: ads[index].image ==
-                                                          null
+                                                  image: ads[index].image!.isEmpty
                                                       ? const CachedNetworkImageProvider(
                                                           "https://via.placeholder.com/140x140",
                                                         )
                                                       : CachedNetworkImageProvider(
                                                           AppConstants
-                                                                  .fullImgUrl +
+                                                                  .imageUrl +
                                                               ads[index].image!,
                                                         ),
                                                   fit: BoxFit.cover,

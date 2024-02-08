@@ -137,7 +137,7 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
                                                 horizontal: Dimensions.p16.w,
                                                 vertical: Dimensions.p5.h),
                                             decoration: BoxDecoration(
-                                              color: AppColors.secondary,
+                                              color: subCategory==state[index].id?AppColors.secondary:AppColors.primary,
                                               borderRadius:
                                                   BorderRadius.circular(
                                                       Dimensions.r10),
@@ -149,7 +149,7 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
                                               style: CustomTextStyle
                                                   .kTextStyleF14
                                                   .copyWith(
-                                                color: Colors.white,
+                                                color: subCategory==state[index].id?Colors.white:AppColors.secondary,
                                               ),
                                             ),
                                           ),

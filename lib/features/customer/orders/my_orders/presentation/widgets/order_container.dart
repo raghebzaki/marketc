@@ -20,8 +20,16 @@ class OrderContainer extends StatelessWidget {
     this.orderEntity,
   });
 
+
   @override
   Widget build(BuildContext context) {
+    List<String> statusList = [
+      S.current.pending,
+      S.current.processing,
+      S.current.shipped_status,
+      S.current.done_status,
+      S.current.cancelled_status,
+    ];
     return GestureDetector(
       onTap: () {
         context.pushNamed(
@@ -46,10 +54,12 @@ class OrderContainer extends StatelessWidget {
                   "${S.of(context).track_order} #${orderEntity!.orderNumber}",
                   style: CustomTextStyle.kTextStyleF14,
                 ),
-                const StatusIndicator(
-                  statusText: "قيد التنقيذ",
-                  textColor: AppColors.statusGreen,
-                  containerColor: AppColors.statusGreenContainer,
+                 StatusIndicator(
+                  statusText: statusList[orderEntity!.status!],
+                  textColor: orderEntity!.status==4?AppColors.statusRed
+                                :orderEntity!.status==3?AppColors.statusGreen:AppColors.statusCarrot,
+                  containerColor: orderEntity!.status==4?AppColors.statusRedContainer
+                      :orderEntity!.status==3?AppColors.statusGreenContainer:AppColors.statusYellowContainer,
                 )
               ],
             ),

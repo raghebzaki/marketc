@@ -172,7 +172,8 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                                         : Text(
                                             "${widget.orderDetails.products![index].nameAr}"),
                                     Text(
-                                        "${widget.orderDetails.products![index].price} ${S.current.sar}"),
+                                        widget.orderDetails.products![index].discountPercent==0?
+                                        "${widget.orderDetails.products![index].price} ${S.current.sar}":"${widget.orderDetails.products![index].priceAfterDiscount} ${S.current.sar}"),
                                   ],
                                 ),
                               ),

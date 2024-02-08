@@ -48,7 +48,7 @@ class OrderConfirmationView extends StatelessWidget {
               CustomBtn(
                 label: S.of(context).track_order_btn,
                 onPressed: () {
-                  context.pushNamed(trackOrderPageRoute );
+                  context.pushNamed(myOrdersPageRoute );
                 },
               ),
               Gap(25.h),

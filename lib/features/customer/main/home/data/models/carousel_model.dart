@@ -16,7 +16,7 @@ class CarouselModel extends CarouselEntity {
       title: json["title"] as String? ?? AppConstants.unknownStringValue,
       description:
           json["description"] as String? ?? AppConstants.unknownStringValue,
-      image: json["slider"] as String?,
+      image: json["image"] as String?,
     );
   }
 }

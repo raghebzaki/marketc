@@ -8,6 +8,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../../core/shared/entities/order_entity.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/dimensions.dart';
@@ -16,8 +17,9 @@ import '../../../../../../generated/l10n.dart';
 import '../../domain/entities/cancel_order_entity.dart';
 
 class TrackOrderView extends StatefulWidget {
+  final OrderEntity orderDetails;
 
-  const TrackOrderView({super.key, });
+  const TrackOrderView({super.key, required this.orderDetails, });
 
   @override
   State<TrackOrderView> createState() => _TrackOrderViewState();
@@ -52,7 +54,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
             backgroundColor: AppColors.primary,
             appBar: CustomAppBar(
                 title:
-                    "${S.of(context).order_no} 55555"),
+                    "${S.of(context).order_no} ${widget.orderDetails.orderNumber}"),
             body: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(
@@ -74,9 +76,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                   .copyWith(color: AppColors.textColorGrey),
                             ),
                             Text(
-                              time.stringFormat(
-                                formatType: TimeFormatType.hoursMinutesPeriod,
-                              ),
+                              "",
                               style: CustomTextStyle.kTextStyleF16,
                             ),
                           ],
@@ -194,7 +194,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                 style: CustomTextStyle.kTextStyleF14,
                               ),
                               Text(
-                                "5555555",
+                                "${widget.orderDetails.orderNumber}",
                                 style: CustomTextStyle.kTextStyleF14.copyWith(
                                   color: AppColors.textColorGrey,
                                 ),
@@ -219,7 +219,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    const Text("ORder accepted"),
+                                    Text(S.of(context).order_confirmed),
                                     Text(
                                         "${date.stringFormat(DateFormatType.dayMonthYear)}, ${time.stringFormat(
                                       formatType:

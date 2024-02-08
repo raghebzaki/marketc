@@ -195,8 +195,9 @@ class AppRouters {
           builder: (BuildContext context) => const OrderConfirmationView(),
         );
       case trackOrderPageRoute:
+        final args = settings.arguments as OrderDetailsArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const TrackOrderView(),
+          builder: (BuildContext context) =>  TrackOrderView(orderDetails: args.orderDetails,),
         );
       case subscriptionsPageRoute:
         return MaterialPageRoute(

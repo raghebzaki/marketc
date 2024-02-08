@@ -33,6 +33,24 @@ class OrderModel extends OrderEntity {
             ),
     );
   }
+  factory OrderModel.getOrdersFromJson(Map<String, dynamic> json) {
+    return OrderModel(
+      id: json["id"],
+      status: json["status"],
+      orderNumber: json["order_number"],
+      totalPrice: json["total_amount"],
+      userName: json["name"],
+      phone: json["phone"],
+      date: json["created_at"],
+      products: json["products"] == null
+          ? []
+          : List<ProductModel>.from(
+              json["products"]!.map(
+                (x) => ProductModel.fromJson(x),
+              ),
+            ),
+    );
+  }
   static Map<String, dynamic> dataToJson(OrderEntity orderEntity) {
     return {
       "user_id": orderEntity.userId,

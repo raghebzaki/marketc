@@ -26,7 +26,7 @@ class MyOrdersServiceImpl implements MyOrdersService {
       Iterable l = orders.data;
       ordersList = List<OrderModel>.from(
         l.map(
-              (model) => OrderModel.fromJson(model),
+              (model) => OrderModel.getOrdersFromJson(model),
         ),
       );
     }
