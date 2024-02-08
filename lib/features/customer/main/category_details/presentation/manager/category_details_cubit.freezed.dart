@@ -21,6 +21,8 @@ mixin _$CategoryDetailsStates {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(CategoryDetailsEntity categoryDetails) success,
+    required TResult Function() paginationLoading,
+    required TResult Function(String errCode, String err) paginationError,
     required TResult Function(String errCode, String err) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,6 +31,8 @@ mixin _$CategoryDetailsStates {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(CategoryDetailsEntity categoryDetails)? success,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String errCode, String err)? paginationError,
     TResult? Function(String errCode, String err)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,6 +41,8 @@ mixin _$CategoryDetailsStates {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(CategoryDetailsEntity categoryDetails)? success,
+    TResult Function()? paginationLoading,
+    TResult Function(String errCode, String err)? paginationError,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) =>
@@ -46,6 +52,8 @@ mixin _$CategoryDetailsStates {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationError value) paginationError,
     required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +62,8 @@ mixin _$CategoryDetailsStates {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationError value)? paginationError,
     TResult? Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +72,8 @@ mixin _$CategoryDetailsStates {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationError value)? paginationError,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) =>
@@ -128,6 +140,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(CategoryDetailsEntity categoryDetails) success,
+    required TResult Function() paginationLoading,
+    required TResult Function(String errCode, String err) paginationError,
     required TResult Function(String errCode, String err) error,
   }) {
     return initial();
@@ -139,6 +153,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(CategoryDetailsEntity categoryDetails)? success,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String errCode, String err)? paginationError,
     TResult? Function(String errCode, String err)? error,
   }) {
     return initial?.call();
@@ -150,6 +166,8 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(CategoryDetailsEntity categoryDetails)? success,
+    TResult Function()? paginationLoading,
+    TResult Function(String errCode, String err)? paginationError,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
@@ -165,6 +183,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationError value) paginationError,
     required TResult Function(Error value) error,
   }) {
     return initial(this);
@@ -176,6 +196,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationError value)? paginationError,
     TResult? Function(Error value)? error,
   }) {
     return initial?.call(this);
@@ -187,6 +209,8 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationError value)? paginationError,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -242,6 +266,8 @@ class _$LoadingImpl implements Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(CategoryDetailsEntity categoryDetails) success,
+    required TResult Function() paginationLoading,
+    required TResult Function(String errCode, String err) paginationError,
     required TResult Function(String errCode, String err) error,
   }) {
     return loading();
@@ -253,6 +279,8 @@ class _$LoadingImpl implements Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(CategoryDetailsEntity categoryDetails)? success,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String errCode, String err)? paginationError,
     TResult? Function(String errCode, String err)? error,
   }) {
     return loading?.call();
@@ -264,6 +292,8 @@ class _$LoadingImpl implements Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(CategoryDetailsEntity categoryDetails)? success,
+    TResult Function()? paginationLoading,
+    TResult Function(String errCode, String err)? paginationError,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
@@ -279,6 +309,8 @@ class _$LoadingImpl implements Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationError value) paginationError,
     required TResult Function(Error value) error,
   }) {
     return loading(this);
@@ -290,6 +322,8 @@ class _$LoadingImpl implements Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationError value)? paginationError,
     TResult? Function(Error value)? error,
   }) {
     return loading?.call(this);
@@ -301,6 +335,8 @@ class _$LoadingImpl implements Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationError value)? paginationError,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -383,6 +419,8 @@ class _$SuccessImpl implements Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(CategoryDetailsEntity categoryDetails) success,
+    required TResult Function() paginationLoading,
+    required TResult Function(String errCode, String err) paginationError,
     required TResult Function(String errCode, String err) error,
   }) {
     return success(categoryDetails);
@@ -394,6 +432,8 @@ class _$SuccessImpl implements Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(CategoryDetailsEntity categoryDetails)? success,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String errCode, String err)? paginationError,
     TResult? Function(String errCode, String err)? error,
   }) {
     return success?.call(categoryDetails);
@@ -405,6 +445,8 @@ class _$SuccessImpl implements Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(CategoryDetailsEntity categoryDetails)? success,
+    TResult Function()? paginationLoading,
+    TResult Function(String errCode, String err)? paginationError,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
@@ -420,6 +462,8 @@ class _$SuccessImpl implements Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationError value) paginationError,
     required TResult Function(Error value) error,
   }) {
     return success(this);
@@ -431,6 +475,8 @@ class _$SuccessImpl implements Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationError value)? paginationError,
     TResult? Function(Error value)? error,
   }) {
     return success?.call(this);
@@ -442,6 +488,8 @@ class _$SuccessImpl implements Success {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationError value)? paginationError,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -459,6 +507,300 @@ abstract class Success implements CategoryDetailsStates {
   CategoryDetailsEntity get categoryDetails;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PaginationLoadingImplCopyWith<$Res> {
+  factory _$$PaginationLoadingImplCopyWith(_$PaginationLoadingImpl value,
+          $Res Function(_$PaginationLoadingImpl) then) =
+      __$$PaginationLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PaginationLoadingImplCopyWithImpl<$Res>
+    extends _$CategoryDetailsStatesCopyWithImpl<$Res, _$PaginationLoadingImpl>
+    implements _$$PaginationLoadingImplCopyWith<$Res> {
+  __$$PaginationLoadingImplCopyWithImpl(_$PaginationLoadingImpl _value,
+      $Res Function(_$PaginationLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$PaginationLoadingImpl implements PaginationLoading {
+  const _$PaginationLoadingImpl();
+
+  @override
+  String toString() {
+    return 'CategoryDetailsStates.paginationLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$PaginationLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(CategoryDetailsEntity categoryDetails) success,
+    required TResult Function() paginationLoading,
+    required TResult Function(String errCode, String err) paginationError,
+    required TResult Function(String errCode, String err) error,
+  }) {
+    return paginationLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(CategoryDetailsEntity categoryDetails)? success,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String errCode, String err)? paginationError,
+    TResult? Function(String errCode, String err)? error,
+  }) {
+    return paginationLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(CategoryDetailsEntity categoryDetails)? success,
+    TResult Function()? paginationLoading,
+    TResult Function(String errCode, String err)? paginationError,
+    TResult Function(String errCode, String err)? error,
+    required TResult orElse(),
+  }) {
+    if (paginationLoading != null) {
+      return paginationLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationError value) paginationError,
+    required TResult Function(Error value) error,
+  }) {
+    return paginationLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationError value)? paginationError,
+    TResult? Function(Error value)? error,
+  }) {
+    return paginationLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationError value)? paginationError,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (paginationLoading != null) {
+      return paginationLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PaginationLoading implements CategoryDetailsStates {
+  const factory PaginationLoading() = _$PaginationLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$PaginationErrorImplCopyWith<$Res> {
+  factory _$$PaginationErrorImplCopyWith(_$PaginationErrorImpl value,
+          $Res Function(_$PaginationErrorImpl) then) =
+      __$$PaginationErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String errCode, String err});
+}
+
+/// @nodoc
+class __$$PaginationErrorImplCopyWithImpl<$Res>
+    extends _$CategoryDetailsStatesCopyWithImpl<$Res, _$PaginationErrorImpl>
+    implements _$$PaginationErrorImplCopyWith<$Res> {
+  __$$PaginationErrorImplCopyWithImpl(
+      _$PaginationErrorImpl _value, $Res Function(_$PaginationErrorImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errCode = null,
+    Object? err = null,
+  }) {
+    return _then(_$PaginationErrorImpl(
+      null == errCode
+          ? _value.errCode
+          : errCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == err
+          ? _value.err
+          : err // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PaginationErrorImpl implements PaginationError {
+  const _$PaginationErrorImpl(this.errCode, this.err);
+
+  @override
+  final String errCode;
+  @override
+  final String err;
+
+  @override
+  String toString() {
+    return 'CategoryDetailsStates.paginationError(errCode: $errCode, err: $err)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PaginationErrorImpl &&
+            (identical(other.errCode, errCode) || other.errCode == errCode) &&
+            (identical(other.err, err) || other.err == err));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, errCode, err);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PaginationErrorImplCopyWith<_$PaginationErrorImpl> get copyWith =>
+      __$$PaginationErrorImplCopyWithImpl<_$PaginationErrorImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(CategoryDetailsEntity categoryDetails) success,
+    required TResult Function() paginationLoading,
+    required TResult Function(String errCode, String err) paginationError,
+    required TResult Function(String errCode, String err) error,
+  }) {
+    return paginationError(errCode, err);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(CategoryDetailsEntity categoryDetails)? success,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String errCode, String err)? paginationError,
+    TResult? Function(String errCode, String err)? error,
+  }) {
+    return paginationError?.call(errCode, err);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(CategoryDetailsEntity categoryDetails)? success,
+    TResult Function()? paginationLoading,
+    TResult Function(String errCode, String err)? paginationError,
+    TResult Function(String errCode, String err)? error,
+    required TResult orElse(),
+  }) {
+    if (paginationError != null) {
+      return paginationError(errCode, err);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationError value) paginationError,
+    required TResult Function(Error value) error,
+  }) {
+    return paginationError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationError value)? paginationError,
+    TResult? Function(Error value)? error,
+  }) {
+    return paginationError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationError value)? paginationError,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (paginationError != null) {
+      return paginationError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PaginationError implements CategoryDetailsStates {
+  const factory PaginationError(final String errCode, final String err) =
+      _$PaginationErrorImpl;
+
+  String get errCode;
+  String get err;
+  @JsonKey(ignore: true)
+  _$$PaginationErrorImplCopyWith<_$PaginationErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -537,6 +879,8 @@ class _$ErrorImpl implements Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(CategoryDetailsEntity categoryDetails) success,
+    required TResult Function() paginationLoading,
+    required TResult Function(String errCode, String err) paginationError,
     required TResult Function(String errCode, String err) error,
   }) {
     return error(errCode, err);
@@ -548,6 +892,8 @@ class _$ErrorImpl implements Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(CategoryDetailsEntity categoryDetails)? success,
+    TResult? Function()? paginationLoading,
+    TResult? Function(String errCode, String err)? paginationError,
     TResult? Function(String errCode, String err)? error,
   }) {
     return error?.call(errCode, err);
@@ -559,6 +905,8 @@ class _$ErrorImpl implements Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(CategoryDetailsEntity categoryDetails)? success,
+    TResult Function()? paginationLoading,
+    TResult Function(String errCode, String err)? paginationError,
     TResult Function(String errCode, String err)? error,
     required TResult orElse(),
   }) {
@@ -574,6 +922,8 @@ class _$ErrorImpl implements Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(PaginationLoading value) paginationLoading,
+    required TResult Function(PaginationError value) paginationError,
     required TResult Function(Error value) error,
   }) {
     return error(this);
@@ -585,6 +935,8 @@ class _$ErrorImpl implements Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(PaginationLoading value)? paginationLoading,
+    TResult? Function(PaginationError value)? paginationError,
     TResult? Function(Error value)? error,
   }) {
     return error?.call(this);
@@ -596,6 +948,8 @@ class _$ErrorImpl implements Error {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(PaginationLoading value)? paginationLoading,
+    TResult Function(PaginationError value)? paginationError,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {

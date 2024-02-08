@@ -589,7 +589,7 @@ class _HomeViewState extends State<HomeView> {
                           );
                         },
                         loading: () {
-                          return const Center(child: CircularProgressIndicator());
+                          return const StateLoadingWidget();
                         },
                         error: (errCode, err) {
                           return StateErrorWidget(
@@ -653,7 +653,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         );
                       }, loading: () {
-                        return const Center(child: CircularProgressIndicator());
+                        return const StateLoadingWidget();
                       }, error: (errCode, err) {
                         return StateErrorWidget(
                           errCode: errCode!,
@@ -714,7 +714,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         );
                       }, loading: () {
-                        return const Center(child: CircularProgressIndicator());
+                        return const StateLoadingWidget();
                       }, error: (errCode, err) {
                         return StateErrorWidget(
                           errCode: errCode!,

@@ -48,7 +48,11 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
       if (!isLoading) {
         isLoading = true;
         await BlocProvider.of<CategoryDetailsCubit>(context).getProducts(
-          CategoryDetailsEntity(filterId: subCategory, nextPage: ++nextPage),
+          CategoryDetailsEntity(
+            categoryId: widget.id,
+            filterId: subCategory,
+            nextPage: ++nextPage,
+          ),
         );
         isLoading = false;
       }
@@ -67,16 +71,10 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
     super.dispose();
   }
 
-  CategoryDetailsEntity categoryDetailsEntity = const CategoryDetailsEntity();
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) =>
-              di.di<CategoryDetailsCubit>()..getProducts(categoryDetailsEntity),
-        ),
         BlocProvider(
           create: (context) => di.di<SubCategoryCubit>()..getAllSubCategory(),
         ),
@@ -117,12 +115,18 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
                                       CategoryDetailsStates>(
                                     listener: (context, state2) {},
                                     builder: (context, state2) {
-                                      CategoryDetailsCubit categoryDetailsCubit=CategoryDetailsCubit.get(context);
+                                      CategoryDetailsCubit
+                                          categoryDetailsCubit =
+                                          CategoryDetailsCubit.get(context);
                                       return GestureDetector(
                                         onTap: () {
                                           nextPage = 1;
                                           subCategory = state[index].id!;
-                                          categoryDetailsCubit.getProducts(CategoryDetailsEntity(filterId: subCategory,nextPage: nextPage));
+                                          categoryDetailsCubit.getProducts(
+                                              CategoryDetailsEntity(
+                                                  categoryId: widget.id,
+                                                  filterId: subCategory,
+                                                  nextPage: nextPage));
                                         },
                                         child: Padding(
                                           padding: const EdgeInsets.symmetric(
@@ -194,19 +198,64 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
                       },
                       success: (state) {
                         return products.isNotEmpty
-                            ? AutoHeightGridView(
+                            ? Expanded(
+                              child: AutoHeightGridView(
+                                controller: scrollController,
+
                                 itemCount: products.length,
-                                crossAxisCount: 2,
-                                mainAxisSpacing: 10,
-                                crossAxisSpacing: 10,
-                                physics: const NeverScrollableScrollPhysics(),
-                                padding: const EdgeInsets.all(12),
-                                shrinkWrap: true,
-                                builder: (context, index) {
-                                  return ProductCard(
-                                      productEntity: products[index]);
-                                },
-                              )
+                                  crossAxisCount: 2,
+                                  mainAxisSpacing: 10,
+                                  crossAxisSpacing: 10,
+                                  // physics: const NeverScrollableScrollPhysics(),
+                                  padding: const EdgeInsets.all(12),
+                                  shrinkWrap: true,
+                                  builder: (context, index) {
+                                    return ProductCard(
+                                        productEntity: products[index]);
+                                  },
+                                ),
+                            )
+                            : Text(S.of(context).no_products_yet);
+                      },
+                      paginationError: (errCode, err) {
+                        return products.isNotEmpty
+                            ? Expanded(
+                              child: AutoHeightGridView(
+                                controller: scrollController,
+                                  itemCount: products.length,
+                                  crossAxisCount: 2,
+                                  mainAxisSpacing: 10,
+                                  crossAxisSpacing: 10,
+                                  // physics: const NeverScrollableScrollPhysics(),
+                                  padding: const EdgeInsets.all(12),
+                                  shrinkWrap: true,
+                                  builder: (context, index) {
+                                    return ProductCard(
+                                        productEntity: products[index]);
+                                  },
+                                ),
+                            )
+                            : Text(S.of(context).no_products_yet);
+                      },
+                      paginationLoading: () {
+                        return products.isNotEmpty
+                            ? Expanded(
+                              child: AutoHeightGridView(
+                                                        controller: scrollController,
+                              
+                                                        itemCount: products.length,
+                                  crossAxisCount: 2,
+                                  mainAxisSpacing: 10,
+                                  crossAxisSpacing: 10,
+                                  // physics: const NeverScrollableScrollPhysics(),
+                                  padding: const EdgeInsets.all(12),
+                                  shrinkWrap: true,
+                                  builder: (context, index) {
+                                    return ProductCard(
+                                        productEntity: products[index]);
+                                  },
+                                ),
+                            )
                             : Text(S.of(context).no_products_yet);
                       },
                       error: (errCode, err) {

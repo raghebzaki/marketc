@@ -16,6 +16,8 @@ import '../../features/auth/reset_pass/presentation/pages/reset_pass_view.dart';
 import '../../features/auth/verify_account/presentation/pages/verify_account_view.dart';
 import '../../features/customer/bottom_nav_bar/presentation/pages/bottom_nav_bar.dart';
 import '../../features/customer/main/cart/presentation/pages/cart_view.dart';
+import '../../features/customer/main/category_details/domain/entities/category_details_entity.dart';
+import '../../features/customer/main/category_details/presentation/manager/category_details_cubit.dart';
 import '../../features/customer/main/category_details/presentation/pages/category_details_view.dart';
 import '../../features/customer/main/home/presentation/manager/carousel_cubit.dart';
 import '../../features/customer/main/home/presentation/manager/category_cubit.dart';
@@ -152,8 +154,17 @@ class AppRouters {
       case categoryDetailsPageRoute:
         final args = settings.arguments as CategoryDetailsArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => CategoryDetailsView(
-            id: args.id,
+          builder: (BuildContext context) =>  BlocProvider(
+            create: (context) =>
+            di.di<CategoryDetailsCubit>()
+              ..getProducts(
+                CategoryDetailsEntity(
+                  categoryId: args.id,
+                  filterId: 1,
+                  nextPage: 1,
+                ),
+              ),
+            child: CategoryDetailsView(id: args.id),
           ),
         );
       case productDetailsPageRoute:

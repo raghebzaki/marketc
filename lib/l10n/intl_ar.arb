@@ -247,5 +247,6 @@
   "no_products_yet": "لا يوجد لديك منتجات حتي الان",
   "shipped_status": "قيد الشحن",
   "done_status": "مكتملة",
-  "cancelled_status": "ملغية"
+  "cancelled_status": "ملغية",
+  "yourCartIsEmpty": "سلة المشتريات لديك فارغة"
 }

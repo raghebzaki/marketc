@@ -19,18 +19,27 @@ class CategoryDetailsCubit extends Cubit<CategoryDetailsStates> {
   final GetCategoryProductsUseCase getCategoryProductsUseCase;
 
   getProducts(CategoryDetailsEntity categoryDetailsEntity) async {
-    emit(const CategoryDetailsStates.loading());
+    categoryDetailsEntity.nextPage == 1
+        ? emit(const CategoryDetailsStates.loading())
+        : emit(const CategoryDetailsStates.paginationLoading());
 
     final products = await getCategoryProductsUseCase(categoryDetailsEntity);
 
     products.fold(
       (l) => {
-        emit(
-          CategoryDetailsStates.error(
-            l.code.toString(),
-            l.message,
-          ),
-        ),
+        categoryDetailsEntity.nextPage == 1
+            ? emit(
+                CategoryDetailsStates.error(
+                  l.code.toString(),
+                  l.message,
+                ),
+              )
+            : emit(
+                CategoryDetailsStates.paginationError(
+                  l.code.toString(),
+                  l.message,
+                ),
+              ),
       },
       (r) => {
         emit(

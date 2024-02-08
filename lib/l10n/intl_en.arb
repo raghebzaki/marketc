@@ -251,5 +251,6 @@
   "no_products_yet": "You have no products yet",
   "shipped_status": "shipped",
   "done_status": "completed",
-  "cancelled_status": "cancelled"
+  "cancelled_status": "cancelled",
+  "yourCartIsEmpty": "Your cart is empty."
 }

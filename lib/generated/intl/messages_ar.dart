@@ -360,6 +360,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اشتراك 899 ريال"),
         "youHaveNo": MessageLookupByLibrary.simpleMessage("لا يوجد طلبات "),
         "you_think": MessageLookupByLibrary.simpleMessage("بما تفكر؟"),
+        "yourCartIsEmpty":
+            MessageLookupByLibrary.simpleMessage("سلة المشتريات لديك فارغة"),
         "your_info_1": MessageLookupByLibrary.simpleMessage(
             "• المعلومات التي تقدمها من خلال التطبيق لدينا")
       };

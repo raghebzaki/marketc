@@ -16,13 +16,15 @@ import '../../utils/dimensions.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductEntity productEntity;
+
   const ProductCard({super.key, required this.productEntity});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(productDetailsPageRoute,arguments:ProductsEntityArgs(productEntity: productEntity) );
+        context.pushNamed(productDetailsPageRoute,
+            arguments: ProductsEntityArgs(productEntity: productEntity));
       },
       child: Container(
         width: 160.w,
@@ -53,7 +55,12 @@ class ProductCard extends StatelessWidget {
                 );
               },
               progressIndicatorBuilder: (context, url, downloadProgress) =>
-                  Center(child: CircularProgressIndicator(value: downloadProgress.progress)),
+                  Center(
+                child: CircularProgressIndicator(
+                  color: AppColors.secondary,
+                  value: downloadProgress.progress,
+                ),
+              ),
               errorWidget: (context, url, error) => const Icon(Icons.error),
               fit: BoxFit.cover,
             ),
@@ -62,12 +69,16 @@ class ProductCard extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    CacheHelper.isEnglish()?productEntity.nameEn!:productEntity.nameAr!,
+                    CacheHelper.isEnglish()
+                        ? productEntity.nameEn!
+                        : productEntity.nameAr!,
                     style: CustomTextStyle.kTextStyleF12
                         .copyWith(color: AppColors.textColor),
                   ),
                   Text(
-                    productEntity.subCategoryId==2?S.current.custom_phrases:S.current.custom_logo,
+                    productEntity.subCategoryId == 2
+                        ? S.current.custom_phrases
+                        : S.current.custom_logo,
                     style: CustomTextStyle.kTextStyleF12
                         .copyWith(color: AppColors.textColorSecondary),
                   ),
@@ -76,36 +87,37 @@ class ProductCard extends StatelessWidget {
                     style: CustomTextStyle.kTextStyleF12
                         .copyWith(color: AppColors.textColorSecondary),
                   ),
-                  productEntity.discountPercent==0?Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        '${productEntity.price} ${S.current.sar}',
-                        style: CustomTextStyle.kTextStyleF12
-                            .copyWith(color: AppColors.lightBlue),
-                      ),
-                    ],
-                  ):
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        '${productEntity.priceAfterDiscount} ${S.current.sar}',
-                        style: CustomTextStyle.kTextStyleF12
-                            .copyWith(color: AppColors.lightBlue),
-                      ),
-                      Gap(8.w),
-                      Text(
-                        "${productEntity.discountPercent!}%",
-                        style: CustomTextStyle.kTextStyleF12
-                            .copyWith(color: AppColors.discountNumber),
-                      ),
-                    ],
-                  ),
+                  productEntity.discountPercent == 0
+                      ? Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              '${productEntity.price} ${S.current.sar}',
+                              style: CustomTextStyle.kTextStyleF12
+                                  .copyWith(color: AppColors.lightBlue),
+                            ),
+                          ],
+                        )
+                      : Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              '${productEntity.priceAfterDiscount} ${S.current.sar}',
+                              style: CustomTextStyle.kTextStyleF12
+                                  .copyWith(color: AppColors.lightBlue),
+                            ),
+                            Gap(8.w),
+                            Text(
+                              "${productEntity.discountPercent!}%",
+                              style: CustomTextStyle.kTextStyleF12
+                                  .copyWith(color: AppColors.discountNumber),
+                            ),
+                          ],
+                        ),
                 ],
               ),
             ),

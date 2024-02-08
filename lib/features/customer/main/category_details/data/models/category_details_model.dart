@@ -11,12 +11,10 @@ class CategoryDetailsModel extends CategoryDetailsEntity {
 
   factory CategoryDetailsModel.fromJson(Map<String, dynamic> json) {
     return CategoryDetailsModel(
-      categoryId: json["category_id"] ?? 0,
-      filterId: json['filter_id'] ?? 0,
-      products: json["products"] == null
+      products: json["data"]["data"] == null
           ? []
           : List<ProductModel>.from(
-              json["products"]!.map(
+              json["data"]["data"]!.map(
                 (x) => ProductModel.fromJson(x),
               ),
             ),
@@ -26,6 +24,7 @@ class CategoryDetailsModel extends CategoryDetailsEntity {
   static Map<String, dynamic> toJson(
       CategoryDetailsEntity categoryDetailsEntity) {
     return {
+      "category_id" : categoryDetailsEntity.categoryId,
       "sub_category_id": categoryDetailsEntity.filterId,
       "page": categoryDetailsEntity.nextPage,
     };

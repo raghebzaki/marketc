@@ -371,6 +371,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "youHaveNo": MessageLookupByLibrary.simpleMessage("You have no "),
         "you_think": MessageLookupByLibrary.simpleMessage(
             "What are you thinking about?"),
+        "yourCartIsEmpty":
+            MessageLookupByLibrary.simpleMessage("Your cart is empty."),
         "your_info_1": MessageLookupByLibrary.simpleMessage(
             "• Information you provide through our application")
       };
