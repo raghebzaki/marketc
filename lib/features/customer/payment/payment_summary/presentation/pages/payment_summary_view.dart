@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:marketc/core/database/address_class.dart';
 import 'package:marketc/core/shared/cubits/cart_cubit/cart_cubit.dart';
+import 'package:marketc/core/utils/app_constants.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:marketc/features/customer/payment/payment_summary/domain/entities/place_order_entity.dart';
 
@@ -24,6 +25,8 @@ class PaymentSummaryView extends StatefulWidget {
   final num? finalPrice;
   final String name;
 
+
+
   const PaymentSummaryView({super.key, required this.finalPrice, required this.address, required this.name});
 
   @override
@@ -31,9 +34,12 @@ class PaymentSummaryView extends StatefulWidget {
 }
 
 class _PaymentSummaryViewState extends State<PaymentSummaryView> {
+
+
   @override
   Widget build(BuildContext context) {
     final cartItems = context.watch<CartCubit>().cartProducts;
+    double tax = widget.finalPrice!/10;
     return Scaffold(
       backgroundColor: AppColors.primary,
       appBar: CustomAppBar(title: S.current.payment),
@@ -199,7 +205,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               ),
                               const Spacer(),
                               Text(
-                                "${widget.finalPrice} ${S.current.sar}",
+                                "${widget.finalPrice! + tax + AppConstants.deliveryFee} ${S.current.sar}",
                                 style: CustomTextStyle.kTextStyleF14
                                     .copyWith(color: AppColors.textColor),
                               ),
@@ -228,7 +234,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               ),
                               const Spacer(),
                               Text(
-                                "${widget.finalPrice!- 30} ${S.current.sar}",
+                                "${widget.finalPrice!} ${S.current.sar}",
                                 style: CustomTextStyle.kTextStyleF14.copyWith(
                                     color: AppColors.textColorSecondary),
                               ),
@@ -245,7 +251,24 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               ),
                               const Spacer(),
                               Text(
-                                '30 ${S.current.sar}',
+                                '${AppConstants.deliveryFee} ${S.current.sar}',
+                                style: CustomTextStyle.kTextStyleF14.copyWith(
+                                    color: AppColors.textColorSecondary),
+                              ),
+                            ],
+                          ),
+                          Gap(15.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                S.current.tax,
+                                style: CustomTextStyle.kTextStyleF14.copyWith(
+                                    color: AppColors.textColorSecondary),
+                              ),
+                              const Spacer(),
+                              Text(
+                                '${tax} ${S.current.sar}',
                                 style: CustomTextStyle.kTextStyleF14.copyWith(
                                     color: AppColors.textColorSecondary),
                               ),

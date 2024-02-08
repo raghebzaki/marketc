@@ -143,7 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "executed_request":
             MessageLookupByLibrary.simpleMessage("الطلب المنفذ"),
         "failedToCheckOtp":
-            MessageLookupByLibrary.simpleMessage("Failed to check OTP"),
+            MessageLookupByLibrary.simpleMessage("فشل التحقق من الرمز"),
         "failed_change_pass":
             MessageLookupByLibrary.simpleMessage("فشل تغيير كلمة المرور"),
         "favorite": MessageLookupByLibrary.simpleMessage("المفضلة"),
@@ -214,7 +214,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "في حالة تواجهك لأي مشكلة يمكنك التواصل مع"),
         "order_summary": MessageLookupByLibrary.simpleMessage("ملخص الطلب"),
         "orders": MessageLookupByLibrary.simpleMessage(" "),
-        "otpIsCorrect": MessageLookupByLibrary.simpleMessage("OTP is correct"),
+        "otpIsCorrect": MessageLookupByLibrary.simpleMessage("رمز التحقق صحيح"),
         "otp_sent":
             MessageLookupByLibrary.simpleMessage("تم إرسال رمز التحقق إلى"),
         "pass": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
@@ -325,6 +325,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("مرحبا بك في الاشتراكات"),
         "subtotal": MessageLookupByLibrary.simpleMessage("المجموع الفرعي"),
         "success": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
+        "tax": MessageLookupByLibrary.simpleMessage("ألضريبة"),
         "ten_desings":
             MessageLookupByLibrary.simpleMessage("الحصول على 10 تصاميم"),
         "terms_and_conditions":

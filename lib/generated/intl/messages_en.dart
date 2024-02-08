@@ -332,6 +332,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Welcome to Subscriptions"),
         "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
+        "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "ten_desings": MessageLookupByLibrary.simpleMessage("Get 10 designs"),
         "terms_and_conditions":
             MessageLookupByLibrary.simpleMessage("Terms and Conditions"),

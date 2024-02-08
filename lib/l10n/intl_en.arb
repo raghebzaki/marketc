@@ -254,5 +254,6 @@
   "cancelled_status": "cancelled",
   "yourCartIsEmpty": "Your cart is empty.",
   "otpIsCorrect": "OTP is correct",
-  "failedToCheckOtp": "Failed to check OTP"
+  "failedToCheckOtp": "Failed to check OTP",
+  "tax": "Tax"
 }

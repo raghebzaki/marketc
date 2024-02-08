@@ -15,6 +15,7 @@ class AppConstants {
   static const subFontFamily = "Abhaya Libre";
   static const unknownStringValue = "UNKNOWN STRING VALUE";
   static const unknownNumValue = 2077;
+  static const deliveryFee = 40;
 
   //! API headers
   static const String applicationJson = "application/json";

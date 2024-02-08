@@ -11,6 +11,7 @@ import 'package:marketc/core/shared/entities/product_entity.dart';
 import 'package:marketc/core/shared/widgets/custom_button.dart';
 import 'package:marketc/core/shared/widgets/custom_form_field.dart';
 import 'package:marketc/core/utils/app_colors.dart';
+import 'package:marketc/core/utils/app_constants.dart';
 import 'package:marketc/core/utils/extensions.dart';
 
 import '../../../../../../core/shared/cubits/cart_cubit/cart_cubit.dart';
@@ -21,6 +22,7 @@ import '../../../../../../generated/l10n.dart';
 
 class PaymentDetailsView extends StatefulWidget {
   final Address? address;
+
   const PaymentDetailsView({super.key, required this.address});
 
   @override
@@ -28,9 +30,6 @@ class PaymentDetailsView extends StatefulWidget {
 }
 
 class _PaymentDetailsViewState extends State<PaymentDetailsView> {
-
-
-
   @override
   void initState() {
     super.initState();
@@ -42,7 +41,6 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
   TextEditingController nameCtrl = TextEditingController(text: UserData.name);
   TextEditingController addressCtrl = TextEditingController();
   TextEditingController phoneCtrl = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -205,8 +203,19 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                             ),
                             const Spacer(),
                             Text(
-                              "${(totalPrice.map((e) => e.discountPercent==0?int.parse(e.price!) * e.userQuantity!:int.parse(e.priceAfterDiscount!) * e.userQuantity!)
-                                  .reduce((value, element) => value + element)+30)} ${S.current.sar}",
+                              "${(totalPrice.map(
+                                    (e) => e.discountPercent == 0
+                                        ? int.parse(e.price!) *
+                                                e.userQuantity! +
+                                            int.parse(e.price!) *
+                                                e.userQuantity! /
+                                                10
+                                        : int.parse(e.priceAfterDiscount!) *
+                                                e.userQuantity! +
+                                            int.parse(e.priceAfterDiscount!) *
+                                                e.userQuantity! /
+                                                10,
+                                  ).reduce((value, element) => value + element) + AppConstants.deliveryFee)} ${S.current.sar}",
                               style: CustomTextStyle.kTextStyleF14
                                   .copyWith(color: AppColors.textColor),
                             ),
@@ -235,8 +244,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                             ),
                             const Spacer(),
                             Text(
-                              "${(totalPrice.map((e) => e.discountPercent==0?int.parse(e.price!) * e.userQuantity!:int.parse(e.priceAfterDiscount!) * e.userQuantity!)
-                                  .reduce((value, element) => value + element))} ${S.current.sar}",
+                              "${(totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element))} ${S.current.sar}",
                               style: CustomTextStyle.kTextStyleF14.copyWith(
                                   color: AppColors.textColorSecondary),
                             ),
@@ -253,7 +261,24 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                             ),
                             const Spacer(),
                             Text(
-                              '30 ${S.current.sar}',
+                              '${AppConstants.deliveryFee} ${S.current.sar}',
+                              style: CustomTextStyle.kTextStyleF14.copyWith(
+                                  color: AppColors.textColorSecondary),
+                            ),
+                          ],
+                        ),
+                        Gap(15.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              S.current.tax,
+                              style: CustomTextStyle.kTextStyleF14.copyWith(
+                                  color: AppColors.textColorSecondary),
+                            ),
+                            const Spacer(),
+                            Text(
+                              '${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) / 10} ${S.current.sar}',
                               style: CustomTextStyle.kTextStyleF14.copyWith(
                                   color: AppColors.textColorSecondary),
                             ),
@@ -273,7 +298,11 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                 child: CustomBtn(
                   label: S.of(context).progress,
                   onPressed: () {
-                    context.pushNamed(paymentGateWayPageRoute,arguments: AddressArgs(nameCtrl.text, address: widget.address!, ));
+                    context.pushNamed(paymentGateWayPageRoute,
+                        arguments: AddressArgs(
+                          nameCtrl.text,
+                          address: widget.address!,
+                        ));
                   },
                 ),
               ),

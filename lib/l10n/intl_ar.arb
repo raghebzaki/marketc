@@ -250,6 +250,7 @@
   "cancelled_status": "ملغية",
   "yourCartIsEmpty": "سلة المشتريات لديك فارغة",
   "sar": "ريال",
-  "otpIsCorrect": "OTP is correct",
-  "failedToCheckOtp": "Failed to check OTP"
+  "otpIsCorrect": "رمز التحقق صحيح",
+  "failedToCheckOtp": "فشل التحقق من الرمز",
+  "tax": "ألضريبة"
 }

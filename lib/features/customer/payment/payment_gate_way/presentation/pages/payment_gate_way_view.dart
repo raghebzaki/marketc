@@ -28,7 +28,9 @@ import '../manager/promo_code_cubit.dart';
 class PaymentGateWayView extends StatefulWidget {
   final Address address;
   final String name;
-  const PaymentGateWayView({super.key, required this.address, required this.name});
+
+  const PaymentGateWayView(
+      {super.key, required this.address, required this.name});
 
   @override
   State<PaymentGateWayView> createState() => _PaymentGateWayViewState();
@@ -58,8 +60,6 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
 
   TextEditingController pinCtrl = TextEditingController();
 
-
-
   @override
   void initState() {
     super.initState();
@@ -69,8 +69,11 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
   Widget build(BuildContext context) {
     List<ProductEntity> totalPrice = context.watch<CartCubit>().cartProducts;
 
-    var total=(totalPrice.map((e) => e.discountPercent==0?int.parse(e.price!) * e.userQuantity!:int.parse(e.priceAfterDiscount!) * e.userQuantity!)
-        .reduce((value, element) => value + element)+30);
+    var total = (totalPrice
+            .map((e) => e.discountPercent == 0
+                ? int.parse(e.price!) * e.userQuantity!
+                : int.parse(e.priceAfterDiscount!) * e.userQuantity!)
+            .reduce((value, element) => value + element));
     return BlocProvider(
       create: (context) => di.di<PromoCodeCubit>(),
       child: Scaffold(
@@ -308,11 +311,11 @@ class _PaymentGateWayViewState extends State<PaymentGateWayView> {
                       context.pushNamed(
                         paymentSummaryPageRoute,
                         arguments: PaymentSharedPrice(
-                          name: widget.name,
-                          sharedPrice: total,
-                          address: widget.address
-                        ),
+                            name: widget.name,
+                            sharedPrice: total,
+                            address: widget.address),
                       );
+                      print(total);
                     },
                   ),
                 ),
