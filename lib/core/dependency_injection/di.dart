@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:marketc/features/customer/main/product_details/domain/use_cases/check_if_favorite_use_case.dart';
-import 'package:marketc/features/customer/profile/edit_profile/domain/use_cases/edit_account_use_Case.dart';
+import 'package:marketc/features/customer/profile/edit_profile/domain/use_cases/edit_account_use_case.dart';
 import 'package:marketc/features/designer/main/categories/presentation/manager/delete_product_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -93,7 +93,6 @@ import '../../features/customer/orders/track_order/domain/repositories/cancel_or
 import '../../features/customer/orders/track_order/domain/repositories/track_order_repo.dart';
 import '../../features/customer/orders/track_order/domain/use_cases/cancel_order_usecase.dart';
 import '../../features/customer/orders/track_order/domain/use_cases/track_order_usecase.dart';
-import '../../features/customer/orders/track_order/presentation/manager/cancel_order_cubit.dart';
 import '../../features/customer/orders/track_order/presentation/manager/track_order_cubit.dart';
 import '../../features/customer/payment/payment_gate_way/data/data_sources/promo_code_service.dart';
 import '../../features/customer/payment/payment_gate_way/data/repositories/promo_code_repo_impl.dart';

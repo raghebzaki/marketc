@@ -15,9 +15,9 @@ class CategoryProductsServiceImpl implements CategoryProductsService {
     Dio dio = await DioFactory.getDio();
     CategoryDetailsModel categoryDetailsModel = const CategoryDetailsModel();
 
-    final getProducts = await dio.post(
+    final getProducts = await dio.get(
       AppConstants.apiBaseUrl + AppConstants.categoryDetailsUri,
-      data: CategoryDetailsModel.toJson(categoryDetailsEntity),
+      queryParameters: CategoryDetailsModel.toJson(categoryDetailsEntity),
     );
 
     if (getProducts.statusCode == 200) {

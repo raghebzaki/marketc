@@ -1,4 +1,3 @@
-import '../../domain/entities/cancel_order_entity.dart';
 import '../../domain/entities/track_order_entity.dart';
 
 class TrackOrderModel extends TrackOrderEntity {

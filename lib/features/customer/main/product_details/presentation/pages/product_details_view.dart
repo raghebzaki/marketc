@@ -7,9 +7,7 @@ import 'package:getwidget/components/carousel/gf_carousel.dart';
 import 'package:marketc/core/router/router.dart';
 import 'package:marketc/core/shared/cubits/cart_cubit/cart_cubit.dart';
 import 'package:marketc/core/utils/extensions.dart';
-import 'package:marketc/features/customer/main/favorite/presentation/manager/favorite_cubit.dart';
 import 'package:marketc/features/customer/main/product_details/presentation/manager/add_favorite_cubit.dart';
-import 'package:marketc/features/customer/main/product_details/presentation/manager/check_if_favorite_cubit.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';

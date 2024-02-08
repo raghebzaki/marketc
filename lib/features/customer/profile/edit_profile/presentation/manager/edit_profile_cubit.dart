@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:marketc/features/customer/profile/edit_profile/domain/entities/edit_profile_entity.dart';
-import 'package:marketc/features/customer/profile/edit_profile/domain/use_cases/edit_account_use_Case.dart';
+import 'package:marketc/features/customer/profile/edit_profile/domain/use_cases/edit_account_use_case.dart';
 
 import '../../domain/use_cases/delete_account_use_case.dart';
 

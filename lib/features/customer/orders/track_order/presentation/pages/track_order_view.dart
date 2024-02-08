@@ -103,7 +103,7 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                                         GestureDetector(
                                           onTap: () {
                                             trackOrderCubit.cancelOrder(
-                                              CancelOrderEntity(
+                                              const CancelOrderEntity(
                                                 orderId: 1,
                                               ),
                                             );

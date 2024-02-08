@@ -26,8 +26,7 @@ class CategoryDetailsModel extends CategoryDetailsEntity {
   static Map<String, dynamic> toJson(
       CategoryDetailsEntity categoryDetailsEntity) {
     return {
-      "category_id": categoryDetailsEntity.categoryId,
-      "filter_id": categoryDetailsEntity.filterId,
+      "sub_category_id": categoryDetailsEntity.filterId,
       "page": categoryDetailsEntity.nextPage,
     };
   }
