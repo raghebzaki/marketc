@@ -64,4 +64,5 @@ class AppConstants {
   static const getSizesUri = "v1/sizes";
   static const updateProductUri = "v1/designer/update-product";
   static const myProductsUri = "v1/designer/my-products";
+  static const getPackagesUri = "v1/packages";
 }

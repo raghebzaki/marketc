@@ -14,6 +14,8 @@ class UserData extends Equatable {
   static String? type;
   static num? otp;
   static num? status;
+  static num? currentBalance;
+  static num? awardPoints;
 
   UserData.fromJson(Map<String, dynamic> json) {
     id = json["id"] ?? AppConstants.unknownNumValue; // 2077
@@ -25,6 +27,8 @@ class UserData extends Equatable {
     phone = json["phone"] ?? AppConstants.unknownStringValue;
     type = json["type"] ?? AppConstants.unknownStringValue;
     status = json['status'] ?? AppConstants.unknownNumValue;
+    status = json['current_balance'] ?? 0;
+    status = json['award_points'] ?? 0;
   }
 
   static Map<String, dynamic> toJson() => {

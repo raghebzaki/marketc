@@ -134,6 +134,11 @@ import '../../features/designer/main/home/domain/repositories/designer_carousel_
 import '../../features/designer/main/home/domain/use_cases/designer_carousel_use_case.dart';
 import '../../features/designer/main/home/presentation/manager/designer_carousel_cubit.dart';
 
+import '../../features/designer/main/subscriptions/data/data_sources/subscriptions_service.dart';
+import '../../features/designer/main/subscriptions/data/repositories/subscriptions_repo_impl.dart';
+import '../../features/designer/main/subscriptions/domain/repositories/subscriptions_repo.dart';
+import '../../features/designer/main/subscriptions/domain/usecases/subscriptions_usecase.dart';
+import '../../features/designer/main/subscriptions/presentation/manager/subscriptions_cubit.dart';
 import '../../features/designer/product/add_product/data/data_sources/add_product_service.dart';
 import '../../features/designer/product/add_product/data/data_sources/color_service.dart';
 import '../../features/designer/product/add_product/data/data_sources/size_service.dart';
@@ -416,6 +421,12 @@ Future<void> init() async {
   di.registerLazySingleton(() => SizesUseCase(sizesRepo: di()));
   di.registerLazySingleton<SizesRepo>(() => SizesRepoImpl(sizeService: di()));
   di.registerLazySingleton<SizeService>(() => SizeServiceImpl());
+
+  /// Sizes
+  di.registerFactory(() => SubscriptionsCubit(subscriptionsUseCase: di()));
+  di.registerLazySingleton(() => SubscriptionsUseCase(subscriptionsRepo:  di()));
+  di.registerLazySingleton<SubscriptionsRepo>(() => SubscriptionsRepoImpl(subscriptionService: di()));
+  di.registerLazySingleton<SubscriptionService>(() => SubscriptionServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();

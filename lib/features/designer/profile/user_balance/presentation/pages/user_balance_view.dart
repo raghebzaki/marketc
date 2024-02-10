@@ -7,6 +7,7 @@ import 'package:marketc/core/shared/widgets/custom_button.dart';
 import 'package:marketc/core/utils/app_colors.dart';
 import 'package:marketc/core/utils/extensions.dart';
 
+import '../../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../generated/l10n.dart';
 
@@ -39,7 +40,7 @@ class UserBalanceView extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      '2000 SAR',
+                      "${UserData.currentBalance}",
                       style:CustomTextStyle.kTextStyleF20.copyWith(color: AppColors.black80),
                     ),
                     const SizedBox(height: 16),
