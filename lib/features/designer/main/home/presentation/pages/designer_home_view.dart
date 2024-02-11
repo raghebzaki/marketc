@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
+import 'package:marketc/features/designer/main/home/presentation/manager/stats_cubit/stats_cubit.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/shared/widgets/state_loading_widget.dart';
@@ -53,7 +54,6 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
     scrollController.addListener(scrollListener);
   }
 
-
   @override
   Widget build(BuildContext context) {
     return PopScope(
@@ -71,7 +71,7 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
       },
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize:  Size.fromHeight(70.0.h), // here the desired height
+          preferredSize: Size.fromHeight(70.0.h), // here the desired height
           child: AppBar(
             backgroundColor: Colors.white,
             elevation: 0,
@@ -84,17 +84,20 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                 Text(
                   '+970 59 533 3781',
                   textAlign: TextAlign.justify,
-                  style: CustomTextStyle.kTextStyleF14.copyWith(color: AppColors.textColorSecondary),
+                  style: CustomTextStyle.kTextStyleF14
+                      .copyWith(color: AppColors.textColorSecondary),
                 )
               ],
             ),
-
             centerTitle: false,
             automaticallyImplyLeading: false,
             actions: [
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 10.0.w),
-                child: Image.asset(AppImages.bellImg,width: 25.w,),
+                padding: EdgeInsets.symmetric(horizontal: 10.0.w),
+                child: Image.asset(
+                  AppImages.bellImg,
+                  width: 25.w,
+                ),
               )
             ],
           ),
@@ -142,7 +145,7 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                               children: [
                                 ...List.generate(
                                   ads.length,
-                                      (index) {
+                                  (index) {
                                     return Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: Dimensions.p8),
@@ -153,8 +156,9 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                                         decoration: ShapeDecoration(
                                           color: const Color(0xFFF8E7DE),
                                           shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(
-                                                  Dimensions.r8)),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      Dimensions.r8)),
                                         ),
                                         child: Row(
                                           children: [
@@ -164,7 +168,7 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                                                     Dimensions.p5),
                                                 child: Column(
                                                   crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
                                                       S.current.soon,
@@ -180,10 +184,11 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                                                       child: Text(
                                                         ads[index].description!,
                                                         textAlign:
-                                                        Intl.getCurrentLocale() ==
-                                                            "en"
-                                                            ? TextAlign.left
-                                                            : TextAlign.right,
+                                                            Intl.getCurrentLocale() ==
+                                                                    "en"
+                                                                ? TextAlign.left
+                                                                : TextAlign
+                                                                    .right,
                                                         style: CustomTextStyle
                                                             .kTextStyleF10,
 
@@ -191,30 +196,30 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                                                       ),
                                                     ),
                                                     Align(
-                                                      alignment:
-                                                      Intl.getCurrentLocale() ==
-                                                          "en"
+                                                      alignment: Intl
+                                                                  .getCurrentLocale() ==
+                                                              "en"
                                                           ? Alignment
-                                                          .centerRight
+                                                              .centerRight
                                                           : Alignment
-                                                          .centerLeft,
+                                                              .centerLeft,
                                                       child: Container(
                                                         width: 82.w,
                                                         height: 18.h,
                                                         decoration:
-                                                        ShapeDecoration(
-                                                          color:
-                                                          AppColors.secondary,
+                                                            ShapeDecoration(
+                                                          color: AppColors
+                                                              .secondary,
                                                           shape: RoundedRectangleBorder(
                                                               borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                  Dimensions
-                                                                      .r4)),
+                                                                  BorderRadius.circular(
+                                                                      Dimensions
+                                                                          .r4)),
                                                         ),
                                                         child: Center(
                                                           child: Text(
-                                                            S.current.browse_now,
+                                                            S.current
+                                                                .browse_now,
                                                             style: CustomTextStyle
                                                                 .kTextStyleF8,
                                                           ),
@@ -231,14 +236,15 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                                               decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                   image: ads[index].image ==
-                                                      null
+                                                          null
                                                       ? const CachedNetworkImageProvider(
-                                                    "https://via.placeholder.com/140x140",
-                                                  )
+                                                          "https://via.placeholder.com/140x140",
+                                                        )
                                                       : CachedNetworkImageProvider(
-                                                    AppConstants.imageUrl +
-                                                        ads[index].image!,
-                                                  ),
+                                                          AppConstants
+                                                                  .imageUrl +
+                                                              ads[index].image!,
+                                                        ),
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
@@ -261,7 +267,7 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                               children: [
                                 ...List.generate(
                                   ads.length,
-                                      (index) {
+                                  (index) {
                                     return Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: Dimensions.p8),
@@ -272,8 +278,9 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                                         decoration: ShapeDecoration(
                                           color: const Color(0xFFF8E7DE),
                                           shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(
-                                                  Dimensions.r8)),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      Dimensions.r8)),
                                         ),
                                         child: Row(
                                           children: [
@@ -283,7 +290,7 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                                                     Dimensions.p5),
                                                 child: Column(
                                                   crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
                                                       S.current.soon,
@@ -299,10 +306,11 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                                                       child: Text(
                                                         ads[index].description!,
                                                         textAlign:
-                                                        Intl.getCurrentLocale() ==
-                                                            "en"
-                                                            ? TextAlign.left
-                                                            : TextAlign.right,
+                                                            Intl.getCurrentLocale() ==
+                                                                    "en"
+                                                                ? TextAlign.left
+                                                                : TextAlign
+                                                                    .right,
                                                         style: CustomTextStyle
                                                             .kTextStyleF10,
 
@@ -310,30 +318,30 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                                                       ),
                                                     ),
                                                     Align(
-                                                      alignment:
-                                                      Intl.getCurrentLocale() ==
-                                                          "en"
+                                                      alignment: Intl
+                                                                  .getCurrentLocale() ==
+                                                              "en"
                                                           ? Alignment
-                                                          .centerRight
+                                                              .centerRight
                                                           : Alignment
-                                                          .centerLeft,
+                                                              .centerLeft,
                                                       child: Container(
                                                         width: 82.w,
                                                         height: 18.h,
                                                         decoration:
-                                                        ShapeDecoration(
-                                                          color:
-                                                          AppColors.secondary,
+                                                            ShapeDecoration(
+                                                          color: AppColors
+                                                              .secondary,
                                                           shape: RoundedRectangleBorder(
                                                               borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                  Dimensions
-                                                                      .r4)),
+                                                                  BorderRadius.circular(
+                                                                      Dimensions
+                                                                          .r4)),
                                                         ),
                                                         child: Center(
                                                           child: Text(
-                                                            S.current.browse_now,
+                                                            S.current
+                                                                .browse_now,
                                                             style: CustomTextStyle
                                                                 .kTextStyleF8,
                                                           ),
@@ -350,14 +358,15 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                                               decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                   image: ads[index].image ==
-                                                      null
+                                                          null
                                                       ? const CachedNetworkImageProvider(
-                                                    "https://via.placeholder.com/140x140",
-                                                  )
+                                                          "https://via.placeholder.com/140x140",
+                                                        )
                                                       : CachedNetworkImageProvider(
-                                                    AppConstants.imageUrl +
-                                                        ads[index].image!,
-                                                  ),
+                                                          AppConstants
+                                                                  .imageUrl +
+                                                              ads[index].image!,
+                                                        ),
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
@@ -380,7 +389,7 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                               children: [
                                 ...List.generate(
                                   ads.length,
-                                      (index) {
+                                  (index) {
                                     return Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: Dimensions.p8),
@@ -391,8 +400,9 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                                         decoration: ShapeDecoration(
                                           color: const Color(0xFFF8E7DE),
                                           shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(
-                                                  Dimensions.r8)),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      Dimensions.r8)),
                                         ),
                                         child: Row(
                                           children: [
@@ -402,7 +412,7 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                                                     Dimensions.p5),
                                                 child: Column(
                                                   crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
                                                       S.current.soon,
@@ -418,10 +428,11 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                                                       child: Text(
                                                         ads[index].description!,
                                                         textAlign:
-                                                        Intl.getCurrentLocale() ==
-                                                            "en"
-                                                            ? TextAlign.left
-                                                            : TextAlign.right,
+                                                            Intl.getCurrentLocale() ==
+                                                                    "en"
+                                                                ? TextAlign.left
+                                                                : TextAlign
+                                                                    .right,
                                                         style: CustomTextStyle
                                                             .kTextStyleF10,
 
@@ -429,30 +440,30 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                                                       ),
                                                     ),
                                                     Align(
-                                                      alignment:
-                                                      Intl.getCurrentLocale() ==
-                                                          "en"
+                                                      alignment: Intl
+                                                                  .getCurrentLocale() ==
+                                                              "en"
                                                           ? Alignment
-                                                          .centerRight
+                                                              .centerRight
                                                           : Alignment
-                                                          .centerLeft,
+                                                              .centerLeft,
                                                       child: Container(
                                                         width: 82.w,
                                                         height: 18.h,
                                                         decoration:
-                                                        ShapeDecoration(
-                                                          color:
-                                                          AppColors.secondary,
+                                                            ShapeDecoration(
+                                                          color: AppColors
+                                                              .secondary,
                                                           shape: RoundedRectangleBorder(
                                                               borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                  Dimensions
-                                                                      .r4)),
+                                                                  BorderRadius.circular(
+                                                                      Dimensions
+                                                                          .r4)),
                                                         ),
                                                         child: Center(
                                                           child: Text(
-                                                            S.current.browse_now,
+                                                            S.current
+                                                                .browse_now,
                                                             style: CustomTextStyle
                                                                 .kTextStyleF8,
                                                           ),
@@ -469,14 +480,15 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                                               decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                   image: ads[index].image ==
-                                                      null
+                                                          null
                                                       ? const CachedNetworkImageProvider(
-                                                    "https://via.placeholder.com/140x140",
-                                                  )
+                                                          "https://via.placeholder.com/140x140",
+                                                        )
                                                       : CachedNetworkImageProvider(
-                                                    AppConstants.imageUrl +
-                                                        ads[index].image!,
-                                                  ),
+                                                          AppConstants
+                                                                  .imageUrl +
+                                                              ads[index].image!,
+                                                        ),
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
@@ -504,192 +516,251 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                     },
                   ),
                   Gap(10.h),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          padding:  EdgeInsets.symmetric(horizontal: 40.w,vertical: 20.h),
-                          decoration: ShapeDecoration(
-                            color: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            shadows: const [
-                              BoxShadow(
-                                color: Color(0x19A3A3A3),
-                                blurRadius: 8,
-                                offset: Offset(0, 4),
-                                spreadRadius: 0,
-                              )
-                            ],
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                  BlocConsumer<StatsCubit, StatsStates>(
+                    listener: (context, state) {},
+                    builder: (context, state) {
+                      return state.maybeWhen(
+                        loading: () {
+                          return const StateLoadingWidget();
+                        },
+                        success: (state) {
+                          return Column(
                             children: [
-                              Container(
-                                width: 64.w,
-                                height: 64.w,
-                                decoration:  BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(AppImages.increaseImg),
-                                    fit: BoxFit.cover,
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 40.w, vertical: 20.h),
+                                      decoration: ShapeDecoration(
+                                        color: Colors.white,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                        ),
+                                        shadows: const [
+                                          BoxShadow(
+                                            color: Color(0x19A3A3A3),
+                                            blurRadius: 8,
+                                            offset: Offset(0, 4),
+                                            spreadRadius: 0,
+                                          )
+                                        ],
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            width: 64.w,
+                                            height: 64.w,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image: AssetImage(
+                                                    AppImages.increaseImg),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                          Text(S.of(context).profit_ratio,
+                                              textAlign: TextAlign.center,
+                                              style: CustomTextStyle
+                                                  .kTextStyleF14
+                                                  .copyWith(
+                                                      color:
+                                                          AppColors.textColor)),
+                                          Text("${state.profitRatio ?? 0}",
+                                              textAlign: TextAlign.center,
+                                              style: CustomTextStyle
+                                                  .kTextStyleF10
+                                                  .copyWith(
+                                                      color: AppColors
+                                                          .textColorSecondary))
+                                        ],
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
-                              Text(
-                                  S.of(context).profit_ratio,
-                                  textAlign: TextAlign.center,
-                                  style: CustomTextStyle.kTextStyleF14.copyWith(color: AppColors.textColor)
-                              ),
-                              Text(
-                                  '20%',
-                                  textAlign: TextAlign.center,
-                                  style: CustomTextStyle.kTextStyleF10.copyWith(color: AppColors.textColorSecondary)
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Gap(10.w),
-                      Expanded(
-                        child: Container(
-                          padding:  EdgeInsets.symmetric(horizontal: 40.w,vertical: 20.h),
-                          decoration: ShapeDecoration(
-                            color: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            shadows: const [
-                              BoxShadow(
-                                color: Color(0x19A3A3A3),
-                                blurRadius: 8,
-                                offset: Offset(0, 4),
-                                spreadRadius: 0,
-                              )
-                            ],
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 64.w,
-                                height: 64.w,
-                                decoration:  BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(AppImages.saleHomeImg),
-                                    fit: BoxFit.cover,
+                                  Gap(10.w),
+                                  Expanded(
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 40.w, vertical: 20.h),
+                                      decoration: ShapeDecoration(
+                                        color: Colors.white,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                        ),
+                                        shadows: const [
+                                          BoxShadow(
+                                            color: Color(0x19A3A3A3),
+                                            blurRadius: 8,
+                                            offset: Offset(0, 4),
+                                            spreadRadius: 0,
+                                          )
+                                        ],
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            width: 64.w,
+                                            height: 64.w,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image: AssetImage(
+                                                    AppImages.saleHomeImg),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                          Text(S.of(context).purchases,
+                                              textAlign: TextAlign.center,
+                                              style: CustomTextStyle
+                                                  .kTextStyleF14
+                                                  .copyWith(
+                                                      color:
+                                                          AppColors.textColor)),
+                                          Text(
+                                              "${state.purchases ?? 0} ${S.of(context).purchases}",
+                                              textAlign: TextAlign.center,
+                                              style: CustomTextStyle
+                                                  .kTextStyleF10
+                                                  .copyWith(
+                                                      color: AppColors
+                                                          .textColorSecondary))
+                                        ],
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                ],
                               ),
-                              Text(
-                                S.of(context).purchases,
-                                textAlign: TextAlign.center,
-                                  style: CustomTextStyle.kTextStyleF14.copyWith(color: AppColors.textColor)
-                              ),
-                              Text(
-                                '120 عملية',
-                                textAlign: TextAlign.center,
-                                style: CustomTextStyle.kTextStyleF10.copyWith(color: AppColors.textColorSecondary)
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                Gap(10.h),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          padding:  EdgeInsets.symmetric(horizontal: 40.w,vertical: 20.h),
-                          decoration: ShapeDecoration(
-                            color: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            shadows: const [
-                              BoxShadow(
-                                color: Color(0x19A3A3A3),
-                                blurRadius: 8,
-                                offset: Offset(0, 4),
-                                spreadRadius: 0,
-                              )
-                            ],
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 72.w,
-                                height: 50.w,
-                                decoration:  BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(AppImages.eyeImg),
-                                    fit: BoxFit.cover,
+                              Gap(10.h),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 40.w, vertical: 20.h),
+                                      decoration: ShapeDecoration(
+                                        color: Colors.white,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                        ),
+                                        shadows: const [
+                                          BoxShadow(
+                                            color: Color(0x19A3A3A3),
+                                            blurRadius: 8,
+                                            offset: Offset(0, 4),
+                                            spreadRadius: 0,
+                                          )
+                                        ],
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            width: 72.w,
+                                            height: 50.w,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image: AssetImage(
+                                                    AppImages.eyeImg),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                          Text(S.of(context).number_of_buyers,
+                                              textAlign: TextAlign.center,
+                                              style: CustomTextStyle
+                                                  .kTextStyleF14
+                                                  .copyWith(
+                                                      color:
+                                                          AppColors.textColor)),
+                                          Text("${state.numberOfBuyers ?? 0}",
+                                              textAlign: TextAlign.center,
+                                              style: CustomTextStyle
+                                                  .kTextStyleF10
+                                                  .copyWith(
+                                                      color: AppColors
+                                                          .textColorSecondary))
+                                        ],
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
-                              Text(
-                                  S.of(context).number_of_buyers,
-                                  textAlign: TextAlign.center,
-                                  style: CustomTextStyle.kTextStyleF14.copyWith(color: AppColors.textColor)
-                              ),
-                              Text(
-                                  '1,500,055',
-                                  textAlign: TextAlign.center,
-                                  style: CustomTextStyle.kTextStyleF10.copyWith(color: AppColors.textColorSecondary)
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Gap(10.w),
-                      Expanded(
-                        child: Container(
-                          padding:  EdgeInsets.symmetric(horizontal: 40.w,vertical: 20.h),
-                          decoration: ShapeDecoration(
-                            color: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            shadows: const [
-                              BoxShadow(
-                                color: Color(0x19A3A3A3),
-                                blurRadius: 8,
-                                offset: Offset(0, 4),
-                                spreadRadius: 0,
-                              )
-                            ],
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 50.w,
-                                height: 50.w,
-                                decoration:  BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(AppImages.moneyImg),
-                                    fit: BoxFit.cover,
+                                  Gap(10.w),
+                                  Expanded(
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 40.w, vertical: 20.h),
+                                      decoration: ShapeDecoration(
+                                        color: Colors.white,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                        ),
+                                        shadows: const [
+                                          BoxShadow(
+                                            color: Color(0x19A3A3A3),
+                                            blurRadius: 8,
+                                            offset: Offset(0, 4),
+                                            spreadRadius: 0,
+                                          )
+                                        ],
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            width: 50.w,
+                                            height: 50.w,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image: AssetImage(
+                                                    AppImages.moneyImg),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                          Text(S.of(context).my_wallet,
+                                              textAlign: TextAlign.center,
+                                              style: CustomTextStyle
+                                                  .kTextStyleF14
+                                                  .copyWith(
+                                                      color:
+                                                          AppColors.textColor)),
+                                          Text(
+                                              "${state.wallet ?? 0} ${S.current.sar}",
+                                              textAlign: TextAlign.center,
+                                              style: CustomTextStyle
+                                                  .kTextStyleF10
+                                                  .copyWith(
+                                                      color: AppColors
+                                                          .textColorSecondary))
+                                        ],
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                ],
                               ),
-                              Text(
-                                  S.of(context).my_wallet,
-                                textAlign: TextAlign.center,
-                                  style: CustomTextStyle.kTextStyleF14.copyWith(color: AppColors.textColor)
-                              ),
-                              Text(
-                                '\$ 25,001',
-                                textAlign: TextAlign.center,
-                                style: CustomTextStyle.kTextStyleF10.copyWith(color: AppColors.textColorSecondary)
-                              )
                             ],
-                          ),
-                        ),
-                      ),
-                    ],
+                          );
+                        },
+                        error: (errCode, err) {
+                          return StateErrorWidget(
+                            errCode: errCode,
+                            err: err,
+                          );
+                        },
+                        orElse: () {
+                          return const SizedBox.shrink();
+                        },
+                      );
+                    },
                   ),
                 ],
               ),

@@ -60,7 +60,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                           );
                         },
                         child: Text(
-                          "Track Order",
+                          S.of(context).trackOrder,
                           style: CustomTextStyle.kTextStyleF16.copyWith(
                             color: AppColors.secondary,
                           ),
@@ -73,68 +73,61 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                     decoration: const BoxDecoration(
                       color: Colors.white,
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(Dimensions.p16),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Padding(
+                      padding: const EdgeInsets.all(Dimensions.p16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          widget.orderDetails.address == null ? const SizedBox.shrink() :
+                          Row(
                             children: [
-                              widget.orderDetails.address==null?const SizedBox.shrink():Row(
-                                children: [
-                                  Image.asset(
-                                    AppImages.mapPointerImg,
-                                    height: 16.h,
-                                    width: 16.w,
-                                  ),
-                                  Gap(8.w),
-                                  Text(
-                                    "${widget.orderDetails.address}",
-                                    style: CustomTextStyle.kTextStyleF12,
-                                  ),
-                                ],
+                              Image.asset(
+                                AppImages.mapPointerImg,
+                                height: 16.h,
+                                width: 16.w,
                               ),
-                              Gap(12.h),
-                              Row(
-                                children: [
-                                  Image.asset(
-                                    AppImages.personImg,
-                                    height: 16.h,
-                                    width: 16.w,
-                                  ),
-                                  Gap(8.w),
-                                  Text(
-                                    "${widget.orderDetails.userName}",
-                                    style: CustomTextStyle.kTextStyleF12,
-                                  ),
-                                ],
-                              ),
-                              Gap(12.h),
-                              Row(
-                                children: [
-                                  Image.asset(
-                                    AppImages.phoneImg,
-                                    height: 16.h,
-                                    width: 16.w,
-                                  ),
-                                  Gap(8.w),
-                                  Text(
-                                    "${widget.orderDetails.phone}",
-                                    style: CustomTextStyle.kTextStyleF12,
-                                  ),
-                                ],
+                              Gap(8.w),
+                              Expanded(
+                                child: Text(
+                                  "${widget.orderDetails.buildingNo}, ${widget.orderDetails.address}, ${widget.orderDetails.zipCode}, ${widget.orderDetails.city}, ${widget.orderDetails.state}",
+                                  style: CustomTextStyle.kTextStyleF12,
+                                  // overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                             ],
                           ),
-                        ),
-                        // ClipRRect(
-                        //   borderRadius: BorderRadius.circular(Dimensions.r15),
-                        //   child: Image.network(
-                        //     "https://via.placeholder.com/124x104",
-                        //   ),
-                        // ),
-                      ],
+                          Gap(12.h),
+                          Row(
+                            children: [
+                              Image.asset(
+                                AppImages.personImg,
+                                height: 16.h,
+                                width: 16.w,
+                              ),
+                              Gap(8.w),
+                              Text(
+                                "${widget.orderDetails.userName}",
+                                style: CustomTextStyle.kTextStyleF12,
+                              ),
+                            ],
+                          ),
+                          Gap(12.h),
+                          Row(
+                            children: [
+                              Image.asset(
+                                AppImages.phoneImg,
+                                height: 16.h,
+                                width: 16.w,
+                              ),
+                              Gap(8.w),
+                              Text(
+                                "${widget.orderDetails.phone}",
+                                style: CustomTextStyle.kTextStyleF12,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Gap(20.h),
@@ -165,6 +158,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                               Padding(
                                 padding: const EdgeInsets.all(Dimensions.p8),
                                 child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Intl.getCurrentLocale() == "en"
                                         ? Text(
@@ -174,9 +168,11 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                                     Text(
                                         widget.orderDetails.products![index].discountPercent==0?
                                         "${widget.orderDetails.products![index].price} ${S.current.sar}":"${widget.orderDetails.products![index].priceAfterDiscount} ${S.current.sar}"),
+                                    Text("${S.current.qty}: ${widget.orderDetails.products![index].pivot!.quantity}")
                                   ],
                                 ),
                               ),
+
                             ],
                           ),
                         );

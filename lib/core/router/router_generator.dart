@@ -120,21 +120,21 @@ class AppRouters {
           builder: (BuildContext context) => MultiBlocProvider(
             providers: [
               BlocProvider(
-                create: (context) =>
-                di.di<CarouselCubit>()..getAds(1),
+                create: (context) => di.di<CarouselCubit>()..getAds(1),
               ),
               BlocProvider(
                 create: (context) => di.di<CategoryCubit>()..getAllCategory(),
               ),
               BlocProvider(
                 create: (context) =>
-                di.di<NewProductsCubit>()..getAllProducts(1),
+                    di.di<NewProductsCubit>()..getAllProducts(1),
               ),
               BlocProvider(
                 create: (context) =>
-                di.di<MostPopularCubit>()..getAllProducts(1),
+                    di.di<MostPopularCubit>()..getAllProducts(1),
               ),
-            ], child: const HomeView(),
+            ],
+            child: const HomeView(),
           ),
         );
       case mostPopularSeeMorePageRoute:
@@ -154,9 +154,8 @@ class AppRouters {
       case categoryDetailsPageRoute:
         final args = settings.arguments as CategoryDetailsArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) =>  BlocProvider(
-            create: (context) =>
-            di.di<CategoryDetailsCubit>()
+          builder: (BuildContext context) => BlocProvider(
+            create: (context) => di.di<CategoryDetailsCubit>()
               ..getProducts(
                 CategoryDetailsEntity(
                   categoryId: args.id,
@@ -197,7 +196,9 @@ class AppRouters {
       case trackOrderPageRoute:
         final args = settings.arguments as OrderDetailsArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) =>  TrackOrderView(orderDetails: args.orderDetails,),
+          builder: (BuildContext context) => TrackOrderView(
+            orderDetails: args.orderDetails,
+          ),
         );
       case subscriptionsPageRoute:
         return MaterialPageRoute(
@@ -220,13 +221,14 @@ class AppRouters {
       case paymentDetailsPageRoute:
         final args = settings.arguments as AddressArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => PaymentDetailsView(address: args.address),
+          builder: (BuildContext context) =>
+              PaymentDetailsView(address: args.address),
         );
       case savedAddressesPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const SavedAddressesView(),
         );
-        case profileSavedAddressesPageRoute:
+      case profileSavedAddressesPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const ProfileSavedAddressesView(),
         );
@@ -244,14 +246,20 @@ class AppRouters {
         final args = settings.arguments as AddressArgs;
 
         return MaterialPageRoute(
-          builder: (BuildContext context) =>
-              PaymentGateWayView(address: args.address, name: args.name!,),
+          builder: (BuildContext context) => PaymentGateWayView(
+            address: args.address,
+            name: args.name!,
+          ),
         );
       case paymentSummaryPageRoute:
         final args = settings.arguments as PaymentSharedPrice;
         return MaterialPageRoute(
-          builder: (BuildContext context) =>
-              PaymentSummaryView(finalPrice: args.sharedPrice,address: args.address, name: args.name, coupon: args.coupon,),
+          builder: (BuildContext context) => PaymentSummaryView(
+            finalPrice: args.sharedPrice,
+            address: args.address,
+            name: args.name,
+            coupon: args.coupon,
+          ),
         );
 
       /// designer
@@ -270,11 +278,11 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => const DesignerProfileView(),
         );
-        case userBalancePageRoute:
+      case userBalancePageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const UserBalanceView(),
         );
-        case designerSettingPageRoute:
+      case designerSettingPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const DesignerSettingsView(),
         );

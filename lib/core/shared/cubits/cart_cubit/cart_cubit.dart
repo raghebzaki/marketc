@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../entities/product_entity.dart';
 
 part 'cart_cubit.freezed.dart';
+
 part 'cart_state.dart';
 
 class CartCubit extends Cubit<CartStates> {
@@ -17,15 +18,11 @@ class CartCubit extends Cubit<CartStates> {
   addToCart(ProductEntity productEntity) {
     if (cartProducts.any((item) => item.id == productEntity.id)) {
       cartProducts;
-      emit(
-        CartStates.alreadyAdded(cartProducts),
-      );
+      emit(CartStates.alreadyAdded(cartProducts));
     } else {
       // cartProducts = List<ProductEntity>.from().add(productEntity);
       cartProducts.add(productEntity);
-      emit(
-        CartStates.addedToCart(cartProducts),
-      );
+      emit(CartStates.addedToCart(cartProducts));
     }
   }
 

@@ -256,5 +256,8 @@
   "track2": "طلبك جاهز للوصول",
   "track1": "تم قبول طلب الاستلام",
   "tax": "ألضريبة",
-  "youHaveNoFavoritesYet": "ليس لديك مفضلة حتى الآن"
+  "youHaveNoFavoritesYet": "ليس لديك مفضلة حتى الآن",
+  "trackOrder": "تتبع طلبك",
+  "color":"اللون",
+  "size": "المقاس"
 }

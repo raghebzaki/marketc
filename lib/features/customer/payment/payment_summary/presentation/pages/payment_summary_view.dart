@@ -308,9 +308,24 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                         label: S.of(context).confirm_payment,
                         onPressed: () async {
                           Map productId = {};
+
                           for (int i = 0; i < cartItems.length; i++) {
-                            productId['${cartItems[i].id}'] = 2;
+                            productId['${cartItems[i].id}'] = cartItems[i].userQuantity;
                           }
+
+                          Map colorId = {};
+
+                          for (int i = 0; i < cartItems.length; i++) {
+                            colorId['${cartItems[i].id}'] = cartItems[i].sendColor![0];
+                          }
+
+                          Map sizeId = {};
+
+                          for (int i = 0; i < cartItems.length; i++) {
+                            sizeId['${cartItems[i].id}'] = cartItems[i].sendSize![0];
+                          }
+
+
 
                           placeOrderCubit.placeOrder(
                             PlaceOrderEntity(
@@ -324,6 +339,8 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               state: widget.address.country,
                               postCode: widget.address.code,
                               productIds: productId,
+                              colorIds: colorId,
+                              sizeIds: sizeId,
                               coupon: widget.coupon,
                             ),
                           );

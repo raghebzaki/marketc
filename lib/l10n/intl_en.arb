@@ -259,5 +259,8 @@
   "track2": "Your order is ready to arrive",
   "track1": "Receipt request accepted",
   "tax": "Tax",
-  "youHaveNoFavoritesYet": "You have no favorites yet"
+  "youHaveNoFavoritesYet": "You have no favorites yet",
+  "trackOrder": "Track Order",
+  "color": "Color",
+  "size": "Size"
 }

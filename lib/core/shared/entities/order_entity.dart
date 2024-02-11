@@ -6,7 +6,6 @@ class OrderEntity extends Equatable {
   final num? userId;
   final num? orderFilter;
   final String? orderNumber;
-  final String? address;
   final String? userName;
   final String? phone;
   final num? totalPrice;
@@ -19,13 +18,19 @@ class OrderEntity extends Equatable {
   final String? preparingDate;
   final String? availabilityDate;
   final String? receivedDate;
+  final String? address;
+  final String? buildingNo;
+  final String? flatNo;
+  final String? state;
+  final String? city;
+  final String? zipCode;
   final List<ProductEntity>? products;
 
-  const OrderEntity({this.id,
+  const OrderEntity({
+    this.id,
     this.userId,
     this.orderFilter,
     this.orderNumber,
-    this.address,
     this.userName,
     this.phone,
     this.totalPrice,
@@ -38,11 +43,17 @@ class OrderEntity extends Equatable {
     this.preparingDate,
     this.availabilityDate,
     this.receivedDate,
-    this.products,});
+    this.address,
+    this.buildingNo,
+    this.flatNo,
+    this.state,
+    this.city,
+    this.zipCode,
+    this.products,
+  });
 
   @override
-  List<Object?> get props =>
-      [
+  List<Object?> get props => [
         id,
         userId,
         orderFilter,
@@ -60,7 +71,12 @@ class OrderEntity extends Equatable {
         preparingDate,
         availabilityDate,
         receivedDate,
+        address,
+        buildingNo,
+        flatNo,
+        state,
+        city,
+        zipCode,
         products,
       ];
-
 }

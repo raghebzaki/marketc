@@ -91,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "city": MessageLookupByLibrary.simpleMessage("City"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "code": MessageLookupByLibrary.simpleMessage("code"),
+        "color": MessageLookupByLibrary.simpleMessage("Color"),
         "colors": MessageLookupByLibrary.simpleMessage("Colors"),
         "complete_payment":
             MessageLookupByLibrary.simpleMessage("Complete payment"),
@@ -317,6 +318,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "short_cloth_category":
             MessageLookupByLibrary.simpleMessage("Short Clothing Category"),
         "short_cloths": MessageLookupByLibrary.simpleMessage("Short Clothes"),
+        "size": MessageLookupByLibrary.simpleMessage("Size"),
         "sizes": MessageLookupByLibrary.simpleMessage("Sizes"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "slogan": MessageLookupByLibrary.simpleMessage(
@@ -346,6 +348,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your order is ready to arrive"),
         "track4": MessageLookupByLibrary.simpleMessage(
             "The order was delivered successfully!"),
+        "trackOrder": MessageLookupByLibrary.simpleMessage("Track Order"),
         "track_order": MessageLookupByLibrary.simpleMessage("Track Order"),
         "track_order_btn":
             MessageLookupByLibrary.simpleMessage("Track Your Order"),

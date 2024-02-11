@@ -1,4 +1,3 @@
-
 import 'package:marketc/core/shared/models/products_images_model.dart';
 import 'package:marketc/features/designer/product/add_product/data/models/color_model.dart';
 import 'package:marketc/features/designer/product/add_product/data/models/size_model.dart';
@@ -6,7 +5,7 @@ import 'package:marketc/features/designer/product/add_product/data/models/size_m
 import '../entities/product_entity.dart';
 
 class ProductModel extends ProductEntity {
-   ProductModel({
+  ProductModel({
     super.id,
     super.nameAr,
     super.nameEn,
@@ -27,6 +26,7 @@ class ProductModel extends ProductEntity {
     super.images,
     super.status,
     super.message,
+    super.pivot,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
@@ -40,22 +40,23 @@ class ProductModel extends ProductEntity {
       descriptionEn: json["description_en"],
       code: json["code"],
       price: json["price"],
-      discountPercent: json["discount_percentage"]??0,
+      discountPercent: json["discount_percentage"] ?? 0,
       priceAfterDiscount: json["price_after_discount"],
       image: json["image"],
       quantity: json["quantity"],
       size: json["sizes"] == null
           ? []
           : List<ProductSizesModel>.from(
-          json["sizes"]!.map((x) => ProductSizesModel.fromJson(x))),
+              json["sizes"]!.map((x) => ProductSizesModel.fromJson(x))),
       color: json["colors"] == null
           ? []
           : List<ProductColorsModel>.from(
-          json["colors"]!.map((x) => ProductColorsModel.fromJson(x))),
+              json["colors"]!.map((x) => ProductColorsModel.fromJson(x))),
       images: json["product_images"] == null
           ? []
-          : List<ProductsImagesModel>.from(
-          json["product_images"]!.map((x) => ProductsImagesModel.fromJson(x))),
+          : List<ProductsImagesModel>.from(json["product_images"]!
+              .map((x) => ProductsImagesModel.fromJson(x))),
+      pivot: json["pivot"]== null ? null : PivotModel.fromJson(json['pivot']),
     );
   }
 
@@ -79,5 +80,23 @@ class ProductModel extends ProductEntity {
       'image': productEntity.image,
       'images': productEntity.imagesBase64,
     };
+  }
+}
+
+class PivotModel extends PivotEntity {
+  const PivotModel({
+    super.orderId,
+    super.productId,
+    super.quantity,
+    super.pricePerUnit,
+  });
+
+  factory PivotModel.fromJson(Map<String, dynamic> json) {
+    return PivotModel(
+      orderId: json['order_id'],
+      productId: json['product_id'],
+      quantity: json['quantity'],
+      pricePerUnit: json['price_per_unit'],
+    );
   }
 }

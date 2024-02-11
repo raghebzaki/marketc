@@ -2,7 +2,6 @@ import 'package:equatable/equatable.dart';
 
 import '../../../../../../core/shared/entities/order_entity.dart';
 
-
 class MyOrdersEntity extends Equatable {
   final num? userId;
   final num? orderFilter;

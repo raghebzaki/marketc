@@ -8,6 +8,7 @@ import 'package:marketc/core/router/router.dart';
 import 'package:marketc/core/shared/cubits/cart_cubit/cart_cubit.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:marketc/features/customer/main/product_details/presentation/manager/add_favorite_cubit.dart';
+import 'package:marketc/features/designer/product/add_product/domain/entities/size_entity.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
@@ -21,6 +22,7 @@ import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_constants.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
+import '../../../../../designer/product/add_product/domain/entities/color_entity.dart';
 
 class ProductDetailsView extends StatefulWidget {
   final ProductEntity productEntity;
@@ -34,6 +36,10 @@ class ProductDetailsView extends StatefulWidget {
 class _ProductDetailsViewState extends State<ProductDetailsView> {
   bool isFavorite = false;
   int quantity = 1;
+  num colorId = 0;
+  num sizeId = 0;
+  ProductSizesEntity sizesEntity = const ProductSizesEntity();
+  ProductColorsEntity colorsEntity = const ProductColorsEntity();
 
   @override
   Widget build(BuildContext context) {
@@ -213,13 +219,12 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                           widget.productEntity.discountPercent == 0
                               ? Text(
                                   "${widget.productEntity.price} ${S.current.sar}",
-                                  style: CustomTextStyle.kTextStyleF18
-                                      .copyWith(
+                                  style: CustomTextStyle.kTextStyleF18.copyWith(
                                     color: AppColors.lightBlue,
                                   ),
                                 )
                               : Column(
-                            mainAxisSize: MainAxisSize.min,
+                                  mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
@@ -231,7 +236,8 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                                     ),
                                     Text(
                                       "${widget.productEntity.price} ${S.current.sar}",
-                                      style: CustomTextStyle.kTextStyleF16.copyWith(
+                                      style: CustomTextStyle.kTextStyleF16
+                                          .copyWith(
                                         color: AppColors.greyColor,
                                         decoration: TextDecoration.lineThrough,
                                         decorationColor: AppColors.greyColor,
@@ -281,10 +287,36 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                                       (index) => Padding(
                                         padding:
                                             const EdgeInsets.all(Dimensions.p5),
-                                        child: CircleAvatar(
-                                          radius: Dimensions.r20,
-                                          backgroundColor: Color(int.parse(
-                                              '0xff${widget.productEntity.color![index].color}')),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            colorsEntity = widget.productEntity.color![index];
+
+                                            setState(() {});
+                                          },
+                                          child: colorsEntity.id == widget.productEntity.color![index].id
+                                              ? Container(
+                                                  decoration: BoxDecoration(
+                                                    // borderRadius: BorderRadius.circular(50),
+                                                    color: Colors.transparent,
+                                                    border: Border.all(
+                                                      color:
+                                                          AppColors.statusGreen,
+                                                      width: 5,
+                                                    ),
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: CircleAvatar(
+                                                    radius: Dimensions.r20,
+                                                    backgroundColor: Color(
+                                                        int.parse(
+                                                            '0xff${widget.productEntity.color![index].color}')),
+                                                  ),
+                                                )
+                                              : CircleAvatar(
+                                                  radius: Dimensions.r20,
+                                                  backgroundColor: Color(int.parse(
+                                                      '0xff${widget.productEntity.color![index].color}')),
+                                                ),
                                         ),
                                       ),
                                     ),
@@ -311,24 +343,72 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                                     ...List.generate(
                                       widget.productEntity.size!.length,
                                       (index) => Padding(
-                                        padding:
-                                            const EdgeInsets.all(Dimensions.p5),
-                                        child: CircleAvatar(
-                                          radius: Dimensions.r20,
-                                          backgroundColor: Colors.grey,
-                                          child: Text(
-                                            CacheHelper.isEnglish()
-                                                ? widget.productEntity
-                                                    .size![index].nameEn!
-                                                : widget.productEntity
-                                                    .size![index].nameAr!,
-                                            style: CustomTextStyle.kTextStyleF14
-                                                .copyWith(
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
+                                          padding: const EdgeInsets.all(
+                                              Dimensions.p5),
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              // sizeId = widget.productEntity.size![index].id!;
+                                              sizesEntity = widget.productEntity.size![index];
+                                              setState(() {});
+                                            },
+                                            child: sizesEntity.id == widget.productEntity.size![index].id
+                                                ? Container(
+                                                    decoration: BoxDecoration(
+                                                      // borderRadius: BorderRadius.circular(50),
+                                                      color: Colors.transparent,
+                                                      border: Border.all(
+                                                        color: AppColors
+                                                            .statusGreen,
+                                                        width: 5,
+                                                      ),
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: CircleAvatar(
+                                                      radius: Dimensions.r20,
+                                                      backgroundColor:
+                                                          Colors.grey,
+                                                      child: Text(
+                                                        CacheHelper.isEnglish()
+                                                            ? widget
+                                                                .productEntity
+                                                                .size![index]
+                                                                .nameEn!
+                                                            : widget
+                                                                .productEntity
+                                                                .size![index]
+                                                                .nameAr!,
+                                                        style: CustomTextStyle
+                                                            .kTextStyleF14
+                                                            .copyWith(
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  )
+                                                : CircleAvatar(
+                                                    radius: Dimensions.r20,
+                                                    backgroundColor:
+                                                        Colors.grey,
+                                                    child: Text(
+                                                      CacheHelper.isEnglish()
+                                                          ? widget
+                                                              .productEntity
+                                                              .size![index]
+                                                              .nameEn!
+                                                          : widget
+                                                              .productEntity
+                                                              .size![index]
+                                                              .nameAr!,
+                                                      style: CustomTextStyle
+                                                          .kTextStyleF14
+                                                          .copyWith(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                  ),
+                                          )),
                                     ),
                                   ],
                                 ),
@@ -367,9 +447,43 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                                   onPressed: () {
                                     // final cartCubit = context.read<CartCubit>();
                                     // cartCubit.addToCart(widget.productEntity);
-                                    context
-                                        .read<CartCubit>()
-                                        .addToCart(widget.productEntity);
+                                    context.read<CartCubit>().addToCart(
+                                          ProductEntity(
+                                            id: widget.productEntity.id,
+                                            sendColor: [
+                                              colorsEntity.id!,
+                                            ],
+                                            sendSize: [
+                                              sizesEntity.id!,
+
+                                            ],
+                                            color: [
+                                              colorsEntity,
+                                            ],
+                                            size: [
+                                              sizesEntity,
+                                            ],
+
+                                            quantity: widget.productEntity.quantity,
+                                            userQuantity: quantity,
+                                            price: widget.productEntity.price,
+                                            priceAfterDiscount: widget
+                                                .productEntity
+                                                .priceAfterDiscount,
+                                            discountPercent: widget.productEntity.discountPercent,
+                                            image: widget.productEntity.image,
+                                            images: widget.productEntity.images,
+                                            imagesBase64:widget.productEntity.imagesBase64,
+                                            nameEn: widget.productEntity.nameEn,
+                                            nameAr: widget.productEntity.nameAr,
+                                            descriptionEn: widget.productEntity.descriptionEn,
+                                            descriptionAr: widget.productEntity.descriptionAr,
+
+
+                                          ),
+
+                                          // widget.productEntity
+                                        );
                                     context.pushNamed(cartPageRoute);
                                   },
                                 ),

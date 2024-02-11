@@ -126,14 +126,36 @@ class _CartViewState extends State<CartView> {
                                           : productItems.nameAr!,
                                       style: CustomTextStyle.kTextStyleF12,
                                     ),
-                                    subTitle: Text(
-                                      productItems.subCategoryId == 2
-                                          ? S.current.custom_phrases
-                                          : S.current.custom_logo,
-                                      style: CustomTextStyle.kTextStyleF12
-                                          .copyWith(
-                                              color:
-                                                  AppColors.textColorSecondary),
+                                    subTitle: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          productItems.subCategoryId == 2
+                                              ? S.current.custom_phrases
+                                              : S.current.custom_logo,
+                                          style: CustomTextStyle.kTextStyleF12
+                                              .copyWith(
+                                                  color:
+                                                      AppColors.textColorSecondary),
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              Intl.getCurrentLocale() == "en"
+                                                  ? "${S.current.color}: ${productItems.color![0].nameEn!}"
+                                                  : "${S.current.color}: ${productItems.color![0].nameAr!}",
+                                              style: CustomTextStyle.kTextStyleF12,
+                                            ),
+                                            Gap(10.w),
+                                            Text(
+                                              Intl.getCurrentLocale() == "en"
+                                                  ? "${S.current.size}: ${productItems.size![0].nameEn!}"
+                                                  : "${S.current.size}: ${productItems.size![0].nameAr!}",
+                                              style: CustomTextStyle.kTextStyleF12,
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
                                     description: Row(
                                       children: [

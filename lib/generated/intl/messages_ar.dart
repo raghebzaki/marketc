@@ -88,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "city": MessageLookupByLibrary.simpleMessage("المدينة"),
         "close": MessageLookupByLibrary.simpleMessage("اغلاق"),
         "code": MessageLookupByLibrary.simpleMessage("الكود "),
+        "color": MessageLookupByLibrary.simpleMessage("اللون"),
         "colors": MessageLookupByLibrary.simpleMessage("الألوان"),
         "complete_payment":
             MessageLookupByLibrary.simpleMessage("استكمال الدفع"),
@@ -310,6 +311,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "short_cloth_category":
             MessageLookupByLibrary.simpleMessage("قسم الملابس القصيرة"),
         "short_cloths": MessageLookupByLibrary.simpleMessage("ملابس قصيرة"),
+        "size": MessageLookupByLibrary.simpleMessage("المقاس"),
         "sizes": MessageLookupByLibrary.simpleMessage("المقاسات"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "slogan": MessageLookupByLibrary.simpleMessage(
@@ -338,6 +340,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "track1": MessageLookupByLibrary.simpleMessage("تم قبول طلب الاستلام"),
         "track2": MessageLookupByLibrary.simpleMessage("طلبك جاهز للوصول"),
         "track4": MessageLookupByLibrary.simpleMessage("تم تسليم الطلب بنجاح!"),
+        "trackOrder": MessageLookupByLibrary.simpleMessage("تتبع طلبك"),
         "track_order": MessageLookupByLibrary.simpleMessage("تتبع الطلب"),
         "track_order_btn": MessageLookupByLibrary.simpleMessage("تتبع طلبك"),
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(

@@ -18,7 +18,7 @@ class ProductEntity extends Equatable {
   final String? priceAfterDiscount;
   final String? image;
   final num? quantity;
-  late  num? userQuantity;
+  late num? userQuantity;
   final List<ProductSizesEntity>? size;
   final List<ProductColorsEntity>? color;
   final List<num>? sendSize;
@@ -27,8 +27,9 @@ class ProductEntity extends Equatable {
   final List<String>? imagesBase64;
   final String? status;
   final String? message;
+  final PivotEntity? pivot;
 
-   ProductEntity({
+  ProductEntity({
     this.nameEn,
     this.nameAr,
     this.subCategoryId,
@@ -39,11 +40,12 @@ class ProductEntity extends Equatable {
     this.image,
     this.imagesBase64,
     this.quantity,
-    this.userQuantity=1,
+    this.userQuantity = 1,
     this.id,
     this.categoryId,
     this.price,
     this.discountPercent,
+
     this.size,
     this.color,
     this.sendColor,
@@ -51,6 +53,7 @@ class ProductEntity extends Equatable {
     this.images,
     this.status,
     this.message,
+    this.pivot,
   });
 
   @override
@@ -67,7 +70,7 @@ class ProductEntity extends Equatable {
         discountPercent,
         priceAfterDiscount,
         image,
-    imagesBase64,
+        imagesBase64,
         quantity,
     userQuantity,
         size,
@@ -77,5 +80,28 @@ class ProductEntity extends Equatable {
         images,
         status,
         message,
+        pivot,
+      ];
+}
+
+class PivotEntity extends Equatable {
+  final num? orderId;
+  final num? productId;
+  final num? quantity;
+  final num? pricePerUnit;
+
+  const PivotEntity({
+    this.orderId,
+    this.productId,
+    this.quantity,
+    this.pricePerUnit,
+  });
+
+  @override
+  List<Object?> get props => [
+        orderId,
+        productId,
+        quantity,
+        pricePerUnit,
       ];
 }

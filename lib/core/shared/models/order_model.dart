@@ -7,7 +7,6 @@ class OrderModel extends OrderEntity {
     super.userId,
     super.orderFilter,
     super.orderNumber,
-    super.address,
     super.userName,
     super.phone,
     super.totalPrice,
@@ -20,6 +19,12 @@ class OrderModel extends OrderEntity {
     super.preparingDate,
     super.availabilityDate,
     super.receivedDate,
+    super.address,
+    super.buildingNo,
+    super.flatNo,
+    super.state,
+    super.city,
+    super.zipCode,
     super.products,
   });
 
@@ -39,6 +44,7 @@ class OrderModel extends OrderEntity {
             ),
     );
   }
+
   factory OrderModel.getOrdersFromJson(Map<String, dynamic> json) {
     return OrderModel(
       id: json["id"],
@@ -54,6 +60,12 @@ class OrderModel extends OrderEntity {
       preparingDate: json["preparing_date"]??'',
       availabilityDate: json["availability_date"]??'',
       receivedDate: json["received_date"]??'',
+      address: json["address"],
+      buildingNo: json["building_number"],
+      flatNo: json["flot_number"],
+      state: json["state"],
+      city: json["city"],
+      zipCode: json["post_code"],
       products: json["products"] == null
           ? []
           : List<ProductModel>.from(
@@ -63,16 +75,19 @@ class OrderModel extends OrderEntity {
             ),
     );
   }
+
   static Map<String, dynamic> dataToJson(OrderEntity orderEntity) {
     return {
       "user_id": orderEntity.userId,
     };
   }
+
   static Map<String, dynamic> queryToJson(OrderEntity orderEntity) {
     return {
       "filters[status][\$eq]": orderEntity.orderFilter,
     };
   }
+
   factory OrderModel.addOrderFromJson(Map<String, dynamic> json) {
     return OrderModel(
       status: json["status"],
