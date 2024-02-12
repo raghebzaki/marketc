@@ -13,8 +13,8 @@ class AppConstants {
   // * Main UI constants
   static const mainFontFamily = "Readex Pro";
   static const subFontFamily = "Abhaya Libre";
-  static const unknownStringValue = "UNKNOWN STRING VALUE";
-  static const unknownNumValue = 2077;
+  static const unknownStringValue = "";
+  static const unknownNumValue = 0;
   static const deliveryFee = 40;
 
   //! API headers

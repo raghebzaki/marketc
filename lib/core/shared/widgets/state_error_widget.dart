@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:marketc/core/utils/extensions.dart';
 
 import '../../../generated/l10n.dart';
+import '../../resources/api/data_sources.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/dimensions.dart';
 
@@ -12,12 +12,10 @@ class StateErrorWidget extends StatelessWidget {
   final String errCode;
   final String err;
 
-
   const StateErrorWidget({
     super.key,
     required this.errCode,
     required this.err,
-
   });
 
   @override
@@ -43,9 +41,7 @@ class StateErrorWidget extends StatelessWidget {
               ),
               Gap(10.h),
               Text(
-                S
-                    .of(context)
-                    .error_occurred,
+                S.of(context).error_occurred,
                 style: TextStyle(
                   fontSize: Dimensions.f18,
                   fontWeight: FontWeight.bold,
@@ -53,9 +49,8 @@ class StateErrorWidget extends StatelessWidget {
                 ),
               ),
               Gap(10.h),
-              Text(S
-                  .of(context)
-                  .err_code,
+              Text(
+                S.of(context).err_code,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: Dimensions.f20,
@@ -64,7 +59,9 @@ class StateErrorWidget extends StatelessWidget {
                 ),
               ),
               Text(
-                errCode.isNullOrEmpty(),
+                err == DataSource.noInternetConnection.toString()
+                    ? S.of(context).noInternetConnection
+                    : S.of(context).unknownError,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: Dimensions.f16,
@@ -74,7 +71,7 @@ class StateErrorWidget extends StatelessWidget {
               ),
               Gap(10.h),
               Text(
-                err.isNullOrEmpty(),
+                S.of(context).errorMessage,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: Dimensions.f14,

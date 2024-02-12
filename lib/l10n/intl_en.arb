@@ -262,5 +262,8 @@
   "youHaveNoFavoritesYet": "You have no favorites yet",
   "trackOrder": "Track Order",
   "color": "Color",
-  "size": "Size"
+  "size": "Size",
+  "noInternetConnection": "No Internet connection",
+  "unknownError": "Unknown Error",
+  "errorMessage": "We ran into a problem please close the app then reopen it, Or try again later"
 }

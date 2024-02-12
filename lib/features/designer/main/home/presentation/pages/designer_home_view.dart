@@ -10,6 +10,7 @@ import 'package:intl/intl.dart';
 import 'package:marketc/features/designer/main/home/presentation/manager/stats_cubit/stats_cubit.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
+import '../../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../../core/shared/widgets/state_loading_widget.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_constants.dart';
@@ -78,15 +79,9 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
             title: Column(
               children: [
                 Text(
-                  'محمود شاهين',
+                  UserData.name!,
                   style: CustomTextStyle.kTextStyleF20,
                 ),
-                Text(
-                  '+970 59 533 3781',
-                  textAlign: TextAlign.justify,
-                  style: CustomTextStyle.kTextStyleF14
-                      .copyWith(color: AppColors.textColorSecondary),
-                )
               ],
             ),
             centerTitle: false,
@@ -98,7 +93,7 @@ class _DesignerHomeViewState extends State<DesignerHomeView> {
                   AppImages.bellImg,
                   width: 25.w,
                 ),
-              )
+              ),
             ],
           ),
         ),

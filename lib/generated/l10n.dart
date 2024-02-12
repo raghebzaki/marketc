@@ -2489,6 +2489,36 @@ class S {
       args: [],
     );
   }
+
+  /// `No Internet connection`
+  String get noInternetConnection {
+    return Intl.message(
+      'No Internet connection',
+      name: 'noInternetConnection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown Error`
+  String get unknownError {
+    return Intl.message(
+      'Unknown Error',
+      name: 'unknownError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We ran into a problem please close the app then reopen it, Or try again later`
+  String get errorMessage {
+    return Intl.message(
+      'We ran into a problem please close the app then reopen it, Or try again later',
+      name: 'errorMessage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

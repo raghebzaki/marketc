@@ -68,7 +68,8 @@ class _EditProfileViewState extends State<EditProfileView> {
                         height: 80.w,
                         decoration: ShapeDecoration(
                           image: DecorationImage(
-                            image: UserData.avatar != "" || UserData.avatar != null
+                            image: UserData.avatar != "" ||
+                                    UserData.avatar != null
                                 ? CachedNetworkImageProvider(
                                     AppConstants.imageUrl + UserData.avatar!)
                                 : const CachedNetworkImageProvider(
@@ -144,9 +145,10 @@ class _EditProfileViewState extends State<EditProfileView> {
                       onPressed: () {
                         editProfileCubit.editProfile(
                           EditProfileEntity(
-                              userId: UserData.id,
-                              name: nameCtrl.text,
-                              email: emailCtrl.text),
+                            userId: UserData.id,
+                            name: nameCtrl.text,
+                            // email: emailCtrl.text,
+                          ),
                         );
                       },
                     )

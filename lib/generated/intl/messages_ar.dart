@@ -139,6 +139,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_valid_email": MessageLookupByLibrary.simpleMessage(
             "يرجى إدخال بريد إلكتروني صالح"),
         "err_code": MessageLookupByLibrary.simpleMessage("رمز الخطأ"),
+        "errorMessage": MessageLookupByLibrary.simpleMessage(
+            "واجهنا مشكلة، يرجى إغلاق التطبيق ثم إعادة فتحه، أو حاول مرة أخرى لاحقًا"),
         "error_occurred": MessageLookupByLibrary.simpleMessage("حدث خطأ!"),
         "est": MessageLookupByLibrary.simpleMessage("وقت الوصول المتوقع"),
         "executed_request":
@@ -184,6 +186,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "new_updates":
             MessageLookupByLibrary.simpleMessage("التحديثات الجديدة"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
+        "noInternetConnection":
+            MessageLookupByLibrary.simpleMessage("لا يوجد اتصال بالإنترنت"),
         "no_content": MessageLookupByLibrary.simpleMessage("نجاح بدون محتوى"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(
             "يُرجى التحقق من اتصالك بالإنترنت"),
@@ -345,6 +349,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "track_order_btn": MessageLookupByLibrary.simpleMessage("تتبع طلبك"),
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(
             "المستخدم غير مصرح له، جرب مرة أخرى في وقت لاحق"),
+        "unknownError": MessageLookupByLibrary.simpleMessage("خطأ غير معروف"),
         "unknown_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
         "update_account": MessageLookupByLibrary.simpleMessage("تحديث الحساب"),

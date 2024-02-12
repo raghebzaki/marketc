@@ -28,7 +28,6 @@ class CartView extends StatefulWidget {
 class _CartViewState extends State<CartView> {
   double finalPrice = 0;
 
-
   @override
   Widget build(BuildContext context) {
     var totalPrice = context.watch<CartCubit>().cartProducts;
@@ -41,7 +40,6 @@ class _CartViewState extends State<CartView> {
             totalPrice[i].userQuantity!;
       }
     }
-
 
     return PopScope(
       canPop: false,
@@ -127,7 +125,8 @@ class _CartViewState extends State<CartView> {
                                       style: CustomTextStyle.kTextStyleF12,
                                     ),
                                     subTitle: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           productItems.subCategoryId == 2
@@ -135,8 +134,8 @@ class _CartViewState extends State<CartView> {
                                               : S.current.custom_logo,
                                           style: CustomTextStyle.kTextStyleF12
                                               .copyWith(
-                                                  color:
-                                                      AppColors.textColorSecondary),
+                                                  color: AppColors
+                                                      .textColorSecondary),
                                         ),
                                         Row(
                                           children: [
@@ -144,14 +143,16 @@ class _CartViewState extends State<CartView> {
                                               Intl.getCurrentLocale() == "en"
                                                   ? "${S.current.color}: ${productItems.color![0].nameEn!}"
                                                   : "${S.current.color}: ${productItems.color![0].nameAr!}",
-                                              style: CustomTextStyle.kTextStyleF12,
+                                              style:
+                                                  CustomTextStyle.kTextStyleF12,
                                             ),
                                             Gap(10.w),
                                             Text(
                                               Intl.getCurrentLocale() == "en"
                                                   ? "${S.current.size}: ${productItems.size![0].nameEn!}"
                                                   : "${S.current.size}: ${productItems.size![0].nameAr!}",
-                                              style: CustomTextStyle.kTextStyleF12,
+                                              style:
+                                                  CustomTextStyle.kTextStyleF12,
                                             ),
                                           ],
                                         ),
@@ -225,14 +226,7 @@ class _CartViewState extends State<CartView> {
                                 ),
                                 const Spacer(),
                                 Text(
-                                  "${(
-                                    totalPrice
-                                            .map((e) => e.discountPercent == 0
-                                                ? int.parse(e.price!) * e.userQuantity! + int.parse(e.price!) * e.userQuantity!/10
-                                                : int.parse(e.priceAfterDiscount!) * e.userQuantity! + int.parse(e.priceAfterDiscount!) * e.userQuantity!/10)
-                                            .reduce((value, element) =>
-                                                value + element) + AppConstants.deliveryFee,
-                                  )} ${S.current.sar}",
+                                  "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! + int.parse(e.price!) * e.userQuantity! / 10 : int.parse(e.priceAfterDiscount!) * e.userQuantity! + int.parse(e.priceAfterDiscount!) * e.userQuantity! / 10).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.sar}",
                                   style: CustomTextStyle.kTextStyleF14
                                       .copyWith(color: AppColors.textColor),
                                 ),
@@ -261,16 +255,7 @@ class _CartViewState extends State<CartView> {
                                 ),
                                 const Spacer(),
                                 Text(
-                                  "${(
-                                    totalPrice
-                                        .map((e) => e.discountPercent == 0
-                                            ? int.parse(e.price!) *
-                                                e.userQuantity!
-                                            : int.parse(e.priceAfterDiscount!) *
-                                                e.userQuantity!)
-                                        .reduce((value, element) =>
-                                            value + element),
-                                  )} ${S.current.sar}",
+                                  "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.sar}",
                                   style: CustomTextStyle.kTextStyleF14.copyWith(
                                       color: AppColors.textColorSecondary),
                                 ),
@@ -304,14 +289,7 @@ class _CartViewState extends State<CartView> {
                                 ),
                                 const Spacer(),
                                 Text(
-                                  "${(
-                                  totalPrice
-                                      .map((e) => e.discountPercent == 0
-                                      ? int.parse(e.price!) * e.userQuantity!
-                                      : int.parse(e.priceAfterDiscount!) * e.userQuantity!)
-                                      .reduce((value, element) =>
-                                  value + element)/10,
-                                  )} ${S.current.sar}",
+                                  "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) / 10} ${S.current.sar}",
                                   style: CustomTextStyle.kTextStyleF14.copyWith(
                                       color: AppColors.textColorSecondary),
                                 ),

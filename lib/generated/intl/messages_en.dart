@@ -144,6 +144,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_valid_email":
             MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
         "err_code": MessageLookupByLibrary.simpleMessage("Error Code"),
+        "errorMessage": MessageLookupByLibrary.simpleMessage(
+            "We ran into a problem please close the app then reopen it, Or try again later"),
         "error_occurred":
             MessageLookupByLibrary.simpleMessage("Error Occurred!"),
         "est": MessageLookupByLibrary.simpleMessage("Estimated Arrival Time"),
@@ -190,6 +192,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "new_releases": MessageLookupByLibrary.simpleMessage("Newly Released"),
         "new_updates": MessageLookupByLibrary.simpleMessage("New updates"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "noInternetConnection":
+            MessageLookupByLibrary.simpleMessage("No Internet connection"),
         "no_content":
             MessageLookupByLibrary.simpleMessage("success with not content"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(
@@ -354,6 +358,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Track Your Order"),
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(
             "user unauthorized, try again later"),
+        "unknownError": MessageLookupByLibrary.simpleMessage("Unknown Error"),
         "unknown_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
         "unprocessable_content_error": MessageLookupByLibrary.simpleMessage(
