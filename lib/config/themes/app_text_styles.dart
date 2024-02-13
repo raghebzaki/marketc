@@ -27,14 +27,14 @@ class CustomTextStyle {
 
   static TextStyle kTextStyleF14 =  TextStyle(
     color: Colors.black.withOpacity(0.6000000238418579),
-    fontSize: 14,
+    fontSize: Dimensions.f14,
     fontFamily: AppConstants.mainFontFamily,
     fontWeight: FontWeight.w400,
   );
 
   static TextStyle kTextStyleF14Sub =  TextStyle(
     color: Colors.black.withOpacity(0.6000000238418579),
-    fontSize: 14,
+    fontSize: Dimensions.f14,
     fontFamily: AppConstants.subFontFamily,
     fontWeight: FontWeight.w400,
   );
@@ -111,6 +111,14 @@ class CustomTextStyle {
 
   static TextStyle onBoardingTextStyleF30 = TextStyle(
     fontSize: Dimensions.f30,
+    fontWeight: FontWeight.w400, //? Regular
+    fontFamily: AppConstants.mainFontFamily,
+    color: AppColors.textColor,
+    // height: 0.05,
+  );
+
+  static TextStyle onBoardingTextStyleF26 = TextStyle(
+    fontSize: Dimensions.f26,
     fontWeight: FontWeight.w400, //? Regular
     fontFamily: AppConstants.mainFontFamily,
     color: AppColors.textColor,

@@ -54,7 +54,7 @@ class AppConstants {
 
   /// designer
   static const designerCarouselUri = "v1/ads";
-  static const designsUri = "";
+  static const getDesignsUri = "v1/top-designes";
   static const designerDeleteProductUri = "v1/designer/delete-product";
   static const designerAddProductUri = "v1/designer/create-product";
   static const designerGetPointsUri = "";

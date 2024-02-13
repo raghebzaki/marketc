@@ -15,7 +15,7 @@ class DesignsServiceImpl implements DesignsService {
     List<DesignsModel> designsList = [];
 
     final contracts = await dio.get(
-      AppConstants.apiBaseUrl + AppConstants.designsUri,
+      AppConstants.apiBaseUrl + AppConstants.getDesignsUri,
       queryParameters: {
         "page": nextPage,
       },

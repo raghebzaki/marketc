@@ -55,7 +55,7 @@ class OnBoardingViewState extends State<OnBoardingView> {
                           horizontal: 50.w, vertical: 16.h),
                       child: Text(S.current.onboard_1,
                           textAlign: TextAlign.center,
-                          style: CustomTextStyle.onBoardingTextStyleF30),
+                          style: CustomTextStyle.onBoardingTextStyleF26),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
@@ -82,7 +82,7 @@ class OnBoardingViewState extends State<OnBoardingView> {
                           horizontal: 50.w, vertical: 16.h),
                       child: Text(S.current.onboard_2,
                           textAlign: TextAlign.center,
-                          style: CustomTextStyle.onBoardingTextStyleF30),
+                          style: CustomTextStyle.onBoardingTextStyleF26),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
@@ -109,7 +109,7 @@ class OnBoardingViewState extends State<OnBoardingView> {
                           horizontal: 50.w, vertical: 16.h),
                       child: Text(S.current.onboard_3,
                           textAlign: TextAlign.center,
-                          style: CustomTextStyle.onBoardingTextStyleF30),
+                          style: CustomTextStyle.onBoardingTextStyleF26),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(

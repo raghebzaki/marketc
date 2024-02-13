@@ -212,7 +212,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboard_1_des": MessageLookupByLibrary.simpleMessage(
             "We offer a diverse range of sizes and styles, allowing you to choose your clothes with elegance and distinction."),
         "onboard_2": MessageLookupByLibrary.simpleMessage(
-            "Specializing in\nClothing Embroidery"),
+            "Specializing in Clothing Embroidery"),
         "onboard_2_des": MessageLookupByLibrary.simpleMessage(
             "Enjoy the embroidery of logos and phrases you love on your own clothes."),
         "onboard_3": MessageLookupByLibrary.simpleMessage("Shop Online"),

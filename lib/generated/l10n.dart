@@ -320,10 +320,10 @@ class S {
     );
   }
 
-  /// `Specializing in\nClothing Embroidery`
+  /// `Specializing in Clothing Embroidery`
   String get onboard_2 {
     return Intl.message(
-      'Specializing in\nClothing Embroidery',
+      'Specializing in Clothing Embroidery',
       name: 'onboard_2',
       desc: '',
       args: [],
