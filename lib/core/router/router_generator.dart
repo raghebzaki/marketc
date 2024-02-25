@@ -258,7 +258,6 @@ class AppRouters {
             finalPrice: args.sharedPrice,
             address: args.address,
             name: args.name,
-            coupon: args.coupon,
           ),
         );
 

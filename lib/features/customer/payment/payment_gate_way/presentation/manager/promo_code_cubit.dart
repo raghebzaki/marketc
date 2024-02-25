@@ -15,14 +15,14 @@ class PromoCodeCubit extends Cubit<PromoCodeState> {
 
   sendMessage(PromoCodeEntity promoCodeEntity) async {
 
-    emit(const PromoCodeState.loading());
+    emit(const PromoCodeState.promoLoading());
 
     final send = await promoCodeUseCase(promoCodeEntity);
 
     send.fold(
           (l) => {
         emit(
-          PromoCodeState.error(
+          PromoCodeState.promoError(
             l.code.toString(),
             l.message,
           ),
@@ -30,7 +30,7 @@ class PromoCodeCubit extends Cubit<PromoCodeState> {
       },
           (r) => {
         emit(
-          PromoCodeState.success(r),
+          PromoCodeState.promoSuccess(r),
         ),
       },
     );

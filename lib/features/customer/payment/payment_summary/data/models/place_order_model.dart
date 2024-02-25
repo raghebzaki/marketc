@@ -13,6 +13,7 @@ class PlaceOrderModel extends PlaceOrderEntity {
     super.postCode,
     super.productIds,
     super.coupon,
+    super.paymentUrl,
     super.status,
     super.msg,
   });
@@ -21,6 +22,7 @@ class PlaceOrderModel extends PlaceOrderEntity {
     return PlaceOrderModel(
       status: json['status'],
       msg: json['message'],
+      paymentUrl: json['payment_url'],
     );
   }
 
@@ -42,7 +44,8 @@ class PlaceOrderModel extends PlaceOrderEntity {
     };
   }
 
-  static Map<String, dynamic> toJsonIncludingCoupon(PlaceOrderEntity placeOrderEntity) {
+  static Map<String, dynamic> toJsonIncludingCoupon(
+      PlaceOrderEntity placeOrderEntity) {
     return {
       'user_id': placeOrderEntity.userId,
       'name': placeOrderEntity.name,
@@ -57,5 +60,4 @@ class PlaceOrderModel extends PlaceOrderEntity {
       'coupon': placeOrderEntity.coupon,
     };
   }
-
 }

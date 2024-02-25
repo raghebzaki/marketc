@@ -57,6 +57,8 @@ dependencies:
   google_fonts: ^6.1.0 # Fonts
   material_design_icons_flutter: ^7.0.7296 # Material icons made by community
 
+  url_launcher: ^6.2.5 # Flutter plugin for launching a URL. Supports web, phone, SMS, and email schemes.
+
   # Ui Widgets
   getwidget: ^4.0.0
   gap: ^3.0.1 # Better SizedBoxes

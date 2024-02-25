@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../domain/entities/place_order_entity.dart';
 import '../../domain/use_cases/place_order_use_case.dart';
 
 part 'place_order_cubit.freezed.dart';
+
 part 'place_order_states.dart';
 
 class PlaceOrderCubit extends Cubit<PlaceOrderStates> {
@@ -34,6 +36,12 @@ class PlaceOrderCubit extends Cubit<PlaceOrderStates> {
           PlaceOrderStates.success(r),
         );
       },
+    );
+  }
+
+  paymentLauncher(String url) async {
+    await launchUrl(
+      Uri.parse(url),
     );
   }
 }

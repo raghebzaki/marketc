@@ -107,7 +107,7 @@ num totalWithCoupon = 0;
                       BlocConsumer<PromoCodeCubit, PromoCodeState>(
                         listener: (context, state) {
                           state.maybeWhen(
-                            success: (state) {
+                            promoSuccess: (state) {
                               if (state!.statusCode == true) {
                                 isCoupon = true;
 
@@ -119,7 +119,7 @@ num totalWithCoupon = 0;
                                 context.defaultSnackBar("Promo code applied successfully");
                               }
                             },
-                            error: (errCode, err) {
+                            promoError: (errCode, err) {
                               context.defaultSnackBar("Coupon is expired");
                             },
                             orElse: () {
@@ -204,7 +204,7 @@ num totalWithCoupon = 0;
                                         ),
                                         Gap(35.h),
                                         ConditionalBuilder(
-                                            condition: state is! Loading,
+                                            condition: state is! PromoLoading,
                                             builder: (BuildContext ctx) {
                                               return CustomBtn(
                                                 label: S.of(context).confirm,
@@ -330,7 +330,6 @@ num totalWithCoupon = 0;
                       context.pushNamed(
                         paymentSummaryPageRoute,
                         arguments: PaymentSharedPrice(
-                          coupon: isCoupon ? pinCtrl.text : "",
                             name: widget.name,
                             sharedPrice: isCoupon ? totalWithCoupon : total,
                             address: widget.address

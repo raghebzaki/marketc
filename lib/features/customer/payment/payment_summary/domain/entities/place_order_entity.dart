@@ -14,6 +14,7 @@ class PlaceOrderEntity extends Equatable {
   final Map? colorIds;
   final Map? sizeIds;
   final String? coupon;
+  final String? paymentUrl;
   final num? status;
   final String? msg;
 
@@ -31,6 +32,7 @@ class PlaceOrderEntity extends Equatable {
     this.colorIds,
     this.sizeIds,
     this.coupon,
+    this.paymentUrl,
     this.status,
     this.msg,
   });
@@ -50,6 +52,7 @@ class PlaceOrderEntity extends Equatable {
         colorIds,
         sizeIds,
         coupon,
+        paymentUrl,
         status,
         msg,
       ];

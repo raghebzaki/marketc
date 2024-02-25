@@ -23,7 +23,7 @@ import '../../../../../../generated/l10n.dart';
 class PaymentDetailsView extends StatefulWidget {
   final Address? address;
 
-  const PaymentDetailsView({super.key, required this.address});
+  const PaymentDetailsView({super.key, required this.address,});
 
   @override
   State<PaymentDetailsView> createState() => _PaymentDetailsViewState();
@@ -45,6 +45,12 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
   @override
   Widget build(BuildContext context) {
     List<ProductEntity> totalPrice = context.watch<CartCubit>().cartProducts;
+
+    var total = (totalPrice
+        .map((e) => e.discountPercent == 0
+        ? int.parse(e.price!) * e.userQuantity!
+        : int.parse(e.priceAfterDiscount!) * e.userQuantity!)
+        .reduce((value, element) => value + element));
 
     return Scaffold(
       backgroundColor: AppColors.primary,
@@ -298,11 +304,19 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                 child: CustomBtn(
                   label: S.of(context).progress,
                   onPressed: () {
-                    context.pushNamed(paymentGateWayPageRoute,
-                        arguments: AddressArgs(
-                          nameCtrl.text,
-                          address: widget.address!,
-                        ));
+                    // context.pushNamed(paymentGateWayPageRoute,
+                    //     arguments: AddressArgs(
+                    //       nameCtrl.text,
+                    //       address: widget.address!,
+                    //     ));
+                    context.pushNamed(
+                      paymentSummaryPageRoute,
+                      arguments: PaymentSharedPrice(
+                          name: nameCtrl.text,
+                          sharedPrice: total,
+                          address: widget.address!
+                      ),
+                    );
                   },
                 ),
               ),
