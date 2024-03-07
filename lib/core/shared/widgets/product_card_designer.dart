@@ -33,247 +33,241 @@ class ProductCardDesigner extends StatelessWidget {
         builder: (context, state) {
           DeleteProductCubit deleteProductCubit =
               DeleteProductCubit.get(context);
-          return GestureDetector(
-            onTap: () {
-              context.pushNamed(productDetailsPageRoute,
-                  arguments: ProductsEntityArgs(productEntity: productEntity));
-            },
-            child: Container(
-              width: 160.w,
-              clipBehavior: Clip.antiAlias,
-              decoration: ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(
-                    Dimensions.r8,
-                  ),
+          return Container(
+            width: 160.w,
+            clipBehavior: Clip.antiAlias,
+            decoration: ShapeDecoration(
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  Dimensions.r8,
                 ),
               ),
-              child: Column(
-                children: [
-                  CachedNetworkImage(
-                    height: 120.h,
-                    imageUrl: AppConstants.imageUrl + productEntity.image!,
-                    imageBuilder: (context, imageProvider) {
-                      return Container(
-                        width: double.infinity,
-                        height: 120.h,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: imageProvider,
-                            fit: BoxFit.cover,
-                          ),
+            ),
+            child: Column(
+              children: [
+                CachedNetworkImage(
+                  height: 120.h,
+                  imageUrl: AppConstants.imageUrl + productEntity.image!,
+                  imageBuilder: (context, imageProvider) {
+                    return Container(
+                      width: double.infinity,
+                      height: 120.h,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: imageProvider,
+                          fit: BoxFit.cover,
                         ),
-                      );
-                    },
-                    progressIndicatorBuilder: (context, url, downloadProgress) =>
-                        Center(child: CircularProgressIndicator(value: downloadProgress.progress)),
-                    errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
-                    fit: BoxFit.cover,
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(Dimensions.p8),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  Text(
-                                    CacheHelper.isEnglish()
-                                        ? productEntity.nameEn!
-                                        : productEntity.nameAr!,
-                                    style: CustomTextStyle.kTextStyleF12
-                                        .copyWith(color: AppColors.textColor),
-                                  ),
-                                  Text(
-                                    productEntity.subCategoryId == 2
-                                        ? S.current.custom_phrases
-                                        : S.current.custom_logo,
-                                    style: CustomTextStyle.kTextStyleF12
-                                        .copyWith(
-                                            color:
-                                                AppColors.textColorSecondary),
-                                  ),
-                                ],
-                              ),
+                      ),
+                    );
+                  },
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      Center(child: CircularProgressIndicator(value: downloadProgress.progress)),
+                  errorWidget: (context, url, error) =>
+                      const Icon(Icons.error),
+                  fit: BoxFit.cover,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(Dimensions.p8),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              children: [
+                                Text(
+                                  CacheHelper.isEnglish()
+                                      ? productEntity.nameEn!
+                                      : productEntity.nameAr!,
+                                  style: CustomTextStyle.kTextStyleF12
+                                      .copyWith(color: AppColors.textColor),
+                                ),
+                                Text(
+                                  productEntity.subCategoryId == 2
+                                      ? S.current.custom_phrases
+                                      : S.current.custom_logo,
+                                  style: CustomTextStyle.kTextStyleF12
+                                      .copyWith(
+                                          color:
+                                              AppColors.textColorSecondary),
+                                ),
+                              ],
                             ),
-                            Gap(5.w),
-                            GestureDetector(
-                                onTap: () {
-                                  showModalBottomSheet(
-                                      context: context,
-                                      shape: const RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.vertical(
-                                          top: Radius.circular(24),
-                                        ),
+                          ),
+                          Gap(5.w),
+                          GestureDetector(
+                              onTap: () {
+                                showModalBottomSheet(
+                                    context: context,
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.vertical(
+                                        top: Radius.circular(24),
                                       ),
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      builder: (BuildContext context) {
-                                        return state.maybeWhen(initial: () {
-                                          return Container(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 24.w,
-                                                vertical: 48.h),
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                Row(
-                                                  children: [
-                                                    Text(
-                                                        "هل أنت متأكد أنك تريد حذف المنتج  ؟",
-                                                        style: CustomTextStyle
-                                                            .kTextStyleF16
-                                                            .copyWith(
-                                                                color: AppColors
-                                                                    .textColorSecondary)),
-                                                  ],
-                                                ),
-                                                Gap(30.h),
-                                                GestureDetector(
-                                                  onTap: () async {
-                                                    deleteProductCubit
-                                                        .deleteProduct(
-                                                      DeleteProductEntity(
-                                                          productId:
-                                                              productEntity.id),
-                                                    );
-                                                    context.pushNamed(
-                                                        designerCategoryPageRoute);
-                                                  },
-                                                  child: Container(
-                                                    color: Colors.red[50],
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                            vertical: 10.h),
-                                                    width: double.infinity,
-                                                    child: Text('نعم, حذف',
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: CustomTextStyle
-                                                            .kTextStyleF16
-                                                            .copyWith(
-                                                                color: AppColors
-                                                                    .textColorSecondary)),
-                                                  ),
-                                                ),
-                                                Gap(20.h),
-                                                GestureDetector(
-                                                  onTap: () {
-                                                    context.pop();
-                                                  },
-                                                  child: Text('اغلاق',
+                                    ),
+                                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                                    builder: (BuildContext context) {
+                                      return state.maybeWhen(initial: () {
+                                        return Container(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 24.w,
+                                              vertical: 48.h),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                      "هل أنت متأكد أنك تريد حذف المنتج  ؟",
+                                                      style: CustomTextStyle
+                                                          .kTextStyleF16
+                                                          .copyWith(
+                                                              color: AppColors
+                                                                  .textColorSecondary)),
+                                                ],
+                                              ),
+                                              Gap(30.h),
+                                              GestureDetector(
+                                                onTap: () async {
+                                                  deleteProductCubit
+                                                      .deleteProduct(
+                                                    DeleteProductEntity(
+                                                        productId:
+                                                            productEntity.id),
+                                                  );
+                                                  context.pushNamed(
+                                                      designerCategoryPageRoute);
+                                                },
+                                                child: Container(
+                                                  color: Colors.red[50],
+                                                  padding:
+                                                      EdgeInsets.symmetric(
+                                                          vertical: 10.h),
+                                                  width: double.infinity,
+                                                  child: Text('نعم, حذف',
+                                                      textAlign:
+                                                          TextAlign.center,
                                                       style: CustomTextStyle
                                                           .kTextStyleF16
                                                           .copyWith(
                                                               color: AppColors
                                                                   .textColorSecondary)),
                                                 ),
-                                              ],
-                                            ),
-                                          );
-                                        }, loading: () {
-                                          return const Center(
-                                            child: CircularProgressIndicator(),
-                                          );
-                                        }, success: (state) {
-                                          if (state.status == 1) {
-                                            context.pushNamed(
-                                                designerCategoryPageRoute);
-                                          }
-                                          return const SizedBox.shrink();
-                                        }, error: (String errCode, String err) {
-                                          return StateErrorWidget(
-                                            errCode: errCode.isNullOrEmpty(),
-                                            err: err.isNullOrEmpty(),
-                                          );
-                                        }, orElse: () {
-                                          return const SizedBox.shrink();
-                                        });
+                                              ),
+                                              Gap(20.h),
+                                              GestureDetector(
+                                                onTap: () {
+                                                  context.pop();
+                                                },
+                                                child: Text('اغلاق',
+                                                    style: CustomTextStyle
+                                                        .kTextStyleF16
+                                                        .copyWith(
+                                                            color: AppColors
+                                                                .textColorSecondary)),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      }, loading: () {
+                                        return const Center(
+                                          child: CircularProgressIndicator(),
+                                        );
+                                      }, success: (state) {
+                                        if (state.status == 1) {
+                                          context.pushNamed(
+                                              designerCategoryPageRoute);
+                                        }
+                                        return const SizedBox.shrink();
+                                      }, error: (String errCode, String err) {
+                                        return StateErrorWidget(
+                                          errCode: errCode.isNullOrEmpty(),
+                                          err: err.isNullOrEmpty(),
+                                        );
+                                      }, orElse: () {
+                                        return const SizedBox.shrink();
                                       });
-                                },
-                                child: Icon(
-                                  Icons.delete,
-                                  color: Colors.red,
-                                  size: 24.sp,
-                                )),
-                          ],
-                        ),
-                        productEntity.discountPercent == 0
-                            ? Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '${productEntity.price} ${S.current.sar}',
-                                    style: CustomTextStyle.kTextStyleF12
-                                        .copyWith(color: AppColors.lightBlue),
-                                  ),
-                                ],
-                              )
-                            : Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '${productEntity.priceAfterDiscount} ${S.current.sar}',
-                                    style: CustomTextStyle.kTextStyleF12
-                                        .copyWith(color: AppColors.lightBlue),
-                                  ),
-                                  Gap(8.w),
-                                  Text(
-                                    "${productEntity.discountPercent!}%",
-                                    style: CustomTextStyle.kTextStyleF12
-                                        .copyWith(
-                                            color: AppColors.discountNumber),
-                                  ),
-                                ],
-                              ),
-                      ],
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      context.pushNamed(
-                        editProductPageRoute,
-                        arguments: EditProductArgs(
-                          productDetails: productEntity,
-                        ),
-                      );
-                    },
-                    child: Container(
-                      width: 152.w,
-                      height: 32.h,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: ShapeDecoration(
-                        color: AppColors.secondary,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            Dimensions.r8,
-                          ),
-                        ),
+                                    });
+                              },
+                              child: Icon(
+                                Icons.delete,
+                                color: Colors.red,
+                                size: 24.sp,
+                              )),
+                        ],
                       ),
-                      child: Center(
-                        child: Text(
-                          S.of(context).edit_product,
-                          textAlign: TextAlign.center,
-                          style: CustomTextStyle.kTextStyleF12.copyWith(
-                            color: Colors.white,
-                          ),
+                      productEntity.discountPercent == 0
+                          ? Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  '${productEntity.price} ${S.current.sar}',
+                                  style: CustomTextStyle.kTextStyleF12
+                                      .copyWith(color: AppColors.lightBlue),
+                                ),
+                              ],
+                            )
+                          : Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  '${productEntity.priceAfterDiscount} ${S.current.sar}',
+                                  style: CustomTextStyle.kTextStyleF12
+                                      .copyWith(color: AppColors.lightBlue),
+                                ),
+                                Gap(8.w),
+                                Text(
+                                  "${productEntity.discountPercent!}%",
+                                  style: CustomTextStyle.kTextStyleF12
+                                      .copyWith(
+                                          color: AppColors.discountNumber),
+                                ),
+                              ],
+                            ),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    context.pushNamed(
+                      editProductPageRoute,
+                      arguments: EditProductArgs(
+                        productDetails: productEntity,
+                      ),
+                    );
+                  },
+                  child: Container(
+                    width: 152.w,
+                    height: 32.h,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: ShapeDecoration(
+                      color: AppColors.secondary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                          Dimensions.r8,
                         ),
                       ),
                     ),
+                    child: Center(
+                      child: Text(
+                        S.of(context).edit_product,
+                        textAlign: TextAlign.center,
+                        style: CustomTextStyle.kTextStyleF12.copyWith(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           );
         },

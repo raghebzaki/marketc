@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketc/core/shared/models/user_data_model.dart';
+import 'package:marketc/features/customer/main/search/presentation/manager/search_cubit.dart';
+import 'package:marketc/features/customer/main/search/presentation/pages/search_view.dart';
 import 'package:marketc/features/designer/main/categories/domain/entities/my_designer_products_entity.dart';
 import 'package:marketc/features/designer/main/categories/presentation/manager/my_designer_products_cubit.dart';
 import 'package:marketc/features/designer/main/home/presentation/manager/designer_carousel_cubit.dart';
@@ -27,6 +29,7 @@ import '../../features/customer/main/home/presentation/pages/home_view.dart';
 import '../../features/customer/main/home/presentation/pages/most_popular_see_more_view.dart';
 import '../../features/customer/main/home/presentation/pages/new_products_see_more_view.dart';
 import '../../features/customer/main/product_details/presentation/pages/product_details_view.dart';
+import '../../features/customer/main/search/domain/entities/search_entity.dart';
 import '../../features/customer/orders/my_orders/presentation/pages/my_orders.dart';
 import '../../features/customer/orders/order_confirmation_view.dart';
 import '../../features/customer/orders/order_details/presentation/pages/order_details_view.dart';
@@ -52,7 +55,6 @@ import '../../features/designer/product/add_product/presentation/pages/add_produ
 import '../../features/designer/product/edit_product/presentation/pages/edit_product_view.dart';
 import '../../features/designer/profile/settings/presentation/pages/settings_view.dart';
 import '../../features/designer/profile/user_balance/presentation/pages/user_balance_view.dart';
-import '../../features/designer/wallet/presentation/pages/wallet_view.dart';
 import '../../features/on_boarding/presentation/pages/on_boarding_view.dart';
 import '../../main_view.dart';
 import '../dependency_injection/di.dart' as di;
@@ -137,6 +139,19 @@ class AppRouters {
             child: const HomeView(),
           ),
         );
+      case searchPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => BlocProvider(
+            create: (context) => di.di<SearchCubit>()
+              ..searchProducts(
+                const SearchEntity(
+                  searchText: "''",
+                  nextPage: 1,
+                ),
+              ),
+            child: const SearchView(),
+          ),
+        );
       case mostPopularSeeMorePageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => BlocProvider(
@@ -163,7 +178,10 @@ class AppRouters {
                   nextPage: 1,
                 ),
               ),
-            child: CategoryDetailsView(id: args.id),
+            child: CategoryDetailsView(
+              id: args.id,
+              name: args.name,
+            ),
           ),
         );
       case productDetailsPageRoute:
@@ -309,10 +327,7 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => const DesignsView(),
         );
-      case walletPageRoute:
-        return MaterialPageRoute(
-          builder: (BuildContext context) => const WalletView(),
-        );
+
       default:
         return MaterialPageRoute(
           builder: (BuildContext context) => const MainView(),

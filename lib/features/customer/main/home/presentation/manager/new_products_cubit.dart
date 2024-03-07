@@ -17,41 +17,34 @@ class NewProductsCubit extends Cubit<NewProductsState> {
   final NewProductsUseCase newProductsUseCase;
 
   getAllProducts(int? nextPage) async {
-    // if (nextPage == 1) {
-    //   emit(const NewProductsState.loading());
-    // } else {
-    //   emit(const NewProductsState.paginationLoading());
-    // }
-    emit(const NewProductsState.loading());
+    if (nextPage == 1) {
+      emit(const NewProductsState.loading());
+    } else {
+      emit(const NewProductsState.paginationLoading());
+    }
 
     final getAllProduct = await newProductsUseCase(nextPage);
 
     getAllProduct.fold(
       (l) => {
-        // if (nextPage == 1)
-        //   {
-        //     emit(
-        //       NewProductsState.error(
-        //         l.code.toString(),
-        //         l.message,
-        //       ),
-        //     ),
-        //   }
-        // else
-        //   {
-        //     emit(
-        //       NewProductsState.paginationError(
-        //         l.code.toString(),
-        //         l.message,
-        //       ),
-        //     ),
-        //   }
-        emit(
-          NewProductsState.paginationError(
-            l.code.toString(),
-            l.message,
-          ),
-        ),
+        if (nextPage == 1)
+          {
+            emit(
+              NewProductsState.error(
+                l.code.toString(),
+                l.message,
+              ),
+            ),
+          }
+        else
+          {
+            emit(
+              NewProductsState.paginationError(
+                l.code.toString(),
+                l.message,
+              ),
+            ),
+          }
       },
       (r) => {
         emit(

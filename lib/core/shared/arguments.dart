@@ -23,8 +23,9 @@ class ChangePassArgs {
 
 class CategoryDetailsArgs {
   final num id;
+  final String name;
 
-  CategoryDetailsArgs({required this.id});
+  CategoryDetailsArgs({required this.id, required this.name});
 }
 
 class NewAddressArgs {

@@ -28,6 +28,19 @@ class CartView extends StatefulWidget {
 class _CartViewState extends State<CartView> {
   double finalPrice = 0;
 
+
+
+  getProducts() async {
+    CartCubit.get(context).getCartItems();
+    //products = await hiveDatabase.getAllProducts();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getProducts();
+  }
+
   @override
   Widget build(BuildContext context) {
     var totalPrice = context.watch<CartCubit>().cartProducts;
@@ -41,6 +54,9 @@ class _CartViewState extends State<CartView> {
       }
     }
 
+
+
+
     return PopScope(
       canPop: false,
       onPopInvoked: (bool didPop) async {
@@ -53,7 +69,7 @@ class _CartViewState extends State<CartView> {
           title: S.of(context).cart,
         ),
         body: SafeArea(
-          child: context.watch<CartCubit>().cartProducts.isNotEmpty
+          child: context.watch<CartCubit>().products!.isNotEmpty
               ? Stack(
                   children: [
                     Padding(
@@ -65,18 +81,11 @@ class _CartViewState extends State<CartView> {
                               physics: const NeverScrollableScrollPhysics(),
                               scrollDirection: Axis.vertical,
                               shrinkWrap: true,
-                              itemCount: context
-                                  .watch<CartCubit>()
-                                  .cartProducts
-                                  .length,
+                              itemCount: context.watch<CartCubit>().products!.length,
                               itemBuilder: (ctx, index) {
-                                final productItems = context
-                                    .watch<CartCubit>()
-                                    .cartProducts[index];
+                                final productItems = context.watch<CartCubit>().products![index];
                                 return Dismissible(
-                                  key: ValueKey<int>(context
-                                      .watch<CartCubit>()
-                                      .cartProducts[index]
+                                  key: ValueKey<int>(context.watch<CartCubit>().products![index]
                                       .id!
                                       .toInt()),
                                   onDismissed: (value) {
@@ -226,7 +235,7 @@ class _CartViewState extends State<CartView> {
                                 ),
                                 const Spacer(),
                                 Text(
-                                  "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! + int.parse(e.price!) * e.userQuantity! / 10 : int.parse(e.priceAfterDiscount!) * e.userQuantity! + int.parse(e.priceAfterDiscount!) * e.userQuantity! / 10).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.sar}",
+                                  "${totalPrice.map((e) => e.discountPercent == 0 ? double.parse(e.price!) * e.userQuantity! + double.parse(e.price!) * e.userQuantity! / 10 : double.parse(e.priceAfterDiscount!) * e.userQuantity! + double.parse(e.priceAfterDiscount!) * e.userQuantity! / 10).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.sar}",
                                   style: CustomTextStyle.kTextStyleF14
                                       .copyWith(color: AppColors.textColor),
                                 ),
@@ -255,7 +264,7 @@ class _CartViewState extends State<CartView> {
                                 ),
                                 const Spacer(),
                                 Text(
-                                  "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.sar}",
+                                  "${totalPrice.map((e) => e.discountPercent == 0 ? double.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element)} ${S.current.sar}",
                                   style: CustomTextStyle.kTextStyleF14.copyWith(
                                       color: AppColors.textColorSecondary),
                                 ),
@@ -289,7 +298,7 @@ class _CartViewState extends State<CartView> {
                                 ),
                                 const Spacer(),
                                 Text(
-                                  "${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) / 10} ${S.current.sar}",
+                                  "${(totalPrice.map((e) => e.discountPercent == 0 ? double.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) / 10).toStringAsFixed(2)} ${S.current.sar}",
                                   style: CustomTextStyle.kTextStyleF14.copyWith(
                                       color: AppColors.textColorSecondary),
                                 ),

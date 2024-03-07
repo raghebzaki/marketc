@@ -13,6 +13,7 @@ import 'package:pinput/pinput.dart';
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../../core/helpers/cache_helper.dart';
+import '../../../../../../core/router/router.dart';
 import '../../../../../../core/shared/entities/product_entity.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../core/shared/widgets/custom_button.dart';
@@ -614,6 +615,7 @@ class _EditProductViewState extends State<EditProductView> {
                           success: (state) {
                             context.defaultSnackBar(
                                 S.of(context).product_added_success);
+                            context.pushNamed(designerBottomNavBarPageRoute);
                           },
                           error: (errCode, err) {
                             context.defaultSnackBar(

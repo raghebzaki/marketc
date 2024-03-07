@@ -31,7 +31,7 @@ class _MostPopularSeeMoreViewState extends State<MostPopularSeeMoreView> {
       if (!isLoading) {
         isLoading = true;
         await BlocProvider.of<MostPopularCubit>(context)
-            .getAllProducts(nextPage);
+            .getAllProducts(nextPage++);
         isLoading = false;
       }
     }

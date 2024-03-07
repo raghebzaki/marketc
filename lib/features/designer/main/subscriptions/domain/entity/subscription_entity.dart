@@ -17,12 +17,14 @@ class SubscriptionsEntity extends Equatable {
 }
 
 class PackageDataEntity extends Equatable {
+  final num? id;
   final String? packageName;
   final String? packagePrice;
   final List<String>? packageBenefits;
   final String? packageDiscountPrice;
 
   const PackageDataEntity({
+    this.id,
     this.packageName,
     this.packagePrice,
     this.packageBenefits,
@@ -31,6 +33,7 @@ class PackageDataEntity extends Equatable {
 
   @override
   List<Object?> get props => [
+    id,
         packageName,
         packagePrice,
         packageBenefits,

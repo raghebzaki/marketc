@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
-import 'package:marketc/core/utils/extensions.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../config/themes/app_text_styles.dart';
-import '../../utils/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -27,22 +23,22 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             centerTitle: true,
             backgroundColor: Colors.white,
             elevation: 0,
-            leading: IconButton(
-              onPressed: () {
-                context.pop();
-              },
-              icon: Intl.getCurrentLocale() == "ar"
-                  ? Icon(
-                MdiIcons.chevronRight,
-                size: 16.sp,
-                color: AppColors.lightBlue,
-              )
-                  : Icon(
-                MdiIcons.chevronLeft,
-                size: 16.sp,
-                color: AppColors.lightBlue,
-              ),
-            ),
+            // leading: IconButton(
+            //   onPressed: () {
+            //     context.pop();
+            //   },
+            //   icon: Intl.getCurrentLocale() == "ar"
+            //       ? Icon(
+            //     MdiIcons.chevronRight,
+            //     size: 16.sp,
+            //     color: AppColors.lightBlue,
+            //   )
+            //       : Icon(
+            //     MdiIcons.chevronLeft,
+            //     size: 16.sp,
+            //     color: AppColors.lightBlue,
+            //   ),
+            // ),
             title: Text(
               title,
               style: CustomTextStyle.kTextStyleF16,

@@ -14,6 +14,7 @@ class SubscriptionContainer extends StatelessWidget {
   final String packagePrice;
   final List<String> packageBenefits;
   final String packageDiscountPrice;
+  final VoidCallback onTap;
 
   const SubscriptionContainer({
     super.key,
@@ -21,13 +22,14 @@ class SubscriptionContainer extends StatelessWidget {
     required this.packagePrice,
     required this.packageBenefits,
     required this.packageDiscountPrice,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: () {},
+        onTap: onTap,
         child: Column(
           children: [
             Container(

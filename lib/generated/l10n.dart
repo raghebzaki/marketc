@@ -2519,6 +2519,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Amount withdrew successfully`
+  String get amountWithdrewSuccessfully {
+    return Intl.message(
+      'Amount withdrew successfully',
+      name: 'amountWithdrewSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can't withdraw 0 amount`
+  String get youCantWithdraw0Amount {
+    return Intl.message(
+      'You can\'t withdraw 0 amount',
+      name: 'youCantWithdraw0Amount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Successfully subscribed to package, now redirecting to payment`
+  String get successfullySubscribed {
+    return Intl.message(
+      'Successfully subscribed to package, now redirecting to payment',
+      name: 'successfullySubscribed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

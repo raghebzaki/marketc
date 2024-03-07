@@ -1,6 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Dimensions {
+  static double f6 = 6.0.sp;
   static double f8 = 8.0.sp;
   static double f10 = 10.0.sp;
   static double f12 = 12.0.sp;
@@ -46,6 +47,7 @@ class Dimensions {
   static const double r8 = 8.0;
   static const double r10 = 10.0;
   static const double r15 = 15.0;
+  static const double r18 = 18.0;
   static const double r20 = 20.0;
   static const double r21 = 21.0;
   static const double r25 = 25.0;

@@ -48,8 +48,8 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
 
     var total = (totalPrice
         .map((e) => e.discountPercent == 0
-        ? int.parse(e.price!) * e.userQuantity!
-        : int.parse(e.priceAfterDiscount!) * e.userQuantity!)
+        ? double.parse(e.price!) * e.userQuantity!
+        : double.parse(e.priceAfterDiscount!) * e.userQuantity!)
         .reduce((value, element) => value + element));
 
     return Scaffold(
@@ -211,14 +211,14 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                             Text(
                               "${(totalPrice.map(
                                     (e) => e.discountPercent == 0
-                                        ? int.parse(e.price!) *
+                                        ? double.parse(e.price!) *
                                                 e.userQuantity! +
-                                            int.parse(e.price!) *
+                                            double.parse(e.price!) *
                                                 e.userQuantity! /
                                                 10
-                                        : int.parse(e.priceAfterDiscount!) *
+                                        : double.parse(e.priceAfterDiscount!) *
                                                 e.userQuantity! +
-                                            int.parse(e.priceAfterDiscount!) *
+                                            double.parse(e.priceAfterDiscount!) *
                                                 e.userQuantity! /
                                                 10,
                                   ).reduce((value, element) => value + element) + AppConstants.deliveryFee)} ${S.current.sar}",
@@ -250,7 +250,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                             ),
                             const Spacer(),
                             Text(
-                              "${(totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element))} ${S.current.sar}",
+                              "${(totalPrice.map((e) => e.discountPercent == 0 ? double.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element))} ${S.current.sar}",
                               style: CustomTextStyle.kTextStyleF14.copyWith(
                                   color: AppColors.textColorSecondary),
                             ),
@@ -284,7 +284,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                             ),
                             const Spacer(),
                             Text(
-                              '${totalPrice.map((e) => e.discountPercent == 0 ? int.parse(e.price!) * e.userQuantity! : int.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) / 10} ${S.current.sar}',
+                              '${(totalPrice.map((e) => e.discountPercent == 0 ? double.parse(e.price!) * e.userQuantity! : double.parse(e.priceAfterDiscount!) * e.userQuantity!).reduce((value, element) => value + element) / 10).toStringAsFixed(2)} ${S.current.sar}',
                               style: CustomTextStyle.kTextStyleF14.copyWith(
                                   color: AppColors.textColorSecondary),
                             ),

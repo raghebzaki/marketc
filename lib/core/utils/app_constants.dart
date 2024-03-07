@@ -35,12 +35,13 @@ class AppConstants {
   static const verifyAccountUri = "auth/account_verification";
   static const checkEmailRegisterUri = "auth/check_email_before_register";
   static const resendCodeUri = "auth/resend-code";
+  static const searchUri = "v1/search/general-search";
   static const mostPopularProductsUri = "v1/products/popular";
   static const newProductsUri = "v1/products";
   static const favoriteProductsUri = "v1/products/get-my-favourite";
   static const addFavoriteProductsUri = "v1/products/add-to-favourite";
   static const checkIfFavoriteProductsUri = "v1/products/check-if-favourite";
-  static const categoryDetailsUri = "v1/products/sub-category-products";
+  static const categoryDetailsUri = "v1/products/category-products";
   static const placeOrderUri = "v1/order/store";
   static const addPromoCodeUri = "v1/validate-coupon";
   static const carouselUri = "v1/ads";
@@ -55,15 +56,16 @@ class AppConstants {
   /// designer
   static const designerCarouselUri = "v1/ads";
   static const getDesignsUri = "v1/top-designes";
+  static const packageSubscriptionUri = "v1/package-subscribers";
   static const designerDeleteProductUri = "v1/designer/delete-product";
   static const designerAddProductUri = "v1/designer/create-product";
-  static const designerGetPointsUri = "";
-  static const designerBalanceUri = "";
-  static const designerExchangeUri = "";
+  static const designerGetBalanceUri = "v1/get-user-withdrawal-requests";
+  static const designerWithdrawRequestUri = "v1/withdrawal-requests";
   static const getColorsUri = "v1/colors";
   static const getSizesUri = "v1/sizes";
   static const updateProductUri = "v1/designer/update-product";
   static const myProductsUri = "v1/designer/my-products";
   static const getPackagesUri = "v1/packages";
   static const getDesignerStatsUri = "v1/get-user-statistics";
+
 }

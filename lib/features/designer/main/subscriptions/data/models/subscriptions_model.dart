@@ -31,6 +31,7 @@ class SubscriptionsModel extends SubscriptionsEntity {
 
 class PackageDataModel extends PackageDataEntity {
   const PackageDataModel({
+    super.id,
     super.packageName,
     super.packagePrice,
     super.packageBenefits,
@@ -40,6 +41,7 @@ class PackageDataModel extends PackageDataEntity {
 
   factory PackageDataModel.fromJson(Map<String, dynamic> json) {
     return PackageDataModel(
+      id: json['id'],
       packageName: json['package_name'],
       packagePrice: json['package_price'],
       packageBenefits: json['package_benefits'],

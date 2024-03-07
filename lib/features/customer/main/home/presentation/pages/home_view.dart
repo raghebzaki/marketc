@@ -21,7 +21,6 @@ import 'package:marketc/features/customer/main/home/presentation/manager/new_pro
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/router/router.dart';
 import '../../../../../../core/shared/models/user_data_model.dart';
-import '../../../../../../core/shared/widgets/custom_search_form_field.dart';
 import '../../../../../../core/shared/widgets/product_card.dart';
 import '../../../../../../core/shared/widgets/state_error_widget.dart';
 import '../../../../../../core/utils/app_colors.dart';
@@ -102,10 +101,28 @@ class _HomeViewState extends State<HomeView> {
                     Expanded(
                       child: SizedBox(
                         height: 35.h,
-                        child: CustomSearchFormField(
-                          borderRadius: Dimensions.r8,
-                          label: S.current.you_think,
-                          sufIcon: const Icon(Icons.search),
+                        child: GestureDetector(
+                          onTap: () {
+                            context.pushNamed(searchPageRoute);
+                          },
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: Dimensions.p8.w),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(Dimensions.r8),
+                              border: Border.all(
+                                color: Colors.black,
+                              )
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(S.current.you_think),
+                                const Icon(Icons.search),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -251,7 +268,9 @@ class _HomeViewState extends State<HomeView> {
                                               clipBehavior: Clip.antiAlias,
                                               decoration: BoxDecoration(
                                                 image: DecorationImage(
-                                                  image: ads[index].image!.isEmpty
+                                                  image: ads[index]
+                                                          .image!
+                                                          .isEmpty
                                                       ? const CachedNetworkImageProvider(
                                                           "https://via.placeholder.com/140x140",
                                                         )
@@ -553,7 +572,10 @@ class _HomeViewState extends State<HomeView> {
                                         context.pushNamed(
                                           categoryDetailsPageRoute,
                                           arguments: CategoryDetailsArgs(
-                                            id: 1,
+                                            id: state[index].id!,
+                                            name: CacheHelper.isEnglish()
+                                                ? state[index].nameEn!
+                                                : state[index].nameAr!,
                                           ),
                                         );
                                       },

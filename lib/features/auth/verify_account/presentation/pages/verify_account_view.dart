@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
 import 'package:gap/gap.dart';
+import 'package:marketc/core/shared/widgets/custom_button.dart';
 import 'package:marketc/core/utils/extensions.dart';
 import 'package:marketc/features/auth/verify_account/domain/entities/verify_account_entity.dart';
 import 'package:pinput/pinput.dart';
@@ -88,19 +89,7 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                             EdgeInsets.symmetric(vertical: Dimensions.p30.h),
                         child: Pinput(
                           controller: pinCtrl,
-                          onChanged: (value) {
-                            // UserData.otp = value;
-                          },
                           closeKeyboardWhenCompleted: false,
-                          onSubmitted: (value) {
-                            verifyAccountCubit.verifyUserAccount(
-                              VerifyAccountEntity(
-                                email: widget.email,
-                                otp: pinCtrl.text,
-                              ),
-                            );
-                            // context.pushNamed(login);
-                          },
                           length: 6,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -124,6 +113,28 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                             textStyle: CustomTextStyle.kPinTextStyle,
                           ),
                         ),
+                      ),
+                      ConditionalBuilder(
+                        condition: state is! Loading,
+                        builder: (ctx) {
+                          return CustomBtn(
+                            label: S.of(context).verify_code,
+                            onPressed: () {
+                              verifyAccountCubit.verifyUserAccount(
+                                VerifyAccountEntity(
+                                  email: widget.email,
+                                  otp: pinCtrl.text,
+                                ),
+                              );
+                            },
+                          );
+                        },
+                        fallback: (ctx) {
+                          return const Center(
+                            child: CircularProgressIndicator(
+                                color: AppColors.secondary),
+                          );
+                        },
                       ),
                       ConditionalBuilder(
                         condition: timer == true,

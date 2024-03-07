@@ -409,7 +409,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               ),
                               const Spacer(),
                               Text(
-                                '${tax} ${S.current.sar}',
+                                '${tax.toStringAsFixed(2)} ${S.current.sar}',
                                 style: CustomTextStyle.kTextStyleF14.copyWith(
                                     color: AppColors.textColorSecondary),
                               ),

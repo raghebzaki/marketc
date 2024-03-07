@@ -80,6 +80,11 @@ import '../../features/customer/main/product_details/data/repositories/add_favor
 import '../../features/customer/main/product_details/domain/repositories/add_favorite_model.dart';
 import '../../features/customer/main/product_details/domain/use_cases/add_favorite_use_case.dart';
 import '../../features/customer/main/product_details/presentation/manager/add_favorite_cubit.dart';
+import '../../features/customer/main/search/data/data_sources/search_service.dart';
+import '../../features/customer/main/search/data/repositories/search_repo_impl.dart';
+import '../../features/customer/main/search/domain/repositories/search_repo.dart';
+import '../../features/customer/main/search/domain/usecases/search_use_case.dart';
+import '../../features/customer/main/search/presentation/manager/search_cubit.dart';
 import '../../features/customer/orders/my_orders/data/data_sources/my_orders_service.dart';
 import '../../features/customer/orders/my_orders/data/repositories/my_orders_repo_impl.dart';
 import '../../features/customer/orders/my_orders/domain/repositories/my_orders_repo.dart';
@@ -139,10 +144,15 @@ import '../../features/designer/main/home/domain/use_cases/designer_stats_use_ca
 import '../../features/designer/main/home/presentation/manager/designer_carousel_cubit.dart';
 
 import '../../features/designer/main/home/presentation/manager/stats_cubit/stats_cubit.dart';
+import '../../features/designer/main/subscriptions/data/data_sources/buy_subscription_service.dart';
 import '../../features/designer/main/subscriptions/data/data_sources/subscriptions_service.dart';
+import '../../features/designer/main/subscriptions/data/repositories/buy_subscription_repo_impl.dart';
 import '../../features/designer/main/subscriptions/data/repositories/subscriptions_repo_impl.dart';
+import '../../features/designer/main/subscriptions/domain/repositories/buy_subscription_reop.dart';
 import '../../features/designer/main/subscriptions/domain/repositories/subscriptions_repo.dart';
+import '../../features/designer/main/subscriptions/domain/usecases/buy_subscription_use_case.dart';
 import '../../features/designer/main/subscriptions/domain/usecases/subscriptions_usecase.dart';
+import '../../features/designer/main/subscriptions/presentation/manager/buy_supscription_cubit/buy_supscription_cubit.dart';
 import '../../features/designer/main/subscriptions/presentation/manager/subscriptions_cubit.dart';
 import '../../features/designer/product/add_product/data/data_sources/add_product_service.dart';
 import '../../features/designer/product/add_product/data/data_sources/color_service.dart';
@@ -164,21 +174,14 @@ import '../../features/designer/product/edit_product/data/repositories/edit_prod
 import '../../features/designer/product/edit_product/domain/repositories/edit_product_repo.dart';
 import '../../features/designer/product/edit_product/domain/use_cases/edit_product_usecase.dart';
 import '../../features/designer/product/edit_product/presentation/manager/edit_product_cubit.dart';
-import '../../features/designer/profile/user_balance/data/data_sources/balance_service.dart';
-import '../../features/designer/profile/user_balance/data/data_sources/exchange_service.dart';
-import '../../features/designer/profile/user_balance/data/data_sources/get_points_service.dart';
-import '../../features/designer/profile/user_balance/data/repositories/balance_repo_impl.dart';
-import '../../features/designer/profile/user_balance/data/repositories/exchange_repo_impl.dart';
-import '../../features/designer/profile/user_balance/data/repositories/get_points_repo_impl.dart';
-import '../../features/designer/profile/user_balance/domain/repositories/balance_repo.dart';
-import '../../features/designer/profile/user_balance/domain/repositories/exchange_repo.dart';
-import '../../features/designer/profile/user_balance/domain/repositories/get_points_repo.dart';
-import '../../features/designer/profile/user_balance/domain/use_cases/balance_use_case.dart';
-import '../../features/designer/profile/user_balance/domain/use_cases/exchange_use_case.dart';
-import '../../features/designer/profile/user_balance/domain/use_cases/get_points_use_case.dart';
-import '../../features/designer/profile/user_balance/presentation/manager/balance_cubit.dart';
-import '../../features/designer/profile/user_balance/presentation/manager/exchange_cubit.dart';
-import '../../features/designer/profile/user_balance/presentation/manager/get_points_cubit.dart';
+import '../../features/designer/profile/user_balance/data/data_sources/user_balance_service.dart';
+import '../../features/designer/profile/user_balance/data/repositories/user_balance_repo_impl.dart';
+import '../../features/designer/profile/user_balance/domain/repositories/user_balance_repo.dart';
+import '../../features/designer/profile/user_balance/domain/usecases/get_user_balance_use_case.dart';
+import '../../features/designer/profile/user_balance/domain/usecases/withdraw_user_balance_use_case.dart';
+import '../../features/designer/profile/user_balance/presentation/manager/get_balance/get_balance_cubit.dart';
+import '../../features/designer/profile/user_balance/presentation/manager/withdraw_balance/withdraw_balance_cubit.dart';
+// import '../../features/designer/profile/user_balance/data/repositories/get_points_repo_impl.dart';
 
 final di = GetIt.instance;
 
@@ -241,6 +244,12 @@ Future<void> init() async {
   /// customer
 
   /// home page
+  /// Search
+  di.registerFactory(() => SearchCubit(searchUseCase:  di()));
+  di.registerLazySingleton(() => SearchUseCase(searchRepo: di()));
+  di.registerLazySingleton<SearchRepo>(() => SearchRepoImpl(searchService: di()));
+  di.registerLazySingleton<SearchService>(() => SearchServiceImpl());
+
   /// most popular
   di.registerFactory(() => MostPopularCubit(mostPopularUseCase: di()));
   di.registerLazySingleton(() => MostPopularUseCase(di()));
@@ -407,23 +416,17 @@ Future<void> init() async {
   di.registerLazySingleton<EditProductService>(() => EditProductServiceImpl());
 
   ///profile
-  /// balance
-  di.registerFactory(() => BalanceCubit(balanceUseCase: di()));
-  di.registerLazySingleton(() => BalanceUseCase(di()));
-  di.registerLazySingleton<BalanceRepo>(() => BalanceRepoImpl(di()));
-  di.registerLazySingleton<BalanceService>(() => BalanceServiceImpl());
-
-  /// Exchange
-  di.registerFactory(() => ExchangeCubit(exchangeUseCase: di()));
-  di.registerLazySingleton(() => ExchangeUseCase(di()));
-  di.registerLazySingleton<ExchangeRepo>(() => ExchangeRepoImpl(di()));
-  di.registerLazySingleton<ExchangeService>(() => ExchangeServiceImpl());
-
-  /// Get Points
-  di.registerFactory(() => GetPointsCubit(getPointsUseCase: di()));
-  di.registerLazySingleton(() => GetPointsUseCase(di()));
-  di.registerLazySingleton<GetPointsRepo>(() => GetPointsRepoImpl(di()));
-  di.registerLazySingleton<GetPointsService>(() => GetPointsServiceImpl());
+  ///
+  /// User Balance
+  di.registerFactory(() => GetBalanceCubit(getUserBalanceUseCase: di()));
+  di.registerFactory(
+      () => WithdrawBalanceCubit(withdrawUserBalanceUseCase: di()));
+  di.registerLazySingleton(() => GetUserBalanceUseCase(userBalanceRepo: di()));
+  di.registerLazySingleton(
+      () => WithdrawUserBalanceUseCase(userBalanceRepo: di()));
+  di.registerLazySingleton<UserBalanceRepo>(
+      () => UserBalanceRepoImpl(userBalanceService: di()));
+  di.registerLazySingleton<UserBalanceService>(() => UserBalanceServiceImpl());
 
   ///Add & Edit Product
   /// Colors
@@ -446,6 +449,15 @@ Future<void> init() async {
       () => SubscriptionsRepoImpl(subscriptionService: di()));
   di.registerLazySingleton<SubscriptionService>(
       () => SubscriptionServiceImpl());
+
+  /// Subscriptions
+  di.registerFactory(() => BuySubscriptionCubit(buySubscriptionUseCase: di()));
+  di.registerLazySingleton(
+      () => BuySubscriptionUseCase(buySubscriptionRepo: di()));
+  di.registerLazySingleton<BuySubscriptionRepo>(
+      () => BuySubscriptionRepoImpl(buySubscriptionService: di()));
+  di.registerLazySingleton<BuySubscriptionService>(
+      () => BuySubscriptionServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();

@@ -23,8 +23,10 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(productDetailsPageRoute,
-            arguments: ProductsEntityArgs(productEntity: productEntity));
+        context.pushNamed(
+          productDetailsPageRoute,
+          arguments: ProductsEntityArgs(productEntity: productEntity),
+        );
       },
       child: Container(
         width: 160.w,
@@ -44,7 +46,7 @@ class ProductCard extends StatelessWidget {
               imageBuilder: (context, imageProvider) {
                 return Container(
                   width: double.infinity,
-                  height: 120,
+                  height: 132.h,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: NetworkImage(
@@ -72,6 +74,7 @@ class ProductCard extends StatelessWidget {
                     CacheHelper.isEnglish()
                         ? productEntity.nameEn!
                         : productEntity.nameAr!,
+                    overflow: TextOverflow.ellipsis,
                     style: CustomTextStyle.kTextStyleF12
                         .copyWith(color: AppColors.textColor),
                   ),
@@ -82,11 +85,11 @@ class ProductCard extends StatelessWidget {
                     style: CustomTextStyle.kTextStyleF12
                         .copyWith(color: AppColors.textColorSecondary),
                   ),
-                  Text(
-                    '178 عملية شراء',
-                    style: CustomTextStyle.kTextStyleF12
-                        .copyWith(color: AppColors.textColorSecondary),
-                  ),
+                  // Text(
+                  //   '178 عملية شراء',
+                  //   style: CustomTextStyle.kTextStyleF12
+                  //       .copyWith(color: AppColors.textColorSecondary),
+                  // ),
                   productEntity.discountPercent == 0
                       ? Row(
                           mainAxisSize: MainAxisSize.min,
@@ -121,24 +124,27 @@ class ProductCard extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              width: 152.w,
-              height: 32.h,
-              clipBehavior: Clip.antiAlias,
-              decoration: ShapeDecoration(
-                color: AppColors.secondary,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(
-                    Dimensions.r8,
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                width: 152.w,
+                height: 32.h,
+                clipBehavior: Clip.antiAlias,
+                decoration: ShapeDecoration(
+                  color: AppColors.secondary,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                      Dimensions.r8,
+                    ),
                   ),
                 ),
-              ),
-              child: Center(
-                child: Text(
-                  S.current.view_details,
-                  textAlign: TextAlign.center,
-                  style: CustomTextStyle.kTextStyleF12.copyWith(
-                    color: Colors.white,
+                child: Center(
+                  child: Text(
+                    S.current.view_details,
+                    textAlign: TextAlign.center,
+                    style: CustomTextStyle.kTextStyleF12.copyWith(
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),

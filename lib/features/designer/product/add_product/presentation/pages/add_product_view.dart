@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -577,6 +578,7 @@ class _AddProductViewState extends State<AddProductView> {
                             success: (state) {
                               context.defaultSnackBar(
                                   S.of(context).product_added_success);
+                              context.pushNamed(designerBottomNavBarPageRoute);
                             },
                             error: (errCode, err) {
                               context.defaultSnackBar(

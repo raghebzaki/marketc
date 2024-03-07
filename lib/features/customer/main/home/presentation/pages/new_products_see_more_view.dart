@@ -30,7 +30,7 @@ class _NewProductsSeeMoreViewState extends State<NewProductsSeeMoreView> {
       if (!isLoading) {
         isLoading = true;
         await BlocProvider.of<NewProductsCubit>(context)
-            .getAllProducts(nextPage);
+            .getAllProducts(nextPage++);
         isLoading = false;
       }
     }

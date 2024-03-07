@@ -42,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "allow_notifications":
             MessageLookupByLibrary.simpleMessage("Allow notifications"),
         "amount": MessageLookupByLibrary.simpleMessage("Amount"),
+        "amountWithdrewSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "Amount withdrew successfully"),
         "arriving_to": MessageLookupByLibrary.simpleMessage("Arriving To"),
         "ask_about_address": MessageLookupByLibrary.simpleMessage(
             "Ask the Recipient About the Delivery Address"),
@@ -338,6 +340,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Welcome to Subscriptions"),
         "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
+        "successfullySubscribed": MessageLookupByLibrary.simpleMessage(
+            "Successfully subscribed to package, now redirecting to payment"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "ten_desings": MessageLookupByLibrary.simpleMessage("Get 10 designs"),
         "terms_and_conditions":
@@ -386,6 +390,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Yearly Subscription"),
         "yearly_sub_price":
             MessageLookupByLibrary.simpleMessage("Subscription 899 SAR"),
+        "youCantWithdraw0Amount": MessageLookupByLibrary.simpleMessage(
+            "You can\'t withdraw 0 amount"),
         "youHaveNo": MessageLookupByLibrary.simpleMessage("You have no "),
         "youHaveNoFavoritesYet":
             MessageLookupByLibrary.simpleMessage("You have no favorites yet"),

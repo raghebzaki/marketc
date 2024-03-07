@@ -6,15 +6,20 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:marketc/core/database/address_class.dart';
+import 'package:marketc/core/database/database_hive.dart';
 import 'package:marketc/core/shared/cubits/cart_cubit/cart_cubit.dart';
 
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
 import 'core/my_http.dart';
 import 'core/router/router_generator.dart';
+import 'core/shared/entities/product_entity.dart';
+import 'core/shared/entities/products_images_entity.dart';
 import 'core/shared/widgets/custom_error_widget.dart';
 import 'core/utils/app_strings.dart';
 import 'core/utils/cubit_observer.dart';
+import 'features/designer/product/add_product/domain/entities/color_entity.dart';
+import 'features/designer/product/add_product/domain/entities/size_entity.dart';
 import 'generated/l10n.dart';
 import 'main_view.dart';
 
@@ -23,6 +28,11 @@ void main() async {
   Bloc.observer = AppCubitObserver();
   await Hive.initFlutter();
   Hive.registerAdapter(AddressAdapter());
+  Hive.registerAdapter(ProductEntityAdapter());
+  Hive.registerAdapter(ProductSizesEntityAdapter());
+  Hive.registerAdapter(ProductColorsEntityAdapter());
+  Hive.registerAdapter(ProductsImagesEntityAdapter());
+  Hive.registerAdapter(PivotEntityAdapter());
   await ScreenUtil.ensureScreenSize();
   await di.init();
 
@@ -90,12 +100,14 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  HiveDatabase hiveDatabase = HiveDatabase();
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => CartCubit(),
+          create: (context) => CartCubit(hiveDatabase),
         ),
       ],
       child: ScreenUtilInit(

@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "allow_notifications":
             MessageLookupByLibrary.simpleMessage("السماح بالاشعارات"),
         "amount": MessageLookupByLibrary.simpleMessage("المبلغ"),
+        "amountWithdrewSuccessfully":
+            MessageLookupByLibrary.simpleMessage("تم سحب المبلغ بنجاح"),
         "arriving_to": MessageLookupByLibrary.simpleMessage("قيد الوصول الى"),
         "ask_about_address": MessageLookupByLibrary.simpleMessage(
             "اسأل المستلم عن عنوان التسليم"),
@@ -331,6 +333,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("مرحبا بك في الاشتراكات"),
         "subtotal": MessageLookupByLibrary.simpleMessage("المجموع الفرعي"),
         "success": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
+        "successfullySubscribed": MessageLookupByLibrary.simpleMessage(
+            "تم الاشتراك بنجاح في الباقة، يتم التوجيه الآن إلى عملية الدفع"),
         "tax": MessageLookupByLibrary.simpleMessage("ألضريبة"),
         "ten_desings":
             MessageLookupByLibrary.simpleMessage("الحصول على 10 تصاميم"),
@@ -374,6 +378,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "yearly_sub": MessageLookupByLibrary.simpleMessage("اشتراك سنة"),
         "yearly_sub_price":
             MessageLookupByLibrary.simpleMessage("اشتراك 899 ريال"),
+        "youCantWithdraw0Amount":
+            MessageLookupByLibrary.simpleMessage("لا يمكنك سحب مبلغ 0"),
         "youHaveNo": MessageLookupByLibrary.simpleMessage("لا يوجد طلبات "),
         "youHaveNoFavoritesYet":
             MessageLookupByLibrary.simpleMessage("ليس لديك مفضلة حتى الآن"),

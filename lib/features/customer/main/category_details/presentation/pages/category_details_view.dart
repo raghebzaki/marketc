@@ -23,10 +23,12 @@ import '../manager/category_details_cubit.dart';
 
 class CategoryDetailsView extends StatefulWidget {
   final num id;
+  final String name;
 
   const CategoryDetailsView({
     super.key,
     required this.id,
+    required this.name,
   });
 
   @override
@@ -82,7 +84,7 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
       child: Scaffold(
         // backgroundColor: AppColors.primary,
         appBar: CustomAppBar(
-          title: S.of(context).short_cloth_category,
+          title: widget.name,
         ),
         body: SafeArea(
           child: Padding(
@@ -120,6 +122,7 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
                                           CategoryDetailsCubit.get(context);
                                       return GestureDetector(
                                         onTap: () {
+                                          products.clear();
                                           nextPage = 1;
                                           subCategory = state[index].id!;
                                           categoryDetailsCubit.getProducts(
@@ -212,7 +215,6 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
                             ? Expanded(
                               child: AutoHeightGridView(
                                 controller: scrollController,
-
                                 itemCount: products.length,
                                   crossAxisCount: 2,
                                   mainAxisSpacing: 10,
