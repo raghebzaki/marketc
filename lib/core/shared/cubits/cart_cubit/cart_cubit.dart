@@ -21,19 +21,18 @@ class CartCubit extends Cubit<CartStates> {
   addToCart(ProductEntity productEntity) async {
     if (cartProducts.any((item) => item.id == productEntity.id)) {
       cartProducts;
-      await hiveDatabase.addProduct(cartProducts);
       emit(CartStates.alreadyAdded(cartProducts));
     } else {
       // cartProducts = List<ProductEntity>.from().add(productEntity);
       cartProducts.add(productEntity);
-      await hiveDatabase.addProduct(cartProducts);
+      await hiveDatabase.addProduct(productEntity);
       emit(CartStates.addedToCart(cartProducts));
     }
   }
 
   removeFromCart(ProductEntity productEntity) {
     cartProducts.remove(productEntity);
-    hiveDatabase.addProduct(cartProducts);
+    hiveDatabase.deleteProduct(productEntity);
     emit(
       CartStates.removedFromCart(cartProducts),
     );

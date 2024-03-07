@@ -33,16 +33,21 @@ class HiveDatabase {
   final String productListKey = "ProductListKey";
   final String productBoxName = "ProductDataBase";
 
-  Future<Box<List<ProductEntity>>> get productsBox async => await Hive.openBox<List<ProductEntity>>(productBoxName);
+  Future<Box<ProductEntity>> get productsBox async => await Hive.openBox<ProductEntity>(productBoxName);
 
-  Future<void> addProduct(List<ProductEntity> productList) async {
+  Future<void> addProduct(ProductEntity productEntity) async {
     var box = await productsBox;
-    await box.put(productListKey, productList);
+    await box.add( productEntity);
   }
 
   Future<List<ProductEntity>?> getAllProducts() async {
     var box = await productsBox;
-    return box.get(productListKey);
+    return box.values.toList();
+  }
+
+  Future<void> deleteProduct(ProductEntity productEntity) async {
+    var box = await productsBox;
+    box.delete(productEntity);
   }
 
   // Future<void> deleteProduct(int index) async {

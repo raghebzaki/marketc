@@ -15,10 +15,8 @@ class ProductEntity extends Equatable {
   final String? nameEn;
   @HiveField(2)
   final String? nameAr;
-
   @HiveField(3)
   final num? categoryId;
-
   @HiveField(4)
   final num? subCategoryId;
   @HiveField(5)
