@@ -25,7 +25,7 @@ class PromoCodeModel extends PromoCodeEntity {
 }
 
 class DataModel extends DataEntity {
-  DataModel({
+  const DataModel({
     super.id,
     super.name,
     super.discount,

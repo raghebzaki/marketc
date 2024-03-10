@@ -82,7 +82,7 @@ class _NotificationsViewState extends State<NotificationsView> {
                   onChanged: (bool value) {
                     // This is called when the user toggles the switch.
                     if (isClick[0] == false) {
-                      return null;
+                       null;
                     } else {
                       setState(() {
                         isClick[1] = value;
@@ -114,7 +114,7 @@ class _NotificationsViewState extends State<NotificationsView> {
                   onChanged: (bool value) {
                     // This is called when the user toggles the switch.
                     if (isClick[0] == false) {
-                      return null;
+                       null;
                     } else {
                       setState(() {
                         isClick[2] = value;
@@ -146,7 +146,7 @@ class _NotificationsViewState extends State<NotificationsView> {
                   onChanged: (bool value) {
                     // This is called when the user toggles the switch.
                     if (isClick[0] == false) {
-                      return null;
+                       null;
                     } else {
                       setState(() {
                         isClick[3] = value;

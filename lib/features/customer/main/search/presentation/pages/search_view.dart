@@ -83,7 +83,7 @@ class _SearchViewState extends State<SearchView> {
                     Gap(20.h),
                     state.maybeWhen(
                       loading: () {
-                        return StateLoadingWidget();
+                        return const StateLoadingWidget();
                       },
                       success: (state) {
                         return AutoHeightGridView(

@@ -21,7 +21,6 @@ import 'package:marketc/features/customer/main/home/presentation/manager/new_pro
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/router/router.dart';
 import '../../../../../../core/shared/models/user_data_model.dart';
-import '../../../../../../core/shared/widgets/custom_search_form_field.dart';
 import '../../../../../../core/shared/widgets/product_card.dart';
 import '../../../../../../core/shared/widgets/state_error_widget.dart';
 import '../../../../../../core/utils/app_colors.dart';

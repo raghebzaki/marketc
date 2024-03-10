@@ -33,7 +33,7 @@ class DataEntity extends Equatable {
   final int? status;
 
 
-  DataEntity({
+  const DataEntity({
     this.id,
     this.name,
     this.discount,
