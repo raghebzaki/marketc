@@ -103,7 +103,9 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
                   builder: (context, state) {
                     return state.maybeWhen(
                       loading: () {
-                        return const CircularProgressIndicator();
+                        return const Align(
+                            alignment: Alignment.center,
+                            child: CircularProgressIndicator());
                       },
                       success: (state) {
                         return state!.isNotEmpty ? SingleChildScrollView(

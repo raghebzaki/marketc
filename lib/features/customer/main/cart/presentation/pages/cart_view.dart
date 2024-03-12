@@ -43,11 +43,11 @@ class _CartViewState extends State<CartView> {
 
   @override
   Widget build(BuildContext context) {
-    var totalPrice = context.watch<CartCubit>().cartProducts;
-    for (var i = 0; i < totalPrice.length; i++) {
+    var totalPrice = context.watch<CartCubit>().products;
+    for (var i = 0; i < totalPrice!.length; i++) {
       if (totalPrice[i].discountPercent == 0) {
         finalPrice +=
-            double.parse(totalPrice[i].price!) * totalPrice[i].userQuantity!;
+        double.parse(totalPrice[i].price!) * totalPrice[i].userQuantity!;
       } else {
         finalPrice += double.parse(totalPrice[i].priceAfterDiscount!) *
             totalPrice[i].userQuantity!;
@@ -235,7 +235,7 @@ class _CartViewState extends State<CartView> {
                                 ),
                                 const Spacer(),
                                 Text(
-                                  "${totalPrice.map((e) => e.discountPercent == 0 ? double.parse(e.price!) * e.userQuantity! + double.parse(e.price!) * e.userQuantity! / 10 : double.parse(e.priceAfterDiscount!) * e.userQuantity! + double.parse(e.priceAfterDiscount!) * e.userQuantity! / 10).reduce((value, element) => value + element) + AppConstants.deliveryFee} ${S.current.sar}",
+                                  "${(totalPrice.map((e) => e.discountPercent == 0 ? double.parse(e.price!) * e.userQuantity! + double.parse(e.price!) * e.userQuantity! / 10 : double.parse(e.priceAfterDiscount!) * e.userQuantity! + double.parse(e.priceAfterDiscount!) * e.userQuantity! / 10).reduce((value, element) => value + element) + AppConstants.deliveryFee).toStringAsFixed(2)} ${S.current.sar}",
                                   style: CustomTextStyle.kTextStyleF14
                                       .copyWith(color: AppColors.textColor),
                                 ),

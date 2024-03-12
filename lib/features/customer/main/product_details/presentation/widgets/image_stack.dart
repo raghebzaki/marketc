@@ -195,7 +195,7 @@ class _ImageStackState extends State<ImageStack> {
             ),
           ),
           widget.productEntity.images!.isNotEmpty
-              ? Positioned(
+              ? Positioned (
                   left: 0,
                   top: 133.h,
                   right: 250.w,

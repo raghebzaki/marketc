@@ -41,7 +41,7 @@ class DioFactory {
         ),
       );
 
-      addDioInterceptor();
+      // addDioInterceptor();
 
       return dio!;
     } else {

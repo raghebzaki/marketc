@@ -35,6 +35,27 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
   ProductSizesEntity sizesEntity = const ProductSizesEntity();
   ProductColorsEntity colorsEntity = const ProductColorsEntity();
   int imageCtrl = 0;
+  String htmlEnContent = "";
+  String htmlArContent = "";
+  String cleanedHtmlArContent = "";
+  String cleanedHtmlEnContent = "";
+
+  formatDescription() {
+    setState(
+      (() {
+        htmlEnContent = widget.productEntity.descriptionEn!;
+        cleanedHtmlEnContent = htmlEnContent.replaceAll(RegExp(r'<[^>]*>'), '');
+        htmlArContent = widget.productEntity.descriptionAr!;
+        cleanedHtmlArContent = htmlArContent.replaceAll(RegExp(r'<[^>]*>'), '');
+      }),
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    formatDescription();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,10 +82,10 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ImageStack(
-                          productImages: widget.productEntity.images!,
-                          mainImg: widget.productEntity.image!,
-                          productEntity: widget.productEntity,
-                          imgIndexCtrl: imageCtrl,
+                        productImages: widget.productEntity.images!,
+                        mainImg: widget.productEntity.image!,
+                        productEntity: widget.productEntity,
+                        imgIndexCtrl: imageCtrl,
                         isFavorite: isFavorite,
                       ),
                       Gap(35.h),
@@ -118,10 +139,11 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                           color: AppColors.black60,
                         ),
                       ),
+
                       Html(
                         data: CacheHelper.isEnglish()
-                            ? widget.productEntity.descriptionEn!
-                            : widget.productEntity.descriptionAr!,
+                            ? cleanedHtmlEnContent
+                            : cleanedHtmlArContent,
                       ),
                       // Text(
                       //   S.current.product_des,

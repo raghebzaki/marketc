@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:marketc/core/database/product_database.dart';
 
 import '../../../database/database_hive.dart';
 import '../../entities/product_entity.dart';
@@ -10,31 +11,31 @@ part 'cart_cubit.freezed.dart';
 part 'cart_state.dart';
 
 class CartCubit extends Cubit<CartStates> {
-  CartCubit(this.hiveDatabase) : super(const CartStates.initial());
+  CartCubit(this.productDataBase) : super(const CartStates.initial());
 
   static CartCubit get(BuildContext context) => BlocProvider.of(context);
 
   List<ProductEntity> cartProducts = [];
 
-  final HiveDatabase hiveDatabase;
+  // final HiveDatabase hiveDatabase;
+  final ProductDataBase productDataBase;
 
   addToCart(ProductEntity productEntity) async {
-    if (cartProducts.any((item) => item.id == productEntity.id)) {
-      cartProducts;
-      emit(CartStates.alreadyAdded(cartProducts));
+    if (products!.any((item) => item.id == productEntity.id)) {
+      emit(CartStates.alreadyAdded(products!));
     } else {
       // cartProducts = List<ProductEntity>.from().add(productEntity);
-      cartProducts.add(productEntity);
-      await hiveDatabase.addProduct(productEntity);
-      emit(CartStates.addedToCart(cartProducts));
+      products!.add(productEntity);
+      await productDataBase.addProduct(productEntity);
+      emit(CartStates.addedToCart(products!));
     }
   }
 
   removeFromCart(ProductEntity productEntity) {
-    cartProducts.remove(productEntity);
-    hiveDatabase.deleteProduct(productEntity);
+    products!.remove(productEntity);
+    productDataBase.deleteProduct(productEntity.id!);
     emit(
-      CartStates.removedFromCart(cartProducts),
+      CartStates.removedFromCart(products!),
     );
   }
 
@@ -42,10 +43,14 @@ class CartCubit extends Cubit<CartStates> {
   List<ProductEntity>? products = [];
 
   getCartItems() async {
-    products = await hiveDatabase.getAllProducts();
+    products = await productDataBase.getAllProducts();
     emit(
       CartStates.cartItems(products!),
     );
+  }
+
+  clearDatabase() async {
+    await productDataBase.clearDataBase();
   }
 
   // getAddresses() async {

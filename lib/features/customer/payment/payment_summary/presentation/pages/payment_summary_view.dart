@@ -44,7 +44,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
 
   @override
   Widget build(BuildContext context) {
-    final cartItems = context.watch<CartCubit>().cartProducts;
+    final cartItems = context.watch<CartCubit>().products!;
     double tax = widget.finalPrice!/10;
     return BlocProvider(
   create: (context) => di.di<PromoCodeCubit>(),
@@ -346,7 +346,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               ),
                               const Spacer(),
                               Text(
-                                "${widget.finalPrice! + tax + AppConstants.deliveryFee} ${S.current.sar}",
+                                "${(widget.finalPrice! + tax + AppConstants.deliveryFee).toStringAsFixed(2)} ${S.current.sar}",
                                 style: CustomTextStyle.kTextStyleF14
                                     .copyWith(color: AppColors.textColor),
                               ),
@@ -489,6 +489,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                             ),
                           );
 
+                          context.read<CartCubit>().clearDatabase();
                         },
                       ),
                     ),

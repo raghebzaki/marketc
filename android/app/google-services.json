@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "525616605816",
+    "project_id": "market-c-c63ee",
+    "storage_bucket": "market-c-c63ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525616605816:android:4e460ac392f2cf8de05b8d",
+        "android_client_info": {
+          "package_name": "com.coddiv.marketc.marketc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAk6qSSLG0-ZTFyxAVocOH5uccoD7GzhE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

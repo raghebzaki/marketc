@@ -188,70 +188,72 @@ class _SelectionsColumnState extends State<SelectionsColumn> {
         Row(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            BlocBuilder<CartCubit, CartStates>(
-              // listener: (context, state) {
-              //   state.maybeWhen(
-              //     alreadyAdded: (state) {
-              //       context.defaultSnackBar(
-              //           "Product already added to cart");
-              //     },
-              //     addedToCart: (state) {
-              //       context
-              //           .defaultSnackBar("Product Added to cart");
-              //     },
-              //     orElse: () {
-              //       return null;
-              //     },
-              //   );
-              // },
-              builder: (context, state) {
-                // CartCubit cartCubit = CartCubit.get(context);
-                return Flexible(
-                  child: CustomBtn(
-                    label: S.of(context).add_to_cart,
-                    fgColor: Colors.white,
-                    isUpperCase: true,
-                    onPressed: () {
-                      // final cartCubit = context.read<CartCubit>();
-                      // cartCubit.addToCart(widget.productEntity);
-                      context.read<CartCubit>().addToCart(
-                            ProductEntity(
-                              id: widget.productEntity.id,
-                              sendColor: [
-                                widget.colorsEntity.id!,
-                              ],
-                              sendSize: [
-                                widget.sizesEntity.id!,
-                              ],
-                              color: [
-                                widget.colorsEntity,
-                              ],
-                              size: [
-                                widget.sizesEntity,
-                              ],
-                              quantity: widget.productEntity.quantity,
-                              userQuantity: widget.qty,
-                              price: widget.productEntity.price,
-                              priceAfterDiscount:
-                                  widget.productEntity.priceAfterDiscount,
-                              discountPercent:
-                                  widget.productEntity.discountPercent,
-                              image: widget.productEntity.image,
-                              images: widget.productEntity.images,
-                              imagesBase64: widget.productEntity.imagesBase64,
-                              nameEn: widget.productEntity.nameEn,
-                              nameAr: widget.productEntity.nameAr,
-                              descriptionEn: widget.productEntity.descriptionEn,
-                              descriptionAr: widget.productEntity.descriptionAr,
-                            ),
-
-                            // widget.productEntity
-                          );
-                      context.pushNamed(cartPageRoute);
-                    },
-                  ),
+            BlocListener<CartCubit, CartStates>(
+              listener: (context, state) {
+                state.maybeWhen(
+                  alreadyAdded: (state) {
+                    context.defaultSnackBar("Product already added to cart");
+                  },
+                  addedToCart: (state) {
+                    context.defaultSnackBar("Product Added to cart");
+                  },
+                  orElse: () {
+                    return null;
+                  },
                 );
               },
+              child: BlocBuilder<CartCubit, CartStates>(
+                builder: (context, state) {
+                  // CartCubit cartCubit = CartCubit.get(context);
+                  return Flexible(
+                    child: CustomBtn(
+                      label: S.of(context).add_to_cart,
+                      fgColor: Colors.white,
+                      isUpperCase: true,
+                      onPressed: () {
+                        // final cartCubit = context.read<CartCubit>();
+                        // cartCubit.addToCart(widget.productEntity);
+                        context.read<CartCubit>().addToCart(
+                              ProductEntity(
+                                id: widget.productEntity.id,
+                                sendColor: [
+                                  widget.colorsEntity.id!,
+                                ],
+                                sendSize: [
+                                  widget.sizesEntity.id!,
+                                ],
+                                color: [
+                                  widget.colorsEntity,
+                                ],
+                                size: [
+                                  widget.sizesEntity,
+                                ],
+                                quantity: widget.productEntity.quantity,
+                                userQuantity: widget.qty,
+                                price: widget.productEntity.price,
+                                priceAfterDiscount:
+                                    widget.productEntity.priceAfterDiscount,
+                                discountPercent:
+                                    widget.productEntity.discountPercent,
+                                image: widget.productEntity.image,
+                                images: widget.productEntity.images,
+                                imagesBase64: widget.productEntity.imagesBase64,
+                                nameEn: widget.productEntity.nameEn,
+                                nameAr: widget.productEntity.nameAr,
+                                descriptionEn:
+                                    widget.productEntity.descriptionEn,
+                                descriptionAr:
+                                    widget.productEntity.descriptionAr,
+                              ),
+
+                              // widget.productEntity
+                            );
+                        context.pushNamed(cartPageRoute);
+                      },
+                    ),
+                  );
+                },
+              ),
             ),
             Gap(20.w),
             Column(

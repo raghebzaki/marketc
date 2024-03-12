@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -7,15 +9,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:marketc/core/database/address_class.dart';
 import 'package:marketc/core/database/database_hive.dart';
+import 'package:marketc/core/database/product_database.dart';
 import 'package:marketc/core/shared/cubits/cart_cubit/cart_cubit.dart';
+import 'package:marketc/core/utils/extensions.dart';
 
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
 import 'core/my_http.dart';
+import 'core/resources/firebase/firebase_resources.dart';
 import 'core/router/router_generator.dart';
 import 'core/shared/entities/product_entity.dart';
 import 'core/shared/entities/products_images_entity.dart';
 import 'core/shared/widgets/custom_error_widget.dart';
+import 'core/utils/app_constants.dart';
 import 'core/utils/app_strings.dart';
 import 'core/utils/cubit_observer.dart';
 import 'features/designer/product/add_product/domain/entities/color_entity.dart';
@@ -48,12 +54,12 @@ void main() async {
   };
   HttpOverrides.global = MyHttpOverrides();
 
-  // await Firebase.initializeApp();
-  // if (Platform.isAndroid) {
-  //   FireBaseResources().android();
-  // } else if (Platform.isIOS) {
-  //   FireBaseResources().ios();
-  // }
+  await Firebase.initializeApp();
+  if (Platform.isAndroid) {
+    FireBaseResources().android();
+  } else if (Platform.isIOS) {
+    FireBaseResources().ios();
+  }
 
   // String currentLocale = await CacheHelper.getAppLang();
   var currentLocale = await CacheHelper.getLocal();
@@ -87,11 +93,11 @@ class _MyAppState extends State<MyApp> {
     super.initState();
 
     locale = widget.currentLang;
-    // FirebaseMessaging.onMessage.listen(
-    //       (RemoteMessage message) {
-    //     context.defaultSnackBar(message.notification?.title ?? AppConstants.unknownStringValue);
-    //   },
-    // );
+    FirebaseMessaging.onMessage.listen(
+          (RemoteMessage message) {
+        context.defaultSnackBar(message.notification?.title ?? AppConstants.unknownStringValue);
+      },
+    );
   }
 
   changeLanguage(Locale newLocale) {
@@ -100,14 +106,15 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  HiveDatabase hiveDatabase = HiveDatabase();
+  // HiveDatabase hiveDatabase = HiveDatabase();
+  ProductDataBase productDataBase = ProductDataBase();
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => CartCubit(hiveDatabase),
+          create: (context) => CartCubit(productDataBase),
         ),
       ],
       child: ScreenUtilInit(

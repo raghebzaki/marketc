@@ -65,7 +65,7 @@ class _SettingsViewState extends State<SettingsView> {
                                   });
 
                                   CacheHelper.setAppLanguage('en');
-                                  context.pop();
+                                  context.pushNamed(bottomNavBarPageRoute);
                                 },
                                 child: Row(
                                   children: [
@@ -90,7 +90,7 @@ class _SettingsViewState extends State<SettingsView> {
 
                                   });
                                   CacheHelper.setAppLanguage('ar');
-                                  context.pop();
+                                  context.pushNamed(bottomNavBarPageRoute);
                                 },
                                 child: Row(
                                   children: [

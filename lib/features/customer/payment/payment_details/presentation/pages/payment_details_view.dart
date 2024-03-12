@@ -44,7 +44,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
 
   @override
   Widget build(BuildContext context) {
-    List<ProductEntity> totalPrice = context.watch<CartCubit>().cartProducts;
+    List<ProductEntity> totalPrice = context.watch<CartCubit>().products!;
 
     var total = (totalPrice
         .map((e) => e.discountPercent == 0
@@ -221,7 +221,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                                             double.parse(e.priceAfterDiscount!) *
                                                 e.userQuantity! /
                                                 10,
-                                  ).reduce((value, element) => value + element) + AppConstants.deliveryFee)} ${S.current.sar}",
+                                  ).reduce((value, element) => value + element) + AppConstants.deliveryFee).toStringAsFixed(2)} ${S.current.sar}",
                               style: CustomTextStyle.kTextStyleF14
                                   .copyWith(color: AppColors.textColor),
                             ),
