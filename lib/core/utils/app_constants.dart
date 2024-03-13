@@ -28,6 +28,7 @@ class AppConstants {
   static const imageUrl = "https://beautyproducts.website/";
   static const fullImgUrl = "https://beautyproducts.website/uploads/users/";
   static const loginUri = "auth/login";
+  static const fcmTokenUri = "auth/update_fcm_token";
   static const forgotPassUri = "auth/forget-password";
   static const resetPassUri = "auth/reset-password";
   static const changePassUri = "auth/change-password";

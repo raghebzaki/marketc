@@ -11,6 +11,8 @@ import 'package:marketc/features/designer/product/edit_product/presentation/mana
 
 import '../../features/auth/change_pass/presentation/pages/change_pass_confirmation.dart';
 import '../../features/auth/change_pass/presentation/pages/change_pass_view.dart';
+import '../../features/auth/fcm_token/domain/entities/token_entity.dart';
+import '../../features/auth/fcm_token/presentation/manager/token_cubit.dart';
 import '../../features/auth/forgot_pass/presentation/pages/forgot_pass_view.dart';
 import '../../features/auth/login/presentation/pages/login_view.dart';
 import '../../features/auth/register/presentation/pages/register_view.dart';
@@ -59,6 +61,7 @@ import '../../features/on_boarding/presentation/pages/on_boarding_view.dart';
 import '../../main_view.dart';
 import '../dependency_injection/di.dart' as di;
 import '../shared/arguments.dart';
+import '../utils/app_constants.dart';
 import 'router.dart';
 
 class AppRouters {
@@ -121,6 +124,13 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => MultiBlocProvider(
             providers: [
+              BlocProvider(
+                create: (context) =>
+                di.di<TokenCubit>()..updateFcmToken(TokenEntity(
+                  userId: UserData.id,
+                  token: AppConstants.fcmToken,
+                )),
+              ),
               BlocProvider(
                 create: (context) => di.di<CarouselCubit>()..getAds(1),
               ),

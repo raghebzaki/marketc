@@ -27,6 +27,7 @@ import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_images.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
+import '../../../../../auth/fcm_token/presentation/manager/token_cubit.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -64,6 +65,9 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    return BlocConsumer<TokenCubit, TokenStates>(
+  listener: (context, state) {},
+  builder: (context, state) {
     return PopScope(
       canPop: false,
       onPopInvoked: (bool didPop) async {
@@ -106,16 +110,18 @@ class _HomeViewState extends State<HomeView> {
                             context.pushNamed(searchPageRoute);
                           },
                           child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: Dimensions.p8.w),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: Dimensions.p8.w),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(Dimensions.r8),
-                              border: Border.all(
-                                color: Colors.black,
-                              )
-                            ),
+                                borderRadius:
+                                BorderRadius.circular(Dimensions.r8),
+                                border: Border.all(
+                                  color: Colors.black,
+                                )),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment:
+                              MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Text(S.current.you_think),
@@ -178,7 +184,7 @@ class _HomeViewState extends State<HomeView> {
                               children: [
                                 ...List.generate(
                                   ads.length,
-                                  (index) {
+                                      (index) {
                                     return Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: Dimensions.p8),
@@ -190,18 +196,20 @@ class _HomeViewState extends State<HomeView> {
                                           color: const Color(0xFFF8E7DE),
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(
-                                                      Dimensions.r8)),
+                                              BorderRadius.circular(
+                                                  Dimensions.r8)),
                                         ),
                                         child: Row(
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsets.all(
+                                                padding:
+                                                const EdgeInsets.all(
                                                     Dimensions.p5),
                                                 child: Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
+                                                  CrossAxisAlignment
+                                                      .start,
                                                   children: [
                                                     Text(
                                                       S.current.soon,
@@ -215,13 +223,15 @@ class _HomeViewState extends State<HomeView> {
                                                     ),
                                                     Expanded(
                                                       child: Text(
-                                                        ads[index].description!,
+                                                        ads[index]
+                                                            .description!,
                                                         textAlign:
-                                                            Intl.getCurrentLocale() ==
-                                                                    "en"
-                                                                ? TextAlign.left
-                                                                : TextAlign
-                                                                    .right,
+                                                        Intl.getCurrentLocale() ==
+                                                            "en"
+                                                            ? TextAlign
+                                                            .left
+                                                            : TextAlign
+                                                            .right,
                                                         style: CustomTextStyle
                                                             .kTextStyleF10,
 
@@ -229,25 +239,25 @@ class _HomeViewState extends State<HomeView> {
                                                       ),
                                                     ),
                                                     Align(
-                                                      alignment: Intl
-                                                                  .getCurrentLocale() ==
-                                                              "en"
+                                                      alignment:
+                                                      Intl.getCurrentLocale() ==
+                                                          "en"
                                                           ? Alignment
-                                                              .centerRight
+                                                          .centerRight
                                                           : Alignment
-                                                              .centerLeft,
+                                                          .centerLeft,
                                                       child: Container(
                                                         width: 82.w,
                                                         height: 18.h,
                                                         decoration:
-                                                            ShapeDecoration(
+                                                        ShapeDecoration(
                                                           color: AppColors
                                                               .secondary,
                                                           shape: RoundedRectangleBorder(
                                                               borderRadius:
-                                                                  BorderRadius.circular(
-                                                                      Dimensions
-                                                                          .r4)),
+                                                              BorderRadius.circular(
+                                                                  Dimensions
+                                                                      .r4)),
                                                         ),
                                                         child: Center(
                                                           child: Text(
@@ -269,16 +279,17 @@ class _HomeViewState extends State<HomeView> {
                                               decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                   image: ads[index]
-                                                          .image!
-                                                          .isEmpty
+                                                      .image!
+                                                      .isEmpty
                                                       ? const CachedNetworkImageProvider(
-                                                          "https://via.placeholder.com/140x140",
-                                                        )
+                                                    "https://via.placeholder.com/140x140",
+                                                  )
                                                       : CachedNetworkImageProvider(
-                                                          AppConstants
-                                                                  .imageUrl +
-                                                              ads[index].image!,
-                                                        ),
+                                                    AppConstants
+                                                        .imageUrl +
+                                                        ads[index]
+                                                            .image!,
+                                                  ),
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
@@ -301,7 +312,7 @@ class _HomeViewState extends State<HomeView> {
                               children: [
                                 ...List.generate(
                                   ads.length,
-                                  (index) {
+                                      (index) {
                                     return Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: Dimensions.p8),
@@ -313,18 +324,20 @@ class _HomeViewState extends State<HomeView> {
                                           color: const Color(0xFFF8E7DE),
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(
-                                                      Dimensions.r8)),
+                                              BorderRadius.circular(
+                                                  Dimensions.r8)),
                                         ),
                                         child: Row(
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsets.all(
+                                                padding:
+                                                const EdgeInsets.all(
                                                     Dimensions.p5),
                                                 child: Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
+                                                  CrossAxisAlignment
+                                                      .start,
                                                   children: [
                                                     Text(
                                                       S.current.soon,
@@ -338,13 +351,15 @@ class _HomeViewState extends State<HomeView> {
                                                     ),
                                                     Expanded(
                                                       child: Text(
-                                                        ads[index].description!,
+                                                        ads[index]
+                                                            .description!,
                                                         textAlign:
-                                                            Intl.getCurrentLocale() ==
-                                                                    "en"
-                                                                ? TextAlign.left
-                                                                : TextAlign
-                                                                    .right,
+                                                        Intl.getCurrentLocale() ==
+                                                            "en"
+                                                            ? TextAlign
+                                                            .left
+                                                            : TextAlign
+                                                            .right,
                                                         style: CustomTextStyle
                                                             .kTextStyleF10,
 
@@ -352,25 +367,25 @@ class _HomeViewState extends State<HomeView> {
                                                       ),
                                                     ),
                                                     Align(
-                                                      alignment: Intl
-                                                                  .getCurrentLocale() ==
-                                                              "en"
+                                                      alignment:
+                                                      Intl.getCurrentLocale() ==
+                                                          "en"
                                                           ? Alignment
-                                                              .centerRight
+                                                          .centerRight
                                                           : Alignment
-                                                              .centerLeft,
+                                                          .centerLeft,
                                                       child: Container(
                                                         width: 82.w,
                                                         height: 18.h,
                                                         decoration:
-                                                            ShapeDecoration(
+                                                        ShapeDecoration(
                                                           color: AppColors
                                                               .secondary,
                                                           shape: RoundedRectangleBorder(
                                                               borderRadius:
-                                                                  BorderRadius.circular(
-                                                                      Dimensions
-                                                                          .r4)),
+                                                              BorderRadius.circular(
+                                                                  Dimensions
+                                                                      .r4)),
                                                         ),
                                                         child: Center(
                                                           child: Text(
@@ -392,15 +407,16 @@ class _HomeViewState extends State<HomeView> {
                                               decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                   image: ads[index].image ==
-                                                          null
+                                                      null
                                                       ? const CachedNetworkImageProvider(
-                                                          "https://via.placeholder.com/140x140",
-                                                        )
+                                                    "https://via.placeholder.com/140x140",
+                                                  )
                                                       : CachedNetworkImageProvider(
-                                                          AppConstants
-                                                                  .imageUrl +
-                                                              ads[index].image!,
-                                                        ),
+                                                    AppConstants
+                                                        .imageUrl +
+                                                        ads[index]
+                                                            .image!,
+                                                  ),
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
@@ -423,7 +439,7 @@ class _HomeViewState extends State<HomeView> {
                               children: [
                                 ...List.generate(
                                   ads.length,
-                                  (index) {
+                                      (index) {
                                     return Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: Dimensions.p8),
@@ -435,18 +451,20 @@ class _HomeViewState extends State<HomeView> {
                                           color: const Color(0xFFF8E7DE),
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(
-                                                      Dimensions.r8)),
+                                              BorderRadius.circular(
+                                                  Dimensions.r8)),
                                         ),
                                         child: Row(
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsets.all(
+                                                padding:
+                                                const EdgeInsets.all(
                                                     Dimensions.p5),
                                                 child: Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
+                                                  CrossAxisAlignment
+                                                      .start,
                                                   children: [
                                                     Text(
                                                       S.current.soon,
@@ -460,13 +478,15 @@ class _HomeViewState extends State<HomeView> {
                                                     ),
                                                     Expanded(
                                                       child: Text(
-                                                        ads[index].description!,
+                                                        ads[index]
+                                                            .description!,
                                                         textAlign:
-                                                            Intl.getCurrentLocale() ==
-                                                                    "en"
-                                                                ? TextAlign.left
-                                                                : TextAlign
-                                                                    .right,
+                                                        Intl.getCurrentLocale() ==
+                                                            "en"
+                                                            ? TextAlign
+                                                            .left
+                                                            : TextAlign
+                                                            .right,
                                                         style: CustomTextStyle
                                                             .kTextStyleF10,
 
@@ -474,25 +494,25 @@ class _HomeViewState extends State<HomeView> {
                                                       ),
                                                     ),
                                                     Align(
-                                                      alignment: Intl
-                                                                  .getCurrentLocale() ==
-                                                              "en"
+                                                      alignment:
+                                                      Intl.getCurrentLocale() ==
+                                                          "en"
                                                           ? Alignment
-                                                              .centerRight
+                                                          .centerRight
                                                           : Alignment
-                                                              .centerLeft,
+                                                          .centerLeft,
                                                       child: Container(
                                                         width: 82.w,
                                                         height: 18.h,
                                                         decoration:
-                                                            ShapeDecoration(
+                                                        ShapeDecoration(
                                                           color: AppColors
                                                               .secondary,
                                                           shape: RoundedRectangleBorder(
                                                               borderRadius:
-                                                                  BorderRadius.circular(
-                                                                      Dimensions
-                                                                          .r4)),
+                                                              BorderRadius.circular(
+                                                                  Dimensions
+                                                                      .r4)),
                                                         ),
                                                         child: Center(
                                                           child: Text(
@@ -514,15 +534,16 @@ class _HomeViewState extends State<HomeView> {
                                               decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                   image: ads[index].image ==
-                                                          null
+                                                      null
                                                       ? const CachedNetworkImageProvider(
-                                                          "https://via.placeholder.com/140x140",
-                                                        )
+                                                    "https://via.placeholder.com/140x140",
+                                                  )
                                                       : CachedNetworkImageProvider(
-                                                          AppConstants
-                                                                  .imageUrl +
-                                                              ads[index].image!,
-                                                        ),
+                                                    AppConstants
+                                                        .imageUrl +
+                                                        ads[index]
+                                                            .image!,
+                                                  ),
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
@@ -566,7 +587,7 @@ class _HomeViewState extends State<HomeView> {
                               children: [
                                 ...List.generate(
                                   state!.length,
-                                  (index) {
+                                      (index) {
                                     return GestureDetector(
                                       onTap: () {
                                         context.pushNamed(
@@ -589,12 +610,13 @@ class _HomeViewState extends State<HomeView> {
                                             color: Colors.white,
                                             shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(
-                                                        Dimensions.r8)),
+                                                BorderRadius.circular(
+                                                    Dimensions.r8)),
                                           ),
                                           child: Padding(
                                             padding: EdgeInsets.symmetric(
-                                                horizontal: Dimensions.p12.w),
+                                                horizontal:
+                                                Dimensions.p12.w),
                                             child: Column(
                                               children: [
                                                 Image.network(
@@ -606,8 +628,10 @@ class _HomeViewState extends State<HomeView> {
                                                 Text(
                                                   CacheHelper.isEnglish()
                                                       ? state[index].nameEn!
-                                                      : state[index].nameAr!,
-                                                  textAlign: TextAlign.center,
+                                                      : state[index]
+                                                      .nameAr!,
+                                                  textAlign:
+                                                  TextAlign.center,
                                                   style: CustomTextStyle
                                                       .kTextStyleF14,
                                                 )
@@ -675,10 +699,10 @@ class _HomeViewState extends State<HomeView> {
                             children: [
                               ...List.generate(
                                 state!.length,
-                                (index) {
+                                    (index) {
                                   return Padding(
                                     padding:
-                                        const EdgeInsets.all(Dimensions.p8),
+                                    const EdgeInsets.all(Dimensions.p8),
                                     child: ProductCard(
                                       productEntity: state[index],
                                     ),
@@ -737,10 +761,10 @@ class _HomeViewState extends State<HomeView> {
                             children: [
                               ...List.generate(
                                 state!.length,
-                                (index) {
+                                    (index) {
                                   return Padding(
                                     padding:
-                                        const EdgeInsets.all(Dimensions.p8),
+                                    const EdgeInsets.all(Dimensions.p8),
                                     child: ProductCard(
                                       productEntity: state[index],
                                     ),
@@ -769,5 +793,7 @@ class _HomeViewState extends State<HomeView> {
         ),
       ),
     );
+  },
+);
   }
 }

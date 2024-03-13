@@ -4,6 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/dependency_injection/di.dart'as di;
+import '../../../../../core/shared/models/user_data_model.dart';
+import '../../../../../core/utils/app_constants.dart';
+import '../../../../auth/fcm_token/domain/entities/token_entity.dart';
+import '../../../../auth/fcm_token/presentation/manager/token_cubit.dart';
 import '../../../main/cart/presentation/pages/cart_view.dart';
 import '../../../main/favorite/presentation/pages/favorite_view.dart';
 import '../../../main/home/presentation/manager/carousel_cubit.dart';
@@ -42,6 +46,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
         BlocProvider(
           create: (context) =>
           di.di<MostPopularCubit>()..getAllProducts(1),
+        ),
+        BlocProvider(
+          create: (context) =>
+          di.di<TokenCubit>()..updateFcmToken(TokenEntity(
+            userId: UserData.id,
+            token: AppConstants.fcmToken,
+          )),
         ),
       ], child: const HomeView(),
     ),

@@ -9,6 +9,11 @@ import '../../features/auth/change_pass/data/repositories/change_pass_repo_impl.
 import '../../features/auth/change_pass/domain/repositories/change_pass_repo.dart';
 import '../../features/auth/change_pass/domain/use_cases/change_pass_usecase.dart';
 import '../../features/auth/change_pass/presentation/manager/change_pass_cubit.dart';
+import '../../features/auth/fcm_token/data/data_sources/token_service.dart';
+import '../../features/auth/fcm_token/data/repositories/token_repo_impl.dart';
+import '../../features/auth/fcm_token/domain/repositories/token_repo.dart';
+import '../../features/auth/fcm_token/domain/use_cases/token_use_case.dart';
+import '../../features/auth/fcm_token/presentation/manager/token_cubit.dart';
 import '../../features/auth/forgot_pass/data/data_sources/forgot_pass_service.dart';
 import '../../features/auth/forgot_pass/data/repositories/forget_pass_repo_impl.dart';
 import '../../features/auth/forgot_pass/domain/repositories/forget_pass_repo.dart';
@@ -192,6 +197,13 @@ Future<void> init() async {
   di.registerLazySingleton(() => LoginUseCase(loginRepo: di()));
   di.registerLazySingleton<LoginRepo>(() => LoginRepoImpl(loginService: di()));
   di.registerLazySingleton<LoginService>(() => LoginServiceImpl());
+
+  /// FCM Token
+  di.registerFactory(
+      () => TokenCubit(tokenUseCase: di()));
+  di.registerLazySingleton(() => TokenUseCase(tokenRepo:  di()));
+  di.registerLazySingleton<TokenRepo>(() => TokenRepoImpl(tokenService:  di()));
+  di.registerLazySingleton<TokenService>(() => TokenServiceImpl());
 
   /// Forgot Password
   di.registerFactory(() => ForgotPassCubit(forgotPassUseCase: di()));

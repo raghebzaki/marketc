@@ -54,10 +54,16 @@ void main() async {
   };
   HttpOverrides.global = MyHttpOverrides();
 
-  await Firebase.initializeApp();
   if (Platform.isAndroid) {
+    await Firebase.initializeApp(
+        options: FirebaseOptions(
+            apiKey: "AIzaSyDAk6qSSLG0-ZTFyxAVocOH5uccoD7GzhE",
+            appId: "1:525616605816:android:4e460ac392f2cf8de05b8d",
+            messagingSenderId: "525616605816",
+            projectId: "market-c-c63ee"));
     FireBaseResources().android();
   } else if (Platform.isIOS) {
+    await Firebase.initializeApp();
     FireBaseResources().ios();
   }
 
@@ -94,8 +100,9 @@ class _MyAppState extends State<MyApp> {
 
     locale = widget.currentLang;
     FirebaseMessaging.onMessage.listen(
-          (RemoteMessage message) {
-        context.defaultSnackBar(message.notification?.title ?? AppConstants.unknownStringValue);
+      (RemoteMessage message) {
+        context.defaultSnackBar(
+            message.notification?.title ?? AppConstants.unknownStringValue);
       },
     );
   }
