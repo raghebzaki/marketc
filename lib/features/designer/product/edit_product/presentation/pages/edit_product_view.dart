@@ -8,7 +8,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:http/http.dart' as http;
 import 'package:marketc/core/utils/extensions.dart';
-import 'package:pinput/pinput.dart';
 
 import '../../../../../../config/themes/app_text_styles.dart';
 import '../../../../../../core/dependency_injection/di.dart' as di;
@@ -129,27 +128,11 @@ class _EditProductViewState extends State<EditProductView> {
                     CustomFormField(
                       ctrl: productNameEnCtrl,
                       label: S.of(context).product_name,
-                      validator: (value) {
-                        if (productNameEnCtrl.text.isEmpty) {
-                          return S.of(context).product_name_required;
-                        } else if (productNameEnCtrl.length < 5) {
-                          return S.of(context).product_name_short;
-                        }
-                        return null;
-                      },
                     ),
                     Gap(10.h),
                     CustomFormField(
                       ctrl: productNameArCtrl,
                       label: S.of(context).product_name_ar,
-                      validator: (value) {
-                        if (productNameArCtrl.text.isEmpty) {
-                          return S.of(context).product_name_required;
-                        } else if (productNameArCtrl.length < 5) {
-                          return S.of(context).product_name_short;
-                        }
-                        return null;
-                      },
                     ),
                     Gap(10.h),
                     TextFormField(
@@ -187,14 +170,6 @@ class _EditProductViewState extends State<EditProductView> {
                           color: AppColors.textColorSecondary,
                         ),
                       ),
-                      validator: (value) {
-                        if (productDescriptionEnCtrl.text.isEmpty) {
-                          return S.of(context).product_des_required;
-                        } else if (productDescriptionEnCtrl.length < 50) {
-                          return S.of(context).product_des_short;
-                        }
-                        return null;
-                      },
                     ),
                     Gap(10.h),
                     TextFormField(
@@ -232,14 +207,7 @@ class _EditProductViewState extends State<EditProductView> {
                           color: AppColors.textColorSecondary,
                         ),
                       ),
-                      validator: (value) {
-                        if (productDescriptionArCtrl.text.isEmpty) {
-                          return S.of(context).product_des_required;
-                        } else if (productDescriptionArCtrl.length < 50) {
-                          return S.of(context).product_des_short;
-                        }
-                        return null;
-                      },
+
                     ),
                     Gap(10.h),
                     Row(
@@ -248,12 +216,6 @@ class _EditProductViewState extends State<EditProductView> {
                           child: CustomFormField(
                             ctrl: productPriceCtrl,
                             label: S.of(context).product_price,
-                            validator: (value) {
-                              if (productPriceCtrl.text.isEmpty) {
-                                return S.of(context).product_price_required;
-                              }
-                              return null;
-                            },
                           ),
                         ),
                         Gap(10.w),
@@ -261,12 +223,7 @@ class _EditProductViewState extends State<EditProductView> {
                           child: CustomFormField(
                             ctrl: productDiscountCtrl,
                             label: S.of(context).discount_percentage,
-                            validator: (value) {
-                              if (productDiscountCtrl.text.isEmpty) {
-                                return S.of(context).product_discount_required;
-                              }
-                              return null;
-                            },
+
                           ),
                         ),
                       ],
@@ -274,12 +231,6 @@ class _EditProductViewState extends State<EditProductView> {
                     CustomFormField(
                       ctrl: quantityCtrl,
                       label: S.of(context).qty,
-                      validator: (value) {
-                        if (productDiscountCtrl.text.isEmpty) {
-                          return S.of(context).product_qty_required;
-                        }
-                        return null;
-                      },
                     ),
                     Gap(10.h),
                     BlocConsumer<CategoryCubit, CategoryState>(
@@ -729,42 +680,39 @@ class _EditProductViewState extends State<EditProductView> {
                                                 .of(context)
                                                 .product_image_required);
                                           } else {
-                                            if (formKey.currentState!
-                                                .validate()) {
-                                              editProductCubit
-                                                  .editDesignerProduct(
-                                                EditProductEntity(
-                                                  product: ProductEntity(
-                                                    id: widget
-                                                        .productDetails.id,
-                                                    categoryId: catId,
-                                                    subCategoryId:
-                                                        customLogo ? 3 : 2,
-                                                    nameAr:
-                                                        productNameArCtrl.text,
-                                                    nameEn:
-                                                        productNameEnCtrl.text,
-                                                    price:
-                                                        productPriceCtrl.text,
-                                                    quantity: int.parse(
-                                                        quantityCtrl.text),
-                                                    discountPercent: int.parse(
-                                                        productDiscountCtrl
-                                                            .text),
-                                                    sendSize: sizeIds,
-                                                    sendColor: colorIds,
-                                                    descriptionAr:
-                                                        productDescriptionArCtrl
-                                                            .text,
-                                                    descriptionEn:
-                                                        productDescriptionEnCtrl
-                                                            .text,
-                                                    imagesBase64: basePreview,
-                                                    image: basePreview[0],
-                                                  ),
+                                            editProductCubit
+                                                .editDesignerProduct(
+                                              EditProductEntity(
+                                                product: ProductEntity(
+                                                  id: widget
+                                                      .productDetails.id,
+                                                  categoryId: catId,
+                                                  subCategoryId:
+                                                  customLogo ? 3 : 2,
+                                                  nameAr:
+                                                  productNameArCtrl.text,
+                                                  nameEn:
+                                                  productNameEnCtrl.text,
+                                                  price:
+                                                  productPriceCtrl.text,
+                                                  quantity: int.parse(
+                                                      quantityCtrl.text),
+                                                  discountPercent: int.parse(
+                                                      productDiscountCtrl
+                                                          .text),
+                                                  sendSize: sizeIds,
+                                                  sendColor: colorIds,
+                                                  descriptionAr:
+                                                  productDescriptionArCtrl
+                                                      .text,
+                                                  descriptionEn:
+                                                  productDescriptionEnCtrl
+                                                      .text,
+                                                  imagesBase64: basePreview,
+                                                  image: basePreview[0],
                                                 ),
-                                              );
-                                            }
+                                              ),
+                                            );
                                           }
                                         },
                                       );

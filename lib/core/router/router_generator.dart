@@ -286,6 +286,8 @@ class AppRouters {
             finalPrice: args.sharedPrice,
             address: args.address,
             name: args.name,
+            gift: args.gift,
+            askAboutAddress: args.askAboutAddress,
           ),
         );
 

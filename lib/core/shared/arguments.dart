@@ -57,12 +57,20 @@ class PaymentSharedPrice {
   final num sharedPrice;
   final Address address;
   final String name;
-  PaymentSharedPrice(   {required this.address,required this.sharedPrice, required this.name,});
+  final num? gift;
+  final num? askAboutAddress;
+
+  PaymentSharedPrice({
+    required this.address,
+    required this.sharedPrice,
+    required this.name,
+    required this.gift,
+    required this.askAboutAddress,
+  });
 }
 
 class OrderDetailsArgs {
   final OrderEntity orderDetails;
 
   OrderDetailsArgs({required this.orderDetails});
-
 }

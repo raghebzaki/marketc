@@ -37,7 +37,8 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
     phoneCtrl = TextEditingController(text: widget.address!.phone!);
   }
 
-  bool switchOnOff = true;
+  bool gift = false;
+  bool addressAsk = false;
   TextEditingController nameCtrl = TextEditingController(text: UserData.name);
   TextEditingController addressCtrl = TextEditingController();
   TextEditingController phoneCtrl = TextEditingController();
@@ -88,11 +89,11 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                           ),
                         ),
                         Switch(
-                          value: switchOnOff,
+                          value: gift,
                           onChanged: (value) {
                             setState(
                               () {
-                                switchOnOff = !switchOnOff;
+                                gift = !gift;
                               },
                             );
                           },
@@ -137,10 +138,10 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                               type: GFCheckboxType.circle,
                               onChanged: (value) {
                                 setState(() {
-                                  switchOnOff = value;
+                                  addressAsk = value;
                                 });
                               },
-                              value: switchOnOff,
+                              value: addressAsk,
                               inactiveIcon: null,
                             ),
                           ],
@@ -314,7 +315,9 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                       arguments: PaymentSharedPrice(
                           name: nameCtrl.text,
                           sharedPrice: total,
-                          address: widget.address!
+                          address: widget.address!,
+                          gift: gift ? 1 :  0,
+                        askAboutAddress: addressAsk ? 1 : 0,
                       ),
                     );
                   },

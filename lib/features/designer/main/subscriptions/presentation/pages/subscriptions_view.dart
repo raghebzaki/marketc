@@ -98,79 +98,73 @@ class _SubscriptionsViewState extends State<SubscriptionsView> {
                       padding: const EdgeInsets.all(
                         Dimensions.p16,
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Gap(30.h),
-                          Text(
-                            S.of(context).subscriptions_title,
-                            style: CustomTextStyle.kTextStyleF20,
-                          ),
-                          Gap(10.h),
-                          Text(
-                            S.of(context).subscriptions_des,
-                            style: CustomTextStyle.kTextStyleF14,
-                          ),
-                          Gap(60.h),
-                          Padding(
-                            padding: const EdgeInsets.all(Dimensions.p10),
-                            child: SingleChildScrollView(
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  ...List.generate(
-                                    packages.length,
-                                    (index) {
-                                      return BlocConsumer<BuySubscriptionCubit,
-                                          BuySubscriptionStates>(
-                                        listener: (context, state) {
-                                          BuySubscriptionCubit
-                                          buySubscriptionCubit =
-                                          BuySubscriptionCubit.get(context);
-                                          state.maybeWhen(
-                                            success: (state) {
-                                              buySubscriptionCubit.paymentLauncher(state.paymentUrl!);
-                                              context.defaultSnackBar(S.of(context).successfullySubscribed);
-                                            },
-                                            orElse: () {
-                                              return null;
-                                            },
-                                          );
-                                        },
-                                        builder: (context, state) {
-                                          BuySubscriptionCubit
-                                              buySubscriptionCubit =
-                                              BuySubscriptionCubit.get(context);
-                                          return SubscriptionContainer(
-                                            packageName:
-                                                packages[index].packageName!,
-                                            packagePrice:
-                                                packages[index].packagePrice!,
-                                            packageBenefits: packages[index]
-                                                .packageBenefits!,
-                                            packageDiscountPrice:
-                                                packages[index]
-                                                    .packageDiscountPrice!,
-                                            onTap: () {
-                                              buySubscriptionCubit
-                                                  .buySubscriptions(
-                                                BuySubscriptionEntity(
-                                                  userId: UserData.id,
-                                                  packageId: packages[index].id,
-                                                ),
-                                              );
-                                            },
-                                          );
-                                        },
-                                      );
-                                    },
-                                  ),
-                                ],
-                              ),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Gap(30.h),
+                            Text(
+                              S.of(context).subscriptions_title,
+                              style: CustomTextStyle.kTextStyleF20,
                             ),
-                          )
-                        ],
+                            Gap(10.h),
+                            Text(
+                              S.of(context).subscriptions_des,
+                              style: CustomTextStyle.kTextStyleF14,
+                            ),
+                            Gap(60.h),
+                            Padding(
+                              padding: const EdgeInsets.all(Dimensions.p10),
+                              child: SingleChildScrollView(
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    ...List.generate(
+                                      packages.length,
+                                      (index) {
+                                        return BlocConsumer<BuySubscriptionCubit,
+                                            BuySubscriptionStates>(
+                                          listener: (context, state) {
+                                            BuySubscriptionCubit
+                                            buySubscriptionCubit =
+                                            BuySubscriptionCubit.get(context);
+                                            state.maybeWhen(
+                                              success: (state) {
+                                                buySubscriptionCubit.paymentLauncher(state.paymentUrl!);
+                                                context.defaultSnackBar(S.of(context).successfullySubscribed);
+                                              },
+                                              orElse: () {
+                                                return null;
+                                              },
+                                            );
+                                          },
+                                          builder: (context, state) {
+                                            BuySubscriptionCubit
+                                                buySubscriptionCubit =
+                                                BuySubscriptionCubit.get(context);
+                                            return SubscriptionContainer(
+                                              packageDataEntity: packages[index],
+                                              onTap: () {
+                                                buySubscriptionCubit
+                                                    .buySubscriptions(
+                                                  BuySubscriptionEntity(
+                                                    userId: UserData.id,
+                                                    packageId: packages[index].id,
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                          },
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     );
                   },
@@ -213,15 +207,7 @@ class _SubscriptionsViewState extends State<SubscriptionsView> {
                                               buySubscriptionCubit =
                                               BuySubscriptionCubit.get(context);
                                           return SubscriptionContainer(
-                                            packageName:
-                                                packages[index].packageName!,
-                                            packagePrice:
-                                                packages[index].packagePrice!,
-                                            packageBenefits: packages[index]
-                                                .packageBenefits!,
-                                            packageDiscountPrice:
-                                                packages[index]
-                                                    .packageDiscountPrice!,
+                                            packageDataEntity: packages[index],
                                             onTap: () {
                                               buySubscriptionCubit
                                                   .buySubscriptions(
@@ -281,15 +267,7 @@ class _SubscriptionsViewState extends State<SubscriptionsView> {
                                               buySubscriptionCubit =
                                               BuySubscriptionCubit.get(context);
                                           return SubscriptionContainer(
-                                            packageName:
-                                                packages[index].packageName!,
-                                            packagePrice:
-                                                packages[index].packagePrice!,
-                                            packageBenefits: packages[index]
-                                                .packageBenefits!,
-                                            packageDiscountPrice:
-                                                packages[index]
-                                                    .packageDiscountPrice!,
+                                            packageDataEntity: packages[index],
                                             onTap: () {
                                               buySubscriptionCubit
                                                   .buySubscriptions(

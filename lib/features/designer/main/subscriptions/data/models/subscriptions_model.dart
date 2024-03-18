@@ -9,7 +9,7 @@ class SubscriptionsModel extends SubscriptionsEntity {
 
   factory SubscriptionsModel.fromJson(Map<String, dynamic> json) {
     return SubscriptionsModel(
-      packageData: json["data"] == null
+      packageData: json["data"]['data'] == null
           ? []
           : List<PackageDataModel>.from(
               json["data"]!.map(
@@ -32,20 +32,34 @@ class SubscriptionsModel extends SubscriptionsEntity {
 class PackageDataModel extends PackageDataEntity {
   const PackageDataModel({
     super.id,
-    super.packageName,
-    super.packagePrice,
-    super.packageBenefits,
-    super.packageDiscountPrice,
+    super.packageNameAr,
+    super.packageNameEn,
+    super.packageType,
+    super.feature1,
+    super.feature2,
+    super.feature3,
+    super.feature4,
+    super.feature5,
+    super.feature6,
+    super.description,
+    super.price,
   });
 
 
   factory PackageDataModel.fromJson(Map<String, dynamic> json) {
     return PackageDataModel(
       id: json['id'],
-      packageName: json['package_name'],
-      packagePrice: json['package_price'],
-      packageBenefits: json['package_benefits'],
-      packageDiscountPrice: json['package_discount_price'],
+      packageNameAr: json['name_ar'],
+      packageNameEn: json['name_en'],
+      packageType: json['package_type'],
+      feature1: json['feature_1'] ?? "",
+      feature2: json['feature_2'] ?? "",
+      feature3: json['feature_3'] ?? "",
+      feature4: json['feature_4'] ?? "",
+      feature5: json['feature_5'] ?? "",
+      feature6: json['feature_6'] ?? "",
+      description: json['desc'],
+      price: json['price'],
     );
   }
 }

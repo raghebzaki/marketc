@@ -12,31 +12,52 @@ class SubscriptionsEntity extends Equatable {
   @override
   List<Object?> get props => [
         nextPage,
-    packageData,
+        packageData,
       ];
 }
 
 class PackageDataEntity extends Equatable {
   final num? id;
-  final String? packageName;
-  final String? packagePrice;
-  final List<String>? packageBenefits;
-  final String? packageDiscountPrice;
+  final String? packageNameAr;
+  final String? packageNameEn;
+  final num? packageType;
+  final String? feature1;
+  final String? feature2;
+  final String? feature3;
+  final String? feature4;
+  final String? feature5;
+  final String? feature6;
+  final String? description;
+  final num? price;
 
   const PackageDataEntity({
     this.id,
-    this.packageName,
-    this.packagePrice,
-    this.packageBenefits,
-    this.packageDiscountPrice,
+    this.packageNameAr,
+    this.packageNameEn,
+    this.packageType,
+    this.feature1,
+    this.feature2,
+    this.feature3,
+    this.feature4,
+    this.feature5,
+    this.feature6,
+    this.description,
+    this.price,
   });
 
   @override
   List<Object?> get props => [
-    id,
-        packageName,
-        packagePrice,
-        packageBenefits,
-        packageDiscountPrice,
+        id,
+        packageNameAr,
+        packageNameEn,
+        packageType,
+        feature1,
+        feature2,
+        feature3,
+        feature4,
+        feature5,
+        feature6,
+        description,
+        price,
       ];
 }

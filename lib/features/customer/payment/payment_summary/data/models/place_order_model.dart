@@ -13,6 +13,8 @@ class PlaceOrderModel extends PlaceOrderEntity {
     super.postCode,
     super.productIds,
     super.coupon,
+    super.gift,
+    super.askAboutAddress,
     super.paymentUrl,
     super.status,
     super.msg,
@@ -58,6 +60,9 @@ class PlaceOrderModel extends PlaceOrderEntity {
       'post_code': placeOrderEntity.postCode,
       'productInfo': placeOrderEntity.productIds,
       'coupon': placeOrderEntity.coupon,
+      'gift_wrapping': placeOrderEntity.gift,
+      'ask_customer_about_address': placeOrderEntity.askAboutAddress,
+
     };
   }
 }

@@ -332,7 +332,9 @@ num totalWithCoupon = 0;
                         arguments: PaymentSharedPrice(
                             name: widget.name,
                             sharedPrice: isCoupon ? totalWithCoupon : total,
-                            address: widget.address
+                            address: widget.address,
+                          gift: 0,
+                          askAboutAddress: 0,
                         ),
                       );
                     },

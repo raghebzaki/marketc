@@ -27,9 +27,12 @@ import '../manager/place_order_cubit.dart';
 class PaymentSummaryView extends StatefulWidget {
   final Address address;
   final num? finalPrice;
+  final num? gift;
+  final num? askAboutAddress;
   final String name;
 
-  const PaymentSummaryView({super.key, required this.finalPrice, required this.address, required this.name,});
+
+  const PaymentSummaryView({super.key, required this.finalPrice, required this.address, required this.name, required this.gift, required this.askAboutAddress,});
 
   @override
   State<PaymentSummaryView> createState() => _PaymentSummaryViewState();
@@ -486,6 +489,8 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               colorIds: colorId,
                               sizeIds: sizeId,
                               coupon: isCoupon ? pinCtrl.text : "",
+                              gift: widget.gift,
+                              askAboutAddress: widget.askAboutAddress,
                             ),
                           );
 

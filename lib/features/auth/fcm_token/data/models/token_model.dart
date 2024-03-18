@@ -18,7 +18,7 @@ class TokenModel extends TokenEntity {
   static Map<String, dynamic> toJson(TokenEntity tokenEntity) {
     return {
       'user_id': tokenEntity.userId,
-      'token': tokenEntity.token,
+      'fcm_device_token': tokenEntity.token,
     };
   }
 }

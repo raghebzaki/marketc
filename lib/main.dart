@@ -8,7 +8,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:marketc/core/database/address_class.dart';
-import 'package:marketc/core/database/database_hive.dart';
 import 'package:marketc/core/database/product_database.dart';
 import 'package:marketc/core/shared/cubits/cart_cubit/cart_cubit.dart';
 import 'package:marketc/core/utils/extensions.dart';
