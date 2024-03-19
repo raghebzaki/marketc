@@ -108,8 +108,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("استمر في التصفح"),
         "country": MessageLookupByLibrary.simpleMessage("البلد"),
         "cs": MessageLookupByLibrary.simpleMessage("دعم العملاء"),
-        "custom_logo": MessageLookupByLibrary.simpleMessage("تطريز شعارات"),
-        "custom_phrases": MessageLookupByLibrary.simpleMessage("تطريز عبارات"),
+        "custom_logo": MessageLookupByLibrary.simpleMessage("تطريز"),
+        "custom_phrases": MessageLookupByLibrary.simpleMessage("طباعة"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),

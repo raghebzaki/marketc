@@ -570,10 +570,10 @@ class S {
     );
   }
 
-  /// `Embroidery logos`
+  /// `Embroidery`
   String get custom_logo {
     return Intl.message(
-      'Embroidery logos',
+      'Embroidery',
       name: 'custom_logo',
       desc: '',
       args: [],
@@ -670,10 +670,10 @@ class S {
     );
   }
 
-  /// `Custom Phrases Embroidery`
+  /// `Prints`
   String get custom_phrases {
     return Intl.message(
-      'Custom Phrases Embroidery',
+      'Prints',
       name: 'custom_phrases',
       desc: '',
       args: [],

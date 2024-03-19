@@ -112,9 +112,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Continue Browsing"),
         "country": MessageLookupByLibrary.simpleMessage("Country"),
         "cs": MessageLookupByLibrary.simpleMessage("Customer Support"),
-        "custom_logo": MessageLookupByLibrary.simpleMessage("Embroidery logos"),
-        "custom_phrases":
-            MessageLookupByLibrary.simpleMessage("Custom Phrases Embroidery"),
+        "custom_logo": MessageLookupByLibrary.simpleMessage("Embroidery"),
+        "custom_phrases": MessageLookupByLibrary.simpleMessage("Prints"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
